@@ -1,0 +1,16 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "SeriesFormatProto";
+
+import "fds/protobuf/stach/table/HorizontalAlignment.proto";
+import "fds/protobuf/stach/table/VerticalAlignment.proto";
+
+message SeriesFormat {
+  string format = 1;
+  string null_format = 2;
+  HorizontalAlignment halign = 3;
+  VerticalAlignment valign = 4;
+}

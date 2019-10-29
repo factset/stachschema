@@ -1,0 +1,13 @@
+dotnet/.vs/
+dotnet/**/*.user
+dotnet/**/bin/
+dotnet/**/obj/
+dotnet/packages/
+java/.idea/
+java/*.iml
+java/target/
+js/node_modules/
+python/fds.protobuf.stach/dist/*.*
+python/fds.protobuf.stach/fds.protobuf.stach.egg-info
+r/*.tar.gz
+r/**/inst

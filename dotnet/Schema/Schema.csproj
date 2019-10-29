@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <AssemblyName>FactSet.Protobuf.Stach</AssemblyName>
+    <RootNamespace>FactSet.Protobuf.Stach</RootNamespace>
+    <Description />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>FactSet.Protobuf.Stach</PackageId>
+    <Authors>FactSet Research Systems, Inc.</Authors>
+    <Company>FactSet Research Systems, Inc</Company>
+    <Product>FactSet.Protobuf.Stach</Product>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="proto\**" />
+    <EmbeddedResource Remove="proto\**" />
+    <None Remove="proto\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="google\" />
+    <Folder Include="google\protobuf\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\proto\google\protobuf\duration.proto" Link="google\protobuf\duration.proto" />
+    <None Include="..\..\proto\google\protobuf\struct.proto" Link="google\protobuf\struct.proto" />
+    <None Include="..\..\proto\google\protobuf\timestamp.proto" Link="google\protobuf\timestamp.proto" />
+    <None Include="..\..\proto\google\protobuf\wrappers.proto" Link="google\protobuf\wrappers.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\MetadataItem.proto" Link="fds\protobuf\stach\MetadataItem.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\Package.proto" Link="fds\protobuf\stach\Package.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\DataType.proto" Link="fds\protobuf\stach\Table\DataType.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\HorizontalAlignment.proto" Link="fds\protobuf\stach\Table\HorizontalAlignment.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\ListOfMetadata.proto" Link="fds\protobuf\stach\Table\ListOfMetadata.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\MetadataCollection.proto" Link="fds\protobuf\stach\Table\MetadataCollection.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\MetadataLocations.proto" Link="fds\protobuf\stach\Table\MetadataLocations.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\Reference.proto" Link="fds\protobuf\stach\Table\Reference.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\ReferenceFilterMode.proto" Link="fds\protobuf\stach\Table\ReferenceFilterMode.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\ReferenceType.proto" Link="fds\protobuf\stach\Table\ReferenceType.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\SeriesData.proto" Link="fds\protobuf\stach\Table\SeriesData.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\SeriesDefinition.proto" Link="fds\protobuf\stach\Table\SeriesDefinition.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\SeriesFormat.proto" Link="fds\protobuf\stach\Table\SeriesFormat.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\Table.proto" Link="fds\protobuf\stach\Table\Table.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\TableData.proto" Link="fds\protobuf\stach\Table\TableData.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\TableDefinition.proto" Link="fds\protobuf\stach\Table\TableDefinition.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\VerticalAlignment.proto" Link="fds\protobuf\stach\Table\VerticalAlignment.proto" />
+    <None Include="..\..\proto\fds\protobuf\stach\table\Wrappers.proto" Link="fds\protobuf\stach\Table\Wrappers.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.5.1" />
+  </ItemGroup>
+
+</Project>
