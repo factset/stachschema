@@ -169,7 +169,7 @@ namespace FactSet.Protobuf.Stach.Table {
       items_.Add(other.items_);
       if (other.locations_ != null) {
         if (locations_ == null) {
-          locations_ = new global::FactSet.Protobuf.Stach.Table.MetadataLocations();
+          Locations = new global::FactSet.Protobuf.Stach.Table.MetadataLocations();
         }
         Locations.MergeFrom(other.Locations);
       }
@@ -190,9 +190,9 @@ namespace FactSet.Protobuf.Stach.Table {
           }
           case 18: {
             if (locations_ == null) {
-              locations_ = new global::FactSet.Protobuf.Stach.Table.MetadataLocations();
+              Locations = new global::FactSet.Protobuf.Stach.Table.MetadataLocations();
             }
-            input.ReadMessage(locations_);
+            input.ReadMessage(Locations);
             break;
           }
         }

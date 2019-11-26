@@ -106,7 +106,7 @@ namespace FactSet.Protobuf.Stach.Table {
 
     /// <summary>Field number for the "halign" field.</summary>
     public const int HalignFieldNumber = 3;
-    private global::FactSet.Protobuf.Stach.Table.HorizontalAlignment halign_ = 0;
+    private global::FactSet.Protobuf.Stach.Table.HorizontalAlignment halign_ = global::FactSet.Protobuf.Stach.Table.HorizontalAlignment.UnknownHalign;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.HorizontalAlignment Halign {
       get { return halign_; }
@@ -117,7 +117,7 @@ namespace FactSet.Protobuf.Stach.Table {
 
     /// <summary>Field number for the "valign" field.</summary>
     public const int ValignFieldNumber = 4;
-    private global::FactSet.Protobuf.Stach.Table.VerticalAlignment valign_ = 0;
+    private global::FactSet.Protobuf.Stach.Table.VerticalAlignment valign_ = global::FactSet.Protobuf.Stach.Table.VerticalAlignment.UnknownValign;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.VerticalAlignment Valign {
       get { return valign_; }
@@ -151,8 +151,8 @@ namespace FactSet.Protobuf.Stach.Table {
       int hash = 1;
       if (Format.Length != 0) hash ^= Format.GetHashCode();
       if (NullFormat.Length != 0) hash ^= NullFormat.GetHashCode();
-      if (Halign != 0) hash ^= Halign.GetHashCode();
-      if (Valign != 0) hash ^= Valign.GetHashCode();
+      if (Halign != global::FactSet.Protobuf.Stach.Table.HorizontalAlignment.UnknownHalign) hash ^= Halign.GetHashCode();
+      if (Valign != global::FactSet.Protobuf.Stach.Table.VerticalAlignment.UnknownValign) hash ^= Valign.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -174,11 +174,11 @@ namespace FactSet.Protobuf.Stach.Table {
         output.WriteRawTag(18);
         output.WriteString(NullFormat);
       }
-      if (Halign != 0) {
+      if (Halign != global::FactSet.Protobuf.Stach.Table.HorizontalAlignment.UnknownHalign) {
         output.WriteRawTag(24);
         output.WriteEnum((int) Halign);
       }
-      if (Valign != 0) {
+      if (Valign != global::FactSet.Protobuf.Stach.Table.VerticalAlignment.UnknownValign) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Valign);
       }
@@ -196,10 +196,10 @@ namespace FactSet.Protobuf.Stach.Table {
       if (NullFormat.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(NullFormat);
       }
-      if (Halign != 0) {
+      if (Halign != global::FactSet.Protobuf.Stach.Table.HorizontalAlignment.UnknownHalign) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Halign);
       }
-      if (Valign != 0) {
+      if (Valign != global::FactSet.Protobuf.Stach.Table.VerticalAlignment.UnknownValign) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Valign);
       }
       if (_unknownFields != null) {
@@ -219,10 +219,10 @@ namespace FactSet.Protobuf.Stach.Table {
       if (other.NullFormat.Length != 0) {
         NullFormat = other.NullFormat;
       }
-      if (other.Halign != 0) {
+      if (other.Halign != global::FactSet.Protobuf.Stach.Table.HorizontalAlignment.UnknownHalign) {
         Halign = other.Halign;
       }
-      if (other.Valign != 0) {
+      if (other.Valign != global::FactSet.Protobuf.Stach.Table.VerticalAlignment.UnknownValign) {
         Valign = other.Valign;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -245,11 +245,11 @@ namespace FactSet.Protobuf.Stach.Table {
             break;
           }
           case 24: {
-            halign_ = (global::FactSet.Protobuf.Stach.Table.HorizontalAlignment) input.ReadEnum();
+            Halign = (global::FactSet.Protobuf.Stach.Table.HorizontalAlignment) input.ReadEnum();
             break;
           }
           case 32: {
-            valign_ = (global::FactSet.Protobuf.Stach.Table.VerticalAlignment) input.ReadEnum();
+            Valign = (global::FactSet.Protobuf.Stach.Table.VerticalAlignment) input.ReadEnum();
             break;
           }
         }

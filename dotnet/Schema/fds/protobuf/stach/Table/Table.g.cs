@@ -171,13 +171,13 @@ namespace FactSet.Protobuf.Stach.Table {
       }
       if (other.definition_ != null) {
         if (definition_ == null) {
-          definition_ = new global::FactSet.Protobuf.Stach.Table.TableDefinition();
+          Definition = new global::FactSet.Protobuf.Stach.Table.TableDefinition();
         }
         Definition.MergeFrom(other.Definition);
       }
       if (other.data_ != null) {
         if (data_ == null) {
-          data_ = new global::FactSet.Protobuf.Stach.Table.TableData();
+          Data = new global::FactSet.Protobuf.Stach.Table.TableData();
         }
         Data.MergeFrom(other.Data);
       }
@@ -194,16 +194,16 @@ namespace FactSet.Protobuf.Stach.Table {
             break;
           case 10: {
             if (definition_ == null) {
-              definition_ = new global::FactSet.Protobuf.Stach.Table.TableDefinition();
+              Definition = new global::FactSet.Protobuf.Stach.Table.TableDefinition();
             }
-            input.ReadMessage(definition_);
+            input.ReadMessage(Definition);
             break;
           }
           case 18: {
             if (data_ == null) {
-              data_ = new global::FactSet.Protobuf.Stach.Table.TableData();
+              Data = new global::FactSet.Protobuf.Stach.Table.TableData();
             }
-            input.ReadMessage(data_);
+            input.ReadMessage(Data);
             break;
           }
         }

@@ -81,7 +81,7 @@ namespace FactSet.Protobuf.Stach.Table {
 
     /// <summary>Field number for the "reference_type" field.</summary>
     public const int ReferenceTypeFieldNumber = 1;
-    private global::FactSet.Protobuf.Stach.Table.ReferenceType referenceType_ = 0;
+    private global::FactSet.Protobuf.Stach.Table.ReferenceType referenceType_ = global::FactSet.Protobuf.Stach.Table.ReferenceType.UnknownReferenceType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.ReferenceType ReferenceType {
       get { return referenceType_; }
@@ -146,7 +146,7 @@ namespace FactSet.Protobuf.Stach.Table {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (ReferenceType != 0) hash ^= ReferenceType.GetHashCode();
+      if (ReferenceType != global::FactSet.Protobuf.Stach.Table.ReferenceType.UnknownReferenceType) hash ^= ReferenceType.GetHashCode();
       if (TableId.Length != 0) hash ^= TableId.GetHashCode();
       if (ColumnId.Length != 0) hash ^= ColumnId.GetHashCode();
       if (RowId.Length != 0) hash ^= RowId.GetHashCode();
@@ -163,7 +163,7 @@ namespace FactSet.Protobuf.Stach.Table {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ReferenceType != 0) {
+      if (ReferenceType != global::FactSet.Protobuf.Stach.Table.ReferenceType.UnknownReferenceType) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ReferenceType);
       }
@@ -187,7 +187,7 @@ namespace FactSet.Protobuf.Stach.Table {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (ReferenceType != 0) {
+      if (ReferenceType != global::FactSet.Protobuf.Stach.Table.ReferenceType.UnknownReferenceType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ReferenceType);
       }
       if (TableId.Length != 0) {
@@ -210,7 +210,7 @@ namespace FactSet.Protobuf.Stach.Table {
       if (other == null) {
         return;
       }
-      if (other.ReferenceType != 0) {
+      if (other.ReferenceType != global::FactSet.Protobuf.Stach.Table.ReferenceType.UnknownReferenceType) {
         ReferenceType = other.ReferenceType;
       }
       if (other.TableId.Length != 0) {
@@ -234,7 +234,7 @@ namespace FactSet.Protobuf.Stach.Table {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            referenceType_ = (global::FactSet.Protobuf.Stach.Table.ReferenceType) input.ReadEnum();
+            ReferenceType = (global::FactSet.Protobuf.Stach.Table.ReferenceType) input.ReadEnum();
             break;
           }
           case 18: {
