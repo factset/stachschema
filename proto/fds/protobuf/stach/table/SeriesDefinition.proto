@@ -21,6 +21,5 @@ message SeriesDefinition {
   string next_sibling_id = 7;
   string parent_id = 8;
   string header_id = 9;
-  // int32 header_index = 10;
   SeriesFormat format = 11;
 }
