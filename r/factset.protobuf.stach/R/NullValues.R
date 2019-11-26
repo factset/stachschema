@@ -18,7 +18,7 @@ factset.protobuf.stach.NullValues <- R6::R6Class(
     FLOAT = NaN,
     INT32 = 2147483647,
     INT64 = 9223372036854775807,
-    STRING = "null",
+    STRING = "@NA",
     TIMESTAMP = NULL,
     DURATION = NULL,
 
