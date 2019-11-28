@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "protobufjs": "^6.8.4"
+    "protobufjs": "^6.8.8"
   },
   "devDependencies": {},
   "scripts": {
