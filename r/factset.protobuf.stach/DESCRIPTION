@@ -3,7 +3,7 @@ Type: Package
 Title: R Stach Library
 Version: 1.0.0
 Author: analytics-reporting
-Maintainer: analytics-reporting <analytics.reporting.engineering@factset.com>
+Maintainer: Analytics API Support <analytics.api.support@factset.com>
 Description: This package is a Stach library in R.
 License: Apache License 2.0
 Encoding: UTF-8
