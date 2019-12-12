@@ -223,7 +223,7 @@ When transferring data over the wire, the smaller it is the better, which is why
 
 ### Format
 
-The `SeriesFormat` message is used to facilitate rendering a human readable table. However, it is important to maintain a clear separation of concerns between the data and rendering, so the SeriesFormat is represented as metadata.
+The `SeriesFormat` message is used to facilitate rendering a human readable table. It is intended as a strong suggestion on how to render the data. By storing this information along with the data, applications can immediately render the table intelligently without having knowledge of the data.
 
 <a name="figure12"></a>
 *Figure 12: Formatted column*
