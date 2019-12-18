@@ -1,12 +1,16 @@
 Package: factset.protobuf.stach
 Type: Package
-Title: R Stach Library
-Version: 1.0.0
+Title: FactSet's STACH Library
+Version: 1.0.1
 Author: analytics-reporting
 Maintainer: Analytics API Support <analytics.api.support@factset.com>
-Description: This package is a Stach library in R.
+Description: Generates RProtobuf classes for FactSet's STACH tabular format.
+URL: https://github.com/factset/stachschema
+BugReports: https://github.com/factset/stachschema/issues
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
 Imports: R6
 Depends: RProtoBuf
+Suggests: testthat
+RoxygenNote: 7.0.0

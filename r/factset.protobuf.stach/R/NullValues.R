@@ -1,4 +1,14 @@
-#' Class defining the NullValues of various data types
+#' @docType class
+#' @title factset.protobuf.stach.NullValues
+#' @description Class defining the NullValues of various data types
+#' @format An \code{R6Class} generator object
+#' @field DOUBLE Null value for DOUBLE data type
+#' @field FLOAT Null value for FLOAT data type
+#' @field INT32 Null value for INT32 data type
+#' @field INT64 Null value for INT64 data type
+#' @field STRING Null value for STRING data type
+#' @field TIMESTAMP Null value for TIMESTAMP data type
+#' @field DURATION Null value for DURATION data type
 #' @export
 factset.protobuf.stach.NullValues <- R6::R6Class(
   'factset.protobuf.stach.NullValues',
