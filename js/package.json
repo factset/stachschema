@@ -1,13 +1,28 @@
 {
-  "name": "protobuf_table_js",
+  "name": "@fds/stach-schema",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "Protobuf generated javascript files for STACH",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "stach.js",
+    "stach.d.ts",
+    "null-values.js",
+    "null-values.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://***REMOVED***/stachschema",
+    "directory": "js"
+  },
   "dependencies": {
     "protobufjs": "^6.8.8"
   },
   "devDependencies": {},
   "scripts": {
+    "build": "node generate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
