@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://***REMOVED***/stachschema",
+    "url": "https://github.com/factset/stachschema",
     "directory": "js"
   },
   "dependencies": {

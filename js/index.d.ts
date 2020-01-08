@@ -1,3 +1,4 @@
 import stach from './stach';
-export { NullValues } from './null-values';
+import './null-values';
+
 export { stach };
