@@ -7,7 +7,7 @@ const NullValues = {
   FLOAT: Number.NaN,
   INT32: 2147483647,
   INT64: Long.fromString('9223372036854775807'),
-  STRING: '@NA',
+  STRING: 'null',
   DURATION: new stach.google.protobuf.Duration({
     seconds: Long.fromString('315576000000'),
     nanos: 999999900
