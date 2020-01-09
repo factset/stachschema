@@ -1,6 +1,6 @@
 "use strict";
 var stach = require('./stach');
-var Long = require('./long');
+var Long = require('long');
 
 const NullValues = {
   DOUBLE: Number.NaN,
