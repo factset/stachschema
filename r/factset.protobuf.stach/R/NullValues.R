@@ -9,6 +9,21 @@
 #' @field STRING Null value for STRING data type
 #' @field TIMESTAMP Null value for TIMESTAMP data type
 #' @field DURATION Null value for DURATION data type
+#' @examples
+#' nullValues <- factset.protobuf.stach.NullValues$new()
+#'
+#' # Null value comparison for Protobuf's String data type.
+#' a <- 'null'
+#' if(nullValues$STRING == a) print("a is the null") else print("a is not a null")
+#'
+#' # Null value comparison for Protobuf's Int32 data type.
+#' b <- new(google.protobuf.Int32Value, value = 2147483647)
+#' if(nullValues$INT32 == b$value) print("b is the null") else print("b is not a null")
+#'
+#' # Null value comparison for Protobuf's Duration data type.
+#' c <- new(google.protobuf.Duration, seconds = 315576000000, nanos = 999999900)
+#' if(nullValues$DURATION == c) print("c is the null") else print("c is not a null")
+#' @importFrom R6 R6Class
 #' @export
 factset.protobuf.stach.NullValues <- R6::R6Class(
   'factset.protobuf.stach.NullValues',

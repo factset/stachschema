@@ -1,10 +1,14 @@
 Package: factset.protobuf.stach
 Type: Package
-Title: FactSet's STACH Library
-Version: 1.0.1
+Title: 'FactSet' 'STACH' Library
+Version: 1.0.2
 Author: analytics-reporting
-Maintainer: Analytics API Support <analytics.api.support@factset.com>
-Description: Generates RProtobuf classes for FactSet's STACH tabular format.
+Maintainer: Charlie Mathis<chmathis@factset.com>
+Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH' tabular 
+    format which represents complex multi-dimensional array of data. These 
+    classes help in the 'serialization' and 'deserialization' of 'STACH' 
+    formatted data. See 'GitHub' repository documentation for more 
+    information.
 URL: https://github.com/factset/stachschema
 BugReports: https://github.com/factset/stachschema/issues
 License: Apache License 2.0
