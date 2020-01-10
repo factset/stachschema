@@ -187,7 +187,7 @@ namespace FactSet.Protobuf.Stach.Table {
       columns_.Add(other.columns_);
       if (other.metadata_ != null) {
         if (metadata_ == null) {
-          metadata_ = new global::FactSet.Protobuf.Stach.Table.MetadataCollection();
+          Metadata = new global::FactSet.Protobuf.Stach.Table.MetadataCollection();
         }
         Metadata.MergeFrom(other.Metadata);
       }
@@ -212,9 +212,9 @@ namespace FactSet.Protobuf.Stach.Table {
           }
           case 26: {
             if (metadata_ == null) {
-              metadata_ = new global::FactSet.Protobuf.Stach.Table.MetadataCollection();
+              Metadata = new global::FactSet.Protobuf.Stach.Table.MetadataCollection();
             }
-            input.ReadMessage(metadata_);
+            input.ReadMessage(Metadata);
             break;
           }
         }
