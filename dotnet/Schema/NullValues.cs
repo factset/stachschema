@@ -9,7 +9,7 @@ namespace FactSet.Protobuf.Stach {
         public const float Float = float.NaN;
         public const int Int32 = int.MaxValue;
         public const long Int64 = long.MaxValue;
-        public const string String = "null";
+        public const string String = "@NA";
         public static readonly DateTime Timestamp = new DateTime(9999, 12, 31, 23, 59, 59, DateTimeKind.Utc);
     }
 }

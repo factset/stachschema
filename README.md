@@ -189,20 +189,20 @@ When transferring data over the wire, the smaller it is the better, which is why
 "c_continent1": {
     "stringArray": {
         "values": [
-            "null",                     // All of these "null" values are unnecessarily repeated
-            "null",
+            "@NA",                     // All of these "@NA" values are unnecessarily repeated
+            "@NA",
             "Americas",
             "Asia Pacific",
             "Europe",
             "Middle East and Africa",
-            "null",
-            "null",
-            "null",
-            "null",
-            "null",
-            "null",
-            "null",
-            "null"
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA"
         ]
     }
 }
@@ -219,12 +219,12 @@ When transferring data over the wire, the smaller it is the better, which is why
     },
     "stringArray": {
         "values": [
-            "null",                     // All of these "null" values are compressed
+            "@NA",                     // All of these "@NA" values are compressed
             "Americas",
             "Asia Pacific",
             "Europe",
             "Middle East and Africa",
-            "null"
+            "@NA"
         ],
     }
 }
@@ -276,7 +276,7 @@ The protobuf schema does not allow null values in a repeated, so in order to den
 | float     | "NaN" |
 | int32     | 2147483647 |
 | int64     | 9223372036854775807 |
-| string    | "null" |
+| string    | "@NA" |
 | Timestamp | "12/31/9999 11:59:59 PM" |
 
 

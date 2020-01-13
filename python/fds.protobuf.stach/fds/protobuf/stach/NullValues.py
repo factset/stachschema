@@ -13,6 +13,6 @@ class NullValues :
 
     INT64 = 9223372036854775807
 
-    STRING = "null"
+    STRING = "@NA"
 
     TIMESTAMP = Timestamp(seconds=253402300799, nanos=0)

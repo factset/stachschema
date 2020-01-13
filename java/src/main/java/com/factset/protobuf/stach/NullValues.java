@@ -3,7 +3,7 @@ package com.factset.protobuf.stach;
 import com.google.protobuf.Duration;
 import com.google.protobuf.Timestamp;
 
-public class NullValues{
+public class NullValues {
 
     public static final double DOUBLE = Double.NaN;
 
@@ -15,7 +15,7 @@ public class NullValues{
 
     public static final long INT64 = Long.MAX_VALUE;
 
-    public static final String STRING = "null";
+    public static final String STRING = "@NA";
 
     public static final Timestamp TIMESTAMP = Timestamp.newBuilder().setNanos(0).setSeconds(253402300799L).build();
 
