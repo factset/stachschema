@@ -359,9 +359,11 @@ Metadata can be attributed to an entire column by referencing a `MetadataItem` i
 
 ### Cells Metadata 
 
-Metadata can be attributed to the cells in an entire row by referencing a `MetadataItem` that references another table's rows or columns in the `MetadataLocations.rows` property.
+Metadata can be attributed to the cells in an entire row by referencing a `MetadataItem` that references another row from the same table in the `MetadataLocations.rows` property. The values correlate by position.
 
-Metadata can be attributed to the cells in an entire column by referencing a `MetadataItem` that references another table's rows or columns in the `MetadataLocations.columns` property.
+Metadata can be attributed to the cells in an entire column by referencing a `MetadataItem` that references another column from the same table in the `MetadataLocations.columns` property. The values correlate by position.
+
+If you reference a different table, then you must take extra care to make sure that the number of rows or columns equal the number of rows or columns respectively in your table of data, since the values should correlate by position.
 
 <a name="figure15"></a>
 *Figure 15: Cells level metadata*
