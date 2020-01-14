@@ -70,48 +70,52 @@ In order to create a group level, the `SeriesDefinition.parent_id` property is s
 <a name="figure3"></a>
 *Figure 3: Grouped columns with parent/child relationships*
 
-    {
-        "definition": {
-            "columns": [
-                {
-                    "id": "c_function",
-                    "name": "function",
-                    "description": "Function",
-                    "type": "STRING",
-                    "isDimension": true,
-                    "nextSiblingId": "c_region"      // In the same group as c_region, c_continent1, and c_continent2
-                },
-                {
-                    "id": "c_region",
-                    "name": "region",
-                    "description": "Region",
-                    "type": "STRING",
-                    "isDimension": true,
-                    "nextSiblingId": ""              // In the same group as c_function, c_continent1, and c_continent2
-                },
-                {
-                    "id": "c_continent1",
-                    "name": "continent1",
-                    "description": "Continent 1",
-                    "type": "STRING",
-                    "isDimension": true,
-                    "parentId": "c_region"           // In the same group as c_function, c_region, and c_continent2
-                },
-                {
-                    "id": "c_continent2",
-                    "name": "continent2",
-                    "description": "Continent 2",
-                    "type": "STRING",
-                    "isDimension": true,
-                    "parentId": "c_region"           // In the same group as c_function, c_region, and c_continent1
-                }
-            ]
-        }
+```json
+{
+    "definition": {
+        "columns": [
+            {
+                "id": "c_function",
+                "name": "function",
+                "description": "Function",
+                "type": "STRING",
+                "isDimension": true,
+                "nextSiblingId": "c_region"      // In the same group as c_region, c_continent1, and c_continent2
+            },
+            {
+                "id": "c_region",
+                "name": "region",
+                "description": "Region",
+                "type": "STRING",
+                "isDimension": true,
+                "nextSiblingId": ""              // In the same group as c_function, c_continent1, and c_continent2
+            },
+            {
+                "id": "c_continent1",
+                "name": "continent1",
+                "description": "Continent 1",
+                "type": "STRING",
+                "isDimension": true,
+                "parentId": "c_region"           // In the same group as c_function, c_region, and c_continent2
+            },
+            {
+                "id": "c_continent2",
+                "name": "continent2",
+                "description": "Continent 2",
+                "type": "STRING",
+                "isDimension": true,
+                "parentId": "c_region"           // In the same group as c_function, c_region, and c_continent1
+            }
+        ]
     }
+}
+```
 
 ### Headers
 
 Headers can be added to further describe the columns of data. Headers data is stored in a separate table that is rotated 90 degrees where the rows in the headers table are linked to the columns in the main table by using the `SeriesDefinition.header_id` property.
+
+> **Note:** Headers should only be defined for visible columns. If the `SeriesDefinition.is_hidden` property is set to `true`, then the `SeriesDefinition.header_id` should not be set.
 
 <a name="figure4"></a>
 *Figure 4: Table with headers*
@@ -137,20 +141,22 @@ Dimensions are not required, however. Simple datasets, like [Figure 1](#figure1)
 <a name="figure7"></a>
 *Figure 7: Dimension*
 
-    {
-        "definition": {
-            "columns": [
-                {
-                    "id": "c_continent1",
-                    "name": "continent1",
-                    "description": "Continent 1",
-                    "type": "STRING",
-                    "isDimension": true,           // A dimenion if true, otherwise not a dimension
-                    "parentId": "c_region"
-                }
-            ]
-        }
+```json
+{
+    "definition": {
+        "columns": [
+            {
+                "id": "c_continent1",
+                "name": "continent1",
+                "description": "Continent 1",
+                "type": "STRING",
+                "isDimension": true,           // A dimension if true, otherwise not a dimension
+                "parentId": "c_region"
+            }
+        ]
     }
+}
+```
 
 ### Transposing
 
@@ -179,46 +185,50 @@ When transferring data over the wire, the smaller it is the better, which is why
 <a name="figure10"></a>
 *Figure 10: Uncompressed data*
 
-    "c_continent1": {
-        "stringArray": {
-            "values": [
-                "@NA",                     // All of these "@NA" values are unnecessarily repeated
-                "@NA",
-                "Americas",
-                "Asia Pacific",
-                "Europe",
-                "Middle East and Africa",
-                "@NA",
-                "@NA",
-                "@NA",
-                "@NA",
-                "@NA",
-                "@NA",
-                "@NA",
-                "@NA"
-            ]
-        }
+```json
+"c_continent1": {
+    "stringArray": {
+        "values": [
+            "@NA",                     // All of these "@NA" values are unnecessarily repeated
+            "@NA",
+            "Americas",
+            "Asia Pacific",
+            "Europe",
+            "Middle East and Africa",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA",
+            "@NA"
+        ]
     }
+}
+```
 
 <a name="figure11"></a>
 *Figure 11: Compressed data*
 
-    "c_continent1": {
-        "ranges": {
-            { 0, 2 },
-            { 6, 7 }
-        },
-        "stringArray": {
-            "values": [
-                "@NA",                     // All of these "@NA" values are compressed
-                "Americas",
-                "Asia Pacific",
-                "Europe",
-                "Middle East and Africa",
-                "@NA"
-            ],
-        }
+```json
+"c_continent1": {
+    "ranges": {
+        { 0, 2 },
+        { 6, 7 }
+    },
+    "stringArray": {
+        "values": [
+            "@NA",                     // All of these "@NA" values are compressed
+            "Americas",
+            "Asia Pacific",
+            "Europe",
+            "Middle East and Africa",
+            "@NA"
+        ],
     }
+}
+```
 
 ### Format
 
@@ -227,23 +237,25 @@ The `SeriesFormat` message is used to facilitate rendering a human readable tabl
 <a name="figure12"></a>
 *Figure 12: Formatted column*
 
-    {
-      "definition": {
-        "columns": [
-          {
-            "id": "c_f0",
-            "name": "fund0",
-            "description": "Fund 0",
-            "type": "DOUBLE",
-            "format": {
-              "format": "{0:0.00}",
-              "nullFormat": "--",
-              "halign": "RIGHT"
-            }
-          }
-        ]
+```json
+{
+  "definition": {
+    "columns": [
+      {
+        "id": "c_f0",
+        "name": "fund0",
+        "description": "Fund 0",
+        "type": "DOUBLE",
+        "format": {
+          "format": "{0:0.00}",
+          "nullFormat": "--",
+          "halign": "RIGHT"
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 ##### Data Format
 
@@ -290,23 +302,25 @@ Metadata can be attributed to the entire table by referencing a `MetadataItem` i
 <a name="figure13"></a>
 *Figure 13: Table level metadata*
 
-    {
-        "data": {
-            "metadata": {
-                "items": {
-                    "m_h": {                   // The id of the metadata item
-                        "name": "header",
-                        "stringValue": "Risk Analysis"
-                    }
-                },
-                "locations": {
-                    "table": [                 // The location is the entire table 
-                        "m_h"                  // The id of the metadata item
-                    ]
+```json
+{
+    "data": {
+        "metadata": {
+            "items": {
+                "m_h": {                   // The id of the metadata item
+                    "name": "header",
+                    "stringValue": "Risk Analysis"
                 }
+            },
+            "locations": {
+                "table": [                 // The location is the entire table 
+                    "m_h"                  // The id of the metadata item
+                ]
             }
         }
     }
+}
+```
 
 ### Column and Row Metadata 
 
@@ -317,64 +331,70 @@ Metadata can be attributed to an entire column by referencing a `MetadataItem` i
 <a name="figure14"></a>
 *Figure 14: Row level metadata*
 
-    {
-        "data": {
-            "metadata": {
-                "items": {
-                    "m_foobar": {              // The id of the metadata item
-                        "name": "foobar",
-                        "stringValue": "Foo Bar"
-                    }
-                },
-                "locations": {
-                    "rows":  {                 // The location is an entire row,
-                                               // (or "columns" to target an entire column)
-                        "r_0": {               // The id of the row
-                                               // (or column)
-                            "ids": [
-                                "m_foobar"     // The id of the metadata item
-                            ]
-                        }
+```json
+{
+    "data": {
+        "metadata": {
+            "items": {
+                "m_foobar": {              // The id of the metadata item
+                    "name": "foobar",
+                    "stringValue": "Foo Bar"
+                }
+            },
+            "locations": {
+                "rows":  {                 // The location is an entire row,
+                                           // (or "columns" to target an entire column)
+                    "r_0": {               // The id of the row
+                                           // (or column)
+                        "ids": [
+                            "m_foobar"     // The id of the metadata item
+                        ]
                     }
                 }
             }
         }
     }
+}
+```
 
 ### Cells Metadata 
 
-Metadata can be attributed to the cells in an entire row by referencing a `MetadataItem` that references another table's rows or columns in the `MetadataLocations.rows` property.
+Metadata can be attributed to the cells in an entire row by referencing a `MetadataItem` that references another row from the same table in the `MetadataLocations.rows` property. The values correlate by position.
 
-Metadata can be attributed to the cells in an entire column by referencing a `MetadataItem` that references another table's rows or columns in the `MetadataLocations.columns` property.
+Metadata can be attributed to the cells in an entire column by referencing a `MetadataItem` that references another column from the same table in the `MetadataLocations.columns` property. The values correlate by position.
+
+If you reference a different table, then you must take extra care to make sure that the number of rows or columns equal the number of rows or columns respectively in your table of data, since the values should correlate by position.
 
 <a name="figure15"></a>
 *Figure 15: Cells level metadata*
 
-    {
-        "data": {
-            "metadata": {
-                "items": {
-                    "m_regionUrl": {
-                        "name": "regionUrl",
-                        "refValue": {
-                            "tableId": "main",
-                            "columnId": "c_regionUrl" // If the reference is a column 
-                                                      // or row, it indicates cell level metadata
-                        }
+```json
+{
+    "data": {
+        "metadata": {
+            "items": {
+                "m_regionUrl": {
+                    "name": "regionUrl",
+                    "refValue": {
+                        "tableId": "main",
+                        "columnId": "c_regionUrl" // If the reference is a column 
+                                                  // or row, it indicates cell level metadata
                     }
-                },
-                "locations": {
-                    "columns":  {
-                        "c_region": {
-                            "ids": [
-                                "m_regionUrl"
-                            ]
-                        }
+                }
+            },
+            "locations": {
+                "columns":  {
+                    "c_region": {
+                        "ids": [
+                            "m_regionUrl"
+                        ]
                     }
                 }
             }
         }
     }
+}
+```
 
 ### Reference
 
@@ -389,21 +409,23 @@ If `Reference.row_id` is specified, then the data exists in a row, which means t
 <a name="figure16"></a>
 *Figure 16: Reference*
 
-    {
-        "data": {
-            "metadata": {
-                "items": {
-                    "m_regionUrl": {
-                        "name": "regionUrl",
-                        "refValue": {                 // This object is a Reference
-                            "tableId": "main",        // References a table's id
-                            "columnId": "c_regionUrl" // References a column's id
-                        }
+```json
+{
+    "data": {
+        "metadata": {
+            "items": {
+                "m_regionUrl": {
+                    "name": "regionUrl",
+                    "refValue": {                 // This object is a Reference
+                        "tableId": "main",        // References a table's id
+                        "columnId": "c_regionUrl" // References a column's id
                     }
                 }
-            ]
-        }
+            }
+        ]
     }
+}
+```
 
 ### Hidden
 
@@ -414,17 +436,19 @@ Since a column of data can represent metadata, it it likely the case that that d
 <a name="figure17"></a>
 *Figure 17: Hidden column*
 
-    {
-        "definition": {
-            "columns": [
-                {
-                    "id": "c_regionUrl",
-                    "name": "regionUrl",
-                    "description": "Region Url",
-                    "type": "STRING",
-                    "isDimension": true,
-                    "isHidden": true               // Column will not be rendered because it is hidden
-                }
-            ]
-        }
+```json
+{
+    "definition": {
+        "columns": [
+            {
+                "id": "c_regionUrl",
+                "name": "regionUrl",
+                "description": "Region Url",
+                "type": "STRING",
+                "isDimension": true,
+                "isHidden": true               // Column will not be rendered because it is hidden
+            }
+        ]
     }
+}
+```
