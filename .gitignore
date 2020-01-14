@@ -6,6 +6,7 @@ dotnet/packages/
 java/.idea/
 java/*.iml
 java/target/
+node_modules/
 js/node_modules/
 python/fds.protobuf.stach/dist/*.*
 python/fds.protobuf.stach/fds.protobuf.stach.egg-info
