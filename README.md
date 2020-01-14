@@ -150,7 +150,7 @@ Dimensions are not required, however. Simple datasets, like [Figure 1](#figure1)
                 "name": "continent1",
                 "description": "Continent 1",
                 "type": "STRING",
-                "isDimension": true,           // A dimenion if true, otherwise not a dimension
+                "isDimension": true,           // A dimension if true, otherwise not a dimension
                 "parentId": "c_region"
             }
         ]
