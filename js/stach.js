@@ -3767,7 +3767,6 @@ $root.factset = (function() {
                      * @property {string|null} [nextSiblingId] SeriesDefinition nextSiblingId
                      * @property {string|null} [parentId] SeriesDefinition parentId
                      * @property {string|null} [headerId] SeriesDefinition headerId
-                     * @property {number|null} [headerIndex] SeriesDefinition headerIndex
                      * @property {factset.protobuf.stach.table.ISeriesFormat|null} [format] SeriesDefinition format
                      */
 
@@ -3859,14 +3858,6 @@ $root.factset = (function() {
                     SeriesDefinition.prototype.headerId = "";
 
                     /**
-                     * SeriesDefinition headerIndex.
-                     * @member {number} headerIndex
-                     * @memberof factset.protobuf.stach.table.SeriesDefinition
-                     * @instance
-                     */
-                    SeriesDefinition.prototype.headerIndex = 0;
-
-                    /**
                      * SeriesDefinition format.
                      * @member {factset.protobuf.stach.table.ISeriesFormat|null|undefined} format
                      * @memberof factset.protobuf.stach.table.SeriesDefinition
@@ -3916,8 +3907,6 @@ $root.factset = (function() {
                             writer.uint32(/* id 8, wireType 2 =*/66).string(message.parentId);
                         if (message.headerId != null && message.hasOwnProperty("headerId"))
                             writer.uint32(/* id 9, wireType 2 =*/74).string(message.headerId);
-                        if (message.headerIndex != null && message.hasOwnProperty("headerIndex"))
-                            writer.uint32(/* id 10, wireType 0 =*/80).int32(message.headerIndex);
                         if (message.format != null && message.hasOwnProperty("format"))
                             $root.factset.protobuf.stach.table.SeriesFormat.encode(message.format, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
                         return writer;
@@ -3980,9 +3969,6 @@ $root.factset = (function() {
                                 break;
                             case 9:
                                 message.headerId = reader.string();
-                                break;
-                            case 10:
-                                message.headerIndex = reader.int32();
                                 break;
                             case 11:
                                 message.format = $root.factset.protobuf.stach.table.SeriesFormat.decode(reader, reader.uint32());
@@ -4061,9 +4047,6 @@ $root.factset = (function() {
                         if (message.headerId != null && message.hasOwnProperty("headerId"))
                             if (!$util.isString(message.headerId))
                                 return "headerId: string expected";
-                        if (message.headerIndex != null && message.hasOwnProperty("headerIndex"))
-                            if (!$util.isInteger(message.headerIndex))
-                                return "headerIndex: integer expected";
                         if (message.format != null && message.hasOwnProperty("format")) {
                             var error = $root.factset.protobuf.stach.table.SeriesFormat.verify(message.format);
                             if (error)
@@ -4138,8 +4121,6 @@ $root.factset = (function() {
                             message.parentId = String(object.parentId);
                         if (object.headerId != null)
                             message.headerId = String(object.headerId);
-                        if (object.headerIndex != null)
-                            message.headerIndex = object.headerIndex | 0;
                         if (object.format != null) {
                             if (typeof object.format !== "object")
                                 throw TypeError(".factset.protobuf.stach.table.SeriesDefinition.format: object expected");
@@ -4171,7 +4152,6 @@ $root.factset = (function() {
                             object.nextSiblingId = "";
                             object.parentId = "";
                             object.headerId = "";
-                            object.headerIndex = 0;
                             object.format = null;
                         }
                         if (message.id != null && message.hasOwnProperty("id"))
@@ -4192,8 +4172,6 @@ $root.factset = (function() {
                             object.parentId = message.parentId;
                         if (message.headerId != null && message.hasOwnProperty("headerId"))
                             object.headerId = message.headerId;
-                        if (message.headerIndex != null && message.hasOwnProperty("headerIndex"))
-                            object.headerIndex = message.headerIndex;
                         if (message.format != null && message.hasOwnProperty("format"))
                             object.format = $root.factset.protobuf.stach.table.SeriesFormat.toObject(message.format, options);
                         return object;

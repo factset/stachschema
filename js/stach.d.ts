@@ -1311,9 +1311,6 @@ declare namespace stach {
                         /** SeriesDefinition headerId */
                         headerId?: (string|null);
 
-                        /** SeriesDefinition headerIndex */
-                        headerIndex?: (number|null);
-
                         /** SeriesDefinition format */
                         format?: (factset.protobuf.stach.table.ISeriesFormat|null);
                     }
@@ -1353,9 +1350,6 @@ declare namespace stach {
 
                         /** SeriesDefinition headerId. */
                         public headerId: string;
-
-                        /** SeriesDefinition headerIndex. */
-                        public headerIndex: number;
 
                         /** SeriesDefinition format. */
                         public format?: (factset.protobuf.stach.table.ISeriesFormat|null);
