@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": [
+    "js/*"
+  ],
+  "scripts": {
+    "heroku-postbuild": "yarn build",
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "@fds/conventional-changelog-factset": "^4.0.1",
+    "@fds/lerna-config": "^1.0.1",
+    "lerna": "^3.0.1"
+  }
+}
