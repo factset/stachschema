@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "js/*"
+    "js/"
   ],
   "scripts": {
     "heroku-postbuild": "yarn build",
