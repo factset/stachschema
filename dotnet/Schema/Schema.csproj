@@ -11,7 +11,7 @@
     <Company>FactSet Research Systems, Inc</Company>
     <Product>FactSet.Protobuf.Stach</Product>
     <Version>1.0.0</Version>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.txt</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/stachschema.git</RepositoryUrl>
     <PackageTags>STACH;Protobuf;FactSet;FDS;Analytics;Analytics API</PackageTags>
     <RepositoryType>git</RepositoryType>
