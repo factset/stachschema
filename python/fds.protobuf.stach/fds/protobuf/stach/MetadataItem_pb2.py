@@ -16,6 +16,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from fds.protobuf.stach.table import Reference_pb2 as fds_dot_protobuf_dot_stach_dot_table_dot_Reference__pb2
+from fds.protobuf.stach.table import Wrappers_pb2 as fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach',
   syntax='proto3',
   serialized_options=_b('\n\032com.factset.protobuf.stachB\021MetadataItemProto\252\002\026FactSet.Protobuf.Stach'),
-  serialized_pb=_b('\n%fds/protobuf/stach/MetadataItem.proto\x12\x16\x66\x61\x63tset.protobuf.stach\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a(fds/protobuf/stach/table/Reference.proto\"\x95\x03\n\x0cMetadataItem\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x16\n\x0c\x64ouble_value\x18\x64 \x01(\x01H\x00\x12\x15\n\x0b\x66loat_value\x18\x65 \x01(\x02H\x00\x12\x15\n\x0bint32_value\x18\x66 \x01(\x05H\x00\x12\x15\n\x0bint64_value\x18g \x01(\x03H\x00\x12\x14\n\nbool_value\x18j \x01(\x08H\x00\x12\x16\n\x0cstring_value\x18k \x01(\tH\x00\x12\x33\n\x0e\x64uration_value\x18l \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x35\n\x0ftimestamp_value\x18m \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12=\n\tref_value\x18\xc9\x01 \x01(\x0b\x32\'.factset.protobuf.stach.table.ReferenceH\x00\x42\x06\n\x04\x64\x61taJ\x04\x08h\x10iJ\x04\x08i\x10jJ\x06\x08\xc8\x01\x10\xc9\x01R\x0cuint32_valueR\x0cuint64_valueR\tany_valueBH\n\x1a\x63om.factset.protobuf.stachB\x11MetadataItemProto\xaa\x02\x16\x46\x61\x63tSet.Protobuf.Stachb\x06proto3')
+  serialized_pb=_b('\n%fds/protobuf/stach/MetadataItem.proto\x12\x16\x66\x61\x63tset.protobuf.stach\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a(fds/protobuf/stach/table/Reference.proto\x1a\'fds/protobuf/stach/table/Wrappers.proto\"\xb5\x07\n\x0cMetadataItem\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x16\n\x0c\x64ouble_value\x18\x64 \x01(\x01H\x00\x12\x15\n\x0b\x66loat_value\x18\x65 \x01(\x02H\x00\x12\x15\n\x0bint32_value\x18\x66 \x01(\x05H\x00\x12\x15\n\x0bint64_value\x18g \x01(\x03H\x00\x12\x14\n\nbool_value\x18j \x01(\x08H\x00\x12\x16\n\x0cstring_value\x18k \x01(\tH\x00\x12\x33\n\x0e\x64uration_value\x18l \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x35\n\x0ftimestamp_value\x18m \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x42\n\x0c\x64ouble_array\x18\x96\x01 \x01(\x0b\x32).factset.protobuf.stach.table.DoubleArrayH\x00\x12@\n\x0b\x66loat_array\x18\x97\x01 \x01(\x0b\x32(.factset.protobuf.stach.table.FloatArrayH\x00\x12@\n\x0bint32_array\x18\x98\x01 \x01(\x0b\x32(.factset.protobuf.stach.table.Int32ArrayH\x00\x12@\n\x0bint64_array\x18\x99\x01 \x01(\x0b\x32(.factset.protobuf.stach.table.Int64ArrayH\x00\x12>\n\nbool_array\x18\x9c\x01 \x01(\x0b\x32\'.factset.protobuf.stach.table.BoolArrayH\x00\x12\x42\n\x0cstring_array\x18\x9d\x01 \x01(\x0b\x32).factset.protobuf.stach.table.StringArrayH\x00\x12\x46\n\x0e\x64uration_array\x18\x9e\x01 \x01(\x0b\x32+.factset.protobuf.stach.table.DurationArrayH\x00\x12H\n\x0ftimestamp_array\x18\x9f\x01 \x01(\x0b\x32,.factset.protobuf.stach.table.TimestampArrayH\x00\x12=\n\tref_value\x18\xc9\x01 \x01(\x0b\x32\'.factset.protobuf.stach.table.ReferenceH\x00\x42\x06\n\x04\x64\x61taJ\x04\x08h\x10iJ\x04\x08i\x10jJ\x06\x08\xc8\x01\x10\xc9\x01R\x0cuint32_valueR\x0cuint64_valueR\tany_valueBH\n\x1a\x63om.factset.protobuf.stachB\x11MetadataItemProto\xaa\x02\x16\x46\x61\x63tSet.Protobuf.Stachb\x06proto3')
   ,
-  dependencies=[google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_Reference__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_Reference__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -101,7 +102,63 @@ _METADATAITEM = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ref_value', full_name='factset.protobuf.stach.MetadataItem.ref_value', index=9,
+      name='double_array', full_name='factset.protobuf.stach.MetadataItem.double_array', index=9,
+      number=150, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='float_array', full_name='factset.protobuf.stach.MetadataItem.float_array', index=10,
+      number=151, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='int32_array', full_name='factset.protobuf.stach.MetadataItem.int32_array', index=11,
+      number=152, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='int64_array', full_name='factset.protobuf.stach.MetadataItem.int64_array', index=12,
+      number=153, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='bool_array', full_name='factset.protobuf.stach.MetadataItem.bool_array', index=13,
+      number=156, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='string_array', full_name='factset.protobuf.stach.MetadataItem.string_array', index=14,
+      number=157, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='duration_array', full_name='factset.protobuf.stach.MetadataItem.duration_array', index=15,
+      number=158, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='timestamp_array', full_name='factset.protobuf.stach.MetadataItem.timestamp_array', index=16,
+      number=159, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ref_value', full_name='factset.protobuf.stach.MetadataItem.ref_value', index=17,
       number=201, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -122,12 +179,20 @@ _METADATAITEM = _descriptor.Descriptor(
       name='data', full_name='factset.protobuf.stach.MetadataItem.data',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=173,
-  serialized_end=578,
+  serialized_start=214,
+  serialized_end=1163,
 )
 
 _METADATAITEM.fields_by_name['duration_value'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _METADATAITEM.fields_by_name['timestamp_value'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METADATAITEM.fields_by_name['double_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._DOUBLEARRAY
+_METADATAITEM.fields_by_name['float_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._FLOATARRAY
+_METADATAITEM.fields_by_name['int32_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._INT32ARRAY
+_METADATAITEM.fields_by_name['int64_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._INT64ARRAY
+_METADATAITEM.fields_by_name['bool_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._BOOLARRAY
+_METADATAITEM.fields_by_name['string_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._STRINGARRAY
+_METADATAITEM.fields_by_name['duration_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._DURATIONARRAY
+_METADATAITEM.fields_by_name['timestamp_array'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Wrappers__pb2._TIMESTAMPARRAY
 _METADATAITEM.fields_by_name['ref_value'].message_type = fds_dot_protobuf_dot_stach_dot_table_dot_Reference__pb2._REFERENCE
 _METADATAITEM.oneofs_by_name['data'].fields.append(
   _METADATAITEM.fields_by_name['double_value'])
@@ -153,6 +218,30 @@ _METADATAITEM.fields_by_name['duration_value'].containing_oneof = _METADATAITEM.
 _METADATAITEM.oneofs_by_name['data'].fields.append(
   _METADATAITEM.fields_by_name['timestamp_value'])
 _METADATAITEM.fields_by_name['timestamp_value'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['double_array'])
+_METADATAITEM.fields_by_name['double_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['float_array'])
+_METADATAITEM.fields_by_name['float_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['int32_array'])
+_METADATAITEM.fields_by_name['int32_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['int64_array'])
+_METADATAITEM.fields_by_name['int64_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['bool_array'])
+_METADATAITEM.fields_by_name['bool_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['string_array'])
+_METADATAITEM.fields_by_name['string_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['duration_array'])
+_METADATAITEM.fields_by_name['duration_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
+_METADATAITEM.oneofs_by_name['data'].fields.append(
+  _METADATAITEM.fields_by_name['timestamp_array'])
+_METADATAITEM.fields_by_name['timestamp_array'].containing_oneof = _METADATAITEM.oneofs_by_name['data']
 _METADATAITEM.oneofs_by_name['data'].fields.append(
   _METADATAITEM.fields_by_name['ref_value'])
 _METADATAITEM.fields_by_name['ref_value'].containing_oneof = _METADATAITEM.oneofs_by_name['data']

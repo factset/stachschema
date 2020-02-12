@@ -1,7 +1,7 @@
 Package: factset.protobuf.stach
 Type: Package
 Title: 'FactSet' 'STACH' Library
-Version: 1.0.2
+Version: 1.1.0
 Author: analytics-reporting
 Maintainer: Charlie Mathis<chmathis@factset.com>
 Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH' tabular 

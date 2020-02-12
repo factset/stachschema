@@ -27,22 +27,35 @@ namespace FactSet.Protobuf.Stach {
             "CiVmZHMvcHJvdG9idWYvc3RhY2gvTWV0YWRhdGFJdGVtLnByb3RvEhZmYWN0",
             "c2V0LnByb3RvYnVmLnN0YWNoGh5nb29nbGUvcHJvdG9idWYvZHVyYXRpb24u",
             "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8aKGZkcy9w",
-            "cm90b2J1Zi9zdGFjaC90YWJsZS9SZWZlcmVuY2UucHJvdG8ilQMKDE1ldGFk",
-            "YXRhSXRlbRIMCgRuYW1lGAEgASgJEhYKDGRvdWJsZV92YWx1ZRhkIAEoAUgA",
-            "EhUKC2Zsb2F0X3ZhbHVlGGUgASgCSAASFQoLaW50MzJfdmFsdWUYZiABKAVI",
-            "ABIVCgtpbnQ2NF92YWx1ZRhnIAEoA0gAEhQKCmJvb2xfdmFsdWUYaiABKAhI",
-            "ABIWCgxzdHJpbmdfdmFsdWUYayABKAlIABIzCg5kdXJhdGlvbl92YWx1ZRhs",
-            "IAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbkgAEjUKD3RpbWVzdGFt",
-            "cF92YWx1ZRhtIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBIABI9",
+            "cm90b2J1Zi9zdGFjaC90YWJsZS9SZWZlcmVuY2UucHJvdG8aJ2Zkcy9wcm90",
+            "b2J1Zi9zdGFjaC90YWJsZS9XcmFwcGVycy5wcm90byK1BwoMTWV0YWRhdGFJ",
+            "dGVtEgwKBG5hbWUYASABKAkSFgoMZG91YmxlX3ZhbHVlGGQgASgBSAASFQoL",
+            "ZmxvYXRfdmFsdWUYZSABKAJIABIVCgtpbnQzMl92YWx1ZRhmIAEoBUgAEhUK",
+            "C2ludDY0X3ZhbHVlGGcgASgDSAASFAoKYm9vbF92YWx1ZRhqIAEoCEgAEhYK",
+            "DHN0cmluZ192YWx1ZRhrIAEoCUgAEjMKDmR1cmF0aW9uX3ZhbHVlGGwgASgL",
+            "MhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uSAASNQoPdGltZXN0YW1wX3Zh",
+            "bHVlGG0gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgAEkIKDGRv",
+            "dWJsZV9hcnJheRiWASABKAsyKS5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRh",
+            "YmxlLkRvdWJsZUFycmF5SAASQAoLZmxvYXRfYXJyYXkYlwEgASgLMiguZmFj",
+            "dHNldC5wcm90b2J1Zi5zdGFjaC50YWJsZS5GbG9hdEFycmF5SAASQAoLaW50",
+            "MzJfYXJyYXkYmAEgASgLMiguZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50YWJs",
+            "ZS5JbnQzMkFycmF5SAASQAoLaW50NjRfYXJyYXkYmQEgASgLMiguZmFjdHNl",
+            "dC5wcm90b2J1Zi5zdGFjaC50YWJsZS5JbnQ2NEFycmF5SAASPgoKYm9vbF9h",
+            "cnJheRicASABKAsyJy5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlLkJv",
+            "b2xBcnJheUgAEkIKDHN0cmluZ19hcnJheRidASABKAsyKS5mYWN0c2V0LnBy",
+            "b3RvYnVmLnN0YWNoLnRhYmxlLlN0cmluZ0FycmF5SAASRgoOZHVyYXRpb25f",
+            "YXJyYXkYngEgASgLMisuZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50YWJsZS5E",
+            "dXJhdGlvbkFycmF5SAASSAoPdGltZXN0YW1wX2FycmF5GJ8BIAEoCzIsLmZh",
+            "Y3RzZXQucHJvdG9idWYuc3RhY2gudGFibGUuVGltZXN0YW1wQXJyYXlIABI9",
             "CglyZWZfdmFsdWUYyQEgASgLMicuZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50",
             "YWJsZS5SZWZlcmVuY2VIAEIGCgRkYXRhSgQIaBBpSgQIaRBqSgYIyAEQyQFS",
             "DHVpbnQzMl92YWx1ZVIMdWludDY0X3ZhbHVlUglhbnlfdmFsdWVCSAoaY29t",
             "LmZhY3RzZXQucHJvdG9idWYuc3RhY2hCEU1ldGFkYXRhSXRlbVByb3RvqgIW",
             "RmFjdFNldC5Qcm90b2J1Zi5TdGFjaGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.ReferenceReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.ReferenceReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.MetadataItem), global::FactSet.Protobuf.Stach.MetadataItem.Parser, new[]{ "Name", "DoubleValue", "FloatValue", "Int32Value", "Int64Value", "BoolValue", "StringValue", "DurationValue", "TimestampValue", "RefValue" }, new[]{ "Data" }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.MetadataItem), global::FactSet.Protobuf.Stach.MetadataItem.Parser, new[]{ "Name", "DoubleValue", "FloatValue", "Int32Value", "Int64Value", "BoolValue", "StringValue", "DurationValue", "TimestampValue", "DoubleArray", "FloatArray", "Int32Array", "Int64Array", "BoolArray", "StringArray", "DurationArray", "TimestampArray", "RefValue" }, new[]{ "Data" }, null, null)
           }));
     }
     #endregion
@@ -99,6 +112,30 @@ namespace FactSet.Protobuf.Stach {
           break;
         case DataOneofCase.TimestampValue:
           TimestampValue = other.TimestampValue.Clone();
+          break;
+        case DataOneofCase.DoubleArray:
+          DoubleArray = other.DoubleArray.Clone();
+          break;
+        case DataOneofCase.FloatArray:
+          FloatArray = other.FloatArray.Clone();
+          break;
+        case DataOneofCase.Int32Array:
+          Int32Array = other.Int32Array.Clone();
+          break;
+        case DataOneofCase.Int64Array:
+          Int64Array = other.Int64Array.Clone();
+          break;
+        case DataOneofCase.BoolArray:
+          BoolArray = other.BoolArray.Clone();
+          break;
+        case DataOneofCase.StringArray:
+          StringArray = other.StringArray.Clone();
+          break;
+        case DataOneofCase.DurationArray:
+          DurationArray = other.DurationArray.Clone();
+          break;
+        case DataOneofCase.TimestampArray:
+          TimestampArray = other.TimestampArray.Clone();
           break;
         case DataOneofCase.RefValue:
           RefValue = other.RefValue.Clone();
@@ -212,6 +249,94 @@ namespace FactSet.Protobuf.Stach {
       }
     }
 
+    /// <summary>Field number for the "double_array" field.</summary>
+    public const int DoubleArrayFieldNumber = 150;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.DoubleArray DoubleArray {
+      get { return dataCase_ == DataOneofCase.DoubleArray ? (global::FactSet.Protobuf.Stach.Table.DoubleArray) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.DoubleArray;
+      }
+    }
+
+    /// <summary>Field number for the "float_array" field.</summary>
+    public const int FloatArrayFieldNumber = 151;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.FloatArray FloatArray {
+      get { return dataCase_ == DataOneofCase.FloatArray ? (global::FactSet.Protobuf.Stach.Table.FloatArray) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.FloatArray;
+      }
+    }
+
+    /// <summary>Field number for the "int32_array" field.</summary>
+    public const int Int32ArrayFieldNumber = 152;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.Int32Array Int32Array {
+      get { return dataCase_ == DataOneofCase.Int32Array ? (global::FactSet.Protobuf.Stach.Table.Int32Array) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.Int32Array;
+      }
+    }
+
+    /// <summary>Field number for the "int64_array" field.</summary>
+    public const int Int64ArrayFieldNumber = 153;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.Int64Array Int64Array {
+      get { return dataCase_ == DataOneofCase.Int64Array ? (global::FactSet.Protobuf.Stach.Table.Int64Array) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.Int64Array;
+      }
+    }
+
+    /// <summary>Field number for the "bool_array" field.</summary>
+    public const int BoolArrayFieldNumber = 156;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.BoolArray BoolArray {
+      get { return dataCase_ == DataOneofCase.BoolArray ? (global::FactSet.Protobuf.Stach.Table.BoolArray) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.BoolArray;
+      }
+    }
+
+    /// <summary>Field number for the "string_array" field.</summary>
+    public const int StringArrayFieldNumber = 157;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.StringArray StringArray {
+      get { return dataCase_ == DataOneofCase.StringArray ? (global::FactSet.Protobuf.Stach.Table.StringArray) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.StringArray;
+      }
+    }
+
+    /// <summary>Field number for the "duration_array" field.</summary>
+    public const int DurationArrayFieldNumber = 158;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.DurationArray DurationArray {
+      get { return dataCase_ == DataOneofCase.DurationArray ? (global::FactSet.Protobuf.Stach.Table.DurationArray) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.DurationArray;
+      }
+    }
+
+    /// <summary>Field number for the "timestamp_array" field.</summary>
+    public const int TimestampArrayFieldNumber = 159;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::FactSet.Protobuf.Stach.Table.TimestampArray TimestampArray {
+      get { return dataCase_ == DataOneofCase.TimestampArray ? (global::FactSet.Protobuf.Stach.Table.TimestampArray) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.TimestampArray;
+      }
+    }
+
     /// <summary>Field number for the "ref_value" field.</summary>
     public const int RefValueFieldNumber = 201;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -235,6 +360,14 @@ namespace FactSet.Protobuf.Stach {
       StringValue = 107,
       DurationValue = 108,
       TimestampValue = 109,
+      DoubleArray = 150,
+      FloatArray = 151,
+      Int32Array = 152,
+      Int64Array = 153,
+      BoolArray = 156,
+      StringArray = 157,
+      DurationArray = 158,
+      TimestampArray = 159,
       RefValue = 201,
     }
     private DataOneofCase dataCase_ = DataOneofCase.None;
@@ -271,6 +404,14 @@ namespace FactSet.Protobuf.Stach {
       if (StringValue != other.StringValue) return false;
       if (!object.Equals(DurationValue, other.DurationValue)) return false;
       if (!object.Equals(TimestampValue, other.TimestampValue)) return false;
+      if (!object.Equals(DoubleArray, other.DoubleArray)) return false;
+      if (!object.Equals(FloatArray, other.FloatArray)) return false;
+      if (!object.Equals(Int32Array, other.Int32Array)) return false;
+      if (!object.Equals(Int64Array, other.Int64Array)) return false;
+      if (!object.Equals(BoolArray, other.BoolArray)) return false;
+      if (!object.Equals(StringArray, other.StringArray)) return false;
+      if (!object.Equals(DurationArray, other.DurationArray)) return false;
+      if (!object.Equals(TimestampArray, other.TimestampArray)) return false;
       if (!object.Equals(RefValue, other.RefValue)) return false;
       if (DataCase != other.DataCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -288,6 +429,14 @@ namespace FactSet.Protobuf.Stach {
       if (dataCase_ == DataOneofCase.StringValue) hash ^= StringValue.GetHashCode();
       if (dataCase_ == DataOneofCase.DurationValue) hash ^= DurationValue.GetHashCode();
       if (dataCase_ == DataOneofCase.TimestampValue) hash ^= TimestampValue.GetHashCode();
+      if (dataCase_ == DataOneofCase.DoubleArray) hash ^= DoubleArray.GetHashCode();
+      if (dataCase_ == DataOneofCase.FloatArray) hash ^= FloatArray.GetHashCode();
+      if (dataCase_ == DataOneofCase.Int32Array) hash ^= Int32Array.GetHashCode();
+      if (dataCase_ == DataOneofCase.Int64Array) hash ^= Int64Array.GetHashCode();
+      if (dataCase_ == DataOneofCase.BoolArray) hash ^= BoolArray.GetHashCode();
+      if (dataCase_ == DataOneofCase.StringArray) hash ^= StringArray.GetHashCode();
+      if (dataCase_ == DataOneofCase.DurationArray) hash ^= DurationArray.GetHashCode();
+      if (dataCase_ == DataOneofCase.TimestampArray) hash ^= TimestampArray.GetHashCode();
       if (dataCase_ == DataOneofCase.RefValue) hash ^= RefValue.GetHashCode();
       hash ^= (int) dataCase_;
       if (_unknownFields != null) {
@@ -339,6 +488,38 @@ namespace FactSet.Protobuf.Stach {
         output.WriteRawTag(234, 6);
         output.WriteMessage(TimestampValue);
       }
+      if (dataCase_ == DataOneofCase.DoubleArray) {
+        output.WriteRawTag(178, 9);
+        output.WriteMessage(DoubleArray);
+      }
+      if (dataCase_ == DataOneofCase.FloatArray) {
+        output.WriteRawTag(186, 9);
+        output.WriteMessage(FloatArray);
+      }
+      if (dataCase_ == DataOneofCase.Int32Array) {
+        output.WriteRawTag(194, 9);
+        output.WriteMessage(Int32Array);
+      }
+      if (dataCase_ == DataOneofCase.Int64Array) {
+        output.WriteRawTag(202, 9);
+        output.WriteMessage(Int64Array);
+      }
+      if (dataCase_ == DataOneofCase.BoolArray) {
+        output.WriteRawTag(226, 9);
+        output.WriteMessage(BoolArray);
+      }
+      if (dataCase_ == DataOneofCase.StringArray) {
+        output.WriteRawTag(234, 9);
+        output.WriteMessage(StringArray);
+      }
+      if (dataCase_ == DataOneofCase.DurationArray) {
+        output.WriteRawTag(242, 9);
+        output.WriteMessage(DurationArray);
+      }
+      if (dataCase_ == DataOneofCase.TimestampArray) {
+        output.WriteRawTag(250, 9);
+        output.WriteMessage(TimestampArray);
+      }
       if (dataCase_ == DataOneofCase.RefValue) {
         output.WriteRawTag(202, 12);
         output.WriteMessage(RefValue);
@@ -377,6 +558,30 @@ namespace FactSet.Protobuf.Stach {
       }
       if (dataCase_ == DataOneofCase.TimestampValue) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(TimestampValue);
+      }
+      if (dataCase_ == DataOneofCase.DoubleArray) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DoubleArray);
+      }
+      if (dataCase_ == DataOneofCase.FloatArray) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FloatArray);
+      }
+      if (dataCase_ == DataOneofCase.Int32Array) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Int32Array);
+      }
+      if (dataCase_ == DataOneofCase.Int64Array) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Int64Array);
+      }
+      if (dataCase_ == DataOneofCase.BoolArray) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(BoolArray);
+      }
+      if (dataCase_ == DataOneofCase.StringArray) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StringArray);
+      }
+      if (dataCase_ == DataOneofCase.DurationArray) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DurationArray);
+      }
+      if (dataCase_ == DataOneofCase.TimestampArray) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(TimestampArray);
       }
       if (dataCase_ == DataOneofCase.RefValue) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RefValue);
@@ -425,6 +630,54 @@ namespace FactSet.Protobuf.Stach {
             TimestampValue = new global::Google.Protobuf.WellKnownTypes.Timestamp();
           }
           TimestampValue.MergeFrom(other.TimestampValue);
+          break;
+        case DataOneofCase.DoubleArray:
+          if (DoubleArray == null) {
+            DoubleArray = new global::FactSet.Protobuf.Stach.Table.DoubleArray();
+          }
+          DoubleArray.MergeFrom(other.DoubleArray);
+          break;
+        case DataOneofCase.FloatArray:
+          if (FloatArray == null) {
+            FloatArray = new global::FactSet.Protobuf.Stach.Table.FloatArray();
+          }
+          FloatArray.MergeFrom(other.FloatArray);
+          break;
+        case DataOneofCase.Int32Array:
+          if (Int32Array == null) {
+            Int32Array = new global::FactSet.Protobuf.Stach.Table.Int32Array();
+          }
+          Int32Array.MergeFrom(other.Int32Array);
+          break;
+        case DataOneofCase.Int64Array:
+          if (Int64Array == null) {
+            Int64Array = new global::FactSet.Protobuf.Stach.Table.Int64Array();
+          }
+          Int64Array.MergeFrom(other.Int64Array);
+          break;
+        case DataOneofCase.BoolArray:
+          if (BoolArray == null) {
+            BoolArray = new global::FactSet.Protobuf.Stach.Table.BoolArray();
+          }
+          BoolArray.MergeFrom(other.BoolArray);
+          break;
+        case DataOneofCase.StringArray:
+          if (StringArray == null) {
+            StringArray = new global::FactSet.Protobuf.Stach.Table.StringArray();
+          }
+          StringArray.MergeFrom(other.StringArray);
+          break;
+        case DataOneofCase.DurationArray:
+          if (DurationArray == null) {
+            DurationArray = new global::FactSet.Protobuf.Stach.Table.DurationArray();
+          }
+          DurationArray.MergeFrom(other.DurationArray);
+          break;
+        case DataOneofCase.TimestampArray:
+          if (TimestampArray == null) {
+            TimestampArray = new global::FactSet.Protobuf.Stach.Table.TimestampArray();
+          }
+          TimestampArray.MergeFrom(other.TimestampArray);
           break;
         case DataOneofCase.RefValue:
           if (RefValue == null) {
@@ -489,6 +742,78 @@ namespace FactSet.Protobuf.Stach {
             }
             input.ReadMessage(subBuilder);
             TimestampValue = subBuilder;
+            break;
+          }
+          case 1202: {
+            global::FactSet.Protobuf.Stach.Table.DoubleArray subBuilder = new global::FactSet.Protobuf.Stach.Table.DoubleArray();
+            if (dataCase_ == DataOneofCase.DoubleArray) {
+              subBuilder.MergeFrom(DoubleArray);
+            }
+            input.ReadMessage(subBuilder);
+            DoubleArray = subBuilder;
+            break;
+          }
+          case 1210: {
+            global::FactSet.Protobuf.Stach.Table.FloatArray subBuilder = new global::FactSet.Protobuf.Stach.Table.FloatArray();
+            if (dataCase_ == DataOneofCase.FloatArray) {
+              subBuilder.MergeFrom(FloatArray);
+            }
+            input.ReadMessage(subBuilder);
+            FloatArray = subBuilder;
+            break;
+          }
+          case 1218: {
+            global::FactSet.Protobuf.Stach.Table.Int32Array subBuilder = new global::FactSet.Protobuf.Stach.Table.Int32Array();
+            if (dataCase_ == DataOneofCase.Int32Array) {
+              subBuilder.MergeFrom(Int32Array);
+            }
+            input.ReadMessage(subBuilder);
+            Int32Array = subBuilder;
+            break;
+          }
+          case 1226: {
+            global::FactSet.Protobuf.Stach.Table.Int64Array subBuilder = new global::FactSet.Protobuf.Stach.Table.Int64Array();
+            if (dataCase_ == DataOneofCase.Int64Array) {
+              subBuilder.MergeFrom(Int64Array);
+            }
+            input.ReadMessage(subBuilder);
+            Int64Array = subBuilder;
+            break;
+          }
+          case 1250: {
+            global::FactSet.Protobuf.Stach.Table.BoolArray subBuilder = new global::FactSet.Protobuf.Stach.Table.BoolArray();
+            if (dataCase_ == DataOneofCase.BoolArray) {
+              subBuilder.MergeFrom(BoolArray);
+            }
+            input.ReadMessage(subBuilder);
+            BoolArray = subBuilder;
+            break;
+          }
+          case 1258: {
+            global::FactSet.Protobuf.Stach.Table.StringArray subBuilder = new global::FactSet.Protobuf.Stach.Table.StringArray();
+            if (dataCase_ == DataOneofCase.StringArray) {
+              subBuilder.MergeFrom(StringArray);
+            }
+            input.ReadMessage(subBuilder);
+            StringArray = subBuilder;
+            break;
+          }
+          case 1266: {
+            global::FactSet.Protobuf.Stach.Table.DurationArray subBuilder = new global::FactSet.Protobuf.Stach.Table.DurationArray();
+            if (dataCase_ == DataOneofCase.DurationArray) {
+              subBuilder.MergeFrom(DurationArray);
+            }
+            input.ReadMessage(subBuilder);
+            DurationArray = subBuilder;
+            break;
+          }
+          case 1274: {
+            global::FactSet.Protobuf.Stach.Table.TimestampArray subBuilder = new global::FactSet.Protobuf.Stach.Table.TimestampArray();
+            if (dataCase_ == DataOneofCase.TimestampArray) {
+              subBuilder.MergeFrom(TimestampArray);
+            }
+            input.ReadMessage(subBuilder);
+            TimestampArray = subBuilder;
             break;
           }
           case 1610: {

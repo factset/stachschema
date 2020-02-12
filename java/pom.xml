@@ -6,7 +6,7 @@
 
     <groupId>com.factset.protobuf</groupId>
     <artifactId>stach</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <properties>
         <version.protobuf>3.5.1</version.protobuf>

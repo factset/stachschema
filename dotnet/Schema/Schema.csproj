@@ -10,7 +10,7 @@
     <Authors>FactSet Research Systems, Inc.</Authors>
     <Company>FactSet Research Systems, Inc</Company>
     <Product>FactSet.Protobuf.Stach</Product>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/stachschema.git</RepositoryUrl>
     <PackageTags>STACH;Protobuf;FactSet;FDS;Analytics;Analytics API</PackageTags>
