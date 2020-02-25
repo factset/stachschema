@@ -6,7 +6,33 @@
 
     <groupId>com.factset.protobuf</groupId>
     <artifactId>stach</artifactId>
+    <name>stach</name>
     <version>1.1.0</version>
+    <url>https://github.com/factset/stachschema</url>
+    <description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</description>
+
+    <scm>
+        <connection>scm:git:git://github.com/factset/stachschema.git</connection>
+        <developerConnection>scm:git:ssh://github.com:factset/stachschema.git</developerConnection>
+        <url>http://github.com/factset/stachschema/tree/master</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Analytics API</name>
+            <email>analytics.api.support@factset.com</email>
+            <organization>FactSet Research Systems Inc.</organization>
+            <organizationUrl>https://developer.factset.com/</organizationUrl>
+        </developer>
+    </developers>
 
     <properties>
         <version.protobuf>3.5.1</version.protobuf>
@@ -56,8 +82,59 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>sign-artifacts</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>com.google.protobuf</groupId>
