@@ -7,7 +7,7 @@
     <groupId>com.factset.protobuf</groupId>
     <artifactId>stach</artifactId>
     <name>stach</name>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <url>https://github.com/factset/stachschema</url>
     <description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</description>
 
@@ -139,6 +139,11 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
+            <version>${version.protobuf}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
             <version>${version.protobuf}</version>
         </dependency>
     </dependencies>
