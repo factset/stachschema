@@ -1,0 +1,13 @@
+{
+  "items": {
+    "cellMetadataDateItemSparsePattern": {
+      "reference": {
+        "referenceType": "CELL",
+        "tableId": "metadataTable",
+        "columnId": "25963bde-5c90-43ff-8a4d-000000000000",
+        "rowId": "25963bde-5c90-43ff-8a4d-00000000012c"
+      }
+    }
+  },
+  "locations": {}
+}

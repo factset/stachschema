@@ -30,19 +30,23 @@ namespace FactSet.Protobuf.Stach.Table {
             "ZS9UYWJsZURlZmluaXRpb24ucHJvdG8igQEKBVRhYmxlEkEKCmRlZmluaXRp",
             "b24YASABKAsyLS5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlLlRhYmxl",
             "RGVmaW5pdGlvbhI1CgRkYXRhGAIgASgLMicuZmFjdHNldC5wcm90b2J1Zi5z",
-            "dGFjaC50YWJsZS5UYWJsZURhdGFCTQogY29tLmZhY3RzZXQucHJvdG9idWYu",
-            "c3RhY2gudGFibGVCClRhYmxlUHJvdG+qAhxGYWN0U2V0LlByb3RvYnVmLlN0",
-            "YWNoLlRhYmxlYgZwcm90bzM="));
+            "dGFjaC50YWJsZS5UYWJsZURhdGFCjAEKIGNvbS5mYWN0c2V0LnByb3RvYnVm",
+            "LnN0YWNoLnRhYmxlQgpUYWJsZVByb3RvWj1naXRodWIuY29tL2ZhY3RzZXQv",
+            "c3RhY2hzY2hlbWEvZ28vdjIvZmRzL3Byb3RvYnVmL3N0YWNoL3RhYmxlqgIc",
+            "RmFjdFNldC5Qcm90b2J1Zi5TdGFjaC5UYWJsZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.TableDataReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.TableDefinitionReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.Table), global::FactSet.Protobuf.Stach.Table.Table.Parser, new[]{ "Definition", "Data" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.Table), global::FactSet.Protobuf.Stach.Table.Table.Parser, new[]{ "Definition", "Data" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// A column organized table
+  /// </summary>
   public sealed partial class Table : pb::IMessage<Table> {
     private static readonly pb::MessageParser<Table> _parser = new pb::MessageParser<Table>(() => new Table());
     private pb::UnknownFieldSet _unknownFields;
@@ -81,6 +85,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "definition" field.</summary>
     public const int DefinitionFieldNumber = 1;
     private global::FactSet.Protobuf.Stach.Table.TableDefinition definition_;
+    /// <summary>
+    /// The definition
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.TableDefinition Definition {
       get { return definition_; }
@@ -92,6 +99,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "data" field.</summary>
     public const int DataFieldNumber = 2;
     private global::FactSet.Protobuf.Stach.Table.TableData data_;
+    /// <summary>
+    /// The data
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.TableData Data {
       get { return data_; }

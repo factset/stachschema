@@ -30,19 +30,23 @@ namespace FactSet.Protobuf.Stach {
             "eV90YWJsZV9pZHMYAiADKAkSOwoGdGFibGVzGAMgAygLMisuZmFjdHNldC5w",
             "cm90b2J1Zi5zdGFjaC5QYWNrYWdlLlRhYmxlc0VudHJ5GlIKC1RhYmxlc0Vu",
             "dHJ5EgsKA2tleRgBIAEoCRIyCgV2YWx1ZRgCIAEoCzIjLmZhY3RzZXQucHJv",
-            "dG9idWYuc3RhY2gudGFibGUuVGFibGU6AjgBQkMKGmNvbS5mYWN0c2V0LnBy",
-            "b3RvYnVmLnN0YWNoQgxQYWNrYWdlUHJvdG+qAhZGYWN0U2V0LlByb3RvYnVm",
-            "LlN0YWNoYgZwcm90bzM="));
+            "dG9idWYuc3RhY2gudGFibGUuVGFibGU6AjgBQnwKGmNvbS5mYWN0c2V0LnBy",
+            "b3RvYnVmLnN0YWNoQgxQYWNrYWdlUHJvdG9aN2dpdGh1Yi5jb20vZmFjdHNl",
+            "dC9zdGFjaHNjaGVtYS9nby92Mi9mZHMvcHJvdG9idWYvc3RhY2iqAhZGYWN0",
+            "U2V0LlByb3RvYnVmLlN0YWNoYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.TableReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Package), global::FactSet.Protobuf.Stach.Package.Parser, new[]{ "Version", "PrimaryTableIds", "Tables" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Package), global::FactSet.Protobuf.Stach.Package.Parser, new[]{ "Version", "PrimaryTableIds", "Tables" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// A column organized package of tables
+  /// </summary>
   public sealed partial class Package : pb::IMessage<Package> {
     private static readonly pb::MessageParser<Package> _parser = new pb::MessageParser<Package>(() => new Package());
     private pb::UnknownFieldSet _unknownFields;
@@ -82,6 +86,9 @@ namespace FactSet.Protobuf.Stach {
     /// <summary>Field number for the "version" field.</summary>
     public const int VersionFieldNumber = 1;
     private string version_ = "";
+    /// <summary>
+    /// The version of the STACH schema. Formatted {major}.{minor}
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Version {
       get { return version_; }
@@ -95,6 +102,9 @@ namespace FactSet.Protobuf.Stach {
     private static readonly pb::FieldCodec<string> _repeated_primaryTableIds_codec
         = pb::FieldCodec.ForString(18);
     private readonly pbc::RepeatedField<string> primaryTableIds_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The array of primary table ids
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> PrimaryTableIds {
       get { return primaryTableIds_; }
@@ -103,8 +113,11 @@ namespace FactSet.Protobuf.Stach {
     /// <summary>Field number for the "tables" field.</summary>
     public const int TablesFieldNumber = 3;
     private static readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>.Codec _map_tables_codec
-        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.Table.Parser), 26);
+        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.Table.Parser), 26);
     private readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table> tables_ = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>();
+    /// <summary>
+    /// The map (key: table id) of all tables
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table> Tables {
       get { return tables_; }

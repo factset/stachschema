@@ -1,0 +1,14 @@
+{
+  "ranges": {
+    "0": 3,
+    "7": 8
+  },
+  "values": [
+    null,
+    "Americas",
+    "Asia Pacific",
+    "Europe",
+    "Middle East and Africa",
+    null
+  ]
+}

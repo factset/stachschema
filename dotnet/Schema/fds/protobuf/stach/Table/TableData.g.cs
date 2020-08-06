@@ -25,29 +25,33 @@ namespace FactSet.Protobuf.Stach.Table {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CihmZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvVGFibGVEYXRhLnByb3RvEhxm",
-            "YWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlGjFmZHMvcHJvdG9idWYvc3Rh",
-            "Y2gvdGFibGUvTWV0YWRhdGFDb2xsZWN0aW9uLnByb3RvGi9mZHMvcHJvdG9i",
-            "dWYvc3RhY2gvdGFibGUvU2VyaWVzRGVmaW5pdGlvbi5wcm90bxopZmRzL3By",
-            "b3RvYnVmL3N0YWNoL3RhYmxlL1Nlcmllc0RhdGEucHJvdG8irgIKCVRhYmxl",
-            "RGF0YRI8CgRyb3dzGAEgAygLMi4uZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50",
-            "YWJsZS5TZXJpZXNEZWZpbml0aW9uEkUKB2NvbHVtbnMYAiADKAsyNC5mYWN0",
-            "c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlLlRhYmxlRGF0YS5Db2x1bW5zRW50",
-            "cnkSQgoIbWV0YWRhdGEYAyABKAsyMC5mYWN0c2V0LnByb3RvYnVmLnN0YWNo",
-            "LnRhYmxlLk1ldGFkYXRhQ29sbGVjdGlvbhpYCgxDb2x1bW5zRW50cnkSCwoD",
-            "a2V5GAEgASgJEjcKBXZhbHVlGAIgASgLMiguZmFjdHNldC5wcm90b2J1Zi5z",
-            "dGFjaC50YWJsZS5TZXJpZXNEYXRhOgI4AUJRCiBjb20uZmFjdHNldC5wcm90",
-            "b2J1Zi5zdGFjaC50YWJsZUIOVGFibGVEYXRhUHJvdG+qAhxGYWN0U2V0LlBy",
-            "b3RvYnVmLlN0YWNoLlRhYmxlYgZwcm90bzM="));
+            "YWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlGilmZHMvcHJvdG9idWYvc3Rh",
+            "Y2gvdGFibGUvQ29sdW1uRGF0YS5wcm90bxoxZmRzL3Byb3RvYnVmL3N0YWNo",
+            "L3RhYmxlL01ldGFkYXRhQ29sbGVjdGlvbi5wcm90bxosZmRzL3Byb3RvYnVm",
+            "L3N0YWNoL3RhYmxlL1Jvd0RlZmluaXRpb24ucHJvdG8iqwIKCVRhYmxlRGF0",
+            "YRI5CgRyb3dzGAEgAygLMisuZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50YWJs",
+            "ZS5Sb3dEZWZpbml0aW9uEkUKB2NvbHVtbnMYAiADKAsyNC5mYWN0c2V0LnBy",
+            "b3RvYnVmLnN0YWNoLnRhYmxlLlRhYmxlRGF0YS5Db2x1bW5zRW50cnkSQgoI",
+            "bWV0YWRhdGEYAyABKAsyMC5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxl",
+            "Lk1ldGFkYXRhQ29sbGVjdGlvbhpYCgxDb2x1bW5zRW50cnkSCwoDa2V5GAEg",
+            "ASgJEjcKBXZhbHVlGAIgASgLMiguZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50",
+            "YWJsZS5Db2x1bW5EYXRhOgI4AUKQAQogY29tLmZhY3RzZXQucHJvdG9idWYu",
+            "c3RhY2gudGFibGVCDlRhYmxlRGF0YVByb3RvWj1naXRodWIuY29tL2ZhY3Rz",
+            "ZXQvc3RhY2hzY2hlbWEvZ28vdjIvZmRzL3Byb3RvYnVmL3N0YWNoL3RhYmxl",
+            "qgIcRmFjdFNldC5Qcm90b2J1Zi5TdGFjaC5UYWJsZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.MetadataCollectionReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.SeriesDefinitionReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.SeriesDataReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.TableData), global::FactSet.Protobuf.Stach.Table.TableData.Parser, new[]{ "Rows", "Columns", "Metadata" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+          new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.ColumnDataReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.MetadataCollectionReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.RowDefinitionReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.TableData), global::FactSet.Protobuf.Stach.Table.TableData.Parser, new[]{ "Rows", "Columns", "Metadata" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// An object of table data
+  /// </summary>
   public sealed partial class TableData : pb::IMessage<TableData> {
     private static readonly pb::MessageParser<TableData> _parser = new pb::MessageParser<TableData>(() => new TableData());
     private pb::UnknownFieldSet _unknownFields;
@@ -86,27 +90,36 @@ namespace FactSet.Protobuf.Stach.Table {
 
     /// <summary>Field number for the "rows" field.</summary>
     public const int RowsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::FactSet.Protobuf.Stach.Table.SeriesDefinition> _repeated_rows_codec
-        = pb::FieldCodec.ForMessage(10, global::FactSet.Protobuf.Stach.Table.SeriesDefinition.Parser);
-    private readonly pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.SeriesDefinition> rows_ = new pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.SeriesDefinition>();
+    private static readonly pb::FieldCodec<global::FactSet.Protobuf.Stach.Table.RowDefinition> _repeated_rows_codec
+        = pb::FieldCodec.ForMessage(10, global::FactSet.Protobuf.Stach.Table.RowDefinition.Parser);
+    private readonly pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.RowDefinition> rows_ = new pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.RowDefinition>();
+    /// <summary>
+    /// The array of rows definitions
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.SeriesDefinition> Rows {
+    public pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.RowDefinition> Rows {
       get { return rows_; }
     }
 
     /// <summary>Field number for the "columns" field.</summary>
     public const int ColumnsFieldNumber = 2;
-    private static readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.SeriesData>.Codec _map_columns_codec
-        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.SeriesData>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.SeriesData.Parser), 18);
-    private readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.SeriesData> columns_ = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.SeriesData>();
+    private static readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.ColumnData>.Codec _map_columns_codec
+        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.ColumnData>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.ColumnData.Parser), 18);
+    private readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.ColumnData> columns_ = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.ColumnData>();
+    /// <summary>
+    /// The map (key: column id) of column data
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.SeriesData> Columns {
+    public pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.ColumnData> Columns {
       get { return columns_; }
     }
 
     /// <summary>Field number for the "metadata" field.</summary>
     public const int MetadataFieldNumber = 3;
     private global::FactSet.Protobuf.Stach.Table.MetadataCollection metadata_;
+    /// <summary>
+    /// The metadata
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.MetadataCollection Metadata {
       get { return metadata_; }

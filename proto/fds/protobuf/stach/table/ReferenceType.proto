@@ -2,13 +2,15 @@ syntax = "proto3";
 package factset.protobuf.stach.table;
 
 option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option go_package = "github.com/factset/stachschema/go/v2/fds/protobuf/stach/table";
 option java_package = "com.factset.protobuf.stach.table";
 option java_outer_classname = "ReferenceTypeProto";
 
+// The type of table reference
 enum ReferenceType {
-    UNKNOWN_REFERENCE_TYPE = 0;
-    TABLE = 1;
-    COLUMN = 2;
-    ROW = 3;
-    CELL = 4;
+    UNKNOWN_REFERENCE_TYPE = 0;  // This value should never be used, but exists to ensure that a value is specified
+    TABLE = 1;                   // The table reference
+    COLUMN = 2;                  // The column reference
+    ROW = 3;                     // The row reference
+    CELL = 4;                    // The cell reference
 }

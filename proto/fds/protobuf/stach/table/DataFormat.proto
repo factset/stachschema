@@ -1,0 +1,25 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option go_package = "github.com/factset/stachschema/go/v2/fds/protobuf/stach/table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "DataFormatProto";
+
+import "fds/protobuf/stach/table/HorizontalAlignment.proto";
+import "fds/protobuf/stach/table/VerticalAlignment.proto";
+
+// A data format
+message DataFormat {
+  // The format
+  string format = 1;
+
+  // The null format
+  string null_format = 2;
+
+  // The horizontal alignment
+  HorizontalAlignment halign = 3;
+
+  // The vertical alignment
+  VerticalAlignment valign = 4;
+}

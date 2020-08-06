@@ -1,0 +1,20 @@
+{
+  "items": {
+    "columnOrientedCellMetadataLocationDensePatternItem": {
+      "reference": {
+        "referenceType": "CELL",
+        "tableId": "main",
+        "columnId": "25963bde-5c90-43ff-8a4d-0000000005dc"
+      }
+    }
+  },
+  "locations": {
+    "columns": {
+      "25963bde-5c90-43ff-8a4d-0000000005dc": {
+        "ids": [
+          "columnOrientedCellMetadataLocationDensePatternItem"
+        ]
+      }
+    }
+  }
+}

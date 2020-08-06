@@ -29,19 +29,24 @@ namespace FactSet.Protobuf.Stach.Table {
             "Y2gvdGFibGUvUmVmZXJlbmNlVHlwZS5wcm90byKFAQoJUmVmZXJlbmNlEkMK",
             "DnJlZmVyZW5jZV90eXBlGAEgASgOMisuZmFjdHNldC5wcm90b2J1Zi5zdGFj",
             "aC50YWJsZS5SZWZlcmVuY2VUeXBlEhAKCHRhYmxlX2lkGAIgASgJEhEKCWNv",
-            "bHVtbl9pZBgDIAEoCRIOCgZyb3dfaWQYBCABKAlCUQogY29tLmZhY3RzZXQu",
-            "cHJvdG9idWYuc3RhY2gudGFibGVCDlJlZmVyZW5jZVByb3RvqgIcRmFjdFNl",
-            "dC5Qcm90b2J1Zi5TdGFjaC5UYWJsZWIGcHJvdG8z"));
+            "bHVtbl9pZBgDIAEoCRIOCgZyb3dfaWQYBCABKAlCkAEKIGNvbS5mYWN0c2V0",
+            "LnByb3RvYnVmLnN0YWNoLnRhYmxlQg5SZWZlcmVuY2VQcm90b1o9Z2l0aHVi",
+            "LmNvbS9mYWN0c2V0L3N0YWNoc2NoZW1hL2dvL3YyL2Zkcy9wcm90b2J1Zi9z",
+            "dGFjaC90YWJsZaoCHEZhY3RTZXQuUHJvdG9idWYuU3RhY2guVGFibGViBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.ReferenceTypeReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.Reference), global::FactSet.Protobuf.Stach.Table.Reference.Parser, new[]{ "ReferenceType", "TableId", "ColumnId", "RowId" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.Reference), global::FactSet.Protobuf.Stach.Table.Reference.Parser, new[]{ "ReferenceType", "TableId", "ColumnId", "RowId" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// A reference to a table or a piece of a table
+  /// </summary>
   public sealed partial class Reference : pb::IMessage<Reference> {
     private static readonly pb::MessageParser<Reference> _parser = new pb::MessageParser<Reference>(() => new Reference());
     private pb::UnknownFieldSet _unknownFields;
@@ -82,6 +87,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "reference_type" field.</summary>
     public const int ReferenceTypeFieldNumber = 1;
     private global::FactSet.Protobuf.Stach.Table.ReferenceType referenceType_ = global::FactSet.Protobuf.Stach.Table.ReferenceType.UnknownReferenceType;
+    /// <summary>
+    /// The type of the reference
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.ReferenceType ReferenceType {
       get { return referenceType_; }
@@ -93,6 +101,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "table_id" field.</summary>
     public const int TableIdFieldNumber = 2;
     private string tableId_ = "";
+    /// <summary>
+    /// The table id
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string TableId {
       get { return tableId_; }
@@ -104,6 +115,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "column_id" field.</summary>
     public const int ColumnIdFieldNumber = 3;
     private string columnId_ = "";
+    /// <summary>
+    /// The column id
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string ColumnId {
       get { return columnId_; }
@@ -115,6 +129,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "row_id" field.</summary>
     public const int RowIdFieldNumber = 4;
     private string rowId_ = "";
+    /// <summary>
+    /// The row id
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string RowId {
       get { return rowId_; }

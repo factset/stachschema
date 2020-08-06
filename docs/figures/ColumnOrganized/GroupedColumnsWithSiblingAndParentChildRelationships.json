@@ -1,0 +1,58 @@
+{
+  "columns": [
+    {
+      "id": "25963bde-5c90-43ff-8a4d-000000000258",
+      "name": "function",
+      "description": "Function",
+      "type": "string",
+      "isDimension": true,
+      "nextSiblingId": "25963bde-5c90-43ff-8a4d-000000000384"
+    },
+    {
+      "id": "25963bde-5c90-43ff-8a4d-000000000384",
+      "name": "region",
+      "description": "Region",
+      "type": "string",
+      "isDimension": true
+    },
+    {
+      "id": "25963bde-5c90-43ff-8a4d-0000000005dc",
+      "name": "continent1",
+      "description": "Continent 1",
+      "type": "string",
+      "isDimension": true,
+      "parentId": "25963bde-5c90-43ff-8a4d-000000000384"
+    },
+    {
+      "id": "25963bde-5c90-43ff-8a4d-000000000708",
+      "name": "continent2",
+      "description": "Continent 2",
+      "type": "string",
+      "isDimension": true,
+      "parentId": "25963bde-5c90-43ff-8a4d-000000000384"
+    },
+    {
+      "id": "25963bde-5c90-43ff-8a4d-0000000004b0",
+      "name": "regionUrl",
+      "description": "Region Url",
+      "type": "string",
+      "isDimension": true,
+      "isHidden": true
+    },
+    {
+      "id": "25963bde-5c90-43ff-8a4d-000000000bb8",
+      "name": "contAbbr",
+      "description": "Abbr",
+      "type": "string",
+      "isDimension": true
+    },
+    {
+      "id": "25963bde-5c90-43ff-8a4d-000000000960",
+      "name": "fund0Url",
+      "description": "Fund 0 Url",
+      "type": "string",
+      "isDimension": true,
+      "isHidden": true
+    }
+  ]
+}

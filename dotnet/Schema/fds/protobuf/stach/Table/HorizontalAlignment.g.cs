@@ -27,21 +27,38 @@ namespace FactSet.Protobuf.Stach.Table {
             "CjJmZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvSG9yaXpvbnRhbEFsaWdubWVu",
             "dC5wcm90bxIcZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50YWJsZSpKChNIb3Jp",
             "em9udGFsQWxpZ25tZW50EhIKDlVOS05PV05fSEFMSUdOEAASCAoETEVGVBAB",
-            "EgoKBkNFTlRFUhACEgkKBVJJR0hUEANCWwogY29tLmZhY3RzZXQucHJvdG9i",
-            "dWYuc3RhY2gudGFibGVCGEhvcml6b250YWxBbGlnbm1lbnRQcm90b6oCHEZh",
-            "Y3RTZXQuUHJvdG9idWYuU3RhY2guVGFibGViBnByb3RvMw=="));
+            "EgoKBkNFTlRFUhACEgkKBVJJR0hUEANCmgEKIGNvbS5mYWN0c2V0LnByb3Rv",
+            "YnVmLnN0YWNoLnRhYmxlQhhIb3Jpem9udGFsQWxpZ25tZW50UHJvdG9aPWdp",
+            "dGh1Yi5jb20vZmFjdHNldC9zdGFjaHNjaGVtYS9nby92Mi9mZHMvcHJvdG9i",
+            "dWYvc3RhY2gvdGFibGWqAhxGYWN0U2V0LlByb3RvYnVmLlN0YWNoLlRhYmxl",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::FactSet.Protobuf.Stach.Table.HorizontalAlignment), }, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::FactSet.Protobuf.Stach.Table.HorizontalAlignment), }, null, null));
     }
     #endregion
 
   }
   #region Enums
+  /// <summary>
+  /// A horizontal alignment
+  /// </summary>
   public enum HorizontalAlignment {
+    /// <summary>
+    /// This value should never be used, but exists to ensure that a value is specified
+    /// </summary>
     [pbr::OriginalName("UNKNOWN_HALIGN")] UnknownHalign = 0,
+    /// <summary>
+    /// Value is horizontally aligned to the left of the cell
+    /// </summary>
     [pbr::OriginalName("LEFT")] Left = 1,
+    /// <summary>
+    /// Value is horizontally aligned in the center of the cell
+    /// </summary>
     [pbr::OriginalName("CENTER")] Center = 2,
+    /// <summary>
+    /// Value is horizontally aligned to the right of the cell
+    /// </summary>
     [pbr::OriginalName("RIGHT")] Right = 3,
   }
 

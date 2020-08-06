@@ -1,0 +1,17 @@
+{
+  "data": {
+    "rows": [
+      {
+        "cellDetails": {
+          "0": {
+            "cellMetadata": {
+              "cellMetadataLocationItem": {
+                "value": "Cell metadata location"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

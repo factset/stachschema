@@ -1,0 +1,502 @@
+{
+  "version": "2.0",
+  "primaryTableIds": [
+    "main"
+  ],
+  "tables": {
+    "main": {
+      "definition": {
+        "headerTableId": "headers",
+        "columns": [
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000004b0",
+            "name": "function",
+            "description": "Function",
+            "type": "STRING",
+            "isDimension": true,
+            "nextSiblingId": "25963bde-5c90-43ff-8a4d-0000000005dc"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000005dc",
+            "name": "region",
+            "description": "Region",
+            "type": "STRING",
+            "isDimension": true
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000834",
+            "name": "continent1",
+            "description": "Continent 1",
+            "type": "STRING",
+            "isDimension": true,
+            "parentId": "25963bde-5c90-43ff-8a4d-0000000005dc"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000960",
+            "name": "continent2",
+            "description": "Continent 2",
+            "type": "STRING",
+            "isDimension": true,
+            "parentId": "25963bde-5c90-43ff-8a4d-0000000005dc"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000708",
+            "name": "regionUrl",
+            "description": "Region Url",
+            "type": "STRING",
+            "isDimension": true,
+            "isHidden": true
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000a8c",
+            "name": "fund0",
+            "description": "Fund 0",
+            "type": "DOUBLE",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000ce4",
+            "name": "bench0",
+            "description": "Bench 0",
+            "type": "DOUBLE",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000e10",
+            "name": "contAbbr",
+            "description": "Abbr",
+            "type": "STRING",
+            "isDimension": true
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000f3c",
+            "name": "fund1",
+            "description": "Fund 1",
+            "type": "DOUBLE",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001068",
+            "name": "bench1",
+            "description": "Bench 1",
+            "type": "DOUBLE",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001194",
+            "name": "fund2",
+            "description": "Fund 2",
+            "type": "DOUBLE",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000000bb8",
+            "name": "fund0Url",
+            "description": "Fund 0 Url",
+            "type": "STRING",
+            "isDimension": true,
+            "isHidden": true
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000012c0",
+            "name": "bench2",
+            "description": "Bench 2",
+            "type": "DOUBLE",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          }
+        ]
+      },
+      "data": {
+        "rows": [
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000013ec"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001518"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001644"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001770"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-00000000189c"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000019c8"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001af4"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001c20"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001d4c"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001e78"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000001fa4"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000020d0"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-0000000021fc"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000002328"
+          },
+          {
+            "id": "25963bde-5c90-43ff-8a4d-000000002454"
+          }
+        ],
+        "columns": {
+          "25963bde-5c90-43ff-8a4d-0000000004b0": {
+            "stringArray": {
+              "values": [
+                "Max",
+                "Total",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-0000000005dc": {
+            "stringArray": {
+              "values": [
+                "@NA",
+                "@NA",
+                "Developed Markets",
+                "Developed Markets",
+                "Developed Markets",
+                "Developed Markets",
+                "Developed Markets",
+                "Emerging Markets",
+                "Emerging Markets",
+                "Emerging Markets",
+                "Emerging Markets",
+                "Emerging Markets",
+                "Frontier Markets",
+                "Other",
+                "[Cash]"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000834": {
+            "stringArray": {
+              "values": [
+                "@NA",
+                "@NA",
+                "@NA",
+                "Americas",
+                "Asia Pacific",
+                "Europe",
+                "Middle East and Africa",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000960": {
+            "stringArray": {
+              "values": [
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "@NA",
+                "Americas",
+                "Asia Pacific",
+                "Europe",
+                "Middle East and Africa",
+                "@NA",
+                "@NA",
+                "@NA"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000708": {
+            "stringArray": {
+              "values": [
+                "@NA",
+                "@NA",
+                "https://www.google.com/search?q=developed+markets",
+                "https://www.google.com/search?q=developed+markets",
+                "https://www.google.com/search?q=developed+markets",
+                "https://www.google.com/search?q=developed+markets",
+                "https://www.google.com/search?q=developed+markets",
+                "https://www.google.com/search?q=emerging+markets",
+                "https://www.google.com/search?q=emerging+markets",
+                "https://www.google.com/search?q=emerging+markets",
+                "https://www.google.com/search?q=emerging+markets",
+                "https://www.google.com/search?q=emerging+markets",
+                "https://www.google.com/search?q=frontier+markets",
+                "https://www.google.com/search?q=other",
+                "https://www.google.com/search?q=cash"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000e10": {
+            "stringArray": {
+              "values": [
+                "@NA",
+                "@NA",
+                "@NA",
+                "AM",
+                "APac",
+                "EU",
+                "MEA",
+                "@NA",
+                "AM",
+                "APac",
+                "EU",
+                "MEA",
+                "@NA",
+                "@NA",
+                "@NA"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000bb8": {
+            "stringArray": {
+              "values": [
+                "@NA",
+                "@NA",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x",
+                "https://www.google.com/search?q=x"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000a8c": {
+            "doubleArray": {
+              "values": [
+                88.3,
+                100,
+                88.3,
+                46.03,
+                9.09,
+                33.15,
+                "NaN",
+                8.71,
+                0.3,
+                8.41,
+                "NaN",
+                "NaN",
+                0.36,
+                "NaN",
+                0.15
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000ce4": {
+            "doubleArray": {
+              "values": [
+                89.62,
+                100,
+                89.62,
+                54.98,
+                12.48,
+                21.95,
+                0.21,
+                7.76,
+                1.12,
+                5.41,
+                0.33,
+                0.89,
+                "NaN",
+                0.53,
+                "NaN"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000000f3c": {
+            "doubleArray": {
+              "values": [
+                17.17,
+                8.6,
+                8.51,
+                10.21,
+                11.94,
+                8.71,
+                "NaN",
+                14.12,
+                22.7,
+                14.22,
+                "NaN",
+                "NaN",
+                17.17,
+                "NaN",
+                8.45
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000001068": {
+            "doubleArray": {
+              "values": [
+                15.67,
+                8.38,
+                8.39,
+                9.63,
+                10.06,
+                8.28,
+                13.58,
+                10.65,
+                15.44,
+                11.02,
+                12.78,
+                14.92,
+                "NaN",
+                15.67,
+                "NaN"
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-000000001194": {
+            "doubleArray": {
+              "values": [
+                86.07,
+                100,
+                86.07,
+                50.74,
+                7.37,
+                27.96,
+                "NaN",
+                10.48,
+                0.36,
+                10.12,
+                "NaN",
+                "NaN",
+                0.19,
+                "NaN",
+                -0.06
+              ]
+            }
+          },
+          "25963bde-5c90-43ff-8a4d-0000000012c0": {
+            "doubleArray": {
+              "values": [
+                89.18,
+                100,
+                89.18,
+                61.23,
+                9.77,
+                17.93,
+                0.24,
+                8.17,
+                1.41,
+                5.47,
+                0.25,
+                1.03,
+                "NaN",
+                0.59,
+                "NaN"
+              ]
+            }
+          }
+        },
+        "metadata": {
+          "items": {
+            "25963bde-5c90-43ff-8a4d-000000002580": {
+              "name": "header",
+              "stringValue": "Risk Analysis"
+            },
+            "25963bde-5c90-43ff-8a4d-000000002904": {
+              "name": "fund0Url",
+              "refValue": {
+                "referenceType": "COLUMN",
+                "tableId": "main",
+                "columnId": "25963bde-5c90-43ff-8a4d-000000000bb8"
+              }
+            },
+            "25963bde-5c90-43ff-8a4d-0000000027d8": {
+              "name": "regionUrl",
+              "refValue": {
+                "referenceType": "COLUMN",
+                "tableId": "main",
+                "columnId": "25963bde-5c90-43ff-8a4d-000000000708"
+              }
+            },
+            "25963bde-5c90-43ff-8a4d-0000000026ac": {
+              "name": "riskModel",
+              "refValue": {
+                "referenceType": "TABLE",
+                "tableId": "3964d0db9f024acaaa5a398a6651c386"
+              }
+            }
+          },
+          "locations": {
+            "table": [
+              "25963bde-5c90-43ff-8a4d-000000002580"
+            ],
+            "columns": {
+              "25963bde-5c90-43ff-8a4d-000000000a8c": {
+                "ids": [
+                  "25963bde-5c90-43ff-8a4d-000000002904"
+                ]
+              },
+              "25963bde-5c90-43ff-8a4d-0000000005dc": {
+                "ids": [
+                  "25963bde-5c90-43ff-8a4d-0000000027d8",
+                  "25963bde-5c90-43ff-8a4d-0000000026ac"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

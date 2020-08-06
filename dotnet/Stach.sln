@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		Generate.bat = Generate.bat
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{2E524786-CC36-4F9A-AD65-A9096FD29FB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{EEBCC57B-7BCA-4592-9020-A8B484CF4427}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEBCC57B-7BCA-4592-9020-A8B484CF4427}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEBCC57B-7BCA-4592-9020-A8B484CF4427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E524786-CC36-4F9A-AD65-A9096FD29FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E524786-CC36-4F9A-AD65-A9096FD29FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E524786-CC36-4F9A-AD65-A9096FD29FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E524786-CC36-4F9A-AD65-A9096FD29FB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

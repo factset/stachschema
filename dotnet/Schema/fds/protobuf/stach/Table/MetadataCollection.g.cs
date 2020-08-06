@@ -25,27 +25,32 @@ namespace FactSet.Protobuf.Stach.Table {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CjFmZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvTWV0YWRhdGFDb2xsZWN0aW9u",
-            "LnByb3RvEhxmYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlGiVmZHMvcHJv",
-            "dG9idWYvc3RhY2gvTWV0YWRhdGFJdGVtLnByb3RvGjBmZHMvcHJvdG9idWYv",
-            "c3RhY2gvdGFibGUvTWV0YWRhdGFMb2NhdGlvbnMucHJvdG8i+AEKEk1ldGFk",
-            "YXRhQ29sbGVjdGlvbhJKCgVpdGVtcxgBIAMoCzI7LmZhY3RzZXQucHJvdG9i",
-            "dWYuc3RhY2gudGFibGUuTWV0YWRhdGFDb2xsZWN0aW9uLkl0ZW1zRW50cnkS",
-            "QgoJbG9jYXRpb25zGAIgASgLMi8uZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50",
-            "YWJsZS5NZXRhZGF0YUxvY2F0aW9ucxpSCgpJdGVtc0VudHJ5EgsKA2tleRgB",
-            "IAEoCRIzCgV2YWx1ZRgCIAEoCzIkLmZhY3RzZXQucHJvdG9idWYuc3RhY2gu",
-            "TWV0YWRhdGFJdGVtOgI4AUJaCiBjb20uZmFjdHNldC5wcm90b2J1Zi5zdGFj",
-            "aC50YWJsZUIXTWV0YWRhdGFDb2xsZWN0aW9uUHJvdG+qAhxGYWN0U2V0LlBy",
-            "b3RvYnVmLlN0YWNoLlRhYmxlYgZwcm90bzM="));
+            "LnByb3RvEhxmYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlGitmZHMvcHJv",
+            "dG9idWYvc3RhY2gvdGFibGUvTWV0YWRhdGFJdGVtLnByb3RvGjBmZHMvcHJv",
+            "dG9idWYvc3RhY2gvdGFibGUvTWV0YWRhdGFMb2NhdGlvbnMucHJvdG8i/gEK",
+            "Ek1ldGFkYXRhQ29sbGVjdGlvbhJKCgVpdGVtcxgBIAMoCzI7LmZhY3RzZXQu",
+            "cHJvdG9idWYuc3RhY2gudGFibGUuTWV0YWRhdGFDb2xsZWN0aW9uLkl0ZW1z",
+            "RW50cnkSQgoJbG9jYXRpb25zGAIgASgLMi8uZmFjdHNldC5wcm90b2J1Zi5z",
+            "dGFjaC50YWJsZS5NZXRhZGF0YUxvY2F0aW9ucxpYCgpJdGVtc0VudHJ5EgsK",
+            "A2tleRgBIAEoCRI5CgV2YWx1ZRgCIAEoCzIqLmZhY3RzZXQucHJvdG9idWYu",
+            "c3RhY2gudGFibGUuTWV0YWRhdGFJdGVtOgI4AUKZAQogY29tLmZhY3RzZXQu",
+            "cHJvdG9idWYuc3RhY2gudGFibGVCF01ldGFkYXRhQ29sbGVjdGlvblByb3Rv",
+            "Wj1naXRodWIuY29tL2ZhY3RzZXQvc3RhY2hzY2hlbWEvZ28vdjIvZmRzL3By",
+            "b3RvYnVmL3N0YWNoL3RhYmxlqgIcRmFjdFNldC5Qcm90b2J1Zi5TdGFjaC5U",
+            "YWJsZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.MetadataItemReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.MetadataLocationsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.MetadataCollection), global::FactSet.Protobuf.Stach.Table.MetadataCollection.Parser, new[]{ "Items", "Locations" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+          new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.MetadataItemReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.MetadataLocationsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.MetadataCollection), global::FactSet.Protobuf.Stach.Table.MetadataCollection.Parser, new[]{ "Items", "Locations" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// A collection of metadata for a table
+  /// </summary>
   public sealed partial class MetadataCollection : pb::IMessage<MetadataCollection> {
     private static readonly pb::MessageParser<MetadataCollection> _parser = new pb::MessageParser<MetadataCollection>(() => new MetadataCollection());
     private pb::UnknownFieldSet _unknownFields;
@@ -83,17 +88,23 @@ namespace FactSet.Protobuf.Stach.Table {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.MetadataItem>.Codec _map_items_codec
-        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.MetadataItem>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.MetadataItem.Parser), 10);
-    private readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.MetadataItem> items_ = new pbc::MapField<string, global::FactSet.Protobuf.Stach.MetadataItem>();
+    private static readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.MetadataItem>.Codec _map_items_codec
+        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.MetadataItem>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.MetadataItem.Parser), 10);
+    private readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.MetadataItem> items_ = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.MetadataItem>();
+    /// <summary>
+    /// The metadata items associated with a table
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, global::FactSet.Protobuf.Stach.MetadataItem> Items {
+    public pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.MetadataItem> Items {
       get { return items_; }
     }
 
     /// <summary>Field number for the "locations" field.</summary>
     public const int LocationsFieldNumber = 2;
     private global::FactSet.Protobuf.Stach.Table.MetadataLocations locations_;
+    /// <summary>
+    /// The locations where metadata items are associated
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::FactSet.Protobuf.Stach.Table.MetadataLocations Locations {
       get { return locations_; }

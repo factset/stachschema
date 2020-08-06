@@ -1,0 +1,12 @@
+{
+  "columns": [
+    {
+      "id": "25963bde-5c90-43ff-8a4d-0000000005dc",
+      "name": "continent1",
+      "description": "Continent 1",
+      "type": "string",
+      "isDimension": true,
+      "parentId": "25963bde-5c90-43ff-8a4d-000000000384"
+    }
+  ]
+}

@@ -27,22 +27,42 @@ namespace FactSet.Protobuf.Stach.Table {
             "CixmZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvUmVmZXJlbmNlVHlwZS5wcm90",
             "bxIcZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50YWJsZSpVCg1SZWZlcmVuY2VU",
             "eXBlEhoKFlVOS05PV05fUkVGRVJFTkNFX1RZUEUQABIJCgVUQUJMRRABEgoK",
-            "BkNPTFVNThACEgcKA1JPVxADEggKBENFTEwQBEJVCiBjb20uZmFjdHNldC5w",
-            "cm90b2J1Zi5zdGFjaC50YWJsZUISUmVmZXJlbmNlVHlwZVByb3RvqgIcRmFj",
-            "dFNldC5Qcm90b2J1Zi5TdGFjaC5UYWJsZWIGcHJvdG8z"));
+            "BkNPTFVNThACEgcKA1JPVxADEggKBENFTEwQBEKUAQogY29tLmZhY3RzZXQu",
+            "cHJvdG9idWYuc3RhY2gudGFibGVCElJlZmVyZW5jZVR5cGVQcm90b1o9Z2l0",
+            "aHViLmNvbS9mYWN0c2V0L3N0YWNoc2NoZW1hL2dvL3YyL2Zkcy9wcm90b2J1",
+            "Zi9zdGFjaC90YWJsZaoCHEZhY3RTZXQuUHJvdG9idWYuU3RhY2guVGFibGVi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::FactSet.Protobuf.Stach.Table.ReferenceType), }, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::FactSet.Protobuf.Stach.Table.ReferenceType), }, null, null));
     }
     #endregion
 
   }
   #region Enums
+  /// <summary>
+  /// The type of table reference
+  /// </summary>
   public enum ReferenceType {
+    /// <summary>
+    /// This value should never be used, but exists to ensure that a value is specified
+    /// </summary>
     [pbr::OriginalName("UNKNOWN_REFERENCE_TYPE")] UnknownReferenceType = 0,
+    /// <summary>
+    /// The table reference
+    /// </summary>
     [pbr::OriginalName("TABLE")] Table = 1,
+    /// <summary>
+    /// The column reference
+    /// </summary>
     [pbr::OriginalName("COLUMN")] Column = 2,
+    /// <summary>
+    /// The row reference
+    /// </summary>
     [pbr::OriginalName("ROW")] Row = 3,
+    /// <summary>
+    /// The cell reference
+    /// </summary>
     [pbr::OriginalName("CELL")] Cell = 4,
   }
 

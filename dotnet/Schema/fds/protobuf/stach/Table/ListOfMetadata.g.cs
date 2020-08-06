@@ -26,19 +26,23 @@ namespace FactSet.Protobuf.Stach.Table {
           string.Concat(
             "Ci1mZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvTGlzdE9mTWV0YWRhdGEucHJv",
             "dG8SHGZhY3RzZXQucHJvdG9idWYuc3RhY2gudGFibGUiHQoOTGlzdE9mTWV0",
-            "YWRhdGESCwoDaWRzGAEgAygJQlYKIGNvbS5mYWN0c2V0LnByb3RvYnVmLnN0",
-            "YWNoLnRhYmxlQhNMaXN0T2ZNZXRhZGF0YVByb3RvqgIcRmFjdFNldC5Qcm90",
-            "b2J1Zi5TdGFjaC5UYWJsZWIGcHJvdG8z"));
+            "YWRhdGESCwoDaWRzGAEgAygJQpUBCiBjb20uZmFjdHNldC5wcm90b2J1Zi5z",
+            "dGFjaC50YWJsZUITTGlzdE9mTWV0YWRhdGFQcm90b1o9Z2l0aHViLmNvbS9m",
+            "YWN0c2V0L3N0YWNoc2NoZW1hL2dvL3YyL2Zkcy9wcm90b2J1Zi9zdGFjaC90",
+            "YWJsZaoCHEZhY3RTZXQuUHJvdG9idWYuU3RhY2guVGFibGViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.ListOfMetadata), global::FactSet.Protobuf.Stach.Table.ListOfMetadata.Parser, new[]{ "Ids" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.ListOfMetadata), global::FactSet.Protobuf.Stach.Table.ListOfMetadata.Parser, new[]{ "Ids" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// A list of metadata ids
+  /// </summary>
   public sealed partial class ListOfMetadata : pb::IMessage<ListOfMetadata> {
     private static readonly pb::MessageParser<ListOfMetadata> _parser = new pb::MessageParser<ListOfMetadata>(() => new ListOfMetadata());
     private pb::UnknownFieldSet _unknownFields;
@@ -78,6 +82,9 @@ namespace FactSet.Protobuf.Stach.Table {
     private static readonly pb::FieldCodec<string> _repeated_ids_codec
         = pb::FieldCodec.ForString(10);
     private readonly pbc::RepeatedField<string> ids_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The list of metadata ids
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Ids {
       get { return ids_; }

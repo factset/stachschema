@@ -26,22 +26,26 @@ namespace FactSet.Protobuf.Stach.Table {
           string.Concat(
             "Ci5mZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvVGFibGVEZWZpbml0aW9uLnBy",
             "b3RvEhxmYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlGi9mZHMvcHJvdG9i",
-            "dWYvc3RhY2gvdGFibGUvU2VyaWVzRGVmaW5pdGlvbi5wcm90byJrCg9UYWJs",
+            "dWYvc3RhY2gvdGFibGUvQ29sdW1uRGVmaW5pdGlvbi5wcm90byJrCg9UYWJs",
             "ZURlZmluaXRpb24SFwoPaGVhZGVyX3RhYmxlX2lkGAEgASgJEj8KB2NvbHVt",
-            "bnMYAiADKAsyLi5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlLlNlcmll",
-            "c0RlZmluaXRpb25CVwogY29tLmZhY3RzZXQucHJvdG9idWYuc3RhY2gudGFi",
-            "bGVCFFRhYmxlRGVmaW5pdGlvblByb3RvqgIcRmFjdFNldC5Qcm90b2J1Zi5T",
-            "dGFjaC5UYWJsZWIGcHJvdG8z"));
+            "bnMYAiADKAsyLi5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlLkNvbHVt",
+            "bkRlZmluaXRpb25ClgEKIGNvbS5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRh",
+            "YmxlQhRUYWJsZURlZmluaXRpb25Qcm90b1o9Z2l0aHViLmNvbS9mYWN0c2V0",
+            "L3N0YWNoc2NoZW1hL2dvL3YyL2Zkcy9wcm90b2J1Zi9zdGFjaC90YWJsZaoC",
+            "HEZhY3RTZXQuUHJvdG9idWYuU3RhY2guVGFibGViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.SeriesDefinitionReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.TableDefinition), global::FactSet.Protobuf.Stach.Table.TableDefinition.Parser, new[]{ "HeaderTableId", "Columns" }, null, null, null)
+          new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.ColumnDefinitionReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.TableDefinition), global::FactSet.Protobuf.Stach.Table.TableDefinition.Parser, new[]{ "HeaderTableId", "Columns" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  /// A table definition
+  /// </summary>
   public sealed partial class TableDefinition : pb::IMessage<TableDefinition> {
     private static readonly pb::MessageParser<TableDefinition> _parser = new pb::MessageParser<TableDefinition>(() => new TableDefinition());
     private pb::UnknownFieldSet _unknownFields;
@@ -80,6 +84,9 @@ namespace FactSet.Protobuf.Stach.Table {
     /// <summary>Field number for the "header_table_id" field.</summary>
     public const int HeaderTableIdFieldNumber = 1;
     private string headerTableId_ = "";
+    /// <summary>
+    /// The id of the headers table
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string HeaderTableId {
       get { return headerTableId_; }
@@ -90,11 +97,14 @@ namespace FactSet.Protobuf.Stach.Table {
 
     /// <summary>Field number for the "columns" field.</summary>
     public const int ColumnsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::FactSet.Protobuf.Stach.Table.SeriesDefinition> _repeated_columns_codec
-        = pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.SeriesDefinition.Parser);
-    private readonly pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.SeriesDefinition> columns_ = new pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.SeriesDefinition>();
+    private static readonly pb::FieldCodec<global::FactSet.Protobuf.Stach.Table.ColumnDefinition> _repeated_columns_codec
+        = pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.ColumnDefinition.Parser);
+    private readonly pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.ColumnDefinition> columns_ = new pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.ColumnDefinition>();
+    /// <summary>
+    /// The array of column definitions
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.SeriesDefinition> Columns {
+    public pbc::RepeatedField<global::FactSet.Protobuf.Stach.Table.ColumnDefinition> Columns {
       get { return columns_; }
     }
 

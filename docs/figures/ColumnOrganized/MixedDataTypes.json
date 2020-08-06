@@ -1,0 +1,57 @@
+{
+  "definition": {
+    "columns": [
+      {
+        "id": "25963bde-5c90-43ff-8a4d-000000002454",
+        "name": "columnWithMixedDataTypes",
+        "type": "string"
+      }
+    ]
+  },
+  "data": {
+    "rows": [
+      {
+        "id": "25963bde-5c90-43ff-8a4d-000000002580"
+      },
+      {
+        "id": "25963bde-5c90-43ff-8a4d-0000000026ac"
+      },
+      {
+        "id": "25963bde-5c90-43ff-8a4d-0000000027d8"
+      },
+      {
+        "id": "25963bde-5c90-43ff-8a4d-000000002904"
+      }
+    ],
+    "columns": {
+      "25963bde-5c90-43ff-8a4d-000000002454": {
+        "values": [
+          "foo",
+          1,
+          "bar",
+          0.89
+        ],
+        "definitions": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}"
+            }
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "25963bde-5c90-43ff-8a4d-0000000004b0",
+  "name": "regionUrl",
+  "description": "Region Url",
+  "type": "string",
+  "isDimension": true,
+  "isHidden": true
+}

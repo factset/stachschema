@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel='shortcut icon' type='image/x-icon' href='docs/images/logos/mustache.ico' />
+  <meta charset="UTF-8">
+  <title>STACH</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="STACH">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vuep/dist/vuep.css">
+  <style>
+    /* Docsify Themable -- https://jhildenbiddle.github.io/docsify-themeable */
+    :root {
+      /* Change the theme color hue */
+      --theme-hue: 207;
+      --theme-saturation: 100%;
+      --theme-lightness: 24%;
+
+      --modular-first-step: .1rem;
+      --modular-scale   : 1.2;
+
+      --modular-scale--2: calc(var(--modular-scale--1) / var(--modular-scale));
+      --modular-scale--1: calc(-1 * var(--modular-first-step) + var(--modular-scale-1) / var(--modular-scale));
+      --modular-scale-1 : 1rem;
+      --modular-scale-2 : calc(var(--modular-first-step) + var(--modular-scale-1) * var(--modular-scale));
+      --modular-scale-3 : calc(var(--modular-scale-2) * var(--modular-scale));
+      --modular-scale-4 : calc(var(--modular-scale-3) * var(--modular-scale));
+      --modular-scale-5 : calc(var(--modular-scale-4) * var(--modular-scale));
+      --modular-scale-6 : calc(var(--modular-scale-5) * var(--modular-scale));
+
+      --font-size-xxxxl  : var(--modular-scale-6);
+
+      --heading-h1-font-size: var(--font-size-xxxxl);
+      --heading-h2-font-size: var(--font-size-xxxl);
+      --heading-h3-font-size: var(--font-size-xxl);
+      --heading-h4-font-size: var(--font-size-xl);
+      --heading-h5-font-size: var(--font-size-l);
+
+      --content-max-width: 65em;
+    }
+  </style>
+  <style>
+    h1 span, h2 span, h3 span, h4 span, h5 span {
+      font-weight: 500;
+    }
+    .vuep-inline {
+      height: auto;
+    }
+    .vuep-inline .vuep-editor {
+      display: none;
+    }
+    .vuep-inline .vuep-preview {
+      border: none;
+      padding: 0;
+      width: 100%;
+    }
+    .markdown-section pre {
+      max-height: 300px;
+      padding: 0;
+    }
+    .markdown-section pre > code {
+      padding: .5em 1em;
+    }
+    .markdown-section table {
+      display: table;
+    }
+    .markdown-section table td {
+      padding: .1em .3em;
+    }
+    .markdown-section table tr.header td {
+      font-weight: bold;
+    }
+    .markdown-section pre[data-lang] {
+      overflow: auto;
+    }
+    .reference code {
+      background: hsla(var(--theme-hue), var(--theme-saturation), var(--theme-lightness), .5) !important;
+      color: white !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'STACH',
+      repo: 'https://github.com/factset/stachschema',
+      coverpage: true,
+      loadSidebar: true,
+      maxLevel: 6,
+      subMaxLevel: 6,
+      auto2top: true,
+      noEmoji: true
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vuep/dist/vuep.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+  <script src="scripts/docsify/figures-plugin.js"></script>
+  <script src="scripts/docsify/references-plugin.js"></script>
+  <script src="scripts/vue/components/stach-table.js"></script>
+</body>
+</html>

@@ -2,12 +2,14 @@ syntax = "proto3";
 package factset.protobuf.stach.table;
 
 option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option go_package = "github.com/factset/stachschema/go/v2/fds/protobuf/stach/table";
 option java_package = "com.factset.protobuf.stach.table";
 option java_outer_classname = "HorizontalAlignmentProto";
 
+// A horizontal alignment
 enum HorizontalAlignment {
-  UNKNOWN_HALIGN = 0;
-  LEFT = 1;
-  CENTER = 2;
-  RIGHT = 3;
+  UNKNOWN_HALIGN = 0;  // This value should never be used, but exists to ensure that a value is specified
+  LEFT = 1;            // Value is horizontally aligned to the left of the cell
+  CENTER = 2;          // Value is horizontally aligned in the center of the cell
+  RIGHT = 3;           // Value is horizontally aligned to the right of the cell
 }

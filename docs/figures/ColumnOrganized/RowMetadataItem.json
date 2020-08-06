@@ -1,0 +1,12 @@
+{
+  "items": {
+    "rowMetadataItem": {
+      "reference": {
+        "referenceType": "ROW",
+        "tableId": "metadataTable",
+        "columnId": "25963bde-5c90-43ff-8a4d-000000002a30"
+      }
+    }
+  },
+  "locations": {}
+}

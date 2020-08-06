@@ -27,21 +27,38 @@ namespace FactSet.Protobuf.Stach.Table {
             "CjBmZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvVmVydGljYWxBbGlnbm1lbnQu",
             "cHJvdG8SHGZhY3RzZXQucHJvdG9idWYuc3RhY2gudGFibGUqSAoRVmVydGlj",
             "YWxBbGlnbm1lbnQSEgoOVU5LTk9XTl9WQUxJR04QABIHCgNUT1AQARIKCgZN",
-            "SURETEUQAhIKCgZCT1RUT00QA0JZCiBjb20uZmFjdHNldC5wcm90b2J1Zi5z",
-            "dGFjaC50YWJsZUIWVmVydGljYWxBbGlnbm1lbnRQcm90b6oCHEZhY3RTZXQu",
-            "UHJvdG9idWYuU3RhY2guVGFibGViBnByb3RvMw=="));
+            "SURETEUQAhIKCgZCT1RUT00QA0KYAQogY29tLmZhY3RzZXQucHJvdG9idWYu",
+            "c3RhY2gudGFibGVCFlZlcnRpY2FsQWxpZ25tZW50UHJvdG9aPWdpdGh1Yi5j",
+            "b20vZmFjdHNldC9zdGFjaHNjaGVtYS9nby92Mi9mZHMvcHJvdG9idWYvc3Rh",
+            "Y2gvdGFibGWqAhxGYWN0U2V0LlByb3RvYnVmLlN0YWNoLlRhYmxlYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::FactSet.Protobuf.Stach.Table.VerticalAlignment), }, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::FactSet.Protobuf.Stach.Table.VerticalAlignment), }, null, null));
     }
     #endregion
 
   }
   #region Enums
+  /// <summary>
+  /// A vertical alignment
+  /// </summary>
   public enum VerticalAlignment {
+    /// <summary>
+    /// This value should never be used, but exists to ensure that a value is specified
+    /// </summary>
     [pbr::OriginalName("UNKNOWN_VALIGN")] UnknownValign = 0,
+    /// <summary>
+    /// Value is vertically aligned to the top of the cell
+    /// </summary>
     [pbr::OriginalName("TOP")] Top = 1,
+    /// <summary>
+    /// Value is vertically aligned to the middle of the cell
+    /// </summary>
     [pbr::OriginalName("MIDDLE")] Middle = 2,
+    /// <summary>
+    /// Value is vertically aligned to the bottom of the cell
+    /// </summary>
     [pbr::OriginalName("BOTTOM")] Bottom = 3,
   }
 

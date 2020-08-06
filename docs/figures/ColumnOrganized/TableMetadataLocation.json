@@ -1,0 +1,12 @@
+{
+  "items": {
+    "tableMetadataLocationItem": {
+      "value": "Table metadata location"
+    }
+  },
+  "locations": {
+    "table": [
+      "tableMetadataLocationItem"
+    ]
+  }
+}

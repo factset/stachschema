@@ -1,0 +1,27 @@
+{
+  "name": "@fds/protobuf-stach",
+  "version": "2.0.0",
+  "description": "Protobuf generated javascript files for STACH",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "stach.js",
+    "stach.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/factset/stachschema",
+    "directory": "js/packages/stach"
+  },
+  "dependencies": {
+    "protobufjs": "^6.8.8"
+  },
+  "scripts": {
+    "build": "node generate.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache License 2.0"
+}

@@ -1,28 +1,24 @@
 {
-  "name": "@fds/protobuf-stach",
-  "version": "1.1.0",
+  "name": "@fds/protobuf-stach-workspace",
+  "private": true,
+  "version": "1.0.0",
   "description": "Protobuf generated javascript files for STACH",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "stach.js",
-    "stach.d.ts",
-    "null-values.js",
-    "null-values.d.ts"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/factset/stachschema",
     "directory": "js"
   },
-  "dependencies": {
-    "protobufjs": "^6.8.8"
+  "devDependencies": {
+    "@fds/conventional-changelog-factset": "^4.0.1",
+    "@fds/lerna-config": "^1.0.1",
+    "lerna": "^3.0.1"
   },
-  "devDependencies": {},
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "node generate.js",
+    "heroku-postbuild": "yarn build",
+    "build": "lerna run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

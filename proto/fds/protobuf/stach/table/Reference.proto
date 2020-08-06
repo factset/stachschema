@@ -2,14 +2,23 @@ syntax = "proto3";
 package factset.protobuf.stach.table;
 
 option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option go_package = "github.com/factset/stachschema/go/v2/fds/protobuf/stach/table";
 option java_package = "com.factset.protobuf.stach.table";
 option java_outer_classname = "ReferenceProto";
 
 import "fds/protobuf/stach/table/ReferenceType.proto";
 
+// A reference to a table or a piece of a table
 message Reference {
+  // The type of the reference
   ReferenceType reference_type = 1;
+
+  // The table id
   string table_id = 2;
+
+  // The column id
   string column_id = 3;
+
+  // The row id
   string row_id = 4;
 }

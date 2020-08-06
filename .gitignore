@@ -6,8 +6,16 @@ dotnet/packages/
 java/.idea/
 java/*.iml
 java/target/
+node_modules/
 js/node_modules/
 python/fds.protobuf.stach/dist/*.*
 python/fds.protobuf.stach/fds.protobuf.stach.egg-info
 r/*.tar.gz
 r/**/inst
+js/.yarn/*
+!js/.yarn/cache
+!js/.yarn/releases
+!js/.yarn/plugins
+!js/.yarn/sdks
+!js/.yarn/versions
+.DS_Store
