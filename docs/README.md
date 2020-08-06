@@ -1,7 +1,6 @@
 <img src="images/logos/logo_450px.png" align="left">
-<br/><br/>
-
-<h6>A <u>s</u>chema for <u>ta</u>bles and <u>ch</u>arts</h6>
+<br/>
+<h4>A <u>s</u>chema for <u>ta</u>bles and <u>ch</u>arts</h4>
 
 This schema defines the format of tabular data, the relationships between columns, rows, headers, and metadata, and the binding of tables to charts. It is meant to standardize the format of tabular data between the service layer and the user interface layer.
 
