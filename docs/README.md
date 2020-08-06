@@ -63,4 +63,4 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the Apache License v2.0. See [LICENSE](/LICENSE.txt ':ignore :target=_blank') for more information.
+Distributed under the Apache License v2.0. See [LICENSE](LICENSE.txt ':ignore :target=_blank') for more information.
