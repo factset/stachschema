@@ -1,4 +1,6 @@
 - [Home](README)
+- [Motivation](Motivation)
+- [Guidance](Guidance)
 
 - Documentation
 	- [Column Organized](ColumnOrganized)

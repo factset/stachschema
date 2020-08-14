@@ -8,10 +8,6 @@ This schema defines the format of tabular data, the relationships between column
 
 Tables can be more complex than a two-dimensional array of data. There are structural relationships that are important for understanding how data is related in order to facilitate human consumption. By retaining this information, it allows these relationships created in one application to be carried over to another application without having to redo this work. Once those relationships are defined, they can drive how tables are bound to charts.
 
-## Motivation
-
-To facilitate FactSet becoming data agnostic, increase the productivity of engineers, and decrease the time-to-market to build services and applications that generate and display tabular data and charts.
-
 ## Serialization
 
 All JSON properties are serialized using [camel casing](https://en.wikipedia.org/wiki/Camel_case) even though the protobuf schema uses [snake casing](https://en.wikipedia.org/wiki/Snake_case) due to protobuf's [JSON Mapping](https://developers.google.com/protocol-buffers/docs/proto3#json). Therefore, message field names are mapped to lowerCamelCase and become JSON object keys.

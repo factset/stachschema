@@ -19,6 +19,12 @@ namespace FactSet.Stach.Generator {
             WriteColumnOrganizedFigures().Wait();
             WriteRowOrganizedFigures().Wait();
             WriteEquitiesByRegionExamples().Wait();
+            WriteGuidanceExamples().Wait();
+        }
+
+        private static async Task WriteGuidanceExamples() {
+            var coBuilder = new GuidanceExamplesBuilder(Path.Combine(ExamplesPath, "Guidance"));
+            await WriteExamples(coBuilder);
         }
 
         private static async Task WriteEquitiesByRegionExamples() {

@@ -2,10 +2,6 @@
 using Google.Protobuf;
 
 namespace FactSet.Stach.Generator.Builders {
-    internal interface IExamples : IMessageCollectionBuilder {
-        string Path { get; }
-    }
-
     internal class ColumnOrganizedEquitiesByRegionExamplesBuilder : MessageCollectionBuilder, IExamples {
         public string Path { get; }
 

@@ -5,7 +5,15 @@ using Google.Protobuf.WellKnownTypes;
 
 namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
     internal class EquitiesByRegionBuilder : TableBuilderBase {
+        private int m_id;
+
+        private string GetNextId() {
+            return (++this.m_id).ToString();
+        }
+
         protected override Table DoBuild() {
+            var id = 0;
+
             var colNames = new {
                 function = "function",
                 region = "region",
@@ -23,36 +31,19 @@ namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
             };
             var ids = new {
                 columns = new {
-                    function = SequentialGuid.NextGuid().ToString(),
-                    region = SequentialGuid.NextGuid().ToString(),
-                    regionUrl = SequentialGuid.NextGuid().ToString(),
-                    continent1 = SequentialGuid.NextGuid().ToString(),
-                    continent2 = SequentialGuid.NextGuid().ToString(),
-                    fund0 = SequentialGuid.NextGuid().ToString(),
-                    fund0Url = SequentialGuid.NextGuid().ToString(),
-                    bench0 = SequentialGuid.NextGuid().ToString(),
-                    contAbbr = SequentialGuid.NextGuid().ToString(),
-                    fund1 = SequentialGuid.NextGuid().ToString(),
-                    bench1 = SequentialGuid.NextGuid().ToString(),
-                    fund2 = SequentialGuid.NextGuid().ToString(),
-                    bench2 = SequentialGuid.NextGuid().ToString(),
-                },
-                rows = new {
-                    row0 = SequentialGuid.NextGuid().ToString(),
-                    row1 = SequentialGuid.NextGuid().ToString(),
-                    row2 = SequentialGuid.NextGuid().ToString(),
-                    row3 = SequentialGuid.NextGuid().ToString(),
-                    row4 = SequentialGuid.NextGuid().ToString(),
-                    row5 = SequentialGuid.NextGuid().ToString(),
-                    row6 = SequentialGuid.NextGuid().ToString(),
-                    row7 = SequentialGuid.NextGuid().ToString(),
-                    row8 = SequentialGuid.NextGuid().ToString(),
-                    row9 = SequentialGuid.NextGuid().ToString(),
-                    row10 = SequentialGuid.NextGuid().ToString(),
-                    row11 = SequentialGuid.NextGuid().ToString(),
-                    row12 = SequentialGuid.NextGuid().ToString(),
-                    row13 = SequentialGuid.NextGuid().ToString(),
-                    row14 = SequentialGuid.NextGuid().ToString()
+                    function = this.GetNextId(),
+                    region = this.GetNextId(),
+                    continent1 = this.GetNextId(),
+                    continent2 = this.GetNextId(),
+                    regionUrl = this.GetNextId(),
+                    fund0 = this.GetNextId(),
+                    bench0 = this.GetNextId(),
+                    contAbbr = this.GetNextId(),
+                    fund1 = this.GetNextId(),
+                    bench1 = this.GetNextId(),
+                    fund2 = this.GetNextId(),
+                    fund0Url = this.GetNextId(),
+                    bench2 = this.GetNextId(),
                 },
                 metadata = new {
                     header = "header",
@@ -188,53 +179,6 @@ namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
                         }
                 },
                 Data = new TableData {
-                    Rows = {
-                        new RowDefinition {
-                            Id = ids.rows.row0
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row1
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row2
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row3
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row4
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row5
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row6
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row7
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row8
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row9
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row10
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row11
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row12
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row13
-                        },
-                        new RowDefinition {
-                            Id = ids.rows.row14
-                        }
-                    },
                     Columns = {
                         {
                             ids.columns.function,
@@ -351,53 +295,7 @@ namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
                                     }
                                 }
                             }
-                        },{
-                            ids.columns.contAbbr,
-                            new ColumnData {
-                                Values = new ListValue {
-                                    Values = {
-                                        String.Instance.Create(null),
-                                        String.Instance.Create(null),
-                                        String.Instance.Create(null),
-                                        String.Instance.Create("AM"),
-                                        String.Instance.Create("APac"),
-                                        String.Instance.Create("EU"),
-                                        String.Instance.Create("MEA"),
-                                        String.Instance.Create(null),
-                                        String.Instance.Create("AM"),
-                                        String.Instance.Create("APac"),
-                                        String.Instance.Create("EU"),
-                                        String.Instance.Create("MEA"),
-                                        String.Instance.Create(null),
-                                        String.Instance.Create(null),
-                                        String.Instance.Create(null)
-                                    }
-                                }
-                            }
                         }, {
-                            ids.columns.fund0Url,
-                            new ColumnData {
-                                Values = new ListValue {
-                                    Values = {
-                                        String.Instance.Create(null),
-                                        String.Instance.Create(null),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x"),
-                                        String.Instance.Create("https://www.google.com/search?q=x")
-                                    }
-                                }
-                            }
-                        },{
                             ids.columns.fund0,
                             new ColumnData {
                                 Values = new ListValue {
@@ -440,6 +338,29 @@ namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
                                         Real.Instance.Create(null),
                                         Real.Instance.Create(0.53),
                                         Real.Instance.Create(null)
+                                    }
+                                }
+                            }
+                        }, {
+                            ids.columns.contAbbr,
+                            new ColumnData {
+                                Values = new ListValue {
+                                    Values = {
+                                        String.Instance.Create(null),
+                                        String.Instance.Create(null),
+                                        String.Instance.Create(null),
+                                        String.Instance.Create("AM"),
+                                        String.Instance.Create("APac"),
+                                        String.Instance.Create("EU"),
+                                        String.Instance.Create("MEA"),
+                                        String.Instance.Create(null),
+                                        String.Instance.Create("AM"),
+                                        String.Instance.Create("APac"),
+                                        String.Instance.Create("EU"),
+                                        String.Instance.Create("MEA"),
+                                        String.Instance.Create(null),
+                                        String.Instance.Create(null),
+                                        String.Instance.Create(null)
                                     }
                                 }
                             }
@@ -509,6 +430,29 @@ namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
                                         Real.Instance.Create(0.19),
                                         Real.Instance.Create(null),
                                         Real.Instance.Create(-0.06)
+                                    }
+                                }
+                            }
+                        }, {
+                            ids.columns.fund0Url,
+                            new ColumnData {
+                                Values = new ListValue {
+                                    Values = {
+                                        String.Instance.Create(null),
+                                        String.Instance.Create(null),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x"),
+                                        String.Instance.Create("https://www.google.com/search?q=x")
                                     }
                                 }
                             }

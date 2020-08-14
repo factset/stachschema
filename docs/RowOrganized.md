@@ -4,7 +4,25 @@ The purpose of the row organized format is to make it as simple as possible to c
 
 ## Usage
 
-An API can be designed to return any STACH message, assuming it is well documented. The [](factset.protobuf.stach.RowOrganizedPackage :ref) and [](factset.protobuf.stach.RowOrganizedPackage.TableData :ref) are two common messages returned.
+An API can be designed to return any STACH message. For instance, if your API handles large tables, sorting, and paging of data, it will probably benefit from creating multiple endpoints that return pieces of tables, such as [](factset.protobuf.stach.RowOrganizedPackage.TableDefinition :ref) and [](factset.protobuf.stach.RowOrganizedPackage.TableData :ref). Although [](factset.protobuf.stach.RowOrganizedPackage :ref) is the top-level message, your API should be designed to be efficient and appropriate for its use cases.
+
+Before moving on to digest the documentation, you should familiarize yourself with an example.
+
+### Figure {f#}: Equities by Region :figure=figure-table
+
+[filename](examples/RowOrganized/EquitiesByRegion/DefaultMaps.json ':include')
+
+### Figure {f#}: Equities by Region Rendered :figure=figure-tableRendered
+
+![Table](images/ColumnOrganized/table_grouped_headers.png)
+<!--
+<vuep template="#vue-table" class="vuep-inline"></vuep>
+<script v-pre type="text/x-template" id="vue-table">
+<template>
+  <stach-table url="examples/RowOrganized/EquitiesByRegion/GroupsArrays.json" style="min-width: 700px; max-width: 900px;"/>
+</template>
+</script>
+-->
 
 ## Package
 
@@ -23,17 +41,6 @@ This property is most useful when data is stored persistently. Upon reading the 
 ## Tables
 
 A table is data that is organized in a tabular pattern of rows and cells. The problem we are solving here is how to describe the complexity of rendered tables, which may include headers with multiple rows, metdata to facilitate creating links, tooltips, or other useful interactive features, as well as formatting to render the table so that it makes sense to a human, but also in a way that retains the fidelity of the data itself. For instance, converting a number to a formatted string would potentially lose the precision of the number as well as make it difficult for alternative uses of the data, like sorting and charting. 
-
-The following is the example table, Equities By Region, that we will be using to explain various features.
-
-### Figure {f#}: Table :figure=figure-table
-
-<vuep template="#vue-table" class="vuep-inline"></vuep>
-<script v-pre type="text/x-template" id="vue-table">
-<template>
-  <stach-table url="examples/RowOrganized/EquitiesByRegion/Groups.json" style="min-width: 700px; max-width: 900px;"/>
-</template>
-</script>
 
 A table is made up of three pieces.
 

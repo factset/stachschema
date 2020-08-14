@@ -17,6 +17,8 @@
       --theme-saturation: 100%;
       --theme-lightness: 24%;
 
+      --code-inline-background: #e1e1e1;
+
       --modular-first-step: .1rem;
       --modular-scale   : 1.2;
 
@@ -36,11 +38,18 @@
       --heading-h3-font-size: var(--font-size-xxl);
       --heading-h4-font-size: var(--font-size-xl);
       --heading-h5-font-size: var(--font-size-l);
+      --heading-h6-font-size: var(--font-size-m);
 
       --content-max-width: 65em;
     }
   </style>
   <style>
+    html {
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
     h1 span, h2 span, h3 span, h4 span, h5 span {
       font-weight: 500;
     }
@@ -62,11 +71,19 @@
     .markdown-section pre > code {
       padding: .5em 1em;
     }
+    .markdown-section .table-wrapper table {
+      width: 99%;
+    }
     .markdown-section table {
       display: table;
     }
     .markdown-section table td {
       padding: .1em .3em;
+      border: 1px solid #cccccc;
+      font-size: .9em;
+    }
+    .markdown-section table tr:not(.header):nth-child(odd) td {
+      background-color: #ededed;
     }
     .markdown-section table tr.header td {
       font-weight: bold;
@@ -100,6 +117,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
   <script src="scripts/docsify/figures-plugin.js"></script>
   <script src="scripts/docsify/references-plugin.js"></script>
+  <script src="scripts/docsify/code-expand-plugin.js"></script>
   <script src="scripts/vue/components/stach-table.js"></script>
 </body>
 </html>

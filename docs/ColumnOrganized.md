@@ -4,13 +4,17 @@ The goals of the column organized format is to fully describe the complexity of 
 
 ## Usage
 
-An API can be designed to return any STACH message, assuming it is well documented. For instance, if your API handles large tables, sorting, and paging of data, it will probably benefit from creating multiple endpoints that return pieces of tables, such as [](factset.protobuf.stach.table.TableDefinition :ref) and [](factset.protobuf.stach.table.TableData :ref). Although [](factset.protobuf.stach.Package :ref) is the top-level message, your API should be designed to be efficent.
+An API can be designed to return any STACH message. For instance, if your API handles large tables, sorting, and paging of data, it will probably benefit from creating multiple endpoints that return pieces of tables, such as [](factset.protobuf.stach.table.TableDefinition :ref) and [](factset.protobuf.stach.table.TableData :ref). Although [](factset.protobuf.stach.Package :ref) is the top-level message, your API should be designed to be efficent and appropriate for its use cases.
 
 Before moving on to digest the documentation, you should familiarize yourself with an example.
 
-### Figure {f#}: Table :figure=figure-table
+### Figure {f#}: Equities by Region :figure=figure-table
 
 [filename](examples/ColumnOrganized/EquitiesByRegion/Default.json ':include')
+
+### Figure {f#}: Equities by Region Rendered :figure=figure-tableRendered
+
+![Table](images/ColumnOrganized/table_grouped_headers.png)
 
 ## Package
 

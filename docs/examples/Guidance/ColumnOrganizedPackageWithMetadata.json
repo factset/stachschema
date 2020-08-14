@@ -6,7 +6,6 @@
   "tables": {
     "main": {
       "definition": {
-        "headerTableId": "headers",
         "columns": [
           {
             "id": "1",
@@ -133,24 +132,37 @@
       "data": {
         "columns": {
           "1": {
-            "ranges": {
-              "2": 13
-            },
             "values": [
               "Max",
               "Total",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
               null
             ]
           },
           "2": {
-            "ranges": {
-              "0": 2,
-              "2": 5,
-              "7": 5
-            },
             "values": [
               null,
+              null,
               "Developed Markets",
+              "Developed Markets",
+              "Developed Markets",
+              "Developed Markets",
+              "Developed Markets",
+              "Emerging Markets",
+              "Emerging Markets",
+              "Emerging Markets",
+              "Emerging Markets",
               "Emerging Markets",
               "Frontier Markets",
               "Other",
@@ -158,42 +170,56 @@
             ]
           },
           "3": {
-            "ranges": {
-              "0": 3,
-              "7": 8
-            },
             "values": [
+              null,
+              null,
               null,
               "Americas",
               "Asia Pacific",
               "Europe",
               "Middle East and Africa",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
               null
             ]
           },
           "4": {
-            "ranges": {
-              "0": 8,
-              "12": 3
-            },
             "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
               null,
               "Americas",
               "Asia Pacific",
               "Europe",
               "Middle East and Africa",
+              null,
+              null,
               null
             ]
           },
           "5": {
-            "ranges": {
-              "0": 2,
-              "2": 5,
-              "7": 5
-            },
             "values": [
               null,
+              null,
               "https://www.google.com/search?q=developed+markets",
+              "https://www.google.com/search?q=developed+markets",
+              "https://www.google.com/search?q=developed+markets",
+              "https://www.google.com/search?q=developed+markets",
+              "https://www.google.com/search?q=developed+markets",
+              "https://www.google.com/search?q=emerging+markets",
+              "https://www.google.com/search?q=emerging+markets",
+              "https://www.google.com/search?q=emerging+markets",
+              "https://www.google.com/search?q=emerging+markets",
               "https://www.google.com/search?q=emerging+markets",
               "https://www.google.com/search?q=frontier+markets",
               "https://www.google.com/search?q=other",
@@ -201,9 +227,6 @@
             ]
           },
           "6": {
-            "ranges": {
-              "10": 2
-            },
             "values": [
               88.3,
               100,
@@ -215,6 +238,7 @@
               8.71,
               0.3,
               8.41,
+              null,
               null,
               0.36,
               null,
@@ -241,12 +265,10 @@
             ]
           },
           "8": {
-            "ranges": {
-              "0": 3,
-              "12": 3
-            },
             "values": [
               null,
+              null,
+              null,
               "AM",
               "APac",
               "EU",
@@ -256,13 +278,12 @@
               "APac",
               "EU",
               "MEA",
+              null,
+              null,
               null
             ]
           },
           "9": {
-            "ranges": {
-              "10": 2
-            },
             "values": [
               17.17,
               8.6,
@@ -274,6 +295,7 @@
               14.12,
               22.7,
               14.22,
+              null,
               null,
               17.17,
               null,
@@ -300,9 +322,6 @@
             ]
           },
           "11": {
-            "ranges": {
-              "10": 2
-            },
             "values": [
               86.07,
               100,
@@ -315,18 +334,28 @@
               0.36,
               10.12,
               null,
+              null,
               0.19,
               null,
               -0.06
             ]
           },
           "12": {
-            "ranges": {
-              "0": 2,
-              "2": 13
-            },
             "values": [
               null,
+              null,
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
               "https://www.google.com/search?q=x"
             ]
           },
@@ -393,89 +422,6 @@
                 ]
               }
             }
-          }
-        }
-      }
-    },
-    "headers": {
-      "definition": {
-        "columns": [
-          {
-            "id": "c_year",
-            "name": "year",
-            "description": "Year",
-            "type": "int32",
-            "isDimension": true
-          },
-          {
-            "id": "c_category",
-            "name": "category",
-            "description": "Category",
-            "type": "string",
-            "isDimension": true,
-            "parentId": "c_year"
-          },
-          {
-            "id": "c_portType",
-            "name": "portType",
-            "description": "Portfolio Type",
-            "type": "string",
-            "isDimension": true,
-            "parentId": "c_category"
-          }
-        ]
-      },
-      "data": {
-        "rows": [
-          {
-            "id": "c_f0"
-          },
-          {
-            "id": "c_b0"
-          },
-          {
-            "id": "c_f1"
-          },
-          {
-            "id": "c_b1"
-          },
-          {
-            "id": "c_f2"
-          },
-          {
-            "id": "c_b2"
-          }
-        ],
-        "columns": {
-          "c_year": {
-            "ranges": {
-              "0": 6
-            },
-            "values": [
-              2017
-            ]
-          },
-          "c_category": {
-            "ranges": {
-              "0": 2,
-              "2": 2
-            },
-            "values": [
-              "Exposure",
-              "Total Risk",
-              "Contribution to Risk",
-              "Contribution to Risk"
-            ]
-          },
-          "c_portType": {
-            "values": [
-              "Fund",
-              "Bench",
-              "Fund",
-              "Bench",
-              "Fund",
-              "Bench"
-            ]
           }
         }
       }

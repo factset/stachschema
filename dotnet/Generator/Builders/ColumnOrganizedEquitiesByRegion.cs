@@ -9,8 +9,6 @@ namespace FactSet.Stach.Generator.Builders {
         public static Table MainTable => Package.Tables["main"];
         public static ColumnDefinition RegionUrlColumn => MainTable.Definition.Columns.First(cd => string.Equals(cd.Name, "regionUrl"));
         public static ColumnDefinition Continent1Column => MainTable.Definition.Columns.First(cd => string.Equals(cd.Name, "continent1"));
-        public static ColumnDefinition Fund0Column => MainTable.Definition.Columns.First(cd => string.Equals(cd.Name, "fund0"));
-        public static RowDefinition Row0Row => MainTable.Data.Rows.Where((sd, index) => index == 0).First();
-        public static RowDefinition Row1Row => MainTable.Data.Rows.Where((sd, index) => index == 1).First();
+        public static ColumnDefinition Fund0Column => MainTable.Definition.Columns.First(cd => string.Equals(cd.Name, "fund0")); 
     }
 }

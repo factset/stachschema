@@ -60,7 +60,7 @@ namespace FactSet.Stach.Generator.Builders {
         }
         
         private IMessage MixedDataTypes() {
-            var columnId = SequentialGuid.NextGuid().ToString();
+            var columnId = 0.ToString();
             return new Table {
                 Definition = new TableDefinition {
                     Columns = {
@@ -72,20 +72,6 @@ namespace FactSet.Stach.Generator.Builders {
                     }
                 },
                 Data = new TableData {
-                    Rows = {
-                        new RowDefinition {
-                            Id = SequentialGuid.NextGuid().ToString()
-                        },
-                        new RowDefinition {
-                            Id = SequentialGuid.NextGuid().ToString()
-                        },
-                        new RowDefinition {
-                            Id = SequentialGuid.NextGuid().ToString()
-                        },
-                        new RowDefinition {
-                            Id = SequentialGuid.NextGuid().ToString()
-                        }
-                    },
                     Columns = {
                         {
                             columnId,
@@ -172,6 +158,7 @@ namespace FactSet.Stach.Generator.Builders {
         
         private IMessage RowMetadataLocation() {
             var metadataItemId = "rowMetadataLocationItem";
+            var rowId = 0.ToString();
             return new MetadataCollection {
                 Items = {
                     {
@@ -184,7 +171,7 @@ namespace FactSet.Stach.Generator.Builders {
                 Locations = new MetadataLocations {
                     Rows = {
                         {
-                            ColumnOrganizedEquitiesByRegion.Row0Row.Id,
+                            rowId,
                             new ListOfMetadata {
                                 Ids = {
                                     metadataItemId
@@ -198,6 +185,8 @@ namespace FactSet.Stach.Generator.Builders {
 
         private IMessage CellMetadataLocationSparsePattern() {
             var metadataItemId = "cellMetadataLocationSparsePatternItem";
+            var columnId = 0.ToString();
+            var rowId = 1.ToString();
             return new MetadataCollection {
                 Items = {
                     {
@@ -211,11 +200,11 @@ namespace FactSet.Stach.Generator.Builders {
                     Cells = new MetadataLocations.Types.CellsColumnMap {
                         Columns = {
                             {
-                                ColumnOrganizedEquitiesByRegion.Continent1Column.Id,
+                                columnId,
                                 new MetadataLocations.Types.CellsRowMap {
                                     Rows = {
                                         {
-                                            ColumnOrganizedEquitiesByRegion.Row0Row.Id,
+                                            rowId,
                                             new ListOfMetadata {
                                                 Ids = {
                                                     metadataItemId
@@ -263,6 +252,8 @@ namespace FactSet.Stach.Generator.Builders {
 
         private IMessage RowOrientedCellMetadataLocationDensePattern() {
             var metadataItemId = "rowOrientedCellMetadataLocationDensePatternItem";
+            var row0Id = 0.ToString();
+            var row1Id = 1.ToString();
             return new MetadataCollection {
                 Items = {
                     {
@@ -271,7 +262,7 @@ namespace FactSet.Stach.Generator.Builders {
                             Reference = new Reference {
                                 ReferenceType = ReferenceType.Cell,
                                 TableId = "main",
-                                RowId = ColumnOrganizedEquitiesByRegion.Row1Row.Id
+                                RowId = row1Id
                             }
                         }
                     }
@@ -279,7 +270,7 @@ namespace FactSet.Stach.Generator.Builders {
                 Locations = new MetadataLocations {
                     Rows = {
                         {
-                            ColumnOrganizedEquitiesByRegion.Row0Row.Id,
+                            row0Id,
                             new ListOfMetadata {
                                 Ids = {
                                     metadataItemId
@@ -323,6 +314,7 @@ namespace FactSet.Stach.Generator.Builders {
         }
 
         private IMessage ColumnMetadataItem() {
+            var columnId = 0.ToString();
             return new MetadataCollection {
                 Items = {
                     {
@@ -331,7 +323,7 @@ namespace FactSet.Stach.Generator.Builders {
                             Reference = new Reference {
                                 ReferenceType = ReferenceType.Column,
                                 TableId = "metadataTable",
-                                ColumnId = SequentialGuid.NextGuid().ToString()
+                                ColumnId = columnId
                             }
                         }
                     }
@@ -341,6 +333,7 @@ namespace FactSet.Stach.Generator.Builders {
         }
 
         private IMessage RowMetadataItem() {
+            var columnId = 0.ToString();
             return new MetadataCollection {
                 Items = {
                     {
@@ -349,7 +342,7 @@ namespace FactSet.Stach.Generator.Builders {
                             Reference = new Reference {
                                 ReferenceType = ReferenceType.Row,
                                 TableId = "metadataTable",
-                                ColumnId = SequentialGuid.NextGuid().ToString()
+                                ColumnId = columnId
                             }
                         }
                     }
@@ -359,6 +352,8 @@ namespace FactSet.Stach.Generator.Builders {
         }
 
         private IMessage CellMetadataItemSparsePattern() {
+            var columnId = 0.ToString();
+            var rowId = 1.ToString();
             return new MetadataCollection {
                 Items = {
                     {
@@ -367,8 +362,8 @@ namespace FactSet.Stach.Generator.Builders {
                             Reference = new Reference {
                                 ReferenceType = ReferenceType.Cell,
                                 TableId = "metadataTable",
-                                ColumnId = SequentialGuid.NextGuid().ToString(),
-                                RowId = SequentialGuid.NextGuid().ToString()
+                                ColumnId = columnId,
+                                RowId = rowId
                             }
                         }
                     }

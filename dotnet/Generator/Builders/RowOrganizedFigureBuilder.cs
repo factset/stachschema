@@ -87,11 +87,12 @@ namespace FactSet.Stach.Generator.Builders {
         }
 
         private IMessage ColumnMetadataLocation() {
+            var columnId = 0.ToString();
             return new RowOrganizedPackage.Types.Table {
                 Data = new RowOrganizedPackage.Types.TableData {
                     ColumnMetadata = {
                         {
-                            SequentialGuid.NextGuid().ToString(),
+                            columnId,
                             new RowOrganizedPackage.Types.MapOfMetadata {
                                 Items = {
                                     {

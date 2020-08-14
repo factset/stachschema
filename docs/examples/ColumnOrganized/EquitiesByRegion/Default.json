@@ -9,38 +9,38 @@
         "headerTableId": "headers",
         "columns": [
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000258",
+            "id": "1",
             "name": "function",
             "description": "Function",
             "type": "string",
             "isDimension": true,
-            "nextSiblingId": "25963bde-5c90-43ff-8a4d-000000000384"
+            "nextSiblingId": "2"
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000384",
+            "id": "2",
             "name": "region",
             "description": "Region",
             "type": "string",
             "isDimension": true
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-0000000005dc",
+            "id": "3",
             "name": "continent1",
             "description": "Continent 1",
             "type": "string",
             "isDimension": true,
-            "parentId": "25963bde-5c90-43ff-8a4d-000000000384"
+            "parentId": "2"
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000708",
+            "id": "4",
             "name": "continent2",
             "description": "Continent 2",
             "type": "string",
             "isDimension": true,
-            "parentId": "25963bde-5c90-43ff-8a4d-000000000384"
+            "parentId": "2"
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-0000000004b0",
+            "id": "5",
             "name": "regionUrl",
             "description": "Region Url",
             "type": "string",
@@ -48,7 +48,7 @@
             "isHidden": true
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000834",
+            "id": "6",
             "name": "fund0",
             "description": "Fund 0",
             "type": "real",
@@ -59,7 +59,7 @@
             }
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000a8c",
+            "id": "7",
             "name": "bench0",
             "description": "Bench 0",
             "type": "real",
@@ -70,14 +70,14 @@
             }
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000bb8",
+            "id": "8",
             "name": "contAbbr",
             "description": "Abbr",
             "type": "string",
             "isDimension": true
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000ce4",
+            "id": "9",
             "name": "fund1",
             "description": "Fund 1",
             "type": "real",
@@ -88,7 +88,7 @@
             }
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000e10",
+            "id": "10",
             "name": "bench1",
             "description": "Bench 1",
             "type": "real",
@@ -99,7 +99,7 @@
             }
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000f3c",
+            "id": "11",
             "name": "fund2",
             "description": "Fund 2",
             "type": "real",
@@ -110,7 +110,7 @@
             }
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000000960",
+            "id": "12",
             "name": "fund0Url",
             "description": "Fund 0 Url",
             "type": "string",
@@ -118,7 +118,7 @@
             "isHidden": true
           },
           {
-            "id": "25963bde-5c90-43ff-8a4d-000000001068",
+            "id": "13",
             "name": "bench2",
             "description": "Bench 2",
             "type": "real",
@@ -131,55 +131,8 @@
         ]
       },
       "data": {
-        "rows": [
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001194"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-0000000012c0"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-0000000013ec"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001518"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001644"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001770"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-00000000189c"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-0000000019c8"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001af4"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001c20"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001d4c"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001e78"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-000000001fa4"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-0000000020d0"
-          },
-          {
-            "id": "25963bde-5c90-43ff-8a4d-0000000021fc"
-          }
-        ],
         "columns": {
-          "25963bde-5c90-43ff-8a4d-000000000258": {
+          "1": {
             "values": [
               "Max",
               "Total",
@@ -198,7 +151,7 @@
               null
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000384": {
+          "2": {
             "values": [
               null,
               null,
@@ -217,7 +170,7 @@
               "[Cash]"
             ]
           },
-          "25963bde-5c90-43ff-8a4d-0000000005dc": {
+          "3": {
             "values": [
               null,
               null,
@@ -236,7 +189,7 @@
               null
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000708": {
+          "4": {
             "values": [
               null,
               null,
@@ -255,7 +208,7 @@
               null
             ]
           },
-          "25963bde-5c90-43ff-8a4d-0000000004b0": {
+          "5": {
             "values": [
               null,
               null,
@@ -274,45 +227,7 @@
               "https://www.google.com/search?q=cash"
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000bb8": {
-            "values": [
-              null,
-              null,
-              null,
-              "AM",
-              "APac",
-              "EU",
-              "MEA",
-              null,
-              "AM",
-              "APac",
-              "EU",
-              "MEA",
-              null,
-              null,
-              null
-            ]
-          },
-          "25963bde-5c90-43ff-8a4d-000000000960": {
-            "values": [
-              null,
-              null,
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x",
-              "https://www.google.com/search?q=x"
-            ]
-          },
-          "25963bde-5c90-43ff-8a4d-000000000834": {
+          "6": {
             "values": [
               88.3,
               100,
@@ -331,7 +246,7 @@
               0.15
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000a8c": {
+          "7": {
             "values": [
               89.62,
               100,
@@ -350,7 +265,26 @@
               null
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000ce4": {
+          "8": {
+            "values": [
+              null,
+              null,
+              null,
+              "AM",
+              "APac",
+              "EU",
+              "MEA",
+              null,
+              "AM",
+              "APac",
+              "EU",
+              "MEA",
+              null,
+              null,
+              null
+            ]
+          },
+          "9": {
             "values": [
               17.17,
               8.6,
@@ -369,7 +303,7 @@
               8.45
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000e10": {
+          "10": {
             "values": [
               15.67,
               8.38,
@@ -388,7 +322,7 @@
               null
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000000f3c": {
+          "11": {
             "values": [
               86.07,
               100,
@@ -407,7 +341,26 @@
               -0.06
             ]
           },
-          "25963bde-5c90-43ff-8a4d-000000001068": {
+          "12": {
+            "values": [
+              null,
+              null,
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x",
+              "https://www.google.com/search?q=x"
+            ]
+          },
+          "13": {
             "values": [
               89.18,
               100,
@@ -436,14 +389,14 @@
               "reference": {
                 "referenceType": "COLUMN",
                 "tableId": "main",
-                "columnId": "25963bde-5c90-43ff-8a4d-000000000960"
+                "columnId": "12"
               }
             },
             "regionUrl": {
               "reference": {
                 "referenceType": "COLUMN",
                 "tableId": "main",
-                "columnId": "25963bde-5c90-43ff-8a4d-0000000004b0"
+                "columnId": "5"
               }
             },
             "riskModel": {
@@ -458,12 +411,12 @@
               "header"
             ],
             "columns": {
-              "25963bde-5c90-43ff-8a4d-000000000834": {
+              "6": {
                 "ids": [
                   "fund0Url"
                 ]
               },
-              "25963bde-5c90-43ff-8a4d-000000000384": {
+              "2": {
                 "ids": [
                   "regionUrl",
                   "riskModel"

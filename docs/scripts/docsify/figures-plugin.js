@@ -70,5 +70,4 @@
   };
 
   $docsify.plugins = [].concat(install, $docsify.plugins);
-
 }());
