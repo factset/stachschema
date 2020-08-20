@@ -112,12 +112,12 @@ $root.factset = (function() {
                 Package.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.version != null && message.hasOwnProperty("version"))
+                    if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
                     if (message.primaryTableIds != null && message.primaryTableIds.length)
                         for (var i = 0; i < message.primaryTableIds.length; ++i)
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.primaryTableIds[i]);
-                    if (message.tables != null && message.hasOwnProperty("tables"))
+                    if (message.tables != null && Object.hasOwnProperty.call(message, "tables"))
                         for (var keys = Object.keys(message.tables), i = 0; i < keys.length; ++i) {
                             writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                             $root.factset.protobuf.stach.table.Table.encode(message.tables[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -152,7 +152,7 @@ $root.factset = (function() {
                 Package.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.Package(), key;
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.Package(), key, value;
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -165,12 +165,26 @@ $root.factset = (function() {
                             message.primaryTableIds.push(reader.string());
                             break;
                         case 3:
-                            reader.skip().pos++;
                             if (message.tables === $util.emptyObject)
                                 message.tables = {};
-                            key = reader.string();
-                            reader.pos++;
-                            message.tables[key] = $root.factset.protobuf.stach.table.Table.decode(reader, reader.uint32());
+                            var end2 = reader.uint32() + reader.pos;
+                            key = "";
+                            value = null;
+                            while (reader.pos < end2) {
+                                var tag2 = reader.uint32();
+                                switch (tag2 >>> 3) {
+                                case 1:
+                                    key = reader.string();
+                                    break;
+                                case 2:
+                                    value = $root.factset.protobuf.stach.table.Table.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag2 & 7);
+                                    break;
+                                }
+                            }
+                            message.tables[key] = value;
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -379,9 +393,9 @@ $root.factset = (function() {
                 RowOrganizedPackage.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.version != null && message.hasOwnProperty("version"))
+                    if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
-                    if (message.tables != null && message.hasOwnProperty("tables"))
+                    if (message.tables != null && Object.hasOwnProperty.call(message, "tables"))
                         for (var keys = Object.keys(message.tables), i = 0; i < keys.length; ++i) {
                             writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                             $root.factset.protobuf.stach.RowOrganizedPackage.Table.encode(message.tables[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -416,7 +430,7 @@ $root.factset = (function() {
                 RowOrganizedPackage.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage(), key;
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage(), key, value;
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -424,12 +438,26 @@ $root.factset = (function() {
                             message.version = reader.string();
                             break;
                         case 2:
-                            reader.skip().pos++;
                             if (message.tables === $util.emptyObject)
                                 message.tables = {};
-                            key = reader.string();
-                            reader.pos++;
-                            message.tables[key] = $root.factset.protobuf.stach.RowOrganizedPackage.Table.decode(reader, reader.uint32());
+                            var end2 = reader.uint32() + reader.pos;
+                            key = "";
+                            value = null;
+                            while (reader.pos < end2) {
+                                var tag2 = reader.uint32();
+                                switch (tag2 >>> 3) {
+                                case 1:
+                                    key = reader.string();
+                                    break;
+                                case 2:
+                                    value = $root.factset.protobuf.stach.RowOrganizedPackage.Table.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag2 & 7);
+                                    break;
+                                }
+                            }
+                            message.tables[key] = value;
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -622,11 +650,11 @@ $root.factset = (function() {
                     Table.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.definition != null && message.hasOwnProperty("definition"))
+                        if (message.definition != null && Object.hasOwnProperty.call(message, "definition"))
                             $root.factset.protobuf.stach.RowOrganizedPackage.TableDefinition.encode(message.definition, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        if (message.headersDefinition != null && message.hasOwnProperty("headersDefinition"))
+                        if (message.headersDefinition != null && Object.hasOwnProperty.call(message, "headersDefinition"))
                             $root.factset.protobuf.stach.RowOrganizedPackage.TableDefinition.encode(message.headersDefinition, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                        if (message.data != null && message.hasOwnProperty("data"))
+                        if (message.data != null && Object.hasOwnProperty.call(message, "data"))
                             $root.factset.protobuf.stach.RowOrganizedPackage.TableData.encode(message.data, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                         return writer;
                     };
@@ -1083,12 +1111,12 @@ $root.factset = (function() {
                         if (message.rows != null && message.rows.length)
                             for (var i = 0; i < message.rows.length; ++i)
                                 $root.factset.protobuf.stach.RowOrganizedPackage.Row.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        if (message.tableMetadata != null && message.hasOwnProperty("tableMetadata"))
+                        if (message.tableMetadata != null && Object.hasOwnProperty.call(message, "tableMetadata"))
                             for (var keys = Object.keys(message.tableMetadata), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.MetadataItem.encode(message.tableMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.columnMetadata != null && message.hasOwnProperty("columnMetadata"))
+                        if (message.columnMetadata != null && Object.hasOwnProperty.call(message, "columnMetadata"))
                             for (var keys = Object.keys(message.columnMetadata), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.encode(message.columnMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -1123,7 +1151,7 @@ $root.factset = (function() {
                     TableData.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.TableData(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.TableData(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
@@ -1133,20 +1161,48 @@ $root.factset = (function() {
                                 message.rows.push($root.factset.protobuf.stach.RowOrganizedPackage.Row.decode(reader, reader.uint32()));
                                 break;
                             case 2:
-                                reader.skip().pos++;
                                 if (message.tableMetadata === $util.emptyObject)
                                     message.tableMetadata = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.tableMetadata[key] = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.tableMetadata[key] = value;
                                 break;
                             case 3:
-                                reader.skip().pos++;
                                 if (message.columnMetadata === $util.emptyObject)
                                     message.columnMetadata = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.columnMetadata[key] = $root.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.columnMetadata[key] = value;
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -1439,25 +1495,25 @@ $root.factset = (function() {
                     Row.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.id != null && message.hasOwnProperty("id"))
+                        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                        if (message.rowType != null && message.hasOwnProperty("rowType"))
+                        if (message.rowType != null && Object.hasOwnProperty.call(message, "rowType"))
                             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.rowType);
-                        if (message.cells != null && message.hasOwnProperty("cells"))
+                        if (message.cells != null && Object.hasOwnProperty.call(message, "cells"))
                             $root.google.protobuf.ListValue.encode(message.cells, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                        if (message.values != null && message.hasOwnProperty("values"))
+                        if (message.values != null && Object.hasOwnProperty.call(message, "values"))
                             $root.google.protobuf.Struct.encode(message.values, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                        if (message.cellDetails != null && message.hasOwnProperty("cellDetails"))
+                        if (message.cellDetails != null && Object.hasOwnProperty.call(message, "cellDetails"))
                             for (var keys = Object.keys(message.cellDetails), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.RowOrganizedPackage.CellDetail.encode(message.cellDetails[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.headerCellDetails != null && message.hasOwnProperty("headerCellDetails"))
+                        if (message.headerCellDetails != null && Object.hasOwnProperty.call(message, "headerCellDetails"))
                             for (var keys = Object.keys(message.headerCellDetails), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 6, wireType 2 =*/50).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.encode(message.headerCellDetails[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.rowMetadata != null && message.hasOwnProperty("rowMetadata"))
+                        if (message.rowMetadata != null && Object.hasOwnProperty.call(message, "rowMetadata"))
                             for (var keys = Object.keys(message.rowMetadata), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 7, wireType 2 =*/58).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.MetadataItem.encode(message.rowMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -1492,7 +1548,7 @@ $root.factset = (function() {
                     Row.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.Row(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.Row(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
@@ -1509,28 +1565,70 @@ $root.factset = (function() {
                                 message.values = $root.google.protobuf.Struct.decode(reader, reader.uint32());
                                 break;
                             case 5:
-                                reader.skip().pos++;
                                 if (message.cellDetails === $util.emptyObject)
                                     message.cellDetails = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.cellDetails[key] = $root.factset.protobuf.stach.RowOrganizedPackage.CellDetail.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.RowOrganizedPackage.CellDetail.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.cellDetails[key] = value;
                                 break;
                             case 6:
-                                reader.skip().pos++;
                                 if (message.headerCellDetails === $util.emptyObject)
                                     message.headerCellDetails = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.headerCellDetails[key] = $root.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.headerCellDetails[key] = value;
                                 break;
                             case 7:
-                                reader.skip().pos++;
                                 if (message.rowMetadata === $util.emptyObject)
                                     message.rowMetadata = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.rowMetadata[key] = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.rowMetadata[key] = value;
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -1766,7 +1864,7 @@ $root.factset = (function() {
                     /**
                      * RowType enum.
                      * @name factset.protobuf.stach.RowOrganizedPackage.Row.RowType
-                     * @enum {string}
+                     * @enum {number}
                      * @property {number} Body=0 Body value
                      * @property {number} Header=1 Header value
                      */
@@ -1855,11 +1953,11 @@ $root.factset = (function() {
                     CellDetail.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.groupLevel != null && message.hasOwnProperty("groupLevel"))
+                        if (message.groupLevel != null && Object.hasOwnProperty.call(message, "groupLevel"))
                             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.groupLevel);
-                        if (message.cellDefinition != null && message.hasOwnProperty("cellDefinition"))
+                        if (message.cellDefinition != null && Object.hasOwnProperty.call(message, "cellDefinition"))
                             $root.factset.protobuf.stach.table.CellDefinition.encode(message.cellDefinition, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                        if (message.cellMetadata != null && message.hasOwnProperty("cellMetadata"))
+                        if (message.cellMetadata != null && Object.hasOwnProperty.call(message, "cellMetadata"))
                             for (var keys = Object.keys(message.cellMetadata), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.MetadataItem.encode(message.cellMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -1894,7 +1992,7 @@ $root.factset = (function() {
                     CellDetail.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.CellDetail(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.CellDetail(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
@@ -1905,12 +2003,26 @@ $root.factset = (function() {
                                 message.cellDefinition = $root.factset.protobuf.stach.table.CellDefinition.decode(reader, reader.uint32());
                                 break;
                             case 3:
-                                reader.skip().pos++;
                                 if (message.cellMetadata === $util.emptyObject)
                                     message.cellMetadata = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.cellMetadata[key] = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.cellMetadata[key] = value;
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -2148,17 +2260,17 @@ $root.factset = (function() {
                     HeaderCellDetail.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.colspan != null && message.hasOwnProperty("colspan"))
+                        if (message.colspan != null && Object.hasOwnProperty.call(message, "colspan"))
                             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.colspan);
-                        if (message.rowspan != null && message.hasOwnProperty("rowspan"))
+                        if (message.rowspan != null && Object.hasOwnProperty.call(message, "rowspan"))
                             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.rowspan);
-                        if (message.source != null && message.hasOwnProperty("source"))
+                        if (message.source != null && Object.hasOwnProperty.call(message, "source"))
                             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.source);
-                        if (message.columnIndex != null && message.hasOwnProperty("columnIndex"))
+                        if (message.columnIndex != null && Object.hasOwnProperty.call(message, "columnIndex"))
                             writer.uint32(/* id 4, wireType 0 =*/32).int32(message.columnIndex);
-                        if (message.cellDefinition != null && message.hasOwnProperty("cellDefinition"))
+                        if (message.cellDefinition != null && Object.hasOwnProperty.call(message, "cellDefinition"))
                             $root.factset.protobuf.stach.table.CellDefinition.encode(message.cellDefinition, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                        if (message.cellMetadata != null && message.hasOwnProperty("cellMetadata"))
+                        if (message.cellMetadata != null && Object.hasOwnProperty.call(message, "cellMetadata"))
                             for (var keys = Object.keys(message.cellMetadata), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 6, wireType 2 =*/50).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.MetadataItem.encode(message.cellMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -2193,7 +2305,7 @@ $root.factset = (function() {
                     HeaderCellDetail.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
@@ -2213,12 +2325,26 @@ $root.factset = (function() {
                                 message.cellDefinition = $root.factset.protobuf.stach.table.CellDefinition.decode(reader, reader.uint32());
                                 break;
                             case 6:
-                                reader.skip().pos++;
                                 if (message.cellMetadata === $util.emptyObject)
                                     message.cellMetadata = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.cellMetadata[key] = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.cellMetadata[key] = value;
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -2401,7 +2527,7 @@ $root.factset = (function() {
                     /**
                      * TableSource enum.
                      * @name factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.TableSource
-                     * @enum {string}
+                     * @enum {number}
                      * @property {number} UNKNOWN=0 UNKNOWN value
                      * @property {number} NONE=1 NONE value
                      * @property {number} PRIMARY=2 PRIMARY value
@@ -2476,7 +2602,7 @@ $root.factset = (function() {
                     MapOfMetadata.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.items != null && message.hasOwnProperty("items"))
+                        if (message.items != null && Object.hasOwnProperty.call(message, "items"))
                             for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.MetadataItem.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -2511,17 +2637,31 @@ $root.factset = (function() {
                     MapOfMetadata.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
                             case 1:
-                                reader.skip().pos++;
                                 if (message.items === $util.emptyObject)
                                     message.items = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.items[key] = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.items[key] = value;
                                 break;
                             default:
                                 reader.skipType(tag & 7);
@@ -2711,9 +2851,9 @@ $root.factset = (function() {
                     CellDefinition.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.type != null && message.hasOwnProperty("type"))
+                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.type);
-                        if (message.format != null && message.hasOwnProperty("format"))
+                        if (message.format != null && Object.hasOwnProperty.call(message, "format"))
                             $root.factset.protobuf.stach.table.DataFormat.encode(message.format, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                         return writer;
                     };
@@ -2937,10 +3077,10 @@ $root.factset = (function() {
                     ColumnData.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.ranges != null && message.hasOwnProperty("ranges"))
+                        if (message.ranges != null && Object.hasOwnProperty.call(message, "ranges"))
                             for (var keys = Object.keys(message.ranges), i = 0; i < keys.length; ++i)
                                 writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).int32(keys[i]).uint32(/* id 2, wireType 0 =*/16).int32(message.ranges[keys[i]]).ldelim();
-                        if (message.values != null && message.hasOwnProperty("values"))
+                        if (message.values != null && Object.hasOwnProperty.call(message, "values"))
                             $root.google.protobuf.ListValue.encode(message.values, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                         if (message.definitions != null && message.definitions.length)
                             for (var i = 0; i < message.definitions.length; ++i)
@@ -2975,17 +3115,31 @@ $root.factset = (function() {
                     ColumnData.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.ColumnData(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.ColumnData(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
                             case 1:
-                                reader.skip().pos++;
                                 if (message.ranges === $util.emptyObject)
                                     message.ranges = {};
-                                key = reader.int32();
-                                reader.pos++;
-                                message.ranges[key] = reader.int32();
+                                var end2 = reader.uint32() + reader.pos;
+                                key = 0;
+                                value = 0;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.int32();
+                                        break;
+                                    case 2:
+                                        value = reader.int32();
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.ranges[key] = value;
                                 break;
                             case 2:
                                 message.values = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
@@ -3281,25 +3435,25 @@ $root.factset = (function() {
                     ColumnDefinition.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.id != null && message.hasOwnProperty("id"))
+                        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                        if (message.name != null && message.hasOwnProperty("name"))
+                        if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
-                        if (message.description != null && message.hasOwnProperty("description"))
+                        if (message.description != null && Object.hasOwnProperty.call(message, "description"))
                             writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
-                        if (message.type != null && message.hasOwnProperty("type"))
+                        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                             writer.uint32(/* id 4, wireType 2 =*/34).string(message.type);
-                        if (message.isDimension != null && message.hasOwnProperty("isDimension"))
+                        if (message.isDimension != null && Object.hasOwnProperty.call(message, "isDimension"))
                             writer.uint32(/* id 5, wireType 0 =*/40).bool(message.isDimension);
-                        if (message.isHidden != null && message.hasOwnProperty("isHidden"))
+                        if (message.isHidden != null && Object.hasOwnProperty.call(message, "isHidden"))
                             writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isHidden);
-                        if (message.nextSiblingId != null && message.hasOwnProperty("nextSiblingId"))
+                        if (message.nextSiblingId != null && Object.hasOwnProperty.call(message, "nextSiblingId"))
                             writer.uint32(/* id 7, wireType 2 =*/58).string(message.nextSiblingId);
-                        if (message.parentId != null && message.hasOwnProperty("parentId"))
+                        if (message.parentId != null && Object.hasOwnProperty.call(message, "parentId"))
                             writer.uint32(/* id 8, wireType 2 =*/66).string(message.parentId);
-                        if (message.headerId != null && message.hasOwnProperty("headerId"))
+                        if (message.headerId != null && Object.hasOwnProperty.call(message, "headerId"))
                             writer.uint32(/* id 9, wireType 2 =*/74).string(message.headerId);
-                        if (message.format != null && message.hasOwnProperty("format"))
+                        if (message.format != null && Object.hasOwnProperty.call(message, "format"))
                             $root.factset.protobuf.stach.table.DataFormat.encode(message.format, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                         return writer;
                     };
@@ -3618,13 +3772,13 @@ $root.factset = (function() {
                     DataFormat.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.format != null && message.hasOwnProperty("format"))
+                        if (message.format != null && Object.hasOwnProperty.call(message, "format"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.format);
-                        if (message.nullFormat != null && message.hasOwnProperty("nullFormat"))
+                        if (message.nullFormat != null && Object.hasOwnProperty.call(message, "nullFormat"))
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.nullFormat);
-                        if (message.halign != null && message.hasOwnProperty("halign"))
+                        if (message.halign != null && Object.hasOwnProperty.call(message, "halign"))
                             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.halign);
-                        if (message.valign != null && message.hasOwnProperty("valign"))
+                        if (message.valign != null && Object.hasOwnProperty.call(message, "valign"))
                             writer.uint32(/* id 4, wireType 0 =*/32).int32(message.valign);
                         return writer;
                     };
@@ -3838,7 +3992,7 @@ $root.factset = (function() {
                 /**
                  * HorizontalAlignment enum.
                  * @name factset.protobuf.stach.table.HorizontalAlignment
-                 * @enum {string}
+                 * @enum {number}
                  * @property {number} UNKNOWN_HALIGN=0 UNKNOWN_HALIGN value
                  * @property {number} LEFT=1 LEFT value
                  * @property {number} CENTER=2 CENTER value
@@ -4122,12 +4276,12 @@ $root.factset = (function() {
                     MetadataCollection.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.items != null && message.hasOwnProperty("items"))
+                        if (message.items != null && Object.hasOwnProperty.call(message, "items"))
                             for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.MetadataItem.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.locations != null && message.hasOwnProperty("locations"))
+                        if (message.locations != null && Object.hasOwnProperty.call(message, "locations"))
                             $root.factset.protobuf.stach.table.MetadataLocations.encode(message.locations, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                         return writer;
                     };
@@ -4159,17 +4313,31 @@ $root.factset = (function() {
                     MetadataCollection.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataCollection(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataCollection(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
                             case 1:
-                                reader.skip().pos++;
                                 if (message.items === $util.emptyObject)
                                     message.items = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.items[key] = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.MetadataItem.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.items[key] = value;
                                 break;
                             case 2:
                                 message.locations = $root.factset.protobuf.stach.table.MetadataLocations.decode(reader, reader.uint32());
@@ -4378,9 +4546,9 @@ $root.factset = (function() {
                     MetadataItem.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.value != null && message.hasOwnProperty("value"))
+                        if (message.value != null && Object.hasOwnProperty.call(message, "value"))
                             $root.google.protobuf.Value.encode(message.value, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        if (message.reference != null && message.hasOwnProperty("reference"))
+                        if (message.reference != null && Object.hasOwnProperty.call(message, "reference"))
                             $root.factset.protobuf.stach.table.Reference.encode(message.reference, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                         return writer;
                     };
@@ -4633,17 +4801,17 @@ $root.factset = (function() {
                         if (message.table != null && message.table.length)
                             for (var i = 0; i < message.table.length; ++i)
                                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.table[i]);
-                        if (message.columns != null && message.hasOwnProperty("columns"))
+                        if (message.columns != null && Object.hasOwnProperty.call(message, "columns"))
                             for (var keys = Object.keys(message.columns), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.ListOfMetadata.encode(message.columns[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.rows != null && message.hasOwnProperty("rows"))
+                        if (message.rows != null && Object.hasOwnProperty.call(message, "rows"))
                             for (var keys = Object.keys(message.rows), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.ListOfMetadata.encode(message.rows[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.cells != null && message.hasOwnProperty("cells"))
+                        if (message.cells != null && Object.hasOwnProperty.call(message, "cells"))
                             $root.factset.protobuf.stach.table.MetadataLocations.CellsColumnMap.encode(message.cells, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                         return writer;
                     };
@@ -4675,7 +4843,7 @@ $root.factset = (function() {
                     MetadataLocations.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataLocations(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataLocations(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
@@ -4685,20 +4853,48 @@ $root.factset = (function() {
                                 message.table.push(reader.string());
                                 break;
                             case 2:
-                                reader.skip().pos++;
                                 if (message.columns === $util.emptyObject)
                                     message.columns = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.columns[key] = $root.factset.protobuf.stach.table.ListOfMetadata.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.ListOfMetadata.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.columns[key] = value;
                                 break;
                             case 3:
-                                reader.skip().pos++;
                                 if (message.rows === $util.emptyObject)
                                     message.rows = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.rows[key] = $root.factset.protobuf.stach.table.ListOfMetadata.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.ListOfMetadata.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.rows[key] = value;
                                 break;
                             case 4:
                                 message.cells = $root.factset.protobuf.stach.table.MetadataLocations.CellsColumnMap.decode(reader, reader.uint32());
@@ -4930,7 +5126,7 @@ $root.factset = (function() {
                         CellsColumnMap.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.columns != null && message.hasOwnProperty("columns"))
+                            if (message.columns != null && Object.hasOwnProperty.call(message, "columns"))
                                 for (var keys = Object.keys(message.columns), i = 0; i < keys.length; ++i) {
                                     writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                     $root.factset.protobuf.stach.table.MetadataLocations.CellsRowMap.encode(message.columns[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -4965,17 +5161,31 @@ $root.factset = (function() {
                         CellsColumnMap.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataLocations.CellsColumnMap(), key;
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataLocations.CellsColumnMap(), key, value;
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
                                 case 1:
-                                    reader.skip().pos++;
                                     if (message.columns === $util.emptyObject)
                                         message.columns = {};
-                                    key = reader.string();
-                                    reader.pos++;
-                                    message.columns[key] = $root.factset.protobuf.stach.table.MetadataLocations.CellsRowMap.decode(reader, reader.uint32());
+                                    var end2 = reader.uint32() + reader.pos;
+                                    key = "";
+                                    value = null;
+                                    while (reader.pos < end2) {
+                                        var tag2 = reader.uint32();
+                                        switch (tag2 >>> 3) {
+                                        case 1:
+                                            key = reader.string();
+                                            break;
+                                        case 2:
+                                            value = $root.factset.protobuf.stach.table.MetadataLocations.CellsRowMap.decode(reader, reader.uint32());
+                                            break;
+                                        default:
+                                            reader.skipType(tag2 & 7);
+                                            break;
+                                        }
+                                    }
+                                    message.columns[key] = value;
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -5145,7 +5355,7 @@ $root.factset = (function() {
                         CellsRowMap.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.rows != null && message.hasOwnProperty("rows"))
+                            if (message.rows != null && Object.hasOwnProperty.call(message, "rows"))
                                 for (var keys = Object.keys(message.rows), i = 0; i < keys.length; ++i) {
                                     writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                     $root.factset.protobuf.stach.table.ListOfMetadata.encode(message.rows[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -5180,17 +5390,31 @@ $root.factset = (function() {
                         CellsRowMap.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataLocations.CellsRowMap(), key;
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.MetadataLocations.CellsRowMap(), key, value;
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
                                 case 1:
-                                    reader.skip().pos++;
                                     if (message.rows === $util.emptyObject)
                                         message.rows = {};
-                                    key = reader.string();
-                                    reader.pos++;
-                                    message.rows[key] = $root.factset.protobuf.stach.table.ListOfMetadata.decode(reader, reader.uint32());
+                                    var end2 = reader.uint32() + reader.pos;
+                                    key = "";
+                                    value = null;
+                                    while (reader.pos < end2) {
+                                        var tag2 = reader.uint32();
+                                        switch (tag2 >>> 3) {
+                                        case 1:
+                                            key = reader.string();
+                                            break;
+                                        case 2:
+                                            value = $root.factset.protobuf.stach.table.ListOfMetadata.decode(reader, reader.uint32());
+                                            break;
+                                        default:
+                                            reader.skipType(tag2 & 7);
+                                            break;
+                                        }
+                                    }
+                                    message.rows[key] = value;
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -5389,13 +5613,13 @@ $root.factset = (function() {
                     Reference.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.referenceType != null && message.hasOwnProperty("referenceType"))
+                        if (message.referenceType != null && Object.hasOwnProperty.call(message, "referenceType"))
                             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.referenceType);
-                        if (message.tableId != null && message.hasOwnProperty("tableId"))
+                        if (message.tableId != null && Object.hasOwnProperty.call(message, "tableId"))
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.tableId);
-                        if (message.columnId != null && message.hasOwnProperty("columnId"))
+                        if (message.columnId != null && Object.hasOwnProperty.call(message, "columnId"))
                             writer.uint32(/* id 3, wireType 2 =*/26).string(message.columnId);
-                        if (message.rowId != null && message.hasOwnProperty("rowId"))
+                        if (message.rowId != null && Object.hasOwnProperty.call(message, "rowId"))
                             writer.uint32(/* id 4, wireType 2 =*/34).string(message.rowId);
                         return writer;
                     };
@@ -5591,7 +5815,7 @@ $root.factset = (function() {
                 /**
                  * ReferenceType enum.
                  * @name factset.protobuf.stach.table.ReferenceType
-                 * @enum {string}
+                 * @enum {number}
                  * @property {number} UNKNOWN_REFERENCE_TYPE=0 UNKNOWN_REFERENCE_TYPE value
                  * @property {number} TABLE=1 TABLE value
                  * @property {number} COLUMN=2 COLUMN value
@@ -5673,9 +5897,9 @@ $root.factset = (function() {
                     RowDefinition.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.id != null && message.hasOwnProperty("id"))
+                        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                        if (message.format != null && message.hasOwnProperty("format"))
+                        if (message.format != null && Object.hasOwnProperty.call(message, "format"))
                             $root.factset.protobuf.stach.table.DataFormat.encode(message.format, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                         return writer;
                     };
@@ -5888,9 +6112,9 @@ $root.factset = (function() {
                     Table.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.definition != null && message.hasOwnProperty("definition"))
+                        if (message.definition != null && Object.hasOwnProperty.call(message, "definition"))
                             $root.factset.protobuf.stach.table.TableDefinition.encode(message.definition, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        if (message.data != null && message.hasOwnProperty("data"))
+                        if (message.data != null && Object.hasOwnProperty.call(message, "data"))
                             $root.factset.protobuf.stach.table.TableData.encode(message.data, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                         return writer;
                     };
@@ -6122,12 +6346,12 @@ $root.factset = (function() {
                         if (message.rows != null && message.rows.length)
                             for (var i = 0; i < message.rows.length; ++i)
                                 $root.factset.protobuf.stach.table.RowDefinition.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        if (message.columns != null && message.hasOwnProperty("columns"))
+                        if (message.columns != null && Object.hasOwnProperty.call(message, "columns"))
                             for (var keys = Object.keys(message.columns), i = 0; i < keys.length; ++i) {
                                 writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                                 $root.factset.protobuf.stach.table.ColumnData.encode(message.columns[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                             }
-                        if (message.metadata != null && message.hasOwnProperty("metadata"))
+                        if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
                             $root.factset.protobuf.stach.table.MetadataCollection.encode(message.metadata, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                         return writer;
                     };
@@ -6159,7 +6383,7 @@ $root.factset = (function() {
                     TableData.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.TableData(), key;
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.table.TableData(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
@@ -6169,12 +6393,26 @@ $root.factset = (function() {
                                 message.rows.push($root.factset.protobuf.stach.table.RowDefinition.decode(reader, reader.uint32()));
                                 break;
                             case 2:
-                                reader.skip().pos++;
                                 if (message.columns === $util.emptyObject)
                                     message.columns = {};
-                                key = reader.string();
-                                reader.pos++;
-                                message.columns[key] = $root.factset.protobuf.stach.table.ColumnData.decode(reader, reader.uint32());
+                                var end2 = reader.uint32() + reader.pos;
+                                key = "";
+                                value = null;
+                                while (reader.pos < end2) {
+                                    var tag2 = reader.uint32();
+                                    switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.factset.protobuf.stach.table.ColumnData.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                    }
+                                }
+                                message.columns[key] = value;
                                 break;
                             case 3:
                                 message.metadata = $root.factset.protobuf.stach.table.MetadataCollection.decode(reader, reader.uint32());
@@ -6396,7 +6634,7 @@ $root.factset = (function() {
                     TableDefinition.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
-                        if (message.headerTableId != null && message.hasOwnProperty("headerTableId"))
+                        if (message.headerTableId != null && Object.hasOwnProperty.call(message, "headerTableId"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.headerTableId);
                         if (message.columns != null && message.columns.length)
                             for (var i = 0; i < message.columns.length; ++i)
@@ -6564,7 +6802,7 @@ $root.factset = (function() {
                 /**
                  * VerticalAlignment enum.
                  * @name factset.protobuf.stach.table.VerticalAlignment
-                 * @enum {string}
+                 * @enum {number}
                  * @property {number} UNKNOWN_VALIGN=0 UNKNOWN_VALIGN value
                  * @property {number} TOP=1 TOP value
                  * @property {number} MIDDLE=2 MIDDLE value
@@ -6666,7 +6904,7 @@ $root.google = (function() {
             Struct.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.fields != null && message.hasOwnProperty("fields"))
+                if (message.fields != null && Object.hasOwnProperty.call(message, "fields"))
                     for (var keys = Object.keys(message.fields), i = 0; i < keys.length; ++i) {
                         writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                         $root.google.protobuf.Value.encode(message.fields[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
@@ -6701,17 +6939,31 @@ $root.google = (function() {
             Struct.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Struct(), key;
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Struct(), key, value;
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        reader.skip().pos++;
                         if (message.fields === $util.emptyObject)
                             message.fields = {};
-                        key = reader.string();
-                        reader.pos++;
-                        message.fields[key] = $root.google.protobuf.Value.decode(reader, reader.uint32());
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = null;
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = $root.google.protobuf.Value.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.fields[key] = value;
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -6939,17 +7191,17 @@ $root.google = (function() {
             Value.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.nullValue != null && message.hasOwnProperty("nullValue"))
+                if (message.nullValue != null && Object.hasOwnProperty.call(message, "nullValue"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.nullValue);
-                if (message.numberValue != null && message.hasOwnProperty("numberValue"))
+                if (message.numberValue != null && Object.hasOwnProperty.call(message, "numberValue"))
                     writer.uint32(/* id 2, wireType 1 =*/17).double(message.numberValue);
-                if (message.stringValue != null && message.hasOwnProperty("stringValue"))
+                if (message.stringValue != null && Object.hasOwnProperty.call(message, "stringValue"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.stringValue);
-                if (message.boolValue != null && message.hasOwnProperty("boolValue"))
+                if (message.boolValue != null && Object.hasOwnProperty.call(message, "boolValue"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.boolValue);
-                if (message.structValue != null && message.hasOwnProperty("structValue"))
+                if (message.structValue != null && Object.hasOwnProperty.call(message, "structValue"))
                     $root.google.protobuf.Struct.encode(message.structValue, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                if (message.listValue != null && message.hasOwnProperty("listValue"))
+                if (message.listValue != null && Object.hasOwnProperty.call(message, "listValue"))
                     $root.google.protobuf.ListValue.encode(message.listValue, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 return writer;
             };
@@ -7192,7 +7444,7 @@ $root.google = (function() {
         /**
          * NullValue enum.
          * @name google.protobuf.NullValue
-         * @enum {string}
+         * @enum {number}
          * @property {number} NULL_VALUE=0 NULL_VALUE value
          */
         protobuf.NullValue = (function() {
