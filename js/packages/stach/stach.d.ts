@@ -40,10 +40,10 @@ declare namespace stach {
                     public version: string;
 
                     /** Package primaryTableIds. */
-                    public primaryTableIds: [ 'Array' ].<string>;
+                    public primaryTableIds: string[];
 
                     /** Package tables. */
-                    public tables: [ 'object' ].<string, factset.protobuf.stach.table.ITable>;
+                    public tables: { [k: string]: factset.protobuf.stach.table.ITable };
 
                     /**
                      * Creates a new Package instance using the specified properties.
@@ -92,14 +92,14 @@ declare namespace stach {
                      * @param message Plain object to verify
                      * @returns `null` if valid, otherwise the reason why it is not
                      */
-                    public static verify(message: [ 'object' ].<string, any>): (string|null);
+                    public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
                      * Creates a Package message from a plain object. Also converts values to their respective internal types.
                      * @param object Plain object
                      * @returns Package
                      */
-                    public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.Package;
+                    public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.Package;
 
                     /**
                      * Creates a plain object from a Package message. Also converts values to other types if specified.
@@ -107,13 +107,13 @@ declare namespace stach {
                      * @param [options] Conversion options
                      * @returns Plain object
                      */
-                    public static toObject(message: factset.protobuf.stach.Package, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                    public static toObject(message: factset.protobuf.stach.Package, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                     /**
                      * Converts this Package to JSON.
                      * @returns JSON object
                      */
-                    public toJSON(): [ 'object' ].<string, any>;
+                    public toJSON(): { [k: string]: any };
                 }
 
                 /** Properties of a RowOrganizedPackage. */
@@ -139,7 +139,7 @@ declare namespace stach {
                     public version: string;
 
                     /** RowOrganizedPackage tables. */
-                    public tables: [ 'object' ].<string, factset.protobuf.stach.RowOrganizedPackage.ITable>;
+                    public tables: { [k: string]: factset.protobuf.stach.RowOrganizedPackage.ITable };
 
                     /**
                      * Creates a new RowOrganizedPackage instance using the specified properties.
@@ -188,14 +188,14 @@ declare namespace stach {
                      * @param message Plain object to verify
                      * @returns `null` if valid, otherwise the reason why it is not
                      */
-                    public static verify(message: [ 'object' ].<string, any>): (string|null);
+                    public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
                      * Creates a RowOrganizedPackage message from a plain object. Also converts values to their respective internal types.
                      * @param object Plain object
                      * @returns RowOrganizedPackage
                      */
-                    public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage;
+                    public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage;
 
                     /**
                      * Creates a plain object from a RowOrganizedPackage message. Also converts values to other types if specified.
@@ -203,13 +203,13 @@ declare namespace stach {
                      * @param [options] Conversion options
                      * @returns Plain object
                      */
-                    public static toObject(message: factset.protobuf.stach.RowOrganizedPackage, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                    public static toObject(message: factset.protobuf.stach.RowOrganizedPackage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                     /**
                      * Converts this RowOrganizedPackage to JSON.
                      * @returns JSON object
                      */
-                    public toJSON(): [ 'object' ].<string, any>;
+                    public toJSON(): { [k: string]: any };
                 }
 
                 namespace RowOrganizedPackage {
@@ -292,14 +292,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a Table message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns Table
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.Table;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.Table;
 
                         /**
                          * Creates a plain object from a Table message. Also converts values to other types if specified.
@@ -307,13 +307,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.Table, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.Table, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this Table to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a TableDefinition. */
@@ -333,7 +333,7 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.RowOrganizedPackage.ITableDefinition);
 
                         /** TableDefinition columns. */
-                        public columns: [ 'Array' ].<factset.protobuf.stach.table.IColumnDefinition>;
+                        public columns: factset.protobuf.stach.table.IColumnDefinition[];
 
                         /**
                          * Creates a new TableDefinition instance using the specified properties.
@@ -382,14 +382,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a TableDefinition message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns TableDefinition
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.TableDefinition;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.TableDefinition;
 
                         /**
                          * Creates a plain object from a TableDefinition message. Also converts values to other types if specified.
@@ -397,13 +397,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.TableDefinition, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.TableDefinition, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this TableDefinition to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a TableData. */
@@ -429,13 +429,13 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.RowOrganizedPackage.ITableData);
 
                         /** TableData rows. */
-                        public rows: [ 'Array' ].<factset.protobuf.stach.RowOrganizedPackage.IRow>;
+                        public rows: factset.protobuf.stach.RowOrganizedPackage.IRow[];
 
                         /** TableData tableMetadata. */
-                        public tableMetadata: [ 'object' ].<string, factset.protobuf.stach.table.IMetadataItem>;
+                        public tableMetadata: { [k: string]: factset.protobuf.stach.table.IMetadataItem };
 
                         /** TableData columnMetadata. */
-                        public columnMetadata: [ 'object' ].<string, factset.protobuf.stach.RowOrganizedPackage.IMapOfMetadata>;
+                        public columnMetadata: { [k: string]: factset.protobuf.stach.RowOrganizedPackage.IMapOfMetadata };
 
                         /**
                          * Creates a new TableData instance using the specified properties.
@@ -484,14 +484,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a TableData message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns TableData
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.TableData;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.TableData;
 
                         /**
                          * Creates a plain object from a TableData message. Also converts values to other types if specified.
@@ -499,13 +499,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.TableData, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.TableData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this TableData to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a Row. */
@@ -555,13 +555,13 @@ declare namespace stach {
                         public values?: (google.protobuf.IStruct|null);
 
                         /** Row cellDetails. */
-                        public cellDetails: [ 'object' ].<string, factset.protobuf.stach.RowOrganizedPackage.ICellDetail>;
+                        public cellDetails: { [k: string]: factset.protobuf.stach.RowOrganizedPackage.ICellDetail };
 
                         /** Row headerCellDetails. */
-                        public headerCellDetails: [ 'object' ].<string, factset.protobuf.stach.RowOrganizedPackage.IHeaderCellDetail>;
+                        public headerCellDetails: { [k: string]: factset.protobuf.stach.RowOrganizedPackage.IHeaderCellDetail };
 
                         /** Row rowMetadata. */
-                        public rowMetadata: [ 'object' ].<string, factset.protobuf.stach.table.IMetadataItem>;
+                        public rowMetadata: { [k: string]: factset.protobuf.stach.table.IMetadataItem };
 
                         /** Row kind. */
                         public kind?: ("cells"|"values");
@@ -613,14 +613,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a Row message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns Row
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.Row;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.Row;
 
                         /**
                          * Creates a plain object from a Row message. Also converts values to other types if specified.
@@ -628,13 +628,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.Row, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.Row, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this Row to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     namespace Row {
@@ -675,7 +675,7 @@ declare namespace stach {
                         public cellDefinition?: (factset.protobuf.stach.table.ICellDefinition|null);
 
                         /** CellDetail cellMetadata. */
-                        public cellMetadata: [ 'object' ].<string, factset.protobuf.stach.table.IMetadataItem>;
+                        public cellMetadata: { [k: string]: factset.protobuf.stach.table.IMetadataItem };
 
                         /**
                          * Creates a new CellDetail instance using the specified properties.
@@ -724,14 +724,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a CellDetail message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns CellDetail
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.CellDetail;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.CellDetail;
 
                         /**
                          * Creates a plain object from a CellDetail message. Also converts values to other types if specified.
@@ -739,13 +739,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.CellDetail, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.CellDetail, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this CellDetail to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a HeaderCellDetail. */
@@ -795,7 +795,7 @@ declare namespace stach {
                         public cellDefinition?: (factset.protobuf.stach.table.ICellDefinition|null);
 
                         /** HeaderCellDetail cellMetadata. */
-                        public cellMetadata: [ 'object' ].<string, factset.protobuf.stach.table.IMetadataItem>;
+                        public cellMetadata: { [k: string]: factset.protobuf.stach.table.IMetadataItem };
 
                         /**
                          * Creates a new HeaderCellDetail instance using the specified properties.
@@ -844,14 +844,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a HeaderCellDetail message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns HeaderCellDetail
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail;
 
                         /**
                          * Creates a plain object from a HeaderCellDetail message. Also converts values to other types if specified.
@@ -859,13 +859,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this HeaderCellDetail to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     namespace HeaderCellDetail {
@@ -896,7 +896,7 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.RowOrganizedPackage.IMapOfMetadata);
 
                         /** MapOfMetadata items. */
-                        public items: [ 'object' ].<string, factset.protobuf.stach.table.IMetadataItem>;
+                        public items: { [k: string]: factset.protobuf.stach.table.IMetadataItem };
 
                         /**
                          * Creates a new MapOfMetadata instance using the specified properties.
@@ -945,14 +945,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a MapOfMetadata message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns MapOfMetadata
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata;
 
                         /**
                          * Creates a plain object from a MapOfMetadata message. Also converts values to other types if specified.
@@ -960,13 +960,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this MapOfMetadata to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
                 }
 
@@ -1045,14 +1045,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a CellDefinition message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns CellDefinition
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.CellDefinition;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.CellDefinition;
 
                         /**
                          * Creates a plain object from a CellDefinition message. Also converts values to other types if specified.
@@ -1060,13 +1060,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.CellDefinition, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.CellDefinition, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this CellDefinition to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a ColumnData. */
@@ -1092,13 +1092,13 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.table.IColumnData);
 
                         /** ColumnData ranges. */
-                        public ranges: [ 'object' ].<string, number>;
+                        public ranges: { [k: string]: number };
 
                         /** ColumnData values. */
                         public values?: (google.protobuf.IListValue|null);
 
                         /** ColumnData definitions. */
-                        public definitions: [ 'Array' ].<factset.protobuf.stach.table.ICellDefinition>;
+                        public definitions: factset.protobuf.stach.table.ICellDefinition[];
 
                         /**
                          * Creates a new ColumnData instance using the specified properties.
@@ -1147,14 +1147,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a ColumnData message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns ColumnData
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.ColumnData;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.ColumnData;
 
                         /**
                          * Creates a plain object from a ColumnData message. Also converts values to other types if specified.
@@ -1162,13 +1162,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.ColumnData, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.ColumnData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this ColumnData to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a ColumnDefinition. */
@@ -1291,14 +1291,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a ColumnDefinition message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns ColumnDefinition
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.ColumnDefinition;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.ColumnDefinition;
 
                         /**
                          * Creates a plain object from a ColumnDefinition message. Also converts values to other types if specified.
@@ -1306,13 +1306,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.ColumnDefinition, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.ColumnDefinition, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this ColumnDefinition to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a DataFormat. */
@@ -1399,14 +1399,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a DataFormat message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns DataFormat
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.DataFormat;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.DataFormat;
 
                         /**
                          * Creates a plain object from a DataFormat message. Also converts values to other types if specified.
@@ -1414,13 +1414,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.DataFormat, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.DataFormat, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this DataFormat to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** HorizontalAlignment enum. */
@@ -1448,7 +1448,7 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.table.IListOfMetadata);
 
                         /** ListOfMetadata ids. */
-                        public ids: [ 'Array' ].<string>;
+                        public ids: string[];
 
                         /**
                          * Creates a new ListOfMetadata instance using the specified properties.
@@ -1497,14 +1497,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a ListOfMetadata message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns ListOfMetadata
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.ListOfMetadata;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.ListOfMetadata;
 
                         /**
                          * Creates a plain object from a ListOfMetadata message. Also converts values to other types if specified.
@@ -1512,13 +1512,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.ListOfMetadata, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.ListOfMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this ListOfMetadata to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a MetadataCollection. */
@@ -1541,7 +1541,7 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.table.IMetadataCollection);
 
                         /** MetadataCollection items. */
-                        public items: [ 'object' ].<string, factset.protobuf.stach.table.IMetadataItem>;
+                        public items: { [k: string]: factset.protobuf.stach.table.IMetadataItem };
 
                         /** MetadataCollection locations. */
                         public locations?: (factset.protobuf.stach.table.IMetadataLocations|null);
@@ -1593,14 +1593,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a MetadataCollection message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns MetadataCollection
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.MetadataCollection;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.MetadataCollection;
 
                         /**
                          * Creates a plain object from a MetadataCollection message. Also converts values to other types if specified.
@@ -1608,13 +1608,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.MetadataCollection, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.MetadataCollection, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this MetadataCollection to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a MetadataItem. */
@@ -1692,14 +1692,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a MetadataItem message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns MetadataItem
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.MetadataItem;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.MetadataItem;
 
                         /**
                          * Creates a plain object from a MetadataItem message. Also converts values to other types if specified.
@@ -1707,13 +1707,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.MetadataItem, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.MetadataItem, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this MetadataItem to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a MetadataLocations. */
@@ -1742,13 +1742,13 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.table.IMetadataLocations);
 
                         /** MetadataLocations table. */
-                        public table: [ 'Array' ].<string>;
+                        public table: string[];
 
                         /** MetadataLocations columns. */
-                        public columns: [ 'object' ].<string, factset.protobuf.stach.table.IListOfMetadata>;
+                        public columns: { [k: string]: factset.protobuf.stach.table.IListOfMetadata };
 
                         /** MetadataLocations rows. */
-                        public rows: [ 'object' ].<string, factset.protobuf.stach.table.IListOfMetadata>;
+                        public rows: { [k: string]: factset.protobuf.stach.table.IListOfMetadata };
 
                         /** MetadataLocations cells. */
                         public cells?: (factset.protobuf.stach.table.MetadataLocations.ICellsColumnMap|null);
@@ -1800,14 +1800,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a MetadataLocations message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns MetadataLocations
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.MetadataLocations;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.MetadataLocations;
 
                         /**
                          * Creates a plain object from a MetadataLocations message. Also converts values to other types if specified.
@@ -1815,13 +1815,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.MetadataLocations, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.MetadataLocations, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this MetadataLocations to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     namespace MetadataLocations {
@@ -1843,7 +1843,7 @@ declare namespace stach {
                             constructor(properties?: factset.protobuf.stach.table.MetadataLocations.ICellsColumnMap);
 
                             /** CellsColumnMap columns. */
-                            public columns: [ 'object' ].<string, factset.protobuf.stach.table.MetadataLocations.ICellsRowMap>;
+                            public columns: { [k: string]: factset.protobuf.stach.table.MetadataLocations.ICellsRowMap };
 
                             /**
                              * Creates a new CellsColumnMap instance using the specified properties.
@@ -1892,14 +1892,14 @@ declare namespace stach {
                              * @param message Plain object to verify
                              * @returns `null` if valid, otherwise the reason why it is not
                              */
-                            public static verify(message: [ 'object' ].<string, any>): (string|null);
+                            public static verify(message: { [k: string]: any }): (string|null);
 
                             /**
                              * Creates a CellsColumnMap message from a plain object. Also converts values to their respective internal types.
                              * @param object Plain object
                              * @returns CellsColumnMap
                              */
-                            public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.MetadataLocations.CellsColumnMap;
+                            public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.MetadataLocations.CellsColumnMap;
 
                             /**
                              * Creates a plain object from a CellsColumnMap message. Also converts values to other types if specified.
@@ -1907,13 +1907,13 @@ declare namespace stach {
                              * @param [options] Conversion options
                              * @returns Plain object
                              */
-                            public static toObject(message: factset.protobuf.stach.table.MetadataLocations.CellsColumnMap, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                            public static toObject(message: factset.protobuf.stach.table.MetadataLocations.CellsColumnMap, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                             /**
                              * Converts this CellsColumnMap to JSON.
                              * @returns JSON object
                              */
-                            public toJSON(): [ 'object' ].<string, any>;
+                            public toJSON(): { [k: string]: any };
                         }
 
                         /** Properties of a CellsRowMap. */
@@ -1933,7 +1933,7 @@ declare namespace stach {
                             constructor(properties?: factset.protobuf.stach.table.MetadataLocations.ICellsRowMap);
 
                             /** CellsRowMap rows. */
-                            public rows: [ 'object' ].<string, factset.protobuf.stach.table.IListOfMetadata>;
+                            public rows: { [k: string]: factset.protobuf.stach.table.IListOfMetadata };
 
                             /**
                              * Creates a new CellsRowMap instance using the specified properties.
@@ -1982,14 +1982,14 @@ declare namespace stach {
                              * @param message Plain object to verify
                              * @returns `null` if valid, otherwise the reason why it is not
                              */
-                            public static verify(message: [ 'object' ].<string, any>): (string|null);
+                            public static verify(message: { [k: string]: any }): (string|null);
 
                             /**
                              * Creates a CellsRowMap message from a plain object. Also converts values to their respective internal types.
                              * @param object Plain object
                              * @returns CellsRowMap
                              */
-                            public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.MetadataLocations.CellsRowMap;
+                            public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.MetadataLocations.CellsRowMap;
 
                             /**
                              * Creates a plain object from a CellsRowMap message. Also converts values to other types if specified.
@@ -1997,13 +1997,13 @@ declare namespace stach {
                              * @param [options] Conversion options
                              * @returns Plain object
                              */
-                            public static toObject(message: factset.protobuf.stach.table.MetadataLocations.CellsRowMap, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                            public static toObject(message: factset.protobuf.stach.table.MetadataLocations.CellsRowMap, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                             /**
                              * Converts this CellsRowMap to JSON.
                              * @returns JSON object
                              */
-                            public toJSON(): [ 'object' ].<string, any>;
+                            public toJSON(): { [k: string]: any };
                         }
                     }
 
@@ -2091,14 +2091,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a Reference message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns Reference
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.Reference;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.Reference;
 
                         /**
                          * Creates a plain object from a Reference message. Also converts values to other types if specified.
@@ -2106,13 +2106,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.Reference, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.Reference, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this Reference to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** ReferenceType enum. */
@@ -2196,14 +2196,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a RowDefinition message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns RowDefinition
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.RowDefinition;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.RowDefinition;
 
                         /**
                          * Creates a plain object from a RowDefinition message. Also converts values to other types if specified.
@@ -2211,13 +2211,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.RowDefinition, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.RowDefinition, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this RowDefinition to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a Table. */
@@ -2292,14 +2292,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a Table message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns Table
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.Table;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.Table;
 
                         /**
                          * Creates a plain object from a Table message. Also converts values to other types if specified.
@@ -2307,13 +2307,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.Table, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.Table, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this Table to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a TableData. */
@@ -2339,10 +2339,10 @@ declare namespace stach {
                         constructor(properties?: factset.protobuf.stach.table.ITableData);
 
                         /** TableData rows. */
-                        public rows: [ 'Array' ].<factset.protobuf.stach.table.IRowDefinition>;
+                        public rows: factset.protobuf.stach.table.IRowDefinition[];
 
                         /** TableData columns. */
-                        public columns: [ 'object' ].<string, factset.protobuf.stach.table.IColumnData>;
+                        public columns: { [k: string]: factset.protobuf.stach.table.IColumnData };
 
                         /** TableData metadata. */
                         public metadata?: (factset.protobuf.stach.table.IMetadataCollection|null);
@@ -2394,14 +2394,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a TableData message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns TableData
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.TableData;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.TableData;
 
                         /**
                          * Creates a plain object from a TableData message. Also converts values to other types if specified.
@@ -2409,13 +2409,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.TableData, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.TableData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this TableData to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** Properties of a TableDefinition. */
@@ -2441,7 +2441,7 @@ declare namespace stach {
                         public headerTableId: string;
 
                         /** TableDefinition columns. */
-                        public columns: [ 'Array' ].<factset.protobuf.stach.table.IColumnDefinition>;
+                        public columns: factset.protobuf.stach.table.IColumnDefinition[];
 
                         /**
                          * Creates a new TableDefinition instance using the specified properties.
@@ -2490,14 +2490,14 @@ declare namespace stach {
                          * @param message Plain object to verify
                          * @returns `null` if valid, otherwise the reason why it is not
                          */
-                        public static verify(message: [ 'object' ].<string, any>): (string|null);
+                        public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
                          * Creates a TableDefinition message from a plain object. Also converts values to their respective internal types.
                          * @param object Plain object
                          * @returns TableDefinition
                          */
-                        public static fromObject(object: [ 'object' ].<string, any>): factset.protobuf.stach.table.TableDefinition;
+                        public static fromObject(object: { [k: string]: any }): factset.protobuf.stach.table.TableDefinition;
 
                         /**
                          * Creates a plain object from a TableDefinition message. Also converts values to other types if specified.
@@ -2505,13 +2505,13 @@ declare namespace stach {
                          * @param [options] Conversion options
                          * @returns Plain object
                          */
-                        public static toObject(message: factset.protobuf.stach.table.TableDefinition, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                        public static toObject(message: factset.protobuf.stach.table.TableDefinition, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                         /**
                          * Converts this TableDefinition to JSON.
                          * @returns JSON object
                          */
-                        public toJSON(): [ 'object' ].<string, any>;
+                        public toJSON(): { [k: string]: any };
                     }
 
                     /** VerticalAlignment enum. */
@@ -2549,7 +2549,7 @@ declare namespace stach {
                 constructor(properties?: google.protobuf.IStruct);
 
                 /** Struct fields. */
-                public fields: [ 'object' ].<string, google.protobuf.IValue>;
+                public fields: { [k: string]: google.protobuf.IValue };
 
                 /**
                  * Creates a new Struct instance using the specified properties.
@@ -2598,14 +2598,14 @@ declare namespace stach {
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
-                public static verify(message: [ 'object' ].<string, any>): (string|null);
+                public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
                  * Creates a Struct message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
                  * @returns Struct
                  */
-                public static fromObject(object: [ 'object' ].<string, any>): google.protobuf.Struct;
+                public static fromObject(object: { [k: string]: any }): google.protobuf.Struct;
 
                 /**
                  * Creates a plain object from a Struct message. Also converts values to other types if specified.
@@ -2613,13 +2613,13 @@ declare namespace stach {
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: google.protobuf.Struct, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                public static toObject(message: google.protobuf.Struct, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
                  * Converts this Struct to JSON.
                  * @returns JSON object
                  */
-                public toJSON(): [ 'object' ].<string, any>;
+                public toJSON(): { [k: string]: any };
             }
 
             /** Properties of a Value. */
@@ -2721,14 +2721,14 @@ declare namespace stach {
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
-                public static verify(message: [ 'object' ].<string, any>): (string|null);
+                public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
                  * Creates a Value message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
                  * @returns Value
                  */
-                public static fromObject(object: [ 'object' ].<string, any>): google.protobuf.Value;
+                public static fromObject(object: { [k: string]: any }): google.protobuf.Value;
 
                 /**
                  * Creates a plain object from a Value message. Also converts values to other types if specified.
@@ -2736,13 +2736,13 @@ declare namespace stach {
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: google.protobuf.Value, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                public static toObject(message: google.protobuf.Value, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
                  * Converts this Value to JSON.
                  * @returns JSON object
                  */
-                public toJSON(): [ 'object' ].<string, any>;
+                public toJSON(): { [k: string]: any };
             }
 
             /** NullValue enum. */
@@ -2767,7 +2767,7 @@ declare namespace stach {
                 constructor(properties?: google.protobuf.IListValue);
 
                 /** ListValue values. */
-                public values: [ 'Array' ].<google.protobuf.IValue>;
+                public values: google.protobuf.IValue[];
 
                 /**
                  * Creates a new ListValue instance using the specified properties.
@@ -2816,14 +2816,14 @@ declare namespace stach {
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
-                public static verify(message: [ 'object' ].<string, any>): (string|null);
+                public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
                  * Creates a ListValue message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
                  * @returns ListValue
                  */
-                public static fromObject(object: [ 'object' ].<string, any>): google.protobuf.ListValue;
+                public static fromObject(object: { [k: string]: any }): google.protobuf.ListValue;
 
                 /**
                  * Creates a plain object from a ListValue message. Also converts values to other types if specified.
@@ -2831,13 +2831,13 @@ declare namespace stach {
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: google.protobuf.ListValue, options?: $protobuf.IConversionOptions): [ 'object' ].<string, any>;
+                public static toObject(message: google.protobuf.ListValue, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
                  * Converts this ListValue to JSON.
                  * @returns JSON object
                  */
-                public toJSON(): [ 'object' ].<string, any>;
+                public toJSON(): { [k: string]: any };
             }
         }
     }
