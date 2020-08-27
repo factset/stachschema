@@ -9,6 +9,8 @@
     "directory": "js"
   },
   "devDependencies": {
+    "@fds/conventional-changelog-factset": "^4.0.1",
+    "@fds/lerna-config": "^1.0.1",
     "lerna": "^3.0.1"
   },
   "workspaces": [
