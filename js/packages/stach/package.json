@@ -1,6 +1,6 @@
 {
   "name": "@fds/protobuf-stach",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Protobuf generated javascript files for STACH",
   "main": "index.js",
   "types": "index.d.ts",
