@@ -39,7 +39,7 @@ exec(`protoc\
  function(err, stdout, stderr) {
 	if (err) {
 		console.log("child process failed with error code: " + err.code);
-		console.log(err);
+		throw err;
 	}
 	console.log(stdout);
  });
