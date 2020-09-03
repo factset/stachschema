@@ -7,8 +7,42 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "stach.js",
-    "stach.d.ts"
+    "fds/protobuf/stach/Package_pb.js",
+    "fds/protobuf/stach/Package_pb.d.ts",
+    "fds/protobuf/stach/RowOrganized_pb.js",
+    "fds/protobuf/stach/RowOrganized_pb.d.ts",
+    "fds/protobuf/stach/table/CellDefinition_pb.js",
+    "fds/protobuf/stach/table/CellDefinition_pb.d.ts",
+    "fds/protobuf/stach/table/ColumnData_pb.js",
+    "fds/protobuf/stach/table/ColumnData_pb.d.ts",
+    "fds/protobuf/stach/table/ColumnDefinition_pb.js",
+    "fds/protobuf/stach/table/ColumnDefinition_pb.d.ts",
+    "fds/protobuf/stach/table/DataFormat_pb.js",
+    "fds/protobuf/stach/table/DataFormat_pb.d.ts",
+    "fds/protobuf/stach/table/HorizontalAlignment_pb.js",
+    "fds/protobuf/stach/table/HorizontalAlignment_pb.d.ts",
+    "fds/protobuf/stach/table/ListOfMetadata_pb.js",
+    "fds/protobuf/stach/table/ListOfMetadata_pb.d.ts",
+    "fds/protobuf/stach/table/MetadataCollection_pb.js",
+    "fds/protobuf/stach/table/MetadataCollection_pb.d.ts",
+    "fds/protobuf/stach/table/MetadataItem_pb.js",
+    "fds/protobuf/stach/table/MetadataItem_pb.d.ts",
+    "fds/protobuf/stach/table/MetadataLocations_pb.js",
+    "fds/protobuf/stach/table/MetadataLocations_pb.d.ts",
+    "fds/protobuf/stach/table/Reference_pb.js",
+    "fds/protobuf/stach/table/Reference_pb.d.ts",
+    "fds/protobuf/stach/table/ReferenceType_pb.js",
+    "fds/protobuf/stach/table/ReferenceType_pb.d.ts",
+    "fds/protobuf/stach/table/RowDefinition_pb.js",
+    "fds/protobuf/stach/table/RowDefinition_pb.d.ts",
+    "fds/protobuf/stach/table/Table_pb.js",
+    "fds/protobuf/stach/table/Table_pb.d.ts",
+    "fds/protobuf/stach/table/TableData_pb.js",
+    "fds/protobuf/stach/table/TableData_pb.d.ts",
+    "fds/protobuf/stach/table/TableDefinition_pb.js",
+    "fds/protobuf/stach/table/TableDefinition_pb.d.ts",
+    "fds/protobuf/stach/table/VerticalAlignment_pb.js",
+    "fds/protobuf/stach/table/VerticalAlignment_pb.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -16,10 +50,10 @@
     "directory": "js/packages/stach"
   },
   "dependencies": {
-    "protobufjs": "^6.8.8"
+    "ts-protoc-gen": "^0.12.0"
   },
   "scripts": {
-    "build": "node generate.js",
+    "build": "Generate.bat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

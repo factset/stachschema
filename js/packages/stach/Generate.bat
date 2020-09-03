@@ -27,6 +27,3 @@ protoc^
  fds/protobuf/stach/table/TableData.proto^
  fds/protobuf/stach/table/TableDefinition.proto^
  fds/protobuf/stach/table/VerticalAlignment.proto
-
-call yarn install
-call yarn build
