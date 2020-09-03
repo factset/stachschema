@@ -53,7 +53,7 @@
     "ts-protoc-gen": "^0.12.0"
   },
   "scripts": {
-    "build": "Generate.bat",
+    "build": "node generate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
