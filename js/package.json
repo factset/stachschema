@@ -9,7 +9,8 @@
     "directory": "js"
   },
   "devDependencies": {
-    "lerna": "^3.0.1"
+    "lerna": "^3.0.1",
+    "ts-protoc-gen": "^0.12.0"
   },
   "workspaces": [
     "packages/*"

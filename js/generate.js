@@ -7,14 +7,14 @@ var CWD = process.cwd();
 var PROTOC_GEN_TS_PATH=`${CWD}/node_modules/.bin/protoc-gen-ts`;
 
 // Directory to write generated code to (.js and .d.ts files)
-var OUT_DIR=CWD;
+var OUT_DIR=`${CWD}/packages/stach`;
 
 if (process.platform === 'win32') {
 	PROTOC_GEN_TS_PATH += '.cmd';
 }
 
 exec(`protoc\
- --proto_path=../../../proto\
+ --proto_path=../proto\
  --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}"\
  --js_out="import_style=commonjs,binary:${OUT_DIR}"\
  --ts_out="${OUT_DIR}"\
@@ -43,3 +43,5 @@ exec(`protoc\
 	}
 	console.log(stdout);
  });
+
+console.log('Finished generating js proto files')

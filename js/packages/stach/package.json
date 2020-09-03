@@ -49,11 +49,8 @@
     "url": "https://github.com/factset/stachschema",
     "directory": "js/packages/stach"
   },
-  "dependencies": {
-    "ts-protoc-gen": "^0.12.0"
-  },
   "scripts": {
-    "build": "node generate.js",
+    "build": "echo \"Nothing to build\" && exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

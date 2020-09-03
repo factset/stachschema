@@ -119,14 +119,13 @@ __metadata:
   resolution: "@fds/protobuf-stach-workspace@workspace:."
   dependencies:
     lerna: ^3.0.1
+    ts-protoc-gen: ^0.12.0
   languageName: unknown
   linkType: soft
 
 "@fds/protobuf-stach@workspace:packages/stach":
   version: 0.0.0-use.local
   resolution: "@fds/protobuf-stach@workspace:packages/stach"
-  dependencies:
-    ts-protoc-gen: ^0.12.0
   languageName: unknown
   linkType: soft
 
