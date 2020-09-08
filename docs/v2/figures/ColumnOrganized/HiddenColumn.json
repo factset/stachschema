@@ -1,0 +1,8 @@
+{
+  "id": "5",
+  "name": "regionUrl",
+  "description": "Region Url",
+  "type": "string",
+  "isDimension": true,
+  "isHidden": true
+}

@@ -1,0 +1,698 @@
+{
+  "version": "2.0",
+  "tables": {
+    "main": {
+      "definition": {
+        "columns": [
+          {
+            "id": "c_function",
+            "name": "function",
+            "description": "Function",
+            "type": "string",
+            "isDimension": true,
+            "nextSiblingId": "c_region"
+          },
+          {
+            "id": "c_region",
+            "name": "region",
+            "description": "Region",
+            "type": "string",
+            "isDimension": true
+          },
+          {
+            "id": "c_continent1",
+            "name": "continent1",
+            "description": "Continent 1",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "c_region"
+          },
+          {
+            "id": "c_continent2",
+            "name": "continent2",
+            "description": "Continent 2",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "c_region"
+          },
+          {
+            "id": "c_f0",
+            "name": "fund0",
+            "description": "Fund 0",
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "c_b0",
+            "name": "bench0",
+            "description": "Bench 0",
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "c_contAbbr",
+            "name": "contAbbr",
+            "description": "Abbr",
+            "type": "string",
+            "isDimension": true
+          },
+          {
+            "id": "c_f1",
+            "name": "fund1",
+            "description": "Fund 1",
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "c_b1",
+            "name": "bench1",
+            "description": "Bench 1",
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "c_f2",
+            "name": "fund2",
+            "description": "Fund 2",
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "c_b2",
+            "name": "bench2",
+            "description": "Bench 2",
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          }
+        ]
+      },
+      "headersDefinition": {
+        "columns": [
+          {
+            "id": "c_year",
+            "name": "year",
+            "description": "Year",
+            "type": "int32",
+            "isDimension": true
+          },
+          {
+            "id": "c_category",
+            "name": "category",
+            "description": "Category",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "c_year"
+          },
+          {
+            "id": "c_portType",
+            "name": "portType",
+            "description": "Portfolio Type",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "c_category"
+          }
+        ]
+      },
+      "data": {
+        "rows": [
+          {
+            "rowType": "Header",
+            "cells": [
+              "Function",
+              "Region",
+              "Continent 1",
+              "Continent 2",
+              2017,
+              "Abbr",
+              2017
+            ],
+            "headerCellDetails": {
+              "0": {
+                "rowspan": 3,
+                "source": "PRIMARY"
+              },
+              "1": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 1
+              },
+              "2": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 2
+              },
+              "3": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 3
+              },
+              "4": {
+                "colspan": 2,
+                "source": "HEADERS"
+              },
+              "5": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 6
+              },
+              "6": {
+                "colspan": 4,
+                "source": "HEADERS"
+              }
+            }
+          },
+          {
+            "rowType": "Header",
+            "cells": [
+              "Exposure",
+              "Total Risk",
+              "Contribution to Risk"
+            ],
+            "headerCellDetails": {
+              "0": {
+                "colspan": 2,
+                "source": "HEADERS",
+                "columnIndex": 1
+              },
+              "1": {
+                "colspan": 2,
+                "source": "HEADERS",
+                "columnIndex": 1
+              },
+              "2": {
+                "colspan": 2,
+                "source": "HEADERS",
+                "columnIndex": 1
+              }
+            }
+          },
+          {
+            "rowType": "Header",
+            "cells": [
+              "Fund",
+              "Bench",
+              "Fund",
+              "Bench",
+              "Fund",
+              "Bench"
+            ],
+            "headerCellDetails": {
+              "0": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "1": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "2": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "3": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "4": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "5": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              }
+            }
+          },
+          {
+            "cells": [
+              "Max",
+              null,
+              null,
+              null,
+              88.3,
+              89.62,
+              null,
+              17.17,
+              15.67,
+              86.07,
+              89.18
+            ]
+          },
+          {
+            "cells": [
+              "Total",
+              null,
+              null,
+              null,
+              100,
+              100,
+              null,
+              8.6,
+              8.38,
+              100,
+              100
+            ]
+          },
+          {
+            "cells": [
+              null,
+              "Developed Markets",
+              null,
+              null,
+              88.3,
+              89.62,
+              null,
+              8.51,
+              8.39,
+              86.07,
+              89.18
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=developed+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Developed Markets",
+              "Americas",
+              null,
+              46.03,
+              54.98,
+              "AM",
+              10.21,
+              9.63,
+              50.74,
+              61.23
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=developed+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Developed Markets",
+              "Asia Pacific",
+              null,
+              9.09,
+              12.48,
+              "APac",
+              11.94,
+              10.06,
+              7.37,
+              9.77
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=developed+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Developed Markets",
+              "Europe",
+              null,
+              33.15,
+              21.95,
+              "EU",
+              8.71,
+              8.28,
+              27.96,
+              17.93
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=developed+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Developed Markets",
+              "Middle East and Africa",
+              null,
+              null,
+              0.21,
+              "MEA",
+              null,
+              13.58,
+              null,
+              0.24
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=developed+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Emerging Markets",
+              null,
+              null,
+              8.71,
+              7.76,
+              null,
+              14.12,
+              10.65,
+              10.48,
+              8.17
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=emerging+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Emerging Markets",
+              null,
+              "Americas",
+              0.3,
+              1.12,
+              "AM",
+              22.7,
+              15.44,
+              0.36,
+              1.41
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=emerging+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Emerging Markets",
+              null,
+              "Asia Pacific",
+              8.41,
+              5.41,
+              "APac",
+              14.22,
+              11.02,
+              10.12,
+              5.47
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=emerging+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Emerging Markets",
+              null,
+              "Europe",
+              null,
+              0.33,
+              "EU",
+              null,
+              12.78,
+              null,
+              0.25
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=emerging+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Emerging Markets",
+              null,
+              "Middle East and Africa",
+              null,
+              0.89,
+              "MEA",
+              null,
+              14.92,
+              null,
+              1.03
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=emerging+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Frontier Markets",
+              null,
+              null,
+              0.36,
+              null,
+              null,
+              17.17,
+              null,
+              0.19,
+              null
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=frontier+markets"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "Other",
+              null,
+              null,
+              null,
+              0.53,
+              null,
+              null,
+              15.67,
+              null,
+              0.59
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=other"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "cells": [
+              null,
+              "[Cash]",
+              null,
+              null,
+              0.15,
+              null,
+              null,
+              8.45,
+              null,
+              -0.06,
+              null
+            ],
+            "cellDetails": {
+              "1": {
+                "cellMetadata": {
+                  "m_regionUrl": {
+                    "value": "https://www.google.com/search?q=cash"
+                  }
+                }
+              },
+              "4": {
+                "cellMetadata": {
+                  "m_fund0Url": {
+                    "value": "https://www.google.com/search?q=x"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tableMetadata": {
+          "m_h": {
+            "value": "Risk Analysis"
+          }
+        },
+        "columnMetadata": {
+          "c_region": {
+            "items": {
+              "m_rm": {
+                "reference": {
+                  "referenceType": "TABLE",
+                  "tableId": "3964d0db9f024acaaa5a398a6651c386"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

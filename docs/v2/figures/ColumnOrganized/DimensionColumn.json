@@ -1,0 +1,12 @@
+{
+  "columns": [
+    {
+      "id": "3",
+      "name": "continent1",
+      "description": "Continent 1",
+      "type": "string",
+      "isDimension": true,
+      "parentId": "2"
+    }
+  ]
+}

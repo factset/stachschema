@@ -1,0 +1,14 @@
+{
+  "items": {
+    "25963bde-5c90-43ff-8a4d-0000000034bc": {
+      "name": "scalarArrayMetadataItem",
+      "stringArray": {
+        "values": [
+          "foo",
+          "bar"
+        ]
+      }
+    }
+  },
+  "locations": {}
+}

@@ -1,0 +1,484 @@
+{
+  "version": "2.0",
+  "primaryTableIds": [
+    "main"
+  ],
+  "tables": {
+    "main": {
+      "definition": {
+        "headerTableId": "headers",
+        "columns": [
+          {
+            "id": "1",
+            "name": "function",
+            "description": "Function",
+            "type": "string",
+            "isDimension": true,
+            "nextSiblingId": "2"
+          },
+          {
+            "id": "2",
+            "name": "region",
+            "description": "Region",
+            "type": "string",
+            "isDimension": true
+          },
+          {
+            "id": "3",
+            "name": "continent1",
+            "description": "Continent 1",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "2"
+          },
+          {
+            "id": "4",
+            "name": "continent2",
+            "description": "Continent 2",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "2"
+          },
+          {
+            "id": "5",
+            "name": "regionUrl",
+            "description": "Region Url",
+            "type": "string",
+            "isDimension": true,
+            "isHidden": true
+          },
+          {
+            "id": "6",
+            "name": "fund0",
+            "description": "Fund 0",
+            "type": "real",
+            "headerId": "c_f0",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "7",
+            "name": "bench0",
+            "description": "Bench 0",
+            "type": "real",
+            "headerId": "c_b0",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "8",
+            "name": "contAbbr",
+            "description": "Abbr",
+            "type": "string",
+            "isDimension": true
+          },
+          {
+            "id": "9",
+            "name": "fund1",
+            "description": "Fund 1",
+            "type": "real",
+            "headerId": "c_f1",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "10",
+            "name": "bench1",
+            "description": "Bench 1",
+            "type": "real",
+            "headerId": "c_b1",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "11",
+            "name": "fund2",
+            "description": "Fund 2",
+            "type": "real",
+            "headerId": "c_f2",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          },
+          {
+            "id": "12",
+            "name": "fund0Url",
+            "description": "Fund 0 Url",
+            "type": "string",
+            "isDimension": true,
+            "isHidden": true
+          },
+          {
+            "id": "13",
+            "name": "bench2",
+            "description": "Bench 2",
+            "type": "real",
+            "headerId": "c_b2",
+            "format": {
+              "format": "{0:0.00}",
+              "halign": "RIGHT"
+            }
+          }
+        ]
+      },
+      "data": {
+        "columns": {
+          "1": {
+            "ranges": {
+              "2": 13
+            },
+            "values": [
+              "Max",
+              "Total",
+              null
+            ]
+          },
+          "2": {
+            "ranges": {
+              "0": 2,
+              "2": 5,
+              "7": 5
+            },
+            "values": [
+              null,
+              "Developed Markets",
+              "Emerging Markets",
+              "Frontier Markets",
+              "Other",
+              "[Cash]"
+            ]
+          },
+          "3": {
+            "ranges": {
+              "0": 3,
+              "7": 8
+            },
+            "values": [
+              null,
+              "Americas",
+              "Asia Pacific",
+              "Europe",
+              "Middle East and Africa",
+              null
+            ]
+          },
+          "4": {
+            "ranges": {
+              "0": 8,
+              "12": 3
+            },
+            "values": [
+              null,
+              "Americas",
+              "Asia Pacific",
+              "Europe",
+              "Middle East and Africa",
+              null
+            ]
+          },
+          "5": {
+            "ranges": {
+              "0": 2,
+              "2": 5,
+              "7": 5
+            },
+            "values": [
+              null,
+              "https://www.google.com/search?q=developed+markets",
+              "https://www.google.com/search?q=emerging+markets",
+              "https://www.google.com/search?q=frontier+markets",
+              "https://www.google.com/search?q=other",
+              "https://www.google.com/search?q=cash"
+            ]
+          },
+          "6": {
+            "ranges": {
+              "10": 2
+            },
+            "values": [
+              88.3,
+              100,
+              88.3,
+              46.03,
+              9.09,
+              33.15,
+              null,
+              8.71,
+              0.3,
+              8.41,
+              null,
+              0.36,
+              null,
+              0.15
+            ]
+          },
+          "7": {
+            "values": [
+              89.62,
+              100,
+              89.62,
+              54.98,
+              12.48,
+              21.95,
+              0.21,
+              7.76,
+              1.12,
+              5.41,
+              0.33,
+              0.89,
+              null,
+              0.53,
+              null
+            ]
+          },
+          "8": {
+            "ranges": {
+              "0": 3,
+              "12": 3
+            },
+            "values": [
+              null,
+              "AM",
+              "APac",
+              "EU",
+              "MEA",
+              null,
+              "AM",
+              "APac",
+              "EU",
+              "MEA",
+              null
+            ]
+          },
+          "9": {
+            "ranges": {
+              "10": 2
+            },
+            "values": [
+              17.17,
+              8.6,
+              8.51,
+              10.21,
+              11.94,
+              8.71,
+              null,
+              14.12,
+              22.7,
+              14.22,
+              null,
+              17.17,
+              null,
+              8.45
+            ]
+          },
+          "10": {
+            "values": [
+              15.67,
+              8.38,
+              8.39,
+              9.63,
+              10.06,
+              8.28,
+              13.58,
+              10.65,
+              15.44,
+              11.02,
+              12.78,
+              14.92,
+              null,
+              15.67,
+              null
+            ]
+          },
+          "11": {
+            "ranges": {
+              "10": 2
+            },
+            "values": [
+              86.07,
+              100,
+              86.07,
+              50.74,
+              7.37,
+              27.96,
+              null,
+              10.48,
+              0.36,
+              10.12,
+              null,
+              0.19,
+              null,
+              -0.06
+            ]
+          },
+          "12": {
+            "ranges": {
+              "0": 2,
+              "2": 13
+            },
+            "values": [
+              null,
+              "https://www.google.com/search?q=x"
+            ]
+          },
+          "13": {
+            "values": [
+              89.18,
+              100,
+              89.18,
+              61.23,
+              9.77,
+              17.93,
+              0.24,
+              8.17,
+              1.41,
+              5.47,
+              0.25,
+              1.03,
+              null,
+              0.59,
+              null
+            ]
+          }
+        },
+        "metadata": {
+          "items": {
+            "header": {
+              "value": "Risk Analysis"
+            },
+            "fund0Url": {
+              "reference": {
+                "referenceType": "COLUMN",
+                "tableId": "main",
+                "columnId": "12"
+              }
+            },
+            "regionUrl": {
+              "reference": {
+                "referenceType": "COLUMN",
+                "tableId": "main",
+                "columnId": "5"
+              }
+            },
+            "riskModel": {
+              "reference": {
+                "referenceType": "TABLE",
+                "tableId": "riskModel"
+              }
+            }
+          },
+          "locations": {
+            "table": [
+              "header"
+            ],
+            "columns": {
+              "6": {
+                "ids": [
+                  "fund0Url"
+                ]
+              },
+              "2": {
+                "ids": [
+                  "regionUrl",
+                  "riskModel"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "headers": {
+      "definition": {
+        "columns": [
+          {
+            "id": "c_year",
+            "name": "year",
+            "description": "Year",
+            "type": "int32",
+            "isDimension": true
+          },
+          {
+            "id": "c_category",
+            "name": "category",
+            "description": "Category",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "c_year"
+          },
+          {
+            "id": "c_portType",
+            "name": "portType",
+            "description": "Portfolio Type",
+            "type": "string",
+            "isDimension": true,
+            "parentId": "c_category"
+          }
+        ]
+      },
+      "data": {
+        "rows": [
+          {
+            "id": "c_f0"
+          },
+          {
+            "id": "c_b0"
+          },
+          {
+            "id": "c_f1"
+          },
+          {
+            "id": "c_b1"
+          },
+          {
+            "id": "c_f2"
+          },
+          {
+            "id": "c_b2"
+          }
+        ],
+        "columns": {
+          "c_year": {
+            "ranges": {
+              "0": 6
+            },
+            "values": [
+              2017
+            ]
+          },
+          "c_category": {
+            "ranges": {
+              "0": 2,
+              "2": 2
+            },
+            "values": [
+              "Exposure",
+              "Total Risk",
+              "Contribution to Risk",
+              "Contribution to Risk"
+            ]
+          },
+          "c_portType": {
+            "values": [
+              "Fund",
+              "Bench",
+              "Fund",
+              "Bench",
+              "Fund",
+              "Bench"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

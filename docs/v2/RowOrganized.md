@@ -70,7 +70,7 @@ For information on how to utilize the [](factset.protobuf.stach.table.ColumnDefi
 
 #### Figure {f#}: Simple For Loop :figure=figure-single-for-loop
 
-[filename](/scripts/vue/components/stach-table.js ':include :fragment=demo :type=code html/vue')
+[filename](../scripts/vue/components/stach-table.js ':include :fragment=demo :type=code html/vue')
 
 #### Cell Values: Maps vs Arrays
 

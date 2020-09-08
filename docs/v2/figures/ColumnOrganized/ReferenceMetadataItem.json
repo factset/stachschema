@@ -1,0 +1,11 @@
+{
+  "items": {
+    "referenceMetadataItem": {
+      "reference": {
+        "referenceType": "TABLE",
+        "tableId": "metadataTable"
+      }
+    }
+  },
+  "locations": {}
+}

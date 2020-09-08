@@ -6,4 +6,4 @@
 - Built with protobuf (small transfer size)
 
 [GitHub](https://github.com/factset/stachschema)
-[Get Started](README?id=get-started)
+[Get Started](README)

@@ -1,0 +1,12 @@
+{
+  "items": {
+    "columnMetadataItem": {
+      "reference": {
+        "referenceType": "COLUMN",
+        "tableId": "metadataTable",
+        "columnId": "0"
+      }
+    }
+  },
+  "locations": {}
+}

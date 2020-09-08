@@ -1,0 +1,22 @@
+{
+  "items": {
+    "cellMetadataLocationSparsePatternItem": {
+      "value": "Cell (Continent 1, Row 0) metadata location"
+    }
+  },
+  "locations": {
+    "cells": {
+      "columns": {
+        "0": {
+          "rows": {
+            "1": {
+              "ids": [
+                "cellMetadataLocationSparsePatternItem"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
