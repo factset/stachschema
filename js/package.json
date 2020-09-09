@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "lerna": "^3.0.1",
-    "ts-protoc-gen": "^0.12.0"
+    "mocha": "^8.1.3"
   },
   "workspaces": [
     "packages/*"
@@ -18,8 +18,11 @@
   "scripts": {
     "heroku-postbuild": "yarn build",
     "build": "lerna run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lerna run test"
   },
   "author": "",
-  "license": "Apache License 2.0"
+  "license": "Apache License 2.0",
+  "dependencies": {
+    "ts-proto": "^1.33.0"
+  }
 }
