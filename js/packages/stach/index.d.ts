@@ -9,7 +9,11 @@ export {
 
 import {
   RowOrganizedPackage_Row_RowType,
+  rowOrganizedPackage_Row_RowTypeFromJSON,
+  rowOrganizedPackage_Row_RowTypeToJSON,
   RowOrganizedPackage_HeaderCellDetail_TableSource,
+  rowOrganizedPackage_HeaderCellDetail_TableSourceFromJSON,
+  rowOrganizedPackage_HeaderCellDetail_TableSourceToJSON,
   RowOrganizedPackage,
   RowOrganizedPackage_TablesEntry,
   RowOrganizedPackage_Table,
@@ -30,7 +34,11 @@ import {
 } from './fds/protobuf/stach/RowOrganized';
 export {
   RowOrganizedPackage_Row_RowType,
+  rowOrganizedPackage_Row_RowTypeFromJSON,
+  rowOrganizedPackage_Row_RowTypeToJSON,
   RowOrganizedPackage_HeaderCellDetail_TableSource,
+  rowOrganizedPackage_HeaderCellDetail_TableSourceFromJSON,
+  rowOrganizedPackage_HeaderCellDetail_TableSourceToJSON,
   RowOrganizedPackage,
   RowOrganizedPackage_TablesEntry,
   RowOrganizedPackage_Table,
@@ -81,10 +89,14 @@ export {
 }
 
 import {
-  HorizontalAlignment
+  HorizontalAlignment,
+  horizontalAlignmentFromJSON,
+  horizontalAlignmentToJSON
 } from './fds/protobuf/stach/table/HorizontalAlignment';
 export {
-  HorizontalAlignment
+  HorizontalAlignment,
+  horizontalAlignmentFromJSON,
+  horizontalAlignmentToJSON
 }
 
 import {
@@ -137,10 +149,14 @@ export {
 }
 
 import {
-  ReferenceType
+  ReferenceType,
+  referenceTypeFromJSON,
+  referenceTypeToJSON
 } from './fds/protobuf/stach/table/ReferenceType';
 export {
-  ReferenceType
+  ReferenceType,
+  referenceTypeFromJSON,
+  referenceTypeToJSON
 }
 
 import {
@@ -174,14 +190,20 @@ export {
 }
 
 import {
-  VerticalAlignment
+  VerticalAlignment,
+  verticalAlignmentFromJSON,
+  verticalAlignmentToJSON
 } from './fds/protobuf/stach/table/VerticalAlignment';
 export {
-  VerticalAlignment
+  VerticalAlignment,
+  verticalAlignmentFromJSON,
+  verticalAlignmentToJSON
 }
 
 import {
   NullValue,
+  nullValueFromJSON,
+  nullValueToJSON,
   Struct,
   Struct_FieldsEntry,
   Value,
@@ -189,6 +211,8 @@ import {
 } from './google/protobuf/struct';
 export {
   NullValue,
+  nullValueFromJSON,
+  nullValueToJSON,
   Struct,
   Struct_FieldsEntry,
   Value,

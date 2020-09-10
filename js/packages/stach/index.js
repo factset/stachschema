@@ -4,7 +4,11 @@ exports.Package_TablesEntry = f0.Package_TablesEntry;
 
 var f1 = require('./fds/protobuf/stach/RowOrganized');
 exports.RowOrganizedPackage_Row_RowType = f1.RowOrganizedPackage_Row_RowType;
+exports.rowOrganizedPackage_Row_RowTypeFromJSON = f1.rowOrganizedPackage_Row_RowTypeFromJSON;
+exports.rowOrganizedPackage_Row_RowTypeToJSON = f1.rowOrganizedPackage_Row_RowTypeToJSON;
 exports.RowOrganizedPackage_HeaderCellDetail_TableSource = f1.RowOrganizedPackage_HeaderCellDetail_TableSource;
+exports.rowOrganizedPackage_HeaderCellDetail_TableSourceFromJSON = f1.rowOrganizedPackage_HeaderCellDetail_TableSourceFromJSON;
+exports.rowOrganizedPackage_HeaderCellDetail_TableSourceToJSON = f1.rowOrganizedPackage_HeaderCellDetail_TableSourceToJSON;
 exports.RowOrganizedPackage = f1.RowOrganizedPackage;
 exports.RowOrganizedPackage_TablesEntry = f1.RowOrganizedPackage_TablesEntry;
 exports.RowOrganizedPackage_Table = f1.RowOrganizedPackage_Table;
@@ -38,6 +42,8 @@ exports.DataFormat = f5.DataFormat;
 
 var f6 = require('./fds/protobuf/stach/table/HorizontalAlignment');
 exports.HorizontalAlignment = f6.HorizontalAlignment;
+exports.horizontalAlignmentFromJSON = f6.horizontalAlignmentFromJSON;
+exports.horizontalAlignmentToJSON = f6.horizontalAlignmentToJSON;
 
 var f7 = require('./fds/protobuf/stach/table/ListOfMetadata');
 exports.ListOfMetadata = f7.ListOfMetadata;
@@ -63,6 +69,8 @@ exports.Reference = f11.Reference;
 
 var f12 = require('./fds/protobuf/stach/table/ReferenceType');
 exports.ReferenceType = f12.ReferenceType;
+exports.referenceTypeFromJSON = f12.referenceTypeFromJSON;
+exports.referenceTypeToJSON = f12.referenceTypeToJSON;
 
 var f13 = require('./fds/protobuf/stach/table/RowDefinition');
 exports.RowDefinition = f13.RowDefinition;
@@ -79,9 +87,13 @@ exports.TableDefinition = f16.TableDefinition;
 
 var f17 = require('./fds/protobuf/stach/table/VerticalAlignment');
 exports.VerticalAlignment = f17.VerticalAlignment;
+exports.verticalAlignmentFromJSON = f17.verticalAlignmentFromJSON;
+exports.verticalAlignmentToJSON = f17.verticalAlignmentToJSON;
 
 var f18 = require('./google/protobuf/struct');
 exports.NullValue = f18.NullValue;
+exports.nullValueFromJSON = f18.nullValueFromJSON;
+exports.nullValueToJSON = f18.nullValueToJSON;
 exports.Struct = f18.Struct;
 exports.Struct_FieldsEntry = f18.Struct_FieldsEntry;
 exports.Value = f18.Value;

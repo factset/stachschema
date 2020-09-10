@@ -131,7 +131,7 @@ var writeExportsToIndexDTS = function(dtsFile, types, stream) {
 var getTypes = function(xports) {
 	var types = [];
 	for (var key in xports) {
-		if (key[0] === '_' || key[0].toUpperCase() !== key[0]) continue;
+		if (key[0] === '_') continue;
 		types.push(key);
 	}
 	return types;
