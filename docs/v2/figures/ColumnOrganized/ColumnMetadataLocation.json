@@ -1,0 +1,16 @@
+{
+  "items": {
+    "columnMetadataLocationItem": {
+      "value": "Column (Continent 1) metadata location"
+    }
+  },
+  "locations": {
+    "columns": {
+      "3": {
+        "ids": [
+          "columnMetadataLocationItem"
+        ]
+      }
+    }
+  }
+}

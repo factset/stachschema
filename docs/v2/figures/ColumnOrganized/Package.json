@@ -1,0 +1,8 @@
+{
+  "primaryTableIds": [
+    "exampleTable"
+  ],
+  "tables": {
+    "exampleTable": {}
+  }
+}

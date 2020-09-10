@@ -2,7 +2,6 @@
 using FactSet.Protobuf.Stach;
 using FactSet.Protobuf.Stach.Table;
 using FactSet.Stach.Generator.Extensions;
-using FactSet.Stach.Generator.Utility;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 

@@ -4,7 +4,7 @@ The goals of the column organized format is to fully describe the complexity of 
 
 ## Usage
 
-An API can be designed to return any STACH message. For instance, if your API handles large tables, sorting, and paging of data, it will probably benefit from creating multiple endpoints that return pieces of tables, such as [](factset.protobuf.stach.table.TableDefinition :ref) and [](factset.protobuf.stach.table.TableData :ref). Although [](factset.protobuf.stach.Package :ref) is the top-level message, your API should be designed to be efficent and appropriate for its use cases.
+An API can be designed to return any STACH message. For instance, if your API handles large tables, sorting, and paging of data, it will probably benefit from creating multiple endpoints that return pieces of tables, such as [](factset.protobuf.stach.table.TableDefinition :ref :v2) and [](factset.protobuf.stach.table.TableData :ref :v2). Although [](factset.protobuf.stach.Package :ref :v2) is the top-level message, your API should be designed to be efficent and appropriate for its use cases.
 
 Before moving on to digest the documentation, you should familiarize yourself with an example.
 
@@ -28,7 +28,7 @@ A package allows the producer to transfer multiple [tables](#table) in one respo
 
 The version is used to validate which version of the STACH schema is expected. It is of the format "{major}.{minor}".
 
-This property is most useful when data is stored persistently. Upon reading the data, the version can be validated against the SDK used to ensure compatibility. For this reason, when persisting STACH data, it is recommended to store a [](factset.protobuf.stach.Package :ref).
+This property is most useful when data is stored persistently. Upon reading the data, the version can be validated against the SDK used to ensure compatibility. For this reason, when persisting STACH data, it is recommended to store a [](factset.protobuf.stach.Package :ref :v2).
 
 ## Table
 
@@ -40,19 +40,19 @@ This property is most useful when data is stored persistently. Upon reading the 
 
 ## Columns
 
-Columns are defined with a [](factset.protobuf.stach.table.ColumnDefinition :ref).
+Columns are defined with a [](factset.protobuf.stach.table.ColumnDefinition :ref :v2).
 
-Columns are required to have an [id](factset.protobuf.stach.table.ColumnDefinition :ref), since the [columns](factset.protobuf.stach.table.TableData :ref) key refers to the column id.
+Columns are required to have an [id](factset.protobuf.stach.table.ColumnDefinition :ref :v2), since the [columns](factset.protobuf.stach.table.TableData :ref :v2) key refers to the column id.
 
 ### Name
 
-The [name](factset.protobuf.stach.table.ColumnDefinition :ref) property can be used to refer to a column outside of the [](factset.protobuf.stach.Package :ref). 
+The [name](factset.protobuf.stach.table.ColumnDefinition :ref :v2) property can be used to refer to a column outside of the [](factset.protobuf.stach.Package :ref :v2). 
 
 !> This property will also be used to represent the column when stored in a database, so it needs to adhere to the regular expression `[a-zA-Z][a-zA-Z0-9_]*` and be **limited to 63 characters** in order to remain compatible with various database technologies. The database with the most restrictive column name length is [PostgresSQL](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Wikipedia has a convenient [comparison of databases](https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems), too.
 
 ### Description
 
-The [description](factset.protobuf.stach.table.ColumnDefinition :ref) is used to render a human friendly header for a column. However, it is not the only way to render a header. Refer to the [headers](#headers) section for more information.
+The [description](factset.protobuf.stach.table.ColumnDefinition :ref :v2) is used to render a human friendly header for a column. However, it is not the only way to render a header. Refer to the [headers](#headers) section for more information.
 
 ### Format
 
@@ -60,11 +60,11 @@ Refer to the [data format](#data-format) section.
 
 ## Rows
 
-Rows are defined with a [](factset.protobuf.stach.table.RowDefinition :ref).
+Rows are defined with a [](factset.protobuf.stach.table.RowDefinition :ref :v2).
 
-Rows are not required to have an [id](factset.protobuf.stach.table.RowDefinition :ref), however, in certain circumstances it will be required. 
+Rows are not required to have an [id](factset.protobuf.stach.table.RowDefinition :ref :v2), however, in certain circumstances it will be required. 
 
-Example where rows are required to have an [id](factset.protobuf.stach.table.RowDefinition :ref):
+Example where rows are required to have an [id](factset.protobuf.stach.table.RowDefinition :ref :v2):
 - Headers table
 - Backend services that CRUD rows
 - Frontend applications that CRUD rows 
@@ -75,7 +75,7 @@ Refer to the [data format](#data-format) section.
 
 ## Dimensions
 
-The first four columns, `function`, `region`, `continent1`, and `continent2`, play a special role. These columns are known as dimensions, specified by the [is_dimension](factset.protobuf.stach.table.ColumnDefinition :ref) property, because they describe the data.
+The first four columns, `function`, `region`, `continent1`, and `continent2`, play a special role. These columns are known as dimensions, specified by the [is_dimension](factset.protobuf.stach.table.ColumnDefinition :ref :v2) property, because they describe the data.
 
 Dimensions are useful for driving functionality, such as:
 
@@ -117,7 +117,7 @@ By iterating the collapsed column tree and analyzing each row's values, we can c
 
 ### Group Levels
 
-The depth in the collapsed column tree determines the group level. Notice that when the [next_sibling_id](factset.protobuf.stach.table.ColumnDefinition :ref) is used the group level remains the same, and when the [parent_id](factset.protobuf.stach.table.ColumnDefinition :ref) property is used the group level is increased by 1. The group level is typically used to indent the group label. The following figures highlight the different groups after analyzing the values.
+The depth in the collapsed column tree determines the group level. Notice that when the [next_sibling_id](factset.protobuf.stach.table.ColumnDefinition :ref :v2) is used the group level remains the same, and when the [parent_id](factset.protobuf.stach.table.ColumnDefinition :ref :v2) property is used the group level is increased by 1. The group level is typically used to indent the group label. The following figures highlight the different groups after analyzing the values.
 
 ### Figure {f#}: Group - Function (Parent Value = null, Level = 0) :figure=figure-tableGroupFunction
 
@@ -143,13 +143,13 @@ An example of this table's columns are represented in [Figure {f#}](#figure-grou
 
 ## Headers
 
-The [description](factset.protobuf.stach.table.ColumnDefinition :ref) is used to display a human readable name when rendering the header for table column. This is available for all dimension and data columns.
+The [description](factset.protobuf.stach.table.ColumnDefinition :ref :v2) is used to display a human readable name when rendering the header for table column. This is available for all dimension and data columns.
 
-However, more complex headers can be added for data columns by adding a separate headers table via the [headers_table_id](factset.protobuf.stach.table.Table :ref). This table is rotated 90 degrees where the rows in the headers table are linked to the columns in the primary table by using the [header_id](factset.protobuf.stach.table.ColumnDefinition :ref) property, which corresponds to a row id in the headers table.
+However, more complex headers can be added for data columns by adding a separate headers table via the [headers_table_id](factset.protobuf.stach.table.Table :ref :v2). This table is rotated 90 degrees where the rows in the headers table are linked to the columns in the primary table by using the [header_id](factset.protobuf.stach.table.ColumnDefinition :ref :v2) property, which corresponds to a row id in the headers table.
 
-> Headers should only be defined for visible columns. If the [is_hidden](factset.protobuf.stach.table.ColumnDefinition :ref) property is set to `true`, then the [header_id](factset.protobuf.stach.table.ColumnDefinition :ref) should not be set.
+> Headers should only be defined for visible columns. If the [is_hidden](factset.protobuf.stach.table.ColumnDefinition :ref :v2) property is set to `true`, then the [header_id](factset.protobuf.stach.table.ColumnDefinition :ref :v2) should not be set.
 >
-> The id of a headers table should not appear in the [primary_table_ids](factset.protobuf.stach.Package :ref) property.
+> The id of a headers table should not appear in the [primary_table_ids](factset.protobuf.stach.Package :ref :v2) property.
 
 ### Figure {f#}: Table with headers :figure=figure-tableWithHeaders
 
@@ -165,9 +165,9 @@ However, more complex headers can be added for data columns by adding a separate
 
 ## Cell Definition
 
-When the [](factset.protobuf.stach.table.CellDefinition :ref) is populated, it overrides the [](factset.protobuf.stach.table.RowDefinition :ref) and the [](factset.protobuf.stach.table.ColumnDefinition :ref). This allows a column to have mixed data types and formats. The [definitions](factset.protobuf.stach.table.ColumnData :ref) should either be populated with one [](factset.protobuf.stach.table.CellDefinition :ref) for every cell value or empty.
+When the [](factset.protobuf.stach.table.CellDefinition :ref :v2) is populated, it overrides the [](factset.protobuf.stach.table.RowDefinition :ref :v2) and the [](factset.protobuf.stach.table.ColumnDefinition :ref :v2). This allows a column to have mixed data types and formats. The [definitions](factset.protobuf.stach.table.ColumnData :ref :v2) should either be populated with one [](factset.protobuf.stach.table.CellDefinition :ref :v2) for every cell value or empty.
 
-For instance, if some cell values are a string and other cell values are a number, then it will be necessary to override with a cell type by populating the [definitions](factset.protobuf.stach.table.ColumnData :ref) property.
+For instance, if some cell values are a string and other cell values are a number, then it will be necessary to override with a cell type by populating the [definitions](factset.protobuf.stach.table.ColumnData :ref :v2) property.
 
 ### Figure {f#}: Mixed data types :figure=figure-mixedDataTypes
 
@@ -189,7 +189,7 @@ It is assumed that a transpose would only be operated on a table with a small nu
 
 ## Compression
 
-When transferring data over the wire, the smaller it is the faster it will transfer, which is why this schema also supports compressing the data. By using the [ranges](factset.protobuf.stach.table.ColumnData :ref) property, each item specifies the uncompressed index (as the `key`) and the length (as the `value`) to repeat the data. 
+When transferring data over the wire, the smaller it is the faster it will transfer, which is why this schema also supports compressing the data. By using the [ranges](factset.protobuf.stach.table.ColumnData :ref :v2) property, each item specifies the uncompressed index (as the `key`) and the length (as the `value`) to repeat the data. 
 
 [Figure {f#}](#figure-uncompressedData) and [Figure {f#}](#figure-compressedData) illustrate the difference between uncompressed and compressed data.
 
@@ -203,9 +203,9 @@ When transferring data over the wire, the smaller it is the faster it will trans
 
 ## Data Format
 
-The [](factset.protobuf.stach.table.DataFormat :ref) message is used to facilitate rendering a human readable table. It is intended as a strong suggestion on how to render the data. By storing this information along with the data, applications can immediately render the table intelligently without having knowledge of the data.
+The [](factset.protobuf.stach.table.DataFormat :ref :v2) message is used to facilitate rendering a human readable table. It is intended as a strong suggestion on how to render the data. By storing this information along with the data, applications can immediately render the table intelligently without having knowledge of the data.
 
-There are three places that the [](factset.protobuf.stach.table.DataFormat :ref) can be applied, and the order of precedence is as follows: [](factset.protobuf.stach.table.CellDefinition :ref), [](factset.protobuf.stach.table.RowDefinition :ref), and [](factset.protobuf.stach.table.ColumnDefinition :ref).
+There are three places that the [](factset.protobuf.stach.table.DataFormat :ref :v2) can be applied, and the order of precedence is as follows: [](factset.protobuf.stach.table.CellDefinition :ref :v2), [](factset.protobuf.stach.table.RowDefinition :ref :v2), and [](factset.protobuf.stach.table.ColumnDefinition :ref :v2).
 
 ### Figure {f#}: Formatted column :figure=figure-formattedColumn
 
@@ -213,26 +213,26 @@ There are three places that the [](factset.protobuf.stach.table.DataFormat :ref)
 
 ### Format
 
-The [format](factset.protobuf.stach.table.DataFormat :ref) property is used to render a raw value into a human readable string. Refer to [Formatting Types](https://docs.microsoft.com/en-us/dotnet/standard/base-types/formatting-types) for what strings can be used.
+The [format](factset.protobuf.stach.table.DataFormat :ref :v2) property is used to render a raw value into a human readable string. Refer to [Formatting Types](https://docs.microsoft.com/en-us/dotnet/standard/base-types/formatting-types) for what strings can be used.
 
 ### Null Format
 
-The [null_format](factset.protobuf.stach.table.DataFormat :ref) property to is used to render a null value with the specified string, like `--`.
+The [null_format](factset.protobuf.stach.table.DataFormat :ref :v2) property to is used to render a null value with the specified string, like `--`.
 
 ### Alignment
 
-Use the [halign](factset.protobuf.stach.table.DataFormat :ref) and [valign](factset.protobuf.stach.table.DataFormat :ref) properties to specify how the data in a series should be aligned within the table cell.
+Use the [halign](factset.protobuf.stach.table.DataFormat :ref :v2) and [valign](factset.protobuf.stach.table.DataFormat :ref :v2) properties to specify how the data in a series should be aligned within the table cell.
 
 ## Metadata
 
 In order for tabular data to mean something, often metadata needs to be attributed to it. Metadata can be attributed to the entire table, to a particular column or row, to column or row cells, or to a specific cell. This is useful in providing functionality beyond the raw data, or explaining how the data was calculated. For instance, a URL might be attributed to one of the numbers that links to research notes about that number, or settings might be attributed to one of the columns that documents what engine calculated that data and how that column was calculated.
 
-There are two sides to metadata, [](factset.protobuf.stach.table.MetadataLocation :ref) and [](factset.protobuf.stach.table.MetadataItem :ref). [](factset.protobuf.stach.table.MetadataLocation :ref) specifies the thing that you want to attribute metadata to, and [](factset.protobuf.stach.table.MetadataItem :ref) specifies what the metadata is.
+There are two sides to metadata, [](factset.protobuf.stach.table.MetadataLocation :ref :v2) and [](factset.protobuf.stach.table.MetadataItem :ref :v2). [](factset.protobuf.stach.table.MetadataLocation :ref :v2) specifies the thing that you want to attribute metadata to, and [](factset.protobuf.stach.table.MetadataItem :ref :v2) specifies what the metadata is.
 
 In order to add metadata, you have to
 
-1. Add a [](factset.protobuf.stach.table.MetadataItem :ref) to the [items](factset.protobuf.stach.table.MetadataCollection :ref) property.
-2. Create a reference to that [](factset.protobuf.stach.table.MetadataItem :ref) in the [locations](factset.protobuf.stach.table.MetadataLocation :ref) property by id.
+1. Add a [](factset.protobuf.stach.table.MetadataItem :ref :v2) to the [items](factset.protobuf.stach.table.MetadataCollection :ref :v2) property.
+2. Create a reference to that [](factset.protobuf.stach.table.MetadataItem :ref :v2) in the [locations](factset.protobuf.stach.table.MetadataLocation :ref :v2) property by id.
 
 The following matrix lists the various ways you can add metadata, and also demonstrates that there is a difference between attributing metadata to tables and using tables (or parts of them) as metadata items themselves.
 
@@ -292,33 +292,33 @@ The following matrix lists the various ways you can add metadata, and also demon
 
 ### Reference
 
-In order to reference a table (or a part of a table), you must use the [](factset.protobuf.stach.table.Reference :ref) message. It allows us to specify a pointer to metadata that exists in either this table or another table.
+In order to reference a table (or a part of a table), you must use the [](factset.protobuf.stach.table.Reference :ref :v2) message. It allows us to specify a pointer to metadata that exists in either this table or another table.
 
-[reference_type](factset.protobuf.stach.table.Reference :ref) should always be specified. It should be one of `TABLE`, `COLUMN`, `ROW`, or `CELL`.
+[reference_type](factset.protobuf.stach.table.Reference :ref :v2) should always be specified. It should be one of `TABLE`, `COLUMN`, `ROW`, or `CELL`.
 
-If `TABLE` is specified, then [table_id](factset.protobuf.stach.table.Reference :ref) should be the only property specified. Refer to [Figure {f#}](#figure-tableMetadataItem) for an example.
+If `TABLE` is specified, then [table_id](factset.protobuf.stach.table.Reference :ref :v2) should be the only property specified. Refer to [Figure {f#}](#figure-tableMetadataItem) for an example.
 
-If `COLUMN` is specified, then [table_id](factset.protobuf.stach.table.Reference :ref) and [column_id](factset.protobuf.stach.table.Reference :ref) should be the only properties specified. Refer to [Figure {f#}](#figure-columnMetadataItem) for an example.
+If `COLUMN` is specified, then [table_id](factset.protobuf.stach.table.Reference :ref :v2) and [column_id](factset.protobuf.stach.table.Reference :ref :v2) should be the only properties specified. Refer to [Figure {f#}](#figure-columnMetadataItem) for an example.
 
-If `ROW` is specified, then [table_id](factset.protobuf.stach.table.Reference :ref) and [row_id](factset.protobuf.stach.table.Reference :ref) should be the only properties specified. Refer to [Figure {f#}](#figure-rowMetadataItem) for an example.
+If `ROW` is specified, then [table_id](factset.protobuf.stach.table.Reference :ref :v2) and [row_id](factset.protobuf.stach.table.Reference :ref :v2) should be the only properties specified. Refer to [Figure {f#}](#figure-rowMetadataItem) for an example.
 
 If `CELL` is specified, then there are two use cases to consider, the [Dense Pattern](#dense-cell-metadata-item-pattern) and the [Sparse Pattern](#sparse-cell-metadata-item-pattern).
 
 #### Dense Cell Metadata Item Pattern
-You must specify [table_id](factset.protobuf.stach.table.Reference :ref) as well as either [column_id](factset.protobuf.stach.table.Reference :ref) or [row_id](factset.protobuf.stach.table.Reference :ref). It implies that the cells in that column or row are to be attributed as metadata items. This also assumes that the [](factset.protobuf.stach.table.MetadataLocation :ref) is targeting a column or a row respectively from the same table, since the values correlate by position. You may not use a different table for this pattern since the values correlate by position. Refer to [Figure {f#}](#figure-columnOrientedCellMetadataLocationDensePattern) for a column-oriented example and [Figure {f#}](#figure-rowOrientedCellMetadataLocationDensePattern) for a row-oriented example.
+You must specify [table_id](factset.protobuf.stach.table.Reference :ref :v2) as well as either [column_id](factset.protobuf.stach.table.Reference :ref :v2) or [row_id](factset.protobuf.stach.table.Reference :ref :v2). It implies that the cells in that column or row are to be attributed as metadata items. This also assumes that the [](factset.protobuf.stach.table.MetadataLocation :ref :v2) is targeting a column or a row respectively from the same table, since the values correlate by position. You may not use a different table for this pattern since the values correlate by position. Refer to [Figure {f#}](#figure-columnOrientedCellMetadataLocationDensePattern) for a column-oriented example and [Figure {f#}](#figure-rowOrientedCellMetadataLocationDensePattern) for a row-oriented example.
 
-> This pattern should be used when metadata items are dense, as the size of the [](factset.protobuf.stach.Package :ref) is most efficient when most cells in the specified metadata column or row respectively have metadata.
+> This pattern should be used when metadata items are dense, as the size of the [](factset.protobuf.stach.Package :ref :v2) is most efficient when most cells in the specified metadata column or row respectively have metadata.
 
 #### Sparse Cell Metadata Item Pattern
-You must specify [table_id](factset.protobuf.stach.table.Reference :ref) as well as both [column_id](factset.protobuf.stach.table.Reference :ref) and [row_id](factset.protobuf.stach.table.Reference :ref). It implies that you are attributing a specific singular cell as a metadata item. Refer to [Figure {f#}](#figure-cellMetadataItemSparsePattern) for an example.
+You must specify [table_id](factset.protobuf.stach.table.Reference :ref :v2) as well as both [column_id](factset.protobuf.stach.table.Reference :ref :v2) and [row_id](factset.protobuf.stach.table.Reference :ref :v2). It implies that you are attributing a specific singular cell as a metadata item. Refer to [Figure {f#}](#figure-cellMetadataItemSparsePattern) for an example.
 
-This pattern is used when the value already exists in some table in the [](factset.protobuf.stach.Package :ref). In practice, however, this pattern is rarely used, since the value that needs to be attributed is usually independent. When the value is independent, consider using the [Sparse Cell Metadata Location Pattern](#sparse-cell-metadata-location-pattern), instead.
+This pattern is used when the value already exists in some table in the [](factset.protobuf.stach.Package :ref :v2). In practice, however, this pattern is rarely used, since the value that needs to be attributed is usually independent. When the value is independent, consider using the [Sparse Cell Metadata Location Pattern](#sparse-cell-metadata-location-pattern), instead.
 
 #### Sparse Cell Metadata Location Pattern
 
 To add an independent metadata item to a specific cell, you can attribute a metadata item to a [Cell Metadata Location](#figure-cellMetadataLocationSparsePattern).
 
-> This pattern should only be used when metadata being applied to a column of data is sparse, as the size of the [](factset.protobuf.stach.Package :ref) can be easily overwhelmed with cell metadata.
+> This pattern should only be used when metadata being applied to a column of data is sparse, as the size of the [](factset.protobuf.stach.Package :ref :v2) can be easily overwhelmed with cell metadata.
 
 ### Metadata Location
 
@@ -394,7 +394,7 @@ Although metadata that exists in the form of a list of values can be expressed w
 
 ## Hidden
 
-Since a column of data can represent metadata, it is likely the case that that data should not be rendered directly, but rather in an interactive way, like a tooltip or a hyperlink. In this scenario, you can make a column hidden by setting the [is_hidden](factset.protobuf.stach.table.ColumnDefinition :ref) property to true.
+Since a column of data can represent metadata, it is likely the case that that data should not be rendered directly, but rather in an interactive way, like a tooltip or a hyperlink. In this scenario, you can make a column hidden by setting the [is_hidden](factset.protobuf.stach.table.ColumnDefinition :ref :v2) property to true.
 
 ### Figure {f#}: Hidden column :figure=figure-hiddenColumn
 

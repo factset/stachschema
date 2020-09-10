@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using FactSet.Stach.Generator.Extensions;
@@ -9,12 +8,6 @@ using FactSet.Stach.Generator.Utility;
 
 namespace FactSet.Stach.Generator {
     internal class Program {
-        private static readonly string Cwd = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-        private static readonly string RepoRootPath = Path.GetFullPath(Path.Combine(Cwd, "../../../../../"));
-        private static readonly string DocsPath = Path.Combine(RepoRootPath, "docs");
-        private static readonly string ExamplesPath = Path.Combine(DocsPath, "examples");
-        private static readonly string FiguresPath = Path.Combine(DocsPath, "figures");
-
         private static void Main(string[] args) {
             WriteColumnOrganizedFigures().Wait();
             WriteRowOrganizedFigures().Wait();
@@ -23,15 +16,15 @@ namespace FactSet.Stach.Generator {
         }
 
         private static async Task WriteGuidanceExamples() {
-            var coBuilder = new GuidanceExamplesBuilder(Path.Combine(ExamplesPath, "Guidance"));
+            var coBuilder = new GuidanceExamplesBuilder(Path.Combine(Constants.ExamplesPath, "Guidance"));
             await WriteExamples(coBuilder);
         }
 
         private static async Task WriteEquitiesByRegionExamples() {
-            var coBuilder = new ColumnOrganizedEquitiesByRegionExamplesBuilder(Path.Combine(ExamplesPath, "ColumnOrganized", "EquitiesByRegion"));
+            var coBuilder = new ColumnOrganizedEquitiesByRegionExamplesBuilder(Path.Combine(Constants.ExamplesPath, "ColumnOrganized", "EquitiesByRegion"));
             await WriteExamples(coBuilder);
 
-            var roBuilder = new RowOrganizedEquitiesByRegionExamplesBuilder(Path.Combine(ExamplesPath, "RowOrganized", "EquitiesByRegion"));
+            var roBuilder = new RowOrganizedEquitiesByRegionExamplesBuilder(Path.Combine(Constants.ExamplesPath, "RowOrganized", "EquitiesByRegion"));
             await WriteExamples(roBuilder);
         }
 
@@ -66,7 +59,7 @@ namespace FactSet.Stach.Generator {
                         var binSize = new FileInfo(binPath).Length;
                         Console.WriteLine($"Wrote {binPath}");
 
-                        await sw.WriteLineAsync($"| {kvp.Key} | [{BytesConverter.ToReadableString(jsonSize)}]({jsonPath.Substring(DocsPath.Length + 1).Replace("\\", "/")} ':ignore') | [{BytesConverter.ToReadableString(binSize)}]({binPath.Substring(DocsPath.Length + 1).Replace("\\", "/")} ':ignore') |");
+                        await sw.WriteLineAsync($"| {kvp.Key} | [{BytesConverter.ToReadableString(jsonSize)}]({jsonPath.Substring(Constants.DocsPath.Length + 1).Replace("\\", "/")} ':ignore') | [{BytesConverter.ToReadableString(binSize)}]({binPath.Substring(Constants.DocsPath.Length + 1).Replace("\\", "/")} ':ignore') |");
                     }
                 }
             }
@@ -75,7 +68,7 @@ namespace FactSet.Stach.Generator {
         }
 
         private static async Task WriteRowOrganizedFigures() {
-            var targetPath = Path.Combine(FiguresPath, "RowOrganized");
+            var targetPath = Path.Combine(Constants.FiguresPath, "RowOrganized");
             if (!Directory.Exists(targetPath)) {
                 Console.WriteLine($"Createing directory {targetPath}");
                 Directory.CreateDirectory(targetPath);
@@ -92,7 +85,7 @@ namespace FactSet.Stach.Generator {
         }
 
         private static async Task WriteColumnOrganizedFigures() {
-            var targetPath = Path.Combine(FiguresPath, "ColumnOrganized");
+            var targetPath = Path.Combine(Constants.FiguresPath, "ColumnOrganized");
             if (!Directory.Exists(targetPath)) {
                 Console.WriteLine($"Createing directory {targetPath}");
                 Directory.CreateDirectory(targetPath);

@@ -1,0 +1,11 @@
+{
+  "id": "6",
+  "name": "fund0",
+  "description": "Fund 0",
+  "type": "real",
+  "headerId": "c_f0",
+  "format": {
+    "format": "{0:0.00}",
+    "halign": "RIGHT"
+  }
+}

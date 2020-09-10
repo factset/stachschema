@@ -87,7 +87,7 @@ Vue.component('stach-table', {
 			  	textAlign: alignment(row, colIndex, 'horizontal'),
 			  	verticalAlign: alignment(row, colIndex, 'vertical')
 			  }">
-			  	<span v-bind:style="{ 'padding-left': groupLevel(row, colIndex) + 'em' }">{{value}}<span>
+			  	<div v-bind:style="{ 'padding-left': groupLevel(row, colIndex) + 'em' }">{{value}}<div>
 			</td>
 		</tr>
 	</table>

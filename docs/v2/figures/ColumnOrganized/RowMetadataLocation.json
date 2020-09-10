@@ -1,0 +1,16 @@
+{
+  "items": {
+    "rowMetadataLocationItem": {
+      "value": "Row (Row 0) metadata location"
+    }
+  },
+  "locations": {
+    "rows": {
+      "0": {
+        "ids": [
+          "rowMetadataLocationItem"
+        ]
+      }
+    }
+  }
+}

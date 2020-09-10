@@ -1,0 +1,58 @@
+{
+  "columns": [
+    {
+      "id": "1",
+      "name": "function",
+      "description": "Function",
+      "type": "string",
+      "isDimension": true,
+      "nextSiblingId": "2"
+    },
+    {
+      "id": "2",
+      "name": "region",
+      "description": "Region",
+      "type": "string",
+      "isDimension": true
+    },
+    {
+      "id": "3",
+      "name": "continent1",
+      "description": "Continent 1",
+      "type": "string",
+      "isDimension": true,
+      "parentId": "2"
+    },
+    {
+      "id": "4",
+      "name": "continent2",
+      "description": "Continent 2",
+      "type": "string",
+      "isDimension": true,
+      "parentId": "2"
+    },
+    {
+      "id": "5",
+      "name": "regionUrl",
+      "description": "Region Url",
+      "type": "string",
+      "isDimension": true,
+      "isHidden": true
+    },
+    {
+      "id": "8",
+      "name": "contAbbr",
+      "description": "Abbr",
+      "type": "string",
+      "isDimension": true
+    },
+    {
+      "id": "12",
+      "name": "fund0Url",
+      "description": "Fund 0 Url",
+      "type": "string",
+      "isDimension": true,
+      "isHidden": true
+    }
+  ]
+}

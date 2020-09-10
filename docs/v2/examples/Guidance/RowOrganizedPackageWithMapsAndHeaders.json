@@ -1,0 +1,422 @@
+{
+  "version": "2.0",
+  "tables": {
+    "main": {
+      "definition": {
+        "columns": [
+          {
+            "id": "c_function",
+            "description": "Function",
+            "type": "string"
+          },
+          {
+            "id": "c_region",
+            "description": "Region",
+            "type": "string"
+          },
+          {
+            "id": "c_continent1",
+            "description": "Continent 1",
+            "type": "string"
+          },
+          {
+            "id": "c_continent2",
+            "description": "Continent 2",
+            "type": "string"
+          },
+          {
+            "id": "c_f0",
+            "description": "Fund 0",
+            "type": "real"
+          },
+          {
+            "id": "c_b0",
+            "description": "Bench 0",
+            "type": "real"
+          },
+          {
+            "id": "c_contAbbr",
+            "description": "Abbr",
+            "type": "string"
+          },
+          {
+            "id": "c_f1",
+            "description": "Fund 1",
+            "type": "real"
+          },
+          {
+            "id": "c_b1",
+            "description": "Bench 1",
+            "type": "real"
+          },
+          {
+            "id": "c_f2",
+            "description": "Fund 2",
+            "type": "real"
+          },
+          {
+            "id": "c_b2",
+            "description": "Bench 2",
+            "type": "real"
+          }
+        ]
+      },
+      "headersDefinition": {
+        "columns": [
+          {
+            "id": "c_year",
+            "description": "Year",
+            "type": "int32"
+          },
+          {
+            "id": "c_category",
+            "description": "Category",
+            "type": "string"
+          },
+          {
+            "id": "c_portType",
+            "description": "Portfolio Type",
+            "type": "string"
+          }
+        ]
+      },
+      "data": {
+        "rows": [
+          {
+            "rowType": "Header",
+            "cells": [
+              "Function",
+              "Region",
+              "Continent 1",
+              "Continent 2",
+              2017,
+              "Abbr",
+              2017
+            ],
+            "headerCellDetails": {
+              "0": {
+                "rowspan": 3,
+                "source": "PRIMARY"
+              },
+              "1": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 1
+              },
+              "2": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 2
+              },
+              "3": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 3
+              },
+              "4": {
+                "colspan": 2,
+                "source": "HEADERS"
+              },
+              "5": {
+                "rowspan": 3,
+                "source": "PRIMARY",
+                "columnIndex": 6
+              },
+              "6": {
+                "colspan": 4,
+                "source": "HEADERS"
+              }
+            }
+          },
+          {
+            "rowType": "Header",
+            "cells": [
+              "Exposure",
+              "Total Risk",
+              "Contribution to Risk"
+            ],
+            "headerCellDetails": {
+              "0": {
+                "colspan": 2,
+                "source": "HEADERS",
+                "columnIndex": 1
+              },
+              "1": {
+                "colspan": 2,
+                "source": "HEADERS",
+                "columnIndex": 1
+              },
+              "2": {
+                "colspan": 2,
+                "source": "HEADERS",
+                "columnIndex": 1
+              }
+            }
+          },
+          {
+            "rowType": "Header",
+            "cells": [
+              "Fund",
+              "Bench",
+              "Fund",
+              "Bench",
+              "Fund",
+              "Bench"
+            ],
+            "headerCellDetails": {
+              "0": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "1": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "2": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "3": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "4": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              },
+              "5": {
+                "source": "HEADERS",
+                "columnIndex": 2
+              }
+            }
+          },
+          {
+            "values": {
+              "c_function": "Max",
+              "c_region": null,
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": 88.3,
+              "c_b0": 89.62,
+              "c_contAbbr": null,
+              "c_f1": 17.17,
+              "c_b1": 15.67,
+              "c_f2": 86.07,
+              "c_b2": 89.18
+            }
+          },
+          {
+            "values": {
+              "c_function": "Total",
+              "c_region": null,
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": 100,
+              "c_b0": 100,
+              "c_contAbbr": null,
+              "c_f1": 8.6,
+              "c_b1": 8.38,
+              "c_f2": 100,
+              "c_b2": 100
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Developed Markets",
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": 88.3,
+              "c_b0": 89.62,
+              "c_contAbbr": null,
+              "c_f1": 8.51,
+              "c_b1": 8.39,
+              "c_f2": 86.07,
+              "c_b2": 89.18
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Developed Markets",
+              "c_continent1": "Americas",
+              "c_continent2": null,
+              "c_f0": 46.03,
+              "c_b0": 54.98,
+              "c_contAbbr": "AM",
+              "c_f1": 10.21,
+              "c_b1": 9.63,
+              "c_f2": 50.74,
+              "c_b2": 61.23
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Developed Markets",
+              "c_continent1": "Asia Pacific",
+              "c_continent2": null,
+              "c_f0": 9.09,
+              "c_b0": 12.48,
+              "c_contAbbr": "APac",
+              "c_f1": 11.94,
+              "c_b1": 10.06,
+              "c_f2": 7.37,
+              "c_b2": 9.77
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Developed Markets",
+              "c_continent1": "Europe",
+              "c_continent2": null,
+              "c_f0": 33.15,
+              "c_b0": 21.95,
+              "c_contAbbr": "EU",
+              "c_f1": 8.71,
+              "c_b1": 8.28,
+              "c_f2": 27.96,
+              "c_b2": 17.93
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Developed Markets",
+              "c_continent1": "Middle East and Africa",
+              "c_continent2": null,
+              "c_f0": null,
+              "c_b0": 0.21,
+              "c_contAbbr": "MEA",
+              "c_f1": null,
+              "c_b1": 13.58,
+              "c_f2": null,
+              "c_b2": 0.24
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Emerging Markets",
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": 8.71,
+              "c_b0": 7.76,
+              "c_contAbbr": null,
+              "c_f1": 14.12,
+              "c_b1": 10.65,
+              "c_f2": 10.48,
+              "c_b2": 8.17
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Emerging Markets",
+              "c_continent1": null,
+              "c_continent2": "Americas",
+              "c_f0": 0.3,
+              "c_b0": 1.12,
+              "c_contAbbr": "AM",
+              "c_f1": 22.7,
+              "c_b1": 15.44,
+              "c_f2": 0.36,
+              "c_b2": 1.41
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Emerging Markets",
+              "c_continent1": null,
+              "c_continent2": "Asia Pacific",
+              "c_f0": 8.41,
+              "c_b0": 5.41,
+              "c_contAbbr": "APac",
+              "c_f1": 14.22,
+              "c_b1": 11.02,
+              "c_f2": 10.12,
+              "c_b2": 5.47
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Emerging Markets",
+              "c_continent1": null,
+              "c_continent2": "Europe",
+              "c_f0": null,
+              "c_b0": 0.33,
+              "c_contAbbr": "EU",
+              "c_f1": null,
+              "c_b1": 12.78,
+              "c_f2": null,
+              "c_b2": 0.25
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Emerging Markets",
+              "c_continent1": null,
+              "c_continent2": "Middle East and Africa",
+              "c_f0": null,
+              "c_b0": 0.89,
+              "c_contAbbr": "MEA",
+              "c_f1": null,
+              "c_b1": 14.92,
+              "c_f2": null,
+              "c_b2": 1.03
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Frontier Markets",
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": 0.36,
+              "c_b0": null,
+              "c_contAbbr": null,
+              "c_f1": 17.17,
+              "c_b1": null,
+              "c_f2": 0.19,
+              "c_b2": null
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "Other",
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": null,
+              "c_b0": 0.53,
+              "c_contAbbr": null,
+              "c_f1": null,
+              "c_b1": 15.67,
+              "c_f2": null,
+              "c_b2": 0.59
+            }
+          },
+          {
+            "values": {
+              "c_function": null,
+              "c_region": "[Cash]",
+              "c_continent1": null,
+              "c_continent2": null,
+              "c_f0": 0.15,
+              "c_b0": null,
+              "c_contAbbr": null,
+              "c_f1": 8.45,
+              "c_b1": null,
+              "c_f2": -0.06,
+              "c_b2": null
+            }
+          }
+        ]
+      }
+    }
+  }
+}

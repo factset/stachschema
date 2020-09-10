@@ -1,0 +1,43 @@
+{
+  "definition": {
+    "columns": [
+      {
+        "id": "0",
+        "name": "columnWithMixedDataTypes",
+        "type": "string"
+      }
+    ]
+  },
+  "data": {
+    "columns": {
+      "0": {
+        "values": [
+          "foo",
+          1,
+          "bar",
+          0.89
+        ],
+        "definitions": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}"
+            }
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "real",
+            "format": {
+              "format": "{0:0.00}"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
