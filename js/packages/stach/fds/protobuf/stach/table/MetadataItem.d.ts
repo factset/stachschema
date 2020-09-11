@@ -10,11 +10,11 @@ export interface MetadataItem {
     /**
      *  The value
      */
-    value: Value | undefined;
+    value?: Value | undefined;
     /**
      *  The table reference
      */
-    reference: Reference | undefined;
+    reference?: Reference | undefined;
 }
 export declare const MetadataItem: {
     encode(message: MetadataItem, writer?: Writer): Writer;

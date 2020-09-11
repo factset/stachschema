@@ -21,7 +21,7 @@ export interface Package {
 }
 export interface Package_TablesEntry {
     key: string;
-    value: Table | undefined;
+    value?: Table;
 }
 export declare const Package: {
     encode(message: Package, writer?: Writer): Writer;

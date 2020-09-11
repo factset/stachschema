@@ -38,6 +38,7 @@ var protoFiles = [
 exec(`protoc\
  --proto_path=../proto\
  --plugin="protoc-gen-ts_proto=${PROTOC_GEN_TS_PATH}"\
+ --ts_proto_opt=useOptionals=true\
  --ts_proto_out="${OUT_DIR}" ` + protoFiles.join(' '),
  function(err, stdout, stderr) {
   if (err) {

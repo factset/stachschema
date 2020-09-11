@@ -8,11 +8,11 @@ export interface Table {
     /**
      *  The definition
      */
-    definition: TableDefinition | undefined;
+    definition?: TableDefinition;
     /**
      *  The data
      */
-    data: TableData | undefined;
+    data?: TableData;
 }
 export declare const Table: {
     encode(message: Table, writer?: Writer): Writer;

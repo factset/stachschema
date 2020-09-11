@@ -43,7 +43,7 @@ export interface ColumnDefinition {
     /**
      *  The data format
      */
-    format: DataFormat | undefined;
+    format?: DataFormat;
 }
 export declare const ColumnDefinition: {
     encode(message: ColumnDefinition, writer?: Writer): Writer;

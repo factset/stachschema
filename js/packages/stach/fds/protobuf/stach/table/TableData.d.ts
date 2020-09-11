@@ -19,11 +19,11 @@ export interface TableData {
     /**
      *  The metadata
      */
-    metadata: MetadataCollection | undefined;
+    metadata?: MetadataCollection;
 }
 export interface TableData_ColumnsEntry {
     key: string;
-    value: ColumnData | undefined;
+    value?: ColumnData;
 }
 export declare const TableData: {
     encode(message: TableData, writer?: Writer): Writer;

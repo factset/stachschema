@@ -20,7 +20,7 @@ export interface RowOrganizedPackage {
 }
 export interface RowOrganizedPackage_TablesEntry {
     key: string;
-    value: RowOrganizedPackage_Table | undefined;
+    value?: RowOrganizedPackage_Table;
 }
 /**
  *  A row organized table
@@ -29,15 +29,15 @@ export interface RowOrganizedPackage_Table {
     /**
      *  The definition
      */
-    definition: RowOrganizedPackage_TableDefinition | undefined;
+    definition?: RowOrganizedPackage_TableDefinition;
     /**
      *  The headers definition
      */
-    headersDefinition: RowOrganizedPackage_TableDefinition | undefined;
+    headersDefinition?: RowOrganizedPackage_TableDefinition;
     /**
      *  The data
      */
-    data: RowOrganizedPackage_TableData | undefined;
+    data?: RowOrganizedPackage_TableData;
 }
 /**
  *  A table definition
@@ -71,11 +71,11 @@ export interface RowOrganizedPackage_TableData {
 }
 export interface RowOrganizedPackage_TableData_TableMetadataEntry {
     key: string;
-    value: MetadataItem | undefined;
+    value?: MetadataItem;
 }
 export interface RowOrganizedPackage_TableData_ColumnMetadataEntry {
     key: string;
-    value: RowOrganizedPackage_MapOfMetadata | undefined;
+    value?: RowOrganizedPackage_MapOfMetadata;
 }
 /**
  *  A row
@@ -92,11 +92,11 @@ export interface RowOrganizedPackage_Row {
     /**
      *  The list of cell values
      */
-    cells: ListValue | undefined;
+    cells?: ListValue | undefined;
     /**
      *  The map of cell values
      */
-    values: Struct | undefined;
+    values?: Struct | undefined;
     /**
      *  The details for a body row cell
      */
@@ -118,15 +118,15 @@ export interface RowOrganizedPackage_Row {
 }
 export interface RowOrganizedPackage_Row_CellDetailsEntry {
     key: string;
-    value: RowOrganizedPackage_CellDetail | undefined;
+    value?: RowOrganizedPackage_CellDetail;
 }
 export interface RowOrganizedPackage_Row_HeaderCellDetailsEntry {
     key: string;
-    value: RowOrganizedPackage_HeaderCellDetail | undefined;
+    value?: RowOrganizedPackage_HeaderCellDetail;
 }
 export interface RowOrganizedPackage_Row_RowMetadataEntry {
     key: string;
-    value: MetadataItem | undefined;
+    value?: MetadataItem;
 }
 /**
  *  A body row cell detail
@@ -139,7 +139,7 @@ export interface RowOrganizedPackage_CellDetail {
     /**
      *  The definition of the cell; overrides the column definition
      */
-    cellDefinition: CellDefinition | undefined;
+    cellDefinition?: CellDefinition;
     /**
      *  The map (key: metadataitem id) of metadata at the cell location
      */
@@ -149,7 +149,7 @@ export interface RowOrganizedPackage_CellDetail {
 }
 export interface RowOrganizedPackage_CellDetail_CellMetadataEntry {
     key: string;
-    value: MetadataItem | undefined;
+    value?: MetadataItem;
 }
 /**
  *  A header row cell detail
@@ -174,7 +174,7 @@ export interface RowOrganizedPackage_HeaderCellDetail {
     /**
      *  The definition of the cell; overrides the column definition
      */
-    cellDefinition: CellDefinition | undefined;
+    cellDefinition?: CellDefinition;
     /**
      *  The map (key: metadataitem id) of metadata at the cell location
      */
@@ -184,7 +184,7 @@ export interface RowOrganizedPackage_HeaderCellDetail {
 }
 export interface RowOrganizedPackage_HeaderCellDetail_CellMetadataEntry {
     key: string;
-    value: MetadataItem | undefined;
+    value?: MetadataItem;
 }
 /**
  *  A wrapper for a map of metadata items
@@ -199,7 +199,7 @@ export interface RowOrganizedPackage_MapOfMetadata {
 }
 export interface RowOrganizedPackage_MapOfMetadata_ItemsEntry {
     key: string;
-    value: MetadataItem | undefined;
+    value?: MetadataItem;
 }
 /**  A type of row
  */

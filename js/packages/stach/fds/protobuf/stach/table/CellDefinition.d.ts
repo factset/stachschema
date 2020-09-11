@@ -13,7 +13,7 @@ export interface CellDefinition {
     /**
      *  The data format; overrides the `RowDefinition.format` and the `ColumnDefinition.format`
      */
-    format: DataFormat | undefined;
+    format?: DataFormat;
 }
 export declare const CellDefinition: {
     encode(message: CellDefinition, writer?: Writer): Writer;

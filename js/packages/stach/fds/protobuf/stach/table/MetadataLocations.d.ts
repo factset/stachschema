@@ -23,7 +23,7 @@ export interface MetadataLocations {
     /**
      *  The metadata items associated with specific cells
      */
-    cells: MetadataLocations_CellsColumnMap | undefined;
+    cells?: MetadataLocations_CellsColumnMap;
 }
 /**
  *  A message wrapper for a map of columns to `CellsRowMap`
@@ -38,7 +38,7 @@ export interface MetadataLocations_CellsColumnMap {
 }
 export interface MetadataLocations_CellsColumnMap_ColumnsEntry {
     key: string;
-    value: MetadataLocations_CellsRowMap | undefined;
+    value?: MetadataLocations_CellsRowMap;
 }
 /**
  *  A message wrapper for a map of rows to a list of metadata
@@ -53,15 +53,15 @@ export interface MetadataLocations_CellsRowMap {
 }
 export interface MetadataLocations_CellsRowMap_RowsEntry {
     key: string;
-    value: ListOfMetadata | undefined;
+    value?: ListOfMetadata;
 }
 export interface MetadataLocations_ColumnsEntry {
     key: string;
-    value: ListOfMetadata | undefined;
+    value?: ListOfMetadata;
 }
 export interface MetadataLocations_RowsEntry {
     key: string;
-    value: ListOfMetadata | undefined;
+    value?: ListOfMetadata;
 }
 export declare const MetadataLocations: {
     encode(message: MetadataLocations, writer?: Writer): Writer;

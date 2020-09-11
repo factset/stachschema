@@ -16,7 +16,7 @@ export interface ColumnData {
     /**
      *  The values
      */
-    values: ListValue | undefined;
+    values?: ListValue;
     /**
      *  The cell definitions
      */

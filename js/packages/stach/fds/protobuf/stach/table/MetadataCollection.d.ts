@@ -14,11 +14,11 @@ export interface MetadataCollection {
     /**
      *  The locations where metadata items are associated
      */
-    locations: MetadataLocations | undefined;
+    locations?: MetadataLocations;
 }
 export interface MetadataCollection_ItemsEntry {
     key: string;
-    value: MetadataItem | undefined;
+    value?: MetadataItem;
 }
 export declare const MetadataCollection: {
     encode(message: MetadataCollection, writer?: Writer): Writer;
