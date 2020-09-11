@@ -1,20 +1,6 @@
 var pbjs = require("protobufjs/cli/pbjs"); // or require("protobufjs/cli").pbjs / .pbts
 var pbts = require("protobufjs/cli/pbts"); // or require("protobufjs/cli").pbjs / .pbts
-var process = require('process');
-var exec = require('child_process').exec;
 var fs = require('fs');
-
-var CWD = process.cwd();
-
-// Path to this plugin
-var PROTOC_GEN_TS_PATH=`${CWD}/node_modules/.bin/protoc-gen-ts_proto`;
-
-// Directory to write generated code to (.js and .d.ts files)
-var OUT_DIR=`${CWD}/packages/stach`;
-
-if (process.platform === 'win32') {
-  PROTOC_GEN_TS_PATH += '.cmd';
-}
 
 var protoFiles = [
   'fds/protobuf/stach/Package.proto',
@@ -36,6 +22,7 @@ var protoFiles = [
   'fds/protobuf/stach/table/TableDefinition.proto',
   'fds/protobuf/stach/table/VerticalAlignment.proto'
 ];
+
 var jsOutputFileName = "packages/stach/stach.js";
 var tsOutputFileName = "packages/stach/stach.d.ts";
 var moduleName = "stach";
