@@ -5,111 +5,110 @@ const equitiesByRegionPackage = require('../../../docs/v2/examples/ColumnOrganiz
 
 describe('STACH', function () {
   it('Can deserialize Package from JSON', function () {
-    let pkg = stach.Package.fromJSON(equitiesByRegionPackage);
-    assert.equal(pkg.version, '2.0');
-    assert.equal(pkg.primaryTableIds.length, 1);
-    assert.equal(pkg.tables['main'].definition.columns.length, 13);
-    assert.equal(pkg.tables['main'].definition.columns[1].name, 'region');
-    assert.equal(pkg.tables['main'].data.columns['2'].values.values[2].stringValue, 'Developed Markets');
+    let pkg = stach.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackage);
+    assert.strictEqual(pkg.version, '2.0');
+    assert.strictEqual(pkg.primaryTableIds.length, 1);
+    assert.strictEqual(pkg.tables['main'].definition.columns.length, 13);
+    assert.strictEqual(pkg.tables['main'].definition.columns[1].name, 'region');
+    assert.strictEqual(pkg.tables['main'].data.columns['2'].values.values[2].stringValue, 'Developed Markets');
   });
 });
 
 describe('STACH', function () {
   it('Can serialize Package to JSON', function () {
-    let pkg = stach.Package.toJSON(stach.Package.fromJSON(equitiesByRegionPackage));
-    assert.equal(pkg.version, '2.0');
-    assert.equal(pkg.primaryTableIds.length, 1);
-    assert.equal(pkg.tables['main'].definition.columns.length, 13);
-    assert.equal(pkg.tables['main'].definition.columns[1].name, 'region');
-    assert.equal(pkg.tables['main'].data.columns['2'].values[2], 'Developed Markets');
+    let pkg = stach.factset.protobuf.stach.Package.toObject(stach.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackage));
+    assert.strictEqual(pkg.version, '2.0');
+    assert.strictEqual(pkg.primaryTableIds.length, 1);
+    assert.strictEqual(pkg.tables['main'].definition.columns.length, 13);
+    assert.strictEqual(pkg.tables['main'].definition.columns[1].name, 'region');
+    assert.strictEqual(pkg.tables['main'].data.columns['2'].values[2], 'Developed Markets');
   });
 });
 
 describe('STACH', function () {
   it('Can deserialize enum from string', function () {
-    let row = stach.RowOrganizedPackage_Row.fromJSON({ rowType: 'Header' });
-    assert.equal(row.rowType, stach.RowOrganizedPackage_Row_RowType.Header);
+    let row = stach.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 'Header' });
+    assert.strictEqual(row.rowType, stach.factset.protobuf.stach.RowOrganizedPackage.Row.RowType.Header);
   });
 });
 
 describe('STACH', function () {
   it('Can deserialize enum from number', function () {
-    let row = stach.RowOrganizedPackage_Row.fromJSON({ rowType: 1 });
-    assert.equal(row.rowType, stach.RowOrganizedPackage_Row_RowType.Header);
+    let row = stach.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 1 });
+    assert.strictEqual(row.rowType, stach.factset.protobuf.stach.RowOrganizedPackage.Row.RowType.Header);
   });
 });
 
 describe('STACH', function () {
   it('Can add rows from json with rowType as string', function () {
-    let tableData = stach.RowOrganizedPackage_TableData.fromJSON({});
-    tableData.rows.push(stach.RowOrganizedPackage_Row.fromJSON({ rowType: 'Header', cells: ['foo, bar'] }));
-    tableData.rows.push(stach.RowOrganizedPackage_Row.fromJSON({ rowType: 'Body', cells: [ 'foo', 'bar' ] }));
-    assert.equal(tableData.rows.length, 2);
-    assert.equal(tableData.rows[0].rowType, stach.RowOrganizedPackage_Row_RowType.Header);
+    let tableData = stach.factset.protobuf.stach.RowOrganizedPackage.TableData.fromObject({});
+    tableData.rows.push(stach.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 'Header', cells: ['foo, bar'] }));
+    tableData.rows.push(stach.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 'Body', cells: ['foo', 'bar'] }));
+    assert.strictEqual(tableData.rows.length, 2);
+    assert.strictEqual(tableData.rows[0].rowType, stach.factset.protobuf.stach.RowOrganizedPackage.Row.RowType.Header);
   });
 });
 
 describe('STACH', function () {
   it('Unset properties are not serialized to JSON', function () {
-    let pkg = stach.Package.toJSON(stach.Package.fromJSON({}));
-    console.log(JSON.stringify(pkg));
-    assert.equal(pkg.version, undefined);
+    let pkg = stach.factset.protobuf.stach.Package.toObject(stach.factset.protobuf.stach.Package.fromObject({}));
+    assert.strictEqual(pkg.version, undefined);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from null', function () {
-    let value = stach.Value.fromJSON(null);
-    assert.equal(value.nullValue, stach.NullValue.NULL_VALUE);
+    let value = stach.google.protobuf.Value.fromObject(null);
+    assert.strictEqual(value.nullValue, stach.google.protobuf.NullValue.NULL_VALUE);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from boolean', function () {
-    let value = stach.Value.fromJSON(true);
-    assert.equal(value.boolValue, true);
+    let value = stach.google.protobuf.Value.fromObject(true);
+    assert.strictEqual(value.boolValue, true);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from string', function () {
-    let value = stach.Value.fromJSON('foo bar');
-    assert.equal(value.stringValue, 'foo bar');
+    let value = stach.google.protobuf.Value.fromObject('foo bar');
+    assert.strictEqual(value.stringValue, 'foo bar');
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from number', function () {
-    let value = stach.Value.fromJSON(17.17);
-    assert.equal(value.numberValue, 17.17);
+    let value = stach.google.protobuf.Value.fromObject(17.17);
+    assert.strictEqual(value.numberValue, 17.17);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from object', function () {
-    let value = stach.Value.fromJSON({ foo: true, bar: false });
-    assert.equal(value.structValue.fields['foo'].boolValue, true);
+    let value = stach.google.protobuf.Value.fromObject({ foo: true, bar: false });
+    assert.strictEqual(value.structValue.fields['foo'].boolValue, true);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from array', function () {
-    let value = stach.Value.fromJSON(['foo', 'bar']);
-    assert.equal(value.listValue.values[1].stringValue, 'bar');
+    let value = stach.google.protobuf.Value.fromObject(['foo', 'bar']);
+    assert.strictEqual(value.listValue.values[1].stringValue, 'bar');
   });
 });
 
 describe('Google Well Known Types', function () {
   it('ListValue correctly deserializes from array', function () {
-    let listValue = stach.ListValue.fromJSON(['foo', 'bar']);
-    assert.equal(listValue.values[1].stringValue, 'bar');
+    let listValue = stach.google.protobuf.ListValue.fromObject(['foo', 'bar']);
+    assert.strictEqual(listValue.values[1].stringValue, 'bar');
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Struct correctly deserializes from object', function () {
-    let struct = stach.Struct.fromJSON({foo: 'bar'});
-    assert.equal(struct.fields['foo'].stringValue, 'bar');
+    let struct = stach.google.protobuf.Struct.fromObject({foo: 'bar'});
+    assert.strictEqual(struct.fields['foo'].stringValue, 'bar');
   });
 });
 
@@ -118,56 +117,56 @@ describe('Google Well Known Types', function () {
 
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to null', function () {
-    let value = stach.Value.toJSON(stach.Value.fromJSON(null));
-    assert.equal(value, null);
+    let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject(null));
+    assert.strictEqual(value, null);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to boolean', function () {
-    let value = stach.Value.toJSON(stach.Value.fromJSON(true));
-    assert.equal(value, true);
+    let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject(true));
+    assert.strictEqual(value, true);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to string', function () {
-    let value = stach.Value.toJSON(stach.Value.fromJSON('foo bar'));
-    assert.equal(value, 'foo bar');
+    let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject('foo bar'));
+    assert.strictEqual(value, 'foo bar');
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to number', function () {
-    let value = stach.Value.toJSON(stach.Value.fromJSON(17.17));
-    assert.equal(value, 17.17);
+    let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject(17.17));
+    assert.strictEqual(value, 17.17);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to object', function () {
-    let value = stach.Value.toJSON(stach.Value.fromJSON({ foo: true, bar: false }));
-    assert.equal(value['foo'], true);
+    let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject({ foo: true, bar: false }));
+    assert.strictEqual(value['foo'], true);
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to array', function () {
-    let value = stach.Value.toJSON(stach.Value.fromJSON(['foo', 'bar']));
-    assert.equal(value[1], 'bar');
+    let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject(['foo', 'bar']));
+    assert.strictEqual(value[1], 'bar');
   });
 });
 
 describe('Google Well Known Types', function () {
   it('ListValue correctly serializes to array', function () {
-    let listValue = stach.ListValue.toJSON(stach.ListValue.fromJSON(['foo', 'bar']));
-    assert.equal(listValue[1], 'bar');
+    let listValue = stach.google.protobuf.ListValue.toObject(stach.google.protobuf.ListValue.fromObject(['foo', 'bar']));
+    assert.strictEqual(listValue[1], 'bar');
   });
 });
 
 describe('Google Well Known Types', function () {
   it('Struct correctly serializes to object', function () {
-    let struct = stach.Struct.toJSON(stach.Struct.fromJSON({foo: 'bar'}));
-    assert.equal(struct['foo'], 'bar');
+    let struct = stach.google.protobuf.Struct.toObject(stach.google.protobuf.Struct.fromObject({foo: 'bar'}));
+    assert.strictEqual(struct['foo'], 'bar');
   });
 });

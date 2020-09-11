@@ -120,7 +120,7 @@ __metadata:
   dependencies:
     lerna: ^3.0.1
     mocha: ^8.1.3
-    ts-proto: ^1.33.0
+    protobufjs: ^6.10.1
   languageName: unknown
   linkType: soft
 
@@ -1202,9 +1202,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^13.7.0":
-  version: 13.13.17
-  resolution: "@types/node@npm:13.13.17"
-  checksum: 4d00434d1ca6c457ace6a65c672eee8ed16cb519102b92baca8190ada87664b4c90e89e06d0b51b19dc9c19916bc3326424983becc5f151facbf6fd41262393f
+  version: 13.13.18
+  resolution: "@types/node@npm:13.13.18"
+  checksum: 68c61ca9e3863fe3b209e8397ff7ca9bb4cbbb7f8de2f59368150639775e9c7c355cf5f873610683a4b0eecc4cc49d787c66ded2966085d79f5cc1c95094fa1e
   languageName: node
   linkType: hard
 
@@ -1212,13 +1212,6 @@ __metadata:
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
   checksum: 6d077e73be7ac6227b678829c7bd765607136cdef537fd4ee7f368d9302a651aea924254d69826663322048436d90d6e7c679c9aa99c4824a687c568aab8ce4f
-  languageName: node
-  linkType: hard
-
-"@types/object-hash@npm:^1.3.0":
-  version: 1.3.3
-  resolution: "@types/object-hash@npm:1.3.3"
-  checksum: 5156ec51a3d1bed64299efcd2eba24c0cec0dd70878ddb04e67dd9cea8e8cc60eab63e6d4b898d3474316d6926e724e5e7c2a603f125cc9ea6c86565b508f03c
   languageName: node
   linkType: hard
 
@@ -2268,13 +2261,6 @@ __metadata:
   dependencies:
     assert-plus: ^1.0.0
   checksum: 5959409ee42dc4bdbf3fa384b801ece580ca336658bb0342ffab0099b3fc6bf9b3e239e1b82dcc4fcaeee315353e08f2eae47b0928a6a579391598c44958afa1
-  languageName: node
-  linkType: hard
-
-"dataloader@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "dataloader@npm:1.4.0"
-  checksum: 1c698b6d4734b66ba1cf445eb89de92474f04d836d906555038d2839b8ec61f67df0abd1b5f798248235c2e4c01a791345d62c292a0bbe63251efc3b0dba3bca
   languageName: node
   linkType: hard
 
@@ -4984,13 +4970,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"object-hash@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "object-hash@npm:1.3.1"
-  checksum: 035cb0b0e66b34611ec5a6bf723380b7f4b3b1292ef44aa9ba93258334a2dca8cf91be28021e9ffa5edf737f97fc54b66d0605bf62db3a63f05191b0002be7bf
-  languageName: node
-  linkType: hard
-
 "object-inspect@npm:^1.7.0":
   version: 1.8.0
   resolution: "object-inspect@npm:1.8.0"
@@ -5505,7 +5484,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:^6.8.8":
+"protobufjs@npm:^6.10.1":
   version: 6.10.1
   resolution: "protobufjs@npm:6.10.1"
   dependencies:
@@ -6051,13 +6030,6 @@ resolve@^1.10.0:
   bin:
     semver: bin/semver.js
   checksum: bceb46d396d039afb5be2b2860bce1b0a43ecbadc72dde7ebe9c56dd9035ca50d9b8e086208ff9bbe53773ebde0bcfc6fc0842d7358398bca7054bb9ced801e3
-  languageName: node
-  linkType: hard
-
-"sequency@npm:^0.19.2":
-  version: 0.19.2
-  resolution: "sequency@npm:0.19.2"
-  checksum: f0ea09d943070283fb59e6f0336a61a75f5ff7c4e912348319ed8614dbb7920fa49623aba1af7223f7e4d5ff98c1ef09cd78e040f09cbb66897eb1d67ac4b66d
   languageName: node
   linkType: hard
 
@@ -6737,39 +6709,6 @@ resolve@^1.10.0:
   version: 1.0.1
   resolution: "trim-off-newlines@npm:1.0.1"
   checksum: c590b9e8c1d91ac1b57b65f8ed7cc7837e702d86f47c725462cc7e03f3850dfa92a32f956d350632208aa78e9be03917a21d9ef5d139c30be13bb51bf576209f
-  languageName: node
-  linkType: hard
-
-"ts-imm@npm:0.4.0":
-  version: 0.4.0
-  resolution: "ts-imm@npm:0.4.0"
-  checksum: d41b6d545be7de63bf4e662abc03e81a2d8f6f0db39888e77c1ca88304c7a608d3219050d3c64cce045d2a2407a2bf8d440f26891c611284ce98cbedd19dced7
-  languageName: node
-  linkType: hard
-
-"ts-poet@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "ts-poet@npm:1.0.1"
-  dependencies:
-    lodash: ^4.17.15
-    ts-imm: 0.4.0
-  checksum: 61f8e2628f98a57f5130679d44a5e802f8e4cf5f635a90fc6bc0445d8e75b6937ac7bde02df5741ffca658771d01c75308a6dafee087b05eac0161ef65e6a5ad
-  languageName: node
-  linkType: hard
-
-"ts-proto@npm:^1.33.0":
-  version: 1.33.0
-  resolution: "ts-proto@npm:1.33.0"
-  dependencies:
-    "@types/object-hash": ^1.3.0
-    dataloader: ^1.4.0
-    object-hash: ^1.3.1
-    protobufjs: ^6.8.8
-    sequency: ^0.19.2
-    ts-poet: ^1.0.1
-  bin:
-    protoc-gen-ts_proto: protoc-gen-ts_proto
-  checksum: 6ba05d3b74153fa37d0552c85bd0ea1753e2d92af644eeaf88a6a360a437d37edb6342db56c995fd177ff3fab8c5d70ad42136fd2caaf620966e03921db2f197
   languageName: node
   linkType: hard
 

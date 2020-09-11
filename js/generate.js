@@ -1,3 +1,5 @@
+var pbjs = require("protobufjs/cli/pbjs"); // or require("protobufjs/cli").pbjs / .pbts
+var pbts = require("protobufjs/cli/pbts"); // or require("protobufjs/cli").pbjs / .pbts
 var process = require('process');
 var exec = require('child_process').exec;
 var fs = require('fs');
@@ -34,106 +36,33 @@ var protoFiles = [
   'fds/protobuf/stach/table/TableDefinition.proto',
   'fds/protobuf/stach/table/VerticalAlignment.proto'
 ];
+var jsOutputFileName = "packages/stach/stach.js";
+var tsOutputFileName = "packages/stach/stach.d.ts";
+var moduleName = "stach";
 
-exec(`protoc\
- --proto_path=../proto\
- --plugin="protoc-gen-ts_proto=${PROTOC_GEN_TS_PATH}"\
- --ts_proto_opt=useOptionals=true\
- --ts_proto_out="${OUT_DIR}" ` + protoFiles.join(' '),
- function(err, stdout, stderr) {
-  if (err) {
-    throw err;
-  }
+var pbjsArgs = [ "-t", "static-module", "-w", "commonjs", "-r", moduleName ];
+for (var i = 0; i < protoFiles.length; i++) {
+  pbjsArgs.push('../proto/' + protoFiles[i]);
+}
+pbjs.main(pbjsArgs, function (err, jsOutput) {
+  if (err) throw err;
+  console.log("js: Generated javascript");
 
-  var tsFiles = [];
-  for (var i = 0; i < protoFiles.length; i++) {
-    tsFiles.push('packages/stach/' + protoFiles[i].replace('.proto', '.ts'));
-  }
-  tsFiles.push('packages/stach/google/protobuf/struct.ts');
+  jsOutput = jsOutput.replace(/^ *if \(typeof [^ ]+ !== "object"\)\r?\n^ *throw TypeError\("[^ ]+: object expected"\);\r?\n^( *message\.[^ ]+ = \$root\.google\.protobuf\.(?:Struct|ListValue|Value)\.fromObject\([^ ]+\);)/mg, "$1");
 
-  // Using a custom typescript file to correctly serialize to/from json using google well known types
-  safeDeleteFile('packages/stach/google/protobuf/struct.ts');
-  fs.copyFile('packages/stach/google/protobuf/struct-custom.ts', 'packages/stach/google/protobuf/struct.ts', (err) => {
-    if (err) {
-      console.log("Failed to copy file", err);
-    }
+  fs.writeFile(jsOutputFileName, jsOutput, function(err) {
+    if(err) return console.log(err);
+    console.log("js: Wrote " + jsOutputFileName);
   });
 
-  exec('tsc -d ' + tsFiles.join(' '), function(err, stdout, stderr) {
-    if (err) {
-      throw err;
-    }
-    console.log(stdout);
-    console.log('Finished generating js files');
+  var pbtsArgs = [ "-n", moduleName, jsOutputFileName ];
+  pbts.main(pbtsArgs, function(err, tsOutput) {
+    if (err) throw err;
+    console.log("js: Generated typescript");
 
-    var jsPath = `packages/stach/index.js`;
-    var dtsPath = `packages/stach/index.d.ts`;
-
-    // Delete previously generated files
-    safeDeleteFile(jsPath);
-    safeDeleteFile(dtsPath);
-
-    var jsStream = fs.createWriteStream(jsPath, {flags:'a'});
-    var dtsStream = fs.createWriteStream(dtsPath, {flags:'a'});
-
-    for (var i = 0; i < tsFiles.length; i++) {
-      var tsFile = tsFiles[i];
-
-      if (tsFile.indexOf('-custom') < 0) {
-        safeDeleteFile(tsFile);
-      }
-
-      var dtsFile = './' + tsFile.replace('.ts', '');
-      var xports = require(dtsFile);
-      var types = getTypes(xports);
-
-      if (i > 0) {
-        jsStream.write('\n\n');
-        dtsStream.write('\n\n');
-      }
-
-      var dtsFileRelativeToPkg = dtsFile.replace('packages/stach/', '');
-      writeExportsToIndexJS(i, dtsFileRelativeToPkg, types, jsStream);
-      writeExportsToIndexDTS(dtsFileRelativeToPkg, types, dtsStream); 
-    }
-
-    jsStream.end();
-    dtsStream.end();
+    fs.writeFile(tsOutputFileName, tsOutput, function(err) {
+        if(err) return console.log(err);
+        console.log("js: Wrote " + tsOutputFileName);
+    });
   });
-
-  console.log(stdout);
-  console.log('Finished generating ts files');
- });
-
-var safeDeleteFile = function(path) {
-  try {
-    fs.unlinkSync(path);
-  } catch (ex) {
-    console.log(`Could not delete ${path}`);
-  }
-}
-
-var writeExportsToIndexJS = function(i, dtsFile, types, stream) {
-  stream.write(`var f${i} = require('${dtsFile}');\n`);
-  for (var j = 0; j < types.length; j++) {
-    var type = types[j];
-    if (j > 0) {
-      stream.write('\n');
-    }
-    stream.write(`exports.${type} = f${i}.${type};`);
-  }
-}
-
-var writeExportsToIndexDTS = function(dtsFile, types, stream) {
-  stream.write(`import {\n  ${types.join(',\n  ')}\n} from '${dtsFile}';\n`);
-  stream.write(`export {\n  ${types.join(',\n  ')}\n}`);
-}
-
-var getTypes = function(xports) {
-  var types = [];
-  for (var key in xports) {
-    if (key[0] === '_') continue;
-    types.push(key);
-  }
-  return types;
-}
+});
