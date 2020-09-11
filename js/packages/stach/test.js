@@ -49,6 +49,14 @@ describe('STACH', function () {
   });
 });
 
+describe('STACH', function () {
+  it('Unset properties are not serialized to JSON', function () {
+    let pkg = stach.Package.toJSON(stach.Package.fromJSON({}));
+    console.log(JSON.stringify(pkg));
+    assert.equal(pkg.version, undefined);
+  });
+});
+
 describe('Google Well Known Types', function () {
   it('Value correctly deserializes from null', function () {
     let value = stach.Value.fromJSON(null);
