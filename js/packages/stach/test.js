@@ -1,11 +1,11 @@
 var assert = require('assert');
 var stach = require('./index');
 
-const equitiesByRegionPackage = require('../../../docs/v2/examples/ColumnOrganized/EquitiesByRegion/Default.json');
+const equitiesByRegionPackageJSON = require('../../../docs/v2/examples/ColumnOrganized/EquitiesByRegion/Default.json');
 
 describe('STACH', function () {
   it('Can deserialize Package from JSON', function () {
-    let pkg = stach.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackage);
+    let pkg = stach.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackageJSON);
     assert.strictEqual(pkg.version, '2.0');
     assert.strictEqual(pkg.primaryTableIds.length, 1);
     assert.strictEqual(pkg.tables['main'].definition.columns.length, 13);
@@ -16,7 +16,7 @@ describe('STACH', function () {
 
 describe('STACH', function () {
   it('Can serialize Package to JSON', function () {
-    let pkg = stach.factset.protobuf.stach.Package.toObject(stach.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackage));
+    let pkg = stach.factset.protobuf.stach.Package.toObject(stach.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackageJSON));
     assert.strictEqual(pkg.version, '2.0');
     assert.strictEqual(pkg.primaryTableIds.length, 1);
     assert.strictEqual(pkg.tables['main'].definition.columns.length, 13);
@@ -112,13 +112,19 @@ describe('Google Well Known Types', function () {
   });
 });
 
-
-// Google Well Known Types Serialization
-
 describe('Google Well Known Types', function () {
   it('Value correctly serializes to null', function () {
     let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject(null));
     assert.strictEqual(value, null);
+  });
+});
+
+describe('Google Well Known Types', function () {
+  it('Value correctly serializes null to binary', function () {
+    let value = stach.google.protobuf.Value.fromObject(null);
+    let valueBuffer = stach.google.protobuf.Value.encode(value).finish();
+    let valueDecoded = stach.google.protobuf.Value.decode(valueBuffer);
+    assert.strictEqual(valueDecoded.nullValue, stach.google.protobuf.NullValue.NULL_VALUE);
   });
 });
 
@@ -130,9 +136,27 @@ describe('Google Well Known Types', function () {
 });
 
 describe('Google Well Known Types', function () {
+  it('Value correctly serializes boolean to binary', function () {
+    let value = stach.google.protobuf.Value.fromObject(true);
+    let valueBuffer = stach.google.protobuf.Value.encode(value).finish();
+    let valueDecoded = stach.google.protobuf.Value.decode(valueBuffer);
+    assert.strictEqual(valueDecoded.boolValue, true);
+  });
+});
+
+describe('Google Well Known Types', function () {
   it('Value correctly serializes to string', function () {
     let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject('foo bar'));
     assert.strictEqual(value, 'foo bar');
+  });
+});
+
+describe('Google Well Known Types', function () {
+  it('Value correctly serializes string to binary', function () {
+    let value = stach.google.protobuf.Value.fromObject('foo bar');
+    let valueBuffer = stach.google.protobuf.Value.encode(value).finish();
+    let valueDecoded = stach.google.protobuf.Value.decode(valueBuffer);
+    assert.strictEqual(valueDecoded.stringValue, 'foo bar');
   });
 });
 
@@ -144,9 +168,27 @@ describe('Google Well Known Types', function () {
 });
 
 describe('Google Well Known Types', function () {
+  it('Value correctly serializes number to binary', function () {
+    let value = stach.google.protobuf.Value.fromObject(17.17);
+    let valueBuffer = stach.google.protobuf.Value.encode(value).finish();
+    let valueDecoded = stach.google.protobuf.Value.decode(valueBuffer);
+    assert.strictEqual(valueDecoded.numberValue, 17.17);
+  });
+});
+
+describe('Google Well Known Types', function () {
   it('Value correctly serializes to object', function () {
     let value = stach.google.protobuf.Value.toObject(stach.google.protobuf.Value.fromObject({ foo: true, bar: false }));
     assert.strictEqual(value['foo'], true);
+  });
+});
+
+describe('Google Well Known Types', function () {
+  it('Value correctly serializes number to binary', function () {
+    let value = stach.google.protobuf.Value.fromObject({ foo: true, bar: false });
+    let valueBuffer = stach.google.protobuf.Value.encode(value).finish();
+    let valueDecoded = stach.google.protobuf.Value.decode(valueBuffer);
+    assert.strictEqual(valueDecoded.structValue.fields['foo'].boolValue, true);
   });
 });
 
@@ -158,6 +200,15 @@ describe('Google Well Known Types', function () {
 });
 
 describe('Google Well Known Types', function () {
+  it('Value correctly serializes array to binary', function () {
+    let value = stach.google.protobuf.Value.fromObject(['foo', 'bar']);
+    let valueBuffer = stach.google.protobuf.Value.encode(value).finish();
+    let valueDecoded = stach.google.protobuf.Value.decode(valueBuffer);
+    assert.strictEqual(valueDecoded.listValue.values[1].stringValue, 'bar');
+  });
+});
+
+describe('Google Well Known Types', function () {
   it('ListValue correctly serializes to array', function () {
     let listValue = stach.google.protobuf.ListValue.toObject(stach.google.protobuf.ListValue.fromObject(['foo', 'bar']));
     assert.strictEqual(listValue[1], 'bar');
@@ -165,8 +216,26 @@ describe('Google Well Known Types', function () {
 });
 
 describe('Google Well Known Types', function () {
+  it('ListValue correctly serializes array to binary', function () {
+    let listValue = stach.google.protobuf.ListValue.fromObject(['foo', 'bar']);
+    let listValueBuffer = stach.google.protobuf.ListValue.encode(listValue).finish();
+    let listValueDecoded = stach.google.protobuf.ListValue.decode(listValueBuffer);
+    assert.strictEqual(listValueDecoded.values[1].stringValue, 'bar');
+  });
+});
+
+describe('Google Well Known Types', function () {
   it('Struct correctly serializes to object', function () {
     let struct = stach.google.protobuf.Struct.toObject(stach.google.protobuf.Struct.fromObject({foo: 'bar'}));
     assert.strictEqual(struct['foo'], 'bar');
+  });
+});
+
+describe('Google Well Known Types', function () {
+  it('Struct correctly serializes array to binary', function () {
+    let struct = stach.google.protobuf.Struct.fromObject({foo: 'bar'});
+    let structBuffer = stach.google.protobuf.Struct.encode(struct).finish();
+    let structDecoded = stach.google.protobuf.Struct.decode(structBuffer);
+    assert.strictEqual(structDecoded.fields['foo'].stringValue, 'bar');
   });
 });
