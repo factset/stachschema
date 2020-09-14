@@ -127,6 +127,8 @@ __metadata:
 "@fds/protobuf-stach@workspace:packages/stach":
   version: 0.0.0-use.local
   resolution: "@fds/protobuf-stach@workspace:packages/stach"
+  dependencies:
+    protobufjs: ^6.10.1
   languageName: unknown
   linkType: soft
 
