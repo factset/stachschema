@@ -1,4 +1,3 @@
-import * as Long from "long";
 import * as $protobuf from "protobufjs";
 export = stach;
 

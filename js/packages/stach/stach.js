@@ -1753,13 +1753,9 @@ $root.factset = (function() {
                             break;
                         }
                         if (object.cells != null) {
-                            if (typeof object.cells !== "object")
-                                throw TypeError(".factset.protobuf.stach.RowOrganizedPackage.Row.cells: object expected");
                             message.cells = $root.google.protobuf.ListValue.fromObject(object.cells);
                         }
                         if (object.values != null) {
-                            if (typeof object.values !== "object")
-                                throw TypeError(".factset.protobuf.stach.RowOrganizedPackage.Row.values: object expected");
                             message.values = $root.google.protobuf.Struct.fromObject(object.values);
                         }
                         if (object.cellDetails) {
@@ -3232,8 +3228,6 @@ $root.factset = (function() {
                                 message.ranges[keys[i]] = object.ranges[keys[i]] | 0;
                         }
                         if (object.values != null) {
-                            if (typeof object.values !== "object")
-                                throw TypeError(".factset.protobuf.stach.table.ColumnData.values: object expected");
                             message.values = $root.google.protobuf.ListValue.fromObject(object.values);
                         }
                         if (object.definitions) {
@@ -4660,8 +4654,6 @@ $root.factset = (function() {
                             return object;
                         var message = new $root.factset.protobuf.stach.table.MetadataItem();
                         if (object.value != null) {
-                            if (typeof object.value !== "object")
-                                throw TypeError(".factset.protobuf.stach.table.MetadataItem.value: object expected");
                             message.value = $root.google.protobuf.Value.fromObject(object.value);
                         }
                         if (object.reference != null) {
@@ -7030,8 +7022,6 @@ $root.google = (function() {
                         throw TypeError(".google.protobuf.Struct.fields: object expected");
                     message.fields = {};
                     for (var keys = Object.keys(object.fields), i = 0; i < keys.length; ++i) {
-                        if (typeof object.fields[keys[i]] !== "object")
-                            throw TypeError(".google.protobuf.Struct.fields: object expected");
                         message.fields[keys[i]] = $root.google.protobuf.Value.fromObject(object.fields[keys[i]]);
                     }
                 }
@@ -7369,13 +7359,9 @@ $root.google = (function() {
                 if (object.boolValue != null)
                     message.boolValue = Boolean(object.boolValue);
                 if (object.structValue != null) {
-                    if (typeof object.structValue !== "object")
-                        throw TypeError(".google.protobuf.Value.structValue: object expected");
                     message.structValue = $root.google.protobuf.Struct.fromObject(object.structValue);
                 }
                 if (object.listValue != null) {
-                    if (typeof object.listValue !== "object")
-                        throw TypeError(".google.protobuf.Value.listValue: object expected");
                     message.listValue = $root.google.protobuf.ListValue.fromObject(object.listValue);
                 }
                 return message;
@@ -7616,8 +7602,6 @@ $root.google = (function() {
                         throw TypeError(".google.protobuf.ListValue.values: array expected");
                     message.values = [];
                     for (var i = 0; i < object.values.length; ++i) {
-                        if (typeof object.values[i] !== "object")
-                            throw TypeError(".google.protobuf.ListValue.values: object expected");
                         message.values[i] = $root.google.protobuf.Value.fromObject(object.values[i]);
                     }
                 }
