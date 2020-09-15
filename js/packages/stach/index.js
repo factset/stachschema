@@ -1,5 +1,21 @@
 var lib = require('./stach');
 
+// The following overrides the toObject/fromObject for Google well 
+// known types because protobufjs does not correctly implement them  
+// according to protobuf's specification.
+//
+// Google Well Known Types:
+//   google.protobuf.Struct
+//   google.protobuf.ListValue
+//   google.protobuf.Value
+//
+// Protobuf JSON Documentation:
+// https://developers.google.com/protocol-buffers/docs/proto3#json
+//
+// Relevent ProtobufJS GitHub Issues:
+// https://github.com/protobufjs/protobuf.js/issues/1042
+// https://github.com/protobufjs/protobuf.js/issues/1304
+
 delete lib.google.protobuf.Struct.fromObject;
 delete lib.google.protobuf.Struct.toObject;
 delete lib.google.protobuf.Value.fromObject;
