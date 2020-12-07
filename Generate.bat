@@ -2,12 +2,7 @@
 
 setlocal	
 call :Generate docs	
-call :Generate dotnet	
-call :Generate go	
-call :Generate java	
-call :Generate js	
-call :Generate python	
-call :Generate r	
+call :Generate generate-examples	
 
 echo Finished	
 pause()	
