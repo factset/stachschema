@@ -1,0 +1,55 @@
+name: Generate SDKs and raise the pull request
+
+env:
+  USER_API_KEY: ${{ secrets.USER_API_KEY }}
+  USER_EMAIL: ${{ secrets.USER_EMAIL }}
+  USER: ${{ secrets.USER }}
+  SCHEMA_DIRECTORY: proto # Location of the Google ProtoBuf schema.
+  GITHUB_SCHEMA_SDKS_REPO: factset/stachschema
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  generate:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Hub
+        run: |
+          sudo snap install hub --classic
+          
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          path: ${{ github.event.repository.name }}
+          fetch-depth: 0
+          ref: "${{ github.head_ref }}" 
+          
+      - name: Check whether schema was changed in the last commit
+        id: schema-change-check
+        run: |
+          count=`git -C ${{ github.event.repository.name }} log -1 --name-only --oneline | grep -E ".*\.proto$" | wc -l`
+          if [ "$count" -eq "0" ]; then
+            echo "No schema changes found."
+          else
+            echo "( $count ) schema changes found."
+            echo "::set-output name=is-schema-changed::true"
+          fi
+
+      - name: Check out ${{ env.GITHUB_SCHEMA_SDKS_REPO }} repository
+        if: steps.schema-change-check.outputs.is-schema-changed == 'true'
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.GITHUB_SCHEMA_SDKS_REPO }}
+          path: sdks
+          fetch-depth: 0
+          token: ${{ env.USER_API_KEY }}
+                   
+      - name: Raise or update SDKs pull request
+        if: steps.schema-change-check.outputs.is-schema-changed == 'true'
+        run: ${{ github.event.repository.name }}/.github/scripts/raise-pull-request.sh
