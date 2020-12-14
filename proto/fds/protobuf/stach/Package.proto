@@ -19,3 +19,4 @@ message Package {
   // The map (key: table id) of all tables
   map<string, factset.protobuf.stach.table.Table> tables = 4;
 }
+
