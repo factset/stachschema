@@ -1,0 +1,130 @@
+syntax = "proto3";
+package factset.protobuf.stach.v2;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V2";
+option go_package = "github.com/factset/stachschema/go/fds/protobuf/stach/v2";
+option java_package = "com.factset.protobuf.stach.v2";
+option java_outer_classname = "RowOrganizedProto";
+
+import "fds/protobuf/stach/v2/table/MetadataItem.proto";
+import "fds/protobuf/stach/v2/table/CellDefinition.proto";
+import "fds/protobuf/stach/v2/table/ColumnDefinition.proto";
+import "google/protobuf/struct.proto";
+
+// A row organized package of tables
+message RowOrganizedPackage {
+  // The version of the STACH schema. Formatted {major}.{minor}
+  string version = 1;
+  
+  // The map (key: table id) of all tables
+  map<string, Table> tables = 2;
+
+  // A row organized table
+  message Table {
+    // The definition
+    TableDefinition definition = 1;
+
+    // The headers definition
+    TableDefinition headers_definition = 2;
+
+    // The data
+    TableData data = 3;
+  }
+
+  // A table definition
+  message TableDefinition {
+    // The column definitions
+    repeated factset.protobuf.stach.v2.table.ColumnDefinition columns = 1;
+  }
+
+  // A table data
+  message TableData {
+    // The rows
+    repeated Row rows = 1;
+
+    // The map (key: metadataitem id) of metadata at the table location
+    map<string, factset.protobuf.stach.v2.table.MetadataItem> table_metadata = 2;
+
+    // The map (key: column id) of metadata at the column location
+    map<string, MapOfMetadata> column_metadata = 3;
+  }
+    
+  // A row
+  message Row {
+    // A type of row
+    enum RowType {
+      Body = 0; // A body row
+      Header = 1; // A header row
+    }
+
+    // The row id
+    string id = 1;
+
+    // The row type
+    RowType row_type = 2;
+
+    oneof kind {
+      // The list of cell values
+      google.protobuf.ListValue cells = 3;
+
+      // The map of cell values
+      google.protobuf.Struct values = 4;
+    }
+
+    // The details for a body row cell
+    map<string, CellDetail> cell_details = 5;
+
+    // The details for a header row cell
+    map<string, HeaderCellDetail> header_cell_details = 6;
+
+    // The map (key: metadataitem id) of metadata at the row location
+    map<string, factset.protobuf.stach.v2.table.MetadataItem> row_metadata = 7;
+  }
+
+  // A body row cell detail
+  message CellDetail {
+    // The group level
+    int32 group_level = 1;
+	
+	// The definition of the cell; overrides the column definition
+	factset.protobuf.stach.v2.table.CellDefinition cell_definition = 2;
+
+    // The map (key: metadataitem id) of metadata at the cell location
+    map<string, factset.protobuf.stach.v2.table.MetadataItem> cell_metadata = 3;
+  }
+
+  // A header row cell detail
+  message HeaderCellDetail {
+    // A table where a row is sourced from
+    enum TableSource {
+      UNKNOWN = 0;
+      NONE = 1;
+      PRIMARY = 2;
+      HEADERS = 3;
+    }
+
+    // The column span
+    int32 colspan = 1;
+
+    // The row span
+    int32 rowspan = 2;
+
+    // The table where the row is sourced from
+    TableSource source = 3;
+
+    // The column index; used to index into the `headers_definition.columns` array
+    int32 column_index = 4;
+	
+	// The definition of the cell; overrides the column definition
+	factset.protobuf.stach.v2.table.CellDefinition cell_definition = 5;
+
+    // The map (key: metadataitem id) of metadata at the cell location
+    map<string, factset.protobuf.stach.v2.table.MetadataItem> cell_metadata = 6;
+  }
+
+  // A wrapper for a map of metadata items
+  message MapOfMetadata {
+	  // The map (key: metadataitem id) metadata
+	  map<string, factset.protobuf.stach.v2.table.MetadataItem> items = 1;
+  }
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package factset.protobuf.stach.v2;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V2";
+option go_package = "github.com/factset/stachschema/go/fds/protobuf/stach/v2";
+option java_package = "com.factset.protobuf.stach.v2";
+option java_outer_classname = "PackageProto";
+
+import "fds/protobuf/stach/v2/table/Table.proto";
+
+// A column organized package of tables
+message Package {
+  // The version of the STACH schema. Formatted {major}.{minor}
+  string version = 1;
+
+  // The array of primary table ids
+  repeated string primary_table_ids = 2;
+
+  // The map (key: table id) of all tables
+  map<string, factset.protobuf.stach.v2.table.Table> tables = 3;
+}

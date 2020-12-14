@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using FactSet.Protobuf.Stach;
+using FactSet.Protobuf.Stach.V2;
 using FactSet.Stach.Generator.Extensions;
 using Google.Protobuf;
 

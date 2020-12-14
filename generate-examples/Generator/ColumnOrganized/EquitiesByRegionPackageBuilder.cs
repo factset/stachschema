@@ -1,4 +1,4 @@
-using FactSet.Protobuf.Stach;
+using FactSet.Protobuf.Stach.V2;
 using FactSet.Stach.Generator.ColumnOrganized.Tables;
 
 namespace FactSet.Stach.Generator.ColumnOrganized {

@@ -1,4 +1,4 @@
-using FactSet.Protobuf.Stach;
+using FactSet.Protobuf.Stach.V2;
 using FactSet.Stach.Generator.Extensions;
 
 namespace FactSet.Stach.Generator.RowOrganized {

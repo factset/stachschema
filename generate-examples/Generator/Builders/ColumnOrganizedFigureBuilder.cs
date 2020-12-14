@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using FactSet.Protobuf.Stach;
-using FactSet.Protobuf.Stach.Table;
+using FactSet.Protobuf.Stach.V2;
+using FactSet.Protobuf.Stach.V2.Table;
 using FactSet.Stach.Generator.Extensions;
 using FactSet.Stach.Generator.Utility;
 using Google.Protobuf;
