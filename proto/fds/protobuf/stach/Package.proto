@@ -17,5 +17,7 @@ message Package {
   repeated string primary_table_ids = 2;
 
   // The map (key: table id) of all tables
-  map<string, factset.protobuf.stach.table.Table> tables = 3;
+  map<string, factset.protobuf.stach.table.Table> tables = 4;
 }
+
+
