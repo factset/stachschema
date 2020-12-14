@@ -5,7 +5,7 @@ env:
   USER_EMAIL: ${{ secrets.USER_EMAIL }}
   USER: ${{ secrets.USER }}
   SCHEMA_DIRECTORY: proto # Location of the Google ProtoBuf schema.
-  GITHUB_SCHEMA_SDKS_REPO: factset/stachschema
+  GITHUB_SCHEMA_SDKS_REPO: factset/stachschema-sdks
 
 on:
   pull_request:
