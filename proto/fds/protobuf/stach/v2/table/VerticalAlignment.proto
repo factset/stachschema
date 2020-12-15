@@ -2,7 +2,7 @@ syntax = "proto3";
 package factset.protobuf.stach.v2.table;
 
 option csharp_namespace = "FactSet.Protobuf.Stach.V2.Table";
-option go_package = "github.com/factset/stachschema/go/fds/protobuf/stach/v2/table";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table";
 option java_package = "com.factset.protobuf.stach.v2.table";
 option java_outer_classname = "VerticalAlignmentProto";
 

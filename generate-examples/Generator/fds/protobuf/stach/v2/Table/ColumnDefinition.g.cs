@@ -32,11 +32,11 @@ namespace FactSet.Protobuf.Stach.V2.Table {
             "c2lvbhgFIAEoCBIRCglpc19oaWRkZW4YBiABKAgSFwoPbmV4dF9zaWJsaW5n",
             "X2lkGAcgASgJEhEKCXBhcmVudF9pZBgIIAEoCRIRCgloZWFkZXJfaWQYCSAB",
             "KAkSOwoGZm9ybWF0GAogASgLMisuZmFjdHNldC5wcm90b2J1Zi5zdGFjaC52",
-            "Mi50YWJsZS5EYXRhRm9ybWF0Qp0BCiNjb20uZmFjdHNldC5wcm90b2J1Zi5z",
-            "dGFjaC52Mi50YWJsZUIVQ29sdW1uRGVmaW5pdGlvblByb3RvWj1naXRodWIu",
-            "Y29tL2ZhY3RzZXQvc3RhY2hzY2hlbWEvZ28vZmRzL3Byb3RvYnVmL3N0YWNo",
-            "L3YyL3RhYmxlqgIfRmFjdFNldC5Qcm90b2J1Zi5TdGFjaC5WMi5UYWJsZWIG",
-            "cHJvdG8z"));
+            "Mi50YWJsZS5EYXRhRm9ybWF0QqIBCiNjb20uZmFjdHNldC5wcm90b2J1Zi5z",
+            "dGFjaC52Mi50YWJsZUIVQ29sdW1uRGVmaW5pdGlvblByb3RvWkJnaXRodWIu",
+            "Y29tL2ZhY3RzZXQvc3RhY2hzY2hlbWEtc2Rrcy9nby9mZHMvcHJvdG9idWYv",
+            "c3RhY2gvdjIvdGFibGWqAh9GYWN0U2V0LlByb3RvYnVmLlN0YWNoLlYyLlRh",
+            "YmxlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.V2.Table.DataFormatReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

@@ -36,10 +36,10 @@ namespace FactSet.Protobuf.Stach.V2.Table {
             "LnByb3RvYnVmLnN0YWNoLnYyLnRhYmxlLk1ldGFkYXRhQ29sbGVjdGlvbhpb",
             "CgxDb2x1bW5zRW50cnkSCwoDa2V5GAEgASgJEjoKBXZhbHVlGAIgASgLMisu",
             "ZmFjdHNldC5wcm90b2J1Zi5zdGFjaC52Mi50YWJsZS5Db2x1bW5EYXRhOgI4",
-            "AUKWAQojY29tLmZhY3RzZXQucHJvdG9idWYuc3RhY2gudjIudGFibGVCDlRh",
-            "YmxlRGF0YVByb3RvWj1naXRodWIuY29tL2ZhY3RzZXQvc3RhY2hzY2hlbWEv",
-            "Z28vZmRzL3Byb3RvYnVmL3N0YWNoL3YyL3RhYmxlqgIfRmFjdFNldC5Qcm90",
-            "b2J1Zi5TdGFjaC5WMi5UYWJsZWIGcHJvdG8z"));
+            "AUKbAQojY29tLmZhY3RzZXQucHJvdG9idWYuc3RhY2gudjIudGFibGVCDlRh",
+            "YmxlRGF0YVByb3RvWkJnaXRodWIuY29tL2ZhY3RzZXQvc3RhY2hzY2hlbWEt",
+            "c2Rrcy9nby9mZHMvcHJvdG9idWYvc3RhY2gvdjIvdGFibGWqAh9GYWN0U2V0",
+            "LlByb3RvYnVmLlN0YWNoLlYyLlRhYmxlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.V2.Table.ColumnDataReflection.Descriptor, global::FactSet.Protobuf.Stach.V2.Table.MetadataCollectionReflection.Descriptor, global::FactSet.Protobuf.Stach.V2.Table.RowDefinitionReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

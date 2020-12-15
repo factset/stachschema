@@ -2,7 +2,7 @@ syntax = "proto3";
 package factset.protobuf.stach.v2;
 
 option csharp_namespace = "FactSet.Protobuf.Stach.V2";
-option go_package = "github.com/factset/stachschema/go/fds/protobuf/stach/v2";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2";
 option java_package = "com.factset.protobuf.stach.v2";
 option java_outer_classname = "PackageProto";
 
