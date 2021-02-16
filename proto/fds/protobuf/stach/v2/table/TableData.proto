@@ -1,0 +1,23 @@
+syntax = "proto3";
+package factset.protobuf.stach.v2.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V2.Table";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table";
+option java_package = "com.factset.protobuf.stach.v2.table";
+option java_outer_classname = "TableDataProto";
+
+import "fds/protobuf/stach/v2/table/ColumnData.proto";
+import "fds/protobuf/stach/v2/table/MetadataCollection.proto";
+import "fds/protobuf/stach/v2/table/RowDefinition.proto";
+
+// An object of table data
+message TableData {
+  // The array of rows definitions
+  repeated RowDefinition rows = 1;
+
+  // The map (key: column id) of column data
+  map<string, ColumnData> columns = 2;
+
+  // The metadata
+  MetadataCollection metadata = 3;
+}

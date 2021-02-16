@@ -1,5 +1,7 @@
+using FactSet.Protobuf.Stach.V2.Table;
+
 namespace FactSet.Stach.Generator.ColumnOrganized.Tables {
     internal interface ITableBuilder {
-        Protobuf.Stach.Table.Table Build();
+        Table Build();
     }
 }

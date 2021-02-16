@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using FactSet.Protobuf.Stach.Table;
+using FactSet.Protobuf.Stach.V2.Table;
 
 namespace FactSet.Stach.Generator.Extensions {
     internal static class ColumnDataCompressionExtensions {

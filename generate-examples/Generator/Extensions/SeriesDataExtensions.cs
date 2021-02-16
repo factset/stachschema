@@ -1,4 +1,4 @@
-﻿using FactSet.Protobuf.Stach.Table;
+﻿using FactSet.Protobuf.Stach.V2.Table;
 using FactSet.Stach.Generator.DataType;
 using Google.Protobuf.WellKnownTypes;
 

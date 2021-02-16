@@ -1,11 +1,9 @@
-using System.Text.RegularExpressions;
-using FactSet.Protobuf.Stach;
+using FactSet.Protobuf.Stach.V2;
 
 namespace FactSet.Stach.Generator.Extensions {
     internal static class PackageExtensions {
         public static Package SetVersion(this Package package) {
-            var regex = new Regex(@"\d+\.\d+");
-            package.Version = regex.Match(Constants.CurrentVersion).Value;
+            package.Version = "2.0";
             return package;
         }
 
