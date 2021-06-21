@@ -9,7 +9,7 @@ option java_outer_classname = "TableViewProto";
 import "fds/protobuf/dataprep/v3/ColumnDisplayName.proto";
 import "google/protobuf/struct.proto";
 
-lmessage TableView {
+message TableView {
   // The human readable display name for the table
   string display_name = 1;
 
