@@ -17,5 +17,5 @@ message Column {
   string fds_type = 2;
 
   // The custom metadata
-  map<string, google.protobuf.Value> custom_metadata = 4;
+  map<string, google.protobuf.Value> custom_metadata = 3;
 }
