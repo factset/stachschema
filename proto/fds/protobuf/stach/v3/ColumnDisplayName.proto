@@ -1,0 +1,21 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "ColumnDisplayNameProto";
+
+import "google/protobuf/struct.proto";
+
+message ColumnDisplayName {
+  // The label
+  string label = 1;
+
+  // The data type
+  string type = 2;
+
+  // The value
+  google.protobuf.Value value = 3;
+}
+

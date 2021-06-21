@@ -1,0 +1,23 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "TableProto";
+
+import "google/protobuf/struct.proto";
+
+message Table {
+  // The name of the table
+  string name = 1;
+
+  // The array of column names that define the primary/compound key for each row
+  repeated string primary_key_columns = 2;
+
+  // The total number of rows in the table
+  int32 total_num_rows = 3;
+
+  // The custom metadata
+  map<string, google.protobuf.Value> custom_metadata = 4;
+}

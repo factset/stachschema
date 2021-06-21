@@ -1,0 +1,33 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "TableViewProto";
+
+import "fds/protobuf/dataprep/v3/ColumnDisplayName.proto";
+import "google/protobuf/struct.proto";
+
+lmessage TableView {
+  // The human readable display name for the table
+  string display_name = 1;
+
+  // The array of column names to group by
+  repeated string group_by = 2;
+
+  // The name of the column that contains the row paths
+  string row_path = 3;
+
+  // The array of columns to split columns by
+  repeated string split_by = 4;
+
+  // The columns to display
+  repeated string columns = 5;
+
+  // The column display names
+  map<string, ColumnDisplayName> column_display_names = 6;
+
+  // The custom metadata
+  map<string, google.protobuf.Value> custom_metadata = 7;
+}

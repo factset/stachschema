@@ -1,0 +1,21 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "ColumnProto";
+
+import "google/protobuf/struct.proto";
+
+// The metadata for a table column stored in `fds:column`
+message Column {
+  // The name
+  string name = 1;
+
+  // The type as defined by the FDS API Standard
+  string fds_type = 2;
+
+  // The custom metadata
+  map<string, google.protobuf.Value> custom_metadata = 4;
+}

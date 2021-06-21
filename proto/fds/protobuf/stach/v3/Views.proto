@@ -1,0 +1,15 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "ViewProto";
+
+import "fds/protobuf/dataprep/v3/View.proto";
+
+// The metadata for table views stored in `fds:views`
+message Views {
+  // The views
+  repeated View views = 1;
+}
