@@ -6,19 +6,102 @@ option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v
 option java_package = "com.factset.protobuf.stach.v3";
 option java_outer_classname = "TableProto";
 
-import "google/protobuf/struct.proto";
+import "fds/protobuf/stach/v3/MetadataItem.proto";
 
-// The metadata for a table stored in `fds:table`
+/*
+A state of tabular data.
+If the tabular data has already been grouped, split, or a collapsed column produced, these properties are required to indicate that.
+*/
 message Table {
-  // The name of the table
-  string name = 1;
+  /*
+  A result of executing the grouping algorithm.
+  */
+  message GroupResult {  
+    /*
+    The names of the columns that were grouped by.
+    Required, unless `Table.groupResult.collapsedColumnResult.name` is specified.
+    */
+    repeated string by = 1;
+    
+    /*
+    The realized collapsed column.
+    Optional.
+    */
+    CollapsedColumnResult collapsed_column_result = 2;
+    
+    /*
+    The name of the `string` column that contains the row paths.
+    Required.
+    */
+    string row_path = 3;
+    
+    /*
+    The name of the `boolean` column that indicates if a row is an aggregate row.
+    Required.
+    */
+    string aggregate_rows = 4;
+    
+    /*
+    The name of the `int32` column that contains the group level override.
+    Takes precedence over row path length.
+    Optional.
+    */
+    string level = 5;
+  }
+  
+  /*
+  A result of the collapsed column algorithm.
+  */
+  message CollapsedColumnResult {
+    /*
+    The name of the collapsed column.
+    The collapsed column is in the data so it is considered realized and therefore needs a name.
+    Required.
+    */
+    string name = 1;
+  }
 
-  // The array of column names that define the primary/compound key for each row
-  repeated string primary_key_columns = 2;
+  /*
+  A result of executing the splitting algorithm.
+  */
+  message SplitResult {
+    /*
+    The name of the `string` column in the multi-level headers table that refers to column names in the primary table.
+    Required.
+    */
+    string multi_level_headers_table_reference = 1;
+  }
 
-  // The total number of rows in the table
-  int32 total_num_rows = 3;
+  /* 
+  The array of column names that define the primary key for each row.
+  If more than one column is specified, it is referred to as a compound primary key. e.g. ['firstName', 'lastName'] the first name + last name makes a full name which uniquely identifies each row.
+  Required.
+  */
+  repeated string primary_keys = 1;
 
-  // The custom metadata
-  map<string, google.protobuf.Value> custom_metadata = 4;
+  /*
+  The total number of rows in the table.
+  If the value is `0`, it is assumed that all rows are in the payload. If the value is greater than `0`, and the number of rows in the payload is less than the value, it is assumed that the table in the payload is a partial table.
+  Default is `0`.
+  Required if a payload contains partial data.
+  */
+  int32 total_num_rows = 2;
+
+  /*
+  The result of the grouping algorithm.
+  Optional.
+  */
+  GroupResult group_result = 3;
+
+  /*
+  The result of the splitting algorithm.
+  Optional.
+  */
+  SplitResult split_result = 4;
+
+  /*
+  The custom metadata.
+  Optional.
+  */
+  map<string, MetadataItem> custom_metadata = 100;
 }

@@ -6,16 +6,22 @@ option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v
 option java_package = "com.factset.protobuf.stach.v3";
 option java_outer_classname = "ColumnProto";
 
-import "google/protobuf/struct.proto";
+import "fds/protobuf/stach/v3/MetadataItem.proto";
 
-// The metadata for a table column stored in `fds:column`
+/*
+A set of metadata for a table column.
+*/
 message Column {
-  // The name
-  string name = 1;
+  /*
+  The type that defines a higher level contextual type.
+  E.g. 'email', or 'id32'. Maps to a [logical type](https://arrow.apache.org/docs/format/Columnar.html#logical-types) which needs to be specified as the [Arrow Field `type` property](https://arrow.apache.org/docs/format/Columnar.html#schema-message).
+  Required.
+  */
+  string contextual_type = 1;
 
-  // The type as defined by the FDS API Standard
-  string fds_type = 2;
-
-  // The custom metadata
-  map<string, google.protobuf.Value> custom_metadata = 3;
+  /*
+  The custom metadata.
+  Optional.
+  */
+  map<string, MetadataItem> custom_metadata = 100;
 }

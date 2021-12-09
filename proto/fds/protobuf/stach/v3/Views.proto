@@ -4,12 +4,47 @@ package factset.protobuf.stach.v3;
 option csharp_namespace = "FactSet.Protobuf.Stach.V3";
 option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
 option java_package = "com.factset.protobuf.stach.v3";
-option java_outer_classname = "ViewProto";
+option java_outer_classname = "ViewsProto";
 
-import "fds/protobuf/stach/v3/View.proto";
+import "fds/protobuf/stach/v3/TableView.proto";
 
-// The metadata for table views stored in `fds:views`
+/*
+A set of a metadata specifying one or more views for rendering a table.
+*/
 message Views {
-  // The views
+  /*
+  A view for rendering a table.
+  */
+  message View {
+    /*
+    The name of the view.
+    Required.
+    */
+    string name = 1;
+
+    /*
+    The display name that describes the type of view.
+    This is used when presenting the user with a list of views that can be rendered. e.g. 'Table', 'Bubble Chart', etc.
+    Optional.
+    */
+    string display_name = 2;
+
+    /*
+    The type of view to render the table.
+    Required.
+    */
+    oneof type {
+      /*
+      The instructions to render tabular data into a rendered table.
+      */
+      TableView table = 3;
+    }
+  }
+
+  /*
+  The views.
+  The first view is considered the default view when rendering the table.
+  Required.
+  */
   repeated View views = 1;
 }
