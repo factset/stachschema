@@ -1,0 +1,132 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "RowOrganizedTableProto";
+
+import "fds/protobuf/stach/v3/MetadataItem.proto";
+import "fds/protobuf/stach/v3/Table.proto";
+import "fds/protobuf/stach/v3/Views.proto";
+import "google/protobuf/struct.proto";
+
+/*
+A row-organized table.
+Used for JSON-encoding a table.
+*/
+message RowOrganizedTable {
+  /*
+  A row-organized column.
+  */
+  message Column {
+    /*
+    The name of the column.
+    Required.
+    */
+    string name = 1;
+
+    /*
+    Whether the column can contains NULLs or not.
+    Default is `false`.
+    Required.
+    */
+    bool forbid_nulls = 2;
+
+    /*
+    The contextual type.
+    Required.
+    */
+    string contextual_type = 3;
+
+    /*
+    The custom metadata.
+    Optional.
+    */
+    map<string, MetadataItem> custom_metadata = 100;
+  }
+
+  /*
+  A row-organized header row.
+  */
+  message HeaderRow {    
+    /*
+    The header row cells.
+    Required.
+    */
+    repeated HeaderCell cells = 1;
+  }
+  
+  /*
+  A row-organized header cell.
+  */
+  message HeaderCell {
+    /*
+    The column span.
+    Default is `0`. A zero is treated as a one.
+    Optional.
+    */
+    uint32 colspan = 1;
+
+    /*
+    The row span.
+    Default is `0`. A zero is treated as a one.
+    Optional.
+    */
+    uint32 rowspan = 2;
+    
+    /*
+    The cell's value.
+    Optional.
+    */
+    google.protobuf.Value value = 3;
+  }
+
+  /*
+  The version of the schema.
+  Required.
+  */
+  string version = 1;
+
+  /*
+  The name of the table.
+  Optional.
+  */
+  string name = 2;
+
+  /*
+  The columns that define this table.
+  Required.
+  */
+  repeated Column columns = 3;
+
+  /*
+  The primary table metadata.
+  Required.
+  */
+  Table table = 4;
+
+  /*
+  The multi-level headers table.
+  Optional.
+  */
+  RowOrganizedTable multi_level_headers_table = 5;
+
+  /*
+  The views metadata.
+  Optional.
+  */
+  repeated Views.View views = 6;
+
+  /*
+  The header rows.
+  Optional.
+  */
+  repeated HeaderRow header_rows = 7;
+
+  /*
+  The rows.
+  Required.
+  */
+  repeated google.protobuf.Struct rows = 8;
+}

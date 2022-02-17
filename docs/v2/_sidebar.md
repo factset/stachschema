@@ -4,4 +4,5 @@
 - [Column Organized](v2/ColumnOrganized)
 - [Row Organized](v2/RowOrganized)
 - [Examples](v2/Examples)
+- [Terminology](v2/Terminology)
 - [Reference](v2/Reference)

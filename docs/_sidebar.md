@@ -1,7 +1,9 @@
 - [Home](README)
 - [Motivation](Motivation)
 - Versions
+	- [STACH v3](v3/README)
 	- [STACH v2](v2/README)
 	- [STACH v1](v1/README)
-- [Terminology](Terminology)
+- [Development](Development)
+- [Contribution](Contribution)
 - [Changelog](CHANGELOG)

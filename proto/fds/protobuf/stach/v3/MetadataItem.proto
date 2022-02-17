@@ -1,0 +1,27 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "MetadataItemProto";
+
+import "google/protobuf/struct.proto";
+
+/*
+A custom metadata item.
+*/
+message MetadataItem {
+  /*
+  The higher level contextual type.
+  E.g. 'email', or 'id32'.
+  Required.
+  */
+  string contextual_type = 1;
+
+  /*
+  The value.
+  Required.
+  */
+  google.protobuf.Value value = 2;
+}

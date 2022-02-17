@@ -1,6 +1,6 @@
 # Motivation
 
-In organizations that produce data, many APIs serve list or tabular data. Without standardization, the design of those APIs may be very similar but none-the-less different, creating a never ending pattern of integration, which in turn increases the overall integration complexity of using an organization's APIs. With standardization of list and tabular data, tooling can be created to facilitate development and automation can be created to ingest data.
+In organizations that produce data, many APIs serve tabular data. Without standardization, the design of those APIs may be very similar but none-the-less different, creating a never ending pattern of integration, which in turn increases the overall integration complexity of using an organization's APIs. With standardization of tabular data, tooling can be created to facilitate development and automation can be created to ingest data.
 
 Consider the following pattern of API development within an organization. In the beginning, only a few producers exist so the cost of integration to a consumer is low because there are only a few different models to integrate. Over time, new producers are created and every consumer of data that need data from that new producer has to integrate not just the producer's API but also the models produced by the new API. The latter is expensive and is a significant cost in time and resources.
 

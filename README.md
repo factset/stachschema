@@ -6,12 +6,19 @@
   </p>
 </p>
 
+![STACH Schema Version](https://img.shields.io/badge/StachSchema-v3-blue)
+[![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 ## Documentation
+
+Please visit the [hosted documentation](https://factset.github.io/stachschema/#/) for detailed information.
+
+## Development
 
 Documentation is in the [docs](docs) folder created with [docsify](https://docsify.js.org/). 
 
-Run `Run.bat` locally or visit the hosted version.
+Run `Run.bat` to test [locally](http://localhost:3000).
 
 ## License
 
-Distributed under the Apache License v2.0. See [LICENSE](docs/LICENSE.txt) for more information.
+Distributed under the Apache License v2.0. See [LICENSE](https://www.apache.org/licenses/LICENSE-2.0) for more information. 

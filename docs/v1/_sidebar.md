@@ -1,4 +1,5 @@
 - [Home](README)
 - [STACH v1](v1/README)
 - [Column Organized](v1/ColumnOrganized)
+- [Terminology](v1/Terminology)
 - [Reference](v1/Reference)
