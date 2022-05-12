@@ -1,0 +1,44 @@
+﻿name: Generate SDKs manually and raise PR
+
+env:
+  USER_API_KEY: ${{ secrets.USER_API_KEY }}
+  USER_EMAIL: ${{ secrets.USER_EMAIL }}
+  USER: ${{ secrets.USER }}
+  SCHEMA_DIRECTORY: proto # Location of the Google ProtoBuf schema.
+  GITHUB_SCHEMA_SDKS_REPO: factset/stachschema-sdks
+  
+on:
+  workflow_dispatch: 
+    inputs: 
+      branch:
+        description: 'stachschema-sdks repo branch name'
+        required: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Hub
+        run: |
+          sudo snap install hub --classic
+        
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          path: ${{ github.event.repository.name }}
+          fetch-depth: 0
+          ref: "${{ github.head_ref }}"
+
+      - name: Check out ${{ env.GITHUB_SCHEMA_SDKS_REPO }} repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.GITHUB_SCHEMA_SDKS_REPO }}
+          ref: ${{github.event.inputs.branch}}
+          path: sdks
+          fetch-depth: 0
+          token: ${{ env.USER_API_KEY }}
+
+      - name: Raise or update SDKs pull request
+        run: ${{ github.event.repository.name }}/.github/scripts/raise-pull-request.sh
