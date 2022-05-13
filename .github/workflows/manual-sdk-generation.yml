@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ env.GITHUB_SCHEMA_SDKS_REPO }}
-          ref: ${{github.event.inputs.branch}}
+          ref: "${{github.event.inputs.branch}}"
           path: sdks
           fetch-depth: 0
           token: ${{ env.USER_API_KEY }}
