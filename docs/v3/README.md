@@ -13,7 +13,7 @@ Version 3.1
 
 ## Table of Contents
 
-<!-- !toc (level=5 minlevel=2 omit="Table of Contents;FactSet Contextual Data Types") -->
+<!-- !toc (level=5 minlevel=2 omit="Table of Contents") -->
 
 * [Scope](#scope)
 * [Conventions](#conventions)
@@ -196,8 +196,6 @@ The file extension ".arrow" **MUST** be used with the [IPC file format](https://
 
 The file extension ".arrows" **MUST** be used with the [IPC streaming format](https://arrow.apache.org/docs/format/Columnar.html#ipc-streaming-format).
 
-> 💡 At the time of publishing this standard, FactSet's Kong gateway does not support gRPC services, therefore it is expected that tabular data is transferred over HTTP APIs. The Kong gateway is expected to support gRPC services by the end of FY21.
-
 ## Character Encoding
 
 The character encoding used is UTF-8 without byte order mark and some notable exceptions.
@@ -304,31 +302,6 @@ Metadata items **MUST** specify `MetadataItem.contextualType` using contextual d
 It is **NOT RECOMMENDED** to have columns specify a contextual data type that serializes to an object or an array.
 SDKs **MAY NOT** support these kinds of data types.
 
-### FactSet Contextual Data Types
-
-> NOTE: This section is here until the API Design Standard includes how FactSet Contextual Data Types should be Arrow-encoded.
-
-The following are the FactSet specific contextual data types and how they are Arrow-encoded.
-
-| Contextual Type | Arrow-encoding ([Schema](https://arrow.apache.org/docs/format/Columnar.html#logical-types)) |
-| --- | --- |
-| string | Utf8 |
-| int32 | Int32 |
-| int64 | Int64 |
-| real | Double |
-| relativeValue | Double |
-| datetime | Timestamp |
-| date | Date32 (Days since unix epoch) |
-| boolean | Bool |
-| isin | Utf8 |
-| id32 | Int32 |
-| id64 | Int64 |
-| uid64 | UInt64 |
-| bcpLanguage | Utf8 |
-| localizedString | Utf8 |
-| email | Utf8 |
-| url | Utf8 |
-| uuid | FixedSizeBinary(16) |
 ## Functionality
 
 ### Overview
