@@ -7,6 +7,7 @@ option java_package = "com.factset.protobuf.stach.v3";
 option java_outer_classname = "TableProto";
 
 import "fds/protobuf/stach/v3/MetadataItem.proto";
+import "fds/protobuf/stach/v3/SortColumn.proto";
 
 /*
 A state of tabular data.
@@ -16,7 +17,7 @@ message Table {
   /*
   A result of executing the grouping algorithm.
   */
-  message GroupResult {  
+  message GroupResult {
     /*
     The names of the columns that were grouped by.
     Required, unless `Table.groupResult.collapsedColumnResult.name` is specified.
@@ -59,6 +60,19 @@ message Table {
     Required.
     */
     string name = 1;
+
+    /*
+    The columns that were collapsed.
+    Optional.
+    */
+    repeated string by = 2;
+
+    /*
+    The original headers of the columns that were collapsed.
+    Key is the original column name, and value is the original header.
+    Optional.
+    */
+    map<string, string> headers = 3;
   }
 
   /*
@@ -70,6 +84,19 @@ message Table {
     Required.
     */
     string multi_level_headers_table_reference = 1;
+
+    /*
+    The original columns that were split by.
+    Optional.
+    */
+    repeated string by = 2;
+
+    /*
+    The columns that were split over.
+    Key is the split column name, and value is the original column name.
+    Optional.
+    */
+    map<string, string> over = 3;
   }
 
   /* 
@@ -98,6 +125,12 @@ message Table {
   Optional.
   */
   SplitResult split_result = 4;
+
+  /*
+  The result of the sorting algorithm.
+  Optional.
+  */
+  repeated SortColumn sort_result = 5;
 
   /*
   The custom metadata.
