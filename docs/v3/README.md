@@ -5,14 +5,15 @@
  Replace
  <a class="anchor" href="#/v3/README?id=$1" id="$1"
 -->
+<!--index.md is generated. DO NOT EDIT!-->
 <!-- include (index.md) -->
 # STACH v3
 
-Version 3.0
+Version 3.1
 
 ## Table of Contents
 
-<!-- !toc (level=5 minlevel=2 omit="Table of Contents;FactSet Contextual Data Types") -->
+<!-- !toc (level=5 minlevel=2 omit="Table of Contents") -->
 
 * [Scope](#scope)
 * [Conventions](#conventions)
@@ -26,8 +27,10 @@ Version 3.0
   * [Performance](#performance)
 * [Content Negotiation](#content-negotiation)
 * [Character Encoding](#character-encoding)
+* [Changes](#changes)
 * [Arrow Encoding](#arrow-encoding)
 * [JSON Encoding](#json-encoding)
+* [Mime Types](#mime-types)
 * [Data Types](#data-types)
 * [Functionality](#functionality)
   * [Overview](#overview)
@@ -35,10 +38,14 @@ Version 3.0
     * [Display Name](#display-name)
     * [Columns](#columns)
     * [Headers](#headers)
+    * [Sorting](#sorting)
+    * [Alignment](#alignment)
     * [Group](#group)
       * [Sort for Grouping](#sort-for-grouping)
       * [Aggregate Rows](#aggregate-rows)
       * [Aggregate Values](#aggregate-values)
+      * [Total Row](#total-row)
+      * [Group Rows](#group-rows)
       * [Row Relationships](#row-relationships)
       * [Group Level](#group-level)
       * [Group Level Override](#group-level-override)
@@ -48,6 +55,7 @@ Version 3.0
       * [Split Over Headers](#split-over-headers)
       * [Split Columns Alias](#split-columns-alias)
       * [Multi-Level Headers Table](#multi-level-headers-table)
+      * [Rendering Multi Level Headers Table](#rendering-multi-level-headers-table)
       * [Include Columns in Headers Table](#include-columns-in-headers-table)
       * [Remove Empty Split Columns](#remove-empty-split-columns)
   * [View](#view)
@@ -57,45 +65,49 @@ Version 3.0
     * [Header Rows](#header-rows)
 * [Custom Metadata](#custom-metadata)
 * [SDK Guidance](#sdk-guidance)
-* [Integration](#integration)
-  * [Perspective](#perspective)
 * [Out of Scope](#out-of-scope)
   * [Not A Table](#not-a-table)
 * [Examples](#examples)
   * [Example 1: Raw Data](#ex-raw-data)
   * [Example 2: Display Columns](#ex-display-columns)
   * [Example 3: Headers](#ex-headers)
-  * [Example 4: Title](#ex-title)
-  * [Example 5: Group](#ex-group)
-  * [Example 6: Collapsed Column](#ex-collapsed-column)
-  * [Example 7: Group Result](#ex-group-result)
-  * [Example 8: Collapsed Column Result](#ex-collapsed-column-result)
-  * [Example 9: Overriding Group Level](#ex-overriding-group-level)
-  * [Example 10: Split](#ex-split)
-  * [Example 11: Split Over Single Column](#ex-split-over-single-column)
-  * [Example 12: Split Result](#ex-split-result)
-  * [Example 13: Split with Additional Columns](#ex-split-with-additional-columns)
-  * [Example 14: Empty Split Columns](#ex-empty-split-columns)
-  * [Example 15: Multi-Level Headers Table with Group Result](#ex-multi-level-headers-table-with-group-result)
-  * [Example 16: Extra Columns](#ex-extra-columns)
-  * [Example 17: Table Custom Metadata](#ex-table-custom-metadata)
-  * [Example 18: Column Custom Metadata](#ex-column-custom-metadata)
-  * [Example 19: Row Custom Metadata](#ex-row-custom-metadata)
-  * [Example 20: Cell Custom Metadata](#ex-cell-custom-metadata)
-  * [Example 21: Table View Custom Metadata](#ex-table-view-custom-metadata)
-  * [Example 22: Row-Organized Table](#ex-row-org-table)
-  * [Example 23: Row-Organized Multi-Level Headers Table](#ex-row-org-multi-level-headers-table)
-  * [Example 24: Row-Organized Header Rows](#ex-row-org-header-rows)
+  * [Example 4: Sorting](#ex-sorting)
+  * [Example 5: Title](#ex-title)
+  * [Example 6: Group](#ex-group)
+  * [Example 7: Collapsed Column](#ex-collapsed-column)
+  * [Example 8: Group Result](#ex-group-result)
+  * [Example 9: Collapsed Column Result](#ex-collapsed-column-result)
+  * [Example 10: Group with Aggregates](#ex-group-aggregates)
+  * [Example 11: Group Result with Aggregates](#ex-group-result-aggregates)
+  * [Example 12: Overriding Group Level](#ex-overriding-group-level)
+  * [Example 13: Split](#ex-split)
+  * [Example 14: Split Over Single Column](#ex-split-over-single-column)
+  * [Example 15: Split Result](#ex-split-result)
+  * [Example 16: Split with Additional Columns](#ex-split-with-additional-columns)
+  * [Example 17: Empty Split Columns](#ex-empty-split-columns)
+  * [Example 18: Extra Columns](#ex-extra-columns)
+  * [Example 19: Table Custom Metadata](#ex-table-custom-metadata)
+  * [Example 20: Column Custom Metadata](#ex-column-custom-metadata)
+  * [Example 21: Row Custom Metadata](#ex-row-custom-metadata)
+  * [Example 22: Cell Custom Metadata](#ex-cell-custom-metadata)
+  * [Example 23: Table View Custom Metadata](#ex-table-view-custom-metadata)
+  * [Example 24: Row-Organized Table](#ex-row-org-table)
+  * [Example 25: Row-Organized Multi-Level Headers Table](#ex-row-org-multi-level-headers-table)
+  * [Example 26: Row-Organized Header Rows](#ex-row-org-header-rows)
 * [Reference](#reference)
   * [Table](#ref-group-table)
     * [Table](#ref-table)
     * [Table.CollapsedColumnResult](#ref-table-collapsedcolumnresult)
+    * [Table.CollapsedColumnResult.HeadersEntry](#ref-table-collapsedcolumnresult-headersentry)
     * [Table.CustomMetadataEntry](#ref-table-custommetadataentry)
     * [Table.GroupResult](#ref-table-groupresult)
     * [Table.SplitResult](#ref-table-splitresult)
+    * [Table.SplitResult.OverEntry](#ref-table-splitresult-overentry)
   * [Column](#ref-group-column)
     * [Column](#ref-column)
     * [Column.CustomMetadataEntry](#ref-column-custommetadataentry)
+  * [Sorting](#ref-group-sort-column)
+    * [SortColumn](#ref-sortcolumn)
   * [Metadata Item](#ref-group-metadata-item)
     * [MetadataItem](#ref-metadataitem)
   * [Views](#ref-group-views)
@@ -103,12 +115,19 @@ Version 3.0
     * [Views.View](#ref-views-view)
   * [Table View](#ref-group-table-view)
     * [TableView](#ref-tableview)
+    * [TableView.Aggregate](#ref-tableview-aggregate)
+    * [TableView.Aggregate.Function](#ref-tableview-aggregate-function)
+    * [TableView.Aggregate.Function.ParametersEntry](#ref-tableview-aggregate-function-parametersentry)
     * [TableView.CollapsedColumn](#ref-tableview-collapsedcolumn)
     * [TableView.CustomMetadataEntry](#ref-tableview-custommetadataentry)
     * [TableView.Group](#ref-tableview-group)
+    * [TableView.Group.AggregatesEntry](#ref-tableview-group-aggregatesentry)
     * [TableView.HeadersEntry](#ref-tableview-headersentry)
+    * [TableView.HorizontalAlignment](#ref-tableview-horizontalalignment)
+    * [TableView.HorizontalAlignment.ColumnsEntry](#ref-tableview-horizontalalignment-columnsentry)
     * [TableView.Split](#ref-tableview-split)
     * [TableView.Split.HeadersEntry](#ref-tableview-split-headersentry)
+    * [TableView.HorizontalAlignment.Alignment](#ref-tableview-horizontalalignment-alignment)
   * [Row Organized](#ref-group-row-org)
     * [RowOrganizedTable](#ref-roworganizedtable)
     * [RowOrganizedTable.Column](#ref-roworganizedtable-column)
@@ -177,13 +196,15 @@ The file extension ".arrow" **MUST** be used with the [IPC file format](https://
 
 The file extension ".arrows" **MUST** be used with the [IPC streaming format](https://arrow.apache.org/docs/format/Columnar.html#ipc-streaming-format).
 
-> 💡 At the time of publishing this standard, FactSet's gateway does not support gRPC services, therefore it is expected that tabular data is transferred over HTTP APIs. The gateway is expected to support gRPC services by the end of FY21.
-
 ## Character Encoding
 
 The character encoding used is UTF-8 without byte order mark and some notable exceptions.
 A table **SHALL** only use Unicode code points in the ranges [0x09-0x0a],[0x0d], [0x20-0x7e], [0x85], [0xa0-0xd7ff], [0xe000-0xfffd], and [0x10000-0x10ffff].
 This ensures that tables can be encoded in both JSON and Arrow interchangeably.
+
+## Changes
+
+Future changes to the protobuf files **MUST** follow the rules for updating a message type according to Protobuf's [rules](https://developers.google.com/protocol-buffers/docs/proto3#updating).
 
 ## Arrow Encoding
 
@@ -216,8 +237,8 @@ Arrow Schema Metadata:
   - Required.
 
 - `fds:stach:multiLevelHeadersTable`
-  - The Arrow encoded [multi-level headers table](#multi-level-headers-table).
-  - [Base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4) [Arrow](https://arrow.apache.org/docs/format/Columnar.html) binary.
+  - The [multi-level headers table](#multi-level-headers-table).
+  - [Base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4) [Arrow IPC File](https://arrow.apache.org/docs/format/Columnar.html#ipc-file-format) binary.
   - Optional.
 
 - `fds:stach:views`
@@ -258,6 +279,16 @@ The `RowOrganizedTable` **MUST** be used to encode a table in JSON.
 
 Utilizing [protobuf libraries](https://developers.google.com/protocol-buffers/docs/proto3#json) is strongly **RECOMMENDED** to facilitate serializing to and from JSON.
 
+## Mime Types
+
+The following mime types should be used in the HTTP `Content-Type` header and the HTTP `Accept` header when appropriate.
+
+| Version | Organization | Encoding | Mime Type |
+| ------- | ------------ | -------- | --------- |
+| 3.x     | Column       | [Arrow IPC File](https://arrow.apache.org/docs/format/Columnar.html#ipc-file-format)   | application/stach.v3+vnd.apache.arrow.file |
+| 3.x     | Column       | [Arrow IPC Stream](https://arrow.apache.org/docs/format/Columnar.html#ipc-streaming-format) | application/stach.v3+vnd.apache.arrow.stream |
+| 3.x     | Row          | Protobuf | application/stach.v3.roworganized+x-protobuf |
+| 3.x     | Row          | Json     | application/stach.v3.roworganized+json |
 ## Data Types
 
 Tabular data requires types to describe the meaning of the data as well as the way the data is physically represented in memory and in storage.
@@ -271,31 +302,6 @@ Metadata items **MUST** specify `MetadataItem.contextualType` using contextual d
 It is **NOT RECOMMENDED** to have columns specify a contextual data type that serializes to an object or an array.
 SDKs **MAY NOT** support these kinds of data types.
 
-### FactSet Contextual Data Types
-
-> NOTE: This section is here until the API Design Standard includes how FactSet Contextual Data Types should be Arrow-encoded.
-
-The following are the FactSet specific contextual data types and how they are Arrow-encoded.
-
-| Contextual Type | Arrow-encoding ([Schema](https://arrow.apache.org/docs/format/Columnar.html#logical-types)) |
-| --- | --- |
-| string | Utf8 |
-| int32 | Int32 |
-| int64 | Int64 |
-| real | Double |
-| relativeValue | Double |
-| datetime | Timestamp |
-| date | Date32 (Days since unix epoch) |
-| boolean | Bool |
-| isin | Utf8 |
-| id32 | Int32 |
-| id64 | Int64 |
-| uid64 | UInt64 |
-| bcpLanguage | Utf8 |
-| localizedString | Utf8 |
-| email | Utf8 |
-| url | Utf8 |
-| uuid | FixedSizeBinary(16) |
 ## Functionality
 
 ### Overview
@@ -313,16 +319,18 @@ The following are the FactSet specific contextual data types and how they are Ar
 
 In the following table, each row expresses a functionality and which properties are used by that functionality in `TableView` and `Table` respectively.
 
-| Name                | `TableView`             | `Table`                                    |
-| ------------------- | ----------------------- | ------------------------------------------ |
-| Display Columns     | `columns`               |                                            |
-| Headers             | `headers`               |                                            |
-| Split               | `split`                 | `splitResult`                              |
-| Group               | `group.by`              | `groupResult.by`                           |
-| - Aggregate Rows    | `group.by`              | `groupResult.aggregateRows`                |
-| - Row Relationships | `group.by`              | `groupResult.rowPath`                      |
-| - Group Level       | `group.by`              | `groupResult.rowPath`, `groupResult.level` |
-| - Collapsed Column  | `group.collapsedColumn` | `groupResult.collapsedColumnResult`        |
+| Name                 | `TableView`             | `Table`                                    |
+| -------------------- | ----------------------- | ------------------------------------------ |
+| Display Columns      | `columns`               |                                            |
+| Headers              | `headers`               |                                            |
+| Alignment            | `halign`                |                                            |
+| Split                | `split`                 | `splitResult`                              |
+| Group                | `group.by`              | `groupResult.by`                           |
+| - Aggregate Rows     | `group.by`              | `groupResult.aggregateRows`                |
+| - Aggregate Values   | `group.aggregates`      |                                            |
+| - Row Relationships  | `group.by`              | `groupResult.rowPath`                      |
+| - Group Level        | `group.by`              | `groupResult.rowPath`, `groupResult.level` |
+| - Collapsed Column   | `group.collapsedColumn` | `groupResult.collapsedColumnResult`        |
 
 `RowOrganizedTable` Metadata:
 -   A row-organized table meant for JSON encoding.
@@ -369,11 +377,31 @@ The `TableView.headers` property defines the human-readable string used to rende
 > 🔎 Refer to [Headers](#ex-headers) for an example.
 
 The column `name` **SHOULD** be rendered if no header exists for a column.
+#### Sorting
+
+Sorting organizes rows in ascending or descending order by the data in one or more columns.
+
+> 🔎 Refer to [Sorting](#ex-sorting) for an example.
+
+The `Table.sortResult` property **SHOULD** be specified if the data has been sorted.
+
+The `TableView.sort` property **SHOULD** be specified if the producer expects the consumer to sort the data.
+
+If the `TableView.group.by` property is populated then the sorting algorithm **MUST** sort the table by the grouped columns in ascending order first, unless the `TableView.sort` property includes columns that are included in `TableView.group.by`.
+
+When `SortColumn.nullsFirst` is set to `true`, `null` values **MUST** be treated as less than non-`null` values.
+#### Alignment
+
+Alignment specifies the placement of rendered values relative to the boundaries of the table's cell.
+
+If `TableView.halign.columns` is specified, the presentation layer **MUST** horizontally align the cell values in the specified columns accordingly.
+
+If `TableView.halign.default` is specified, the presentation layer **MUST** default the horizontal alignment for all columns accordingly.
 #### Group
 
 Grouping tabular data implies that rows are grouped by unique values from a list of columns.
 
-> 🔎 Refer to [Group](#ex-group) and [Group Result](#ex-group-result) for an example. You may also review [Perspective Row Pivot](https://perspective.finos.org/docs/md/view.html#row-pivots) for additional understanding of grouping tabular data.
+> 🔎 Refer to [Group](#ex-group) and [Group Result](#ex-group-result) for an example.
 
 The Group Algorithm accomplishes the following tasks:
 1.  Sort the table for grouping. Required
@@ -393,6 +421,8 @@ The `Table.groupResult.by` property **MUST** be used to state which columns *wer
 The order of `TableView.group.by` is **REQUIRED** to be significant when executing the grouping algorithm.
 It instructs the grouping algorithm to sort the table by those columns in that order prior to grouping the rows.
 
+If `TableView.sort` includes columns specified in `TableView.group.by` then the grouping algorithm **MUST** order the rows accordingly.
+
 The order of `Table.groupResult.by` is **REQUIRED** to be significant to represent the order of the grouping that was applied.
 
 The `TableView.group.by` property **MUST NOT** be used in conjuction with `Table.groupResult.by`.
@@ -405,18 +435,48 @@ An aggregate row **MAY** include values that aggregate over the values of child 
 
 An aggregate row **SHOULD** be added to the table for each unique set of values in the columns that were grouped by.
 
-A `boolean` column represented by `Table.groupResult.aggregateRows` **MUST** be added to the primary table to indicate whether a row in an aggregate row or not.
-
+A `boolean` column represented by `Table.groupResult.aggregateRows` **MUST** be added to the primary table to indicate whether a row is an aggregate row or not.
 
 The `TableView.group.by` property **MUST NOT** be used in conjuction with `Table.groupResult.aggregateRows`.
+
+When `TableView.group.excludeTotalRows` is specified, then total rows **MUST NOT** be included in the result.
+
+When no aggregate functions are specified, total rows **MUST NOT** be included in the result, even if `TableView.group.excludeTotalRows` is `false`.
+
+When `TableView.group.excludeGroupRows` is specified, then group rows **MUST NOT** be included in the result.
+
+When `TableView.group.excludeDetailRows` is specified, then detail rows **MUST NOT** be included in the result.
 
 ##### Aggregate Values
 
 Aggregate values are the cell values in aggregate rows in all columns except the columns that were grouped by.
 
-Aggregate values **MAY** be included in aggregate rows.
+Aggregate values **SHOULD** be included in aggregate rows if `TableView.group.aggregates` is specified.
 
-> 💡 The current schema does not include a way to express what aggregate function should be used or was used to produce an aggregate value.
+If the system does not support the specified aggregate function, then it **SHOULD** produce a null value.
+
+When `TableView.group.aggregates.functions[].targetColumnAlias` is specified, the value resulting from the aggregate function **MUST** be written to the target column.
+
+When `TableView.group.aggregates.functions[].excludeFromTotalRows` is specified, then an aggregate value for total rows **MUST NOT** be included in the result.
+
+When `TableView.group.aggregates.functions[].excludeFromGroupRows` is specified, then an aggregate value for group rows **MUST NOT** be included in the result.
+
+The aggregate value **MUST** be coerced, if possible, when the data type conflicts with the column being written to.
+For instance, if the column of data is a string and the aggregate function produces a number, then the number should be coerced into a string.
+
+> 🔎 Refer to [Group with Aggregates](#ex-group-aggregates) and [Group Result with Aggregates](#ex-group-result-aggregates) for an example.
+
+##### Total Row
+
+A total row is a row where the `Table.group.by` column values are `null`.
+
+A total row **MUST** be added if the `TableView.group.aggregates[].totalRow` property is set to `true`.
+
+##### Group Rows
+
+A group row is a row where the `Table.group.by` columns have at least one non-`null` value.
+
+A group row **MUST** be added if the `TableView.group.aggregate[].groupRow` property is set to `true`.
 
 ##### Row Relationships
 
@@ -427,6 +487,8 @@ e.g. "a,d,f".
 A `string` column represented by `Table.groupResult.rowPath` **MUST** be added to the primary table that contains the row path values.
 
 The primary key **MUST** consist of a single column when `Table.groupResult.rowPath` is utilized.
+
+The primary key **MUST** be an `integer` or a `string` conforming to the regular expression `[a-zA-Z0-9-_]+`.
 
 The `TableView.group.by` property **MUST NOT** be used in conjuction with `Table.groupResult.rowPath`.
 
@@ -466,6 +528,10 @@ The `TableView.group.collapsedColumn.alias` **MAY** be included in the `TableVie
 
 The `Table.groupResult.collapsedColumnResult.name` property is **REQUIRED** when the collapsed column is realized.
 
+The `Table.groupResult.collapsedColumnResult.by` property is **RECOMMENDED** when the collapsed column is realized because it allows the collapsed column to be split back into separate columns.
+
+The `Table.groupResult.collapsedColumnResult.headers` property is **RECOMMENDED** when the collapsed column is realized because it allows the collapsed column to be split back into separate columns with the original headers.
+
 The `Table.groupResult.by` is **REQUIRED** to be empty when the collapsed column is realized.
 
 The `Table.groupResult.collapsedColumnResult.name` property **MUST NOT** be used in a multi-level headers table because it will not be supported by FactSet SDKs.
@@ -479,7 +545,7 @@ The `TableView.group.collapsedColumn` property **MUST NOT** be used in conjuctio
 Splitting tabular data by a list of columns implies that the rows are divided by the unique values of the split by columns and replace the columns being split over with new columns.
 The values from the split by columns are converted into headers above the new columns.
 
-> 🔎 Refer to [Split](#ex-split) for an example. You may also review [Perspective Column Pivot](https://perspective.finos.org/docs/md/view.html#column-pivots) for additional understanding of splitting tabular data.
+> 🔎 Refer to [Split](#ex-split) for an example.
 >  
 > The Split Algorithm accomplishes the following tasks:
 > 1.  Add split columns. Required.
@@ -525,8 +591,9 @@ The value of the `TableView.split.alias` property **SHOULD** be included in the 
 ##### Multi-Level Headers Table
 
 The multi-level headers table represents the header rows that are produced from the data that was split by.
+It is the result of the Group Algorithm minus the columns produced by the Group Algorithm, namely the `pk`, `aggr`, and `rowPath` columns.
 
-> 🔎 Refer to [Split Result](#ex-split-result) and [Multi-Level Headers Table with Group Result](#ex-multi-level-headers-table-with-group-result) for an example.
+> 🔎 Refer to [Split Result](#ex-split-result) for an example.
 
 A `string` column **MUST** be added to the multi-level headers table.
 The name of this column is your choice but **MUST** be represented by `Table.splitResult.multiLevelHeadersTableReference`.
@@ -534,9 +601,32 @@ This facilitates correlating rows in the multi-level headers table to the column
 
 The column represented by `Table.splitResult.multiLevelHeadersTableReference` **MUST** be populated with the names of the newly created split columns from the primary table.
 
+The `Table.splitResult.by` property **SHOULD** be populated with the columns that were split by.
+This facilitates unsplitting the table.
+
+The `Table.splitResult.over` property **SHOULD** be populated with the columns that were split over where the key is the split column name and the value is the original column name before splitting.
+This facilitates unsplitting the table.
+
 The `TableView.split.by` **MUST NOT** be used in conjuction with a multi-level headers table.
 
+The multi-level headers table **MUST NOT** include the headers of the columns that were split over.
+e.g. `rev` and `pro` have headers `Revenue` and `Profit` which are not included in the multi-level headers table because they are included in `TableView.headers` as a result of the Split Algorithm.
+
+The multi-level headers table **MUST NOT** include a `View`.
+
 > 💡 The "multi-level headers table" may be referred to as the "headers table".
+
+##### Rendering Multi Level Headers Table
+
+The algorithm to render the multi level headers table should be programmed as thus:
+   1) Generate a tree from the multi level headers table.
+   2) Traverse the tree in level order.
+   3) Skip the root level because it is a placeholder.
+   4) Skip the leaf level because it will be handled by `TableView.headers`.
+   5) Render the remaining levels as header rows where the number of leaf nodes determines the number of cells that a header cell will span.
+   6) Columns not represented in the multi-level headers table should be rendered empty.
+
+> 🔎 Refer to [Split Result](#ex-split-result) for an example of the headers tree.
 
 ##### Include Columns in Headers Table
 
@@ -625,21 +715,6 @@ SDKs **SHOULD NOT** support row-organized header rows.
 
 SDKs **SHOULD NOT** support a realized collapsed column in a multi-level headers table.
 - `Table.groupResult.collapsedColumnResult`
-
-## Integration
-
-### Perspective
-
-A `TableView` can be converted to a [Perspective view](https://perspective.finos.org/docs/md/view.html) using the following mapping:
-
-| Perspective  | TableView    |
-| ------------ | ------------ |
-| `groupBy`    | `group.by`   |
-| `splitBy`    | `split.by`   |
-| `columns`    | `split.over` if specified, otherwise `columns` minus any aliases. |
-| `aggregates` | TBD          |
-| `sort`       | TBD          |
-| `filter`     | TBD          |
 ## Out of Scope
 
 ### Not A Table
@@ -695,7 +770,6 @@ Primary Table:
 Rendered:
 
 There is no expectation on rendering, since no `TableView` was defined.
-
 <a class="anchor" href="#/v3/README?id=ex-display-columns" id="ex-display-columns"></a>
 
 ### Example 2: Display Columns
@@ -807,9 +881,57 @@ Rendered:
 | FOO-US | Office Supplies | Pencil   | 20210601 | 45      | 40     |
 ```
 
+<a class="anchor" href="#/v3/README?id=ex-sorting" id="ex-sorting"></a>
+
+### Example 4: Sorting
+
+Rows can be sorted by column name.
+
+Primary Table:
+
+```
+| ticker | category        | product  | rev | pro |
+| ------ | --------------- | -------- | --- | --- |
+| FOO-US | Electronics     | Computer | 15  | 10  |
+| FOO-US | Electronics     | Keyboard | 20  | 15  |
+| FOO-US | Furniture       | Couch    | 25  | 20  |
+| FOO-US | Office Supplies | Pencil   | 30  | 25  |
+```
+
+`Table` Metadata:
+
+```json
+{
+    "primaryKeys": [ "ticker", "category", "product" ]
+}
+```
+
+`TableView` Metadata:
+
+```json
+{
+    "columns": [ "ticker", "category", "product", "rev", "pro" ],
+    "sort": [
+        { "by": "ticker" },
+        { "by": "rev", "descending": true }
+    ]
+}
+```
+
+Rendered:
+
+```
+| ticker | category        | product  | rev | pro |
+| ------ | --------------- | -------- | --- | --- |
+| FOO-US | Office Supplies | Pencil   | 30  | 25  |
+| FOO-US | Furniture       | Couch    | 25  | 20  |
+| FOO-US | Electronics     | Keyboard | 20  | 15  |
+| FOO-US | Electronics     | Computer | 15  | 10  |
+```
+
 <a class="anchor" href="#/v3/README?id=ex-title" id="ex-title"></a>
 
-### Example 4: Title
+### Example 5: Title
 
 A table can be rendered with a title above the table.
 
@@ -870,7 +992,7 @@ Sales
 
 <a class="anchor" href="#/v3/README?id=ex-group" id="ex-group"></a>
 
-### Example 5: Group
+### Example 6: Group
 
 A table with aggregate rows and row relationships make the table easier for the user to explore by collapsing rows.
 
@@ -940,7 +1062,7 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-collapsed-column" id="ex-collapsed-column"></a>
 
-### Example 6: Collapsed Column
+### Example 7: Collapsed Column
 
 A table is more human-readable when the columns that were grouped by are also collapsed into a single column with indentation based on the group level of the row.
 
@@ -1010,7 +1132,7 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-group-result" id="ex-group-result"></a>
 
-### Example 7: Group Result
+### Example 8: Group Result
 
 Tabular data that is already grouped can be represented in this schema.
 
@@ -1093,7 +1215,7 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-collapsed-column-result" id="ex-collapsed-column-result"></a>
 
-### Example 8: Collapsed Column Result
+### Example 9: Collapsed Column Result
 
 It is possible to reduce the columns that were grouped by into a single column in the primary table called the "collapsed column". When the column is included in the data set, it is called a "realized collapsed column".
 
@@ -1171,11 +1293,187 @@ Rendered:
 |       Pencil        | 45      | 40     |
 ```
 
+<a class="anchor" href="#/v3/README?id=ex-group-aggregates" id="ex-group-aggregates"></a>
+
+### Example 10: Group with Aggregates
+
+A table with aggregate values provide the user with calculated statistics and can be included in aggregate rows.
+
+Primary Table:
+
+```
+| ticker | category        | product  | date     | rev | pro |
+| ------ | --------------- | -------- | -------- | --- | --- |
+| FOO-US | Electronics     | Computer | 20210101 | 15  | 10  |
+| FOO-US | Electronics     | Keyboard | 20210101 | 20  | 15  |
+| FOO-US | Furniture       | Couch    | 20210101 | 25  | 20  |
+| FOO-US | Office Supplies | Pencil   | 20210101 | 30  | 25  |
+| FOO-US | Electronics     | Computer | 20210601 | 35  | 30  |
+| FOO-US | Furniture       | Couch    | 20210601 | 40  | 35  |
+| FOO-US | Office Supplies | Pencil   | 20210601 | 45  | 40  |
+```
+
+`Table` Metadata:
+
+```json
+{
+    "primaryKeys": [ "ticker", "category", "product", "date" ]
+}
+```
+
+`TableView` Metadata:
+
+```json
+{
+    "columns": [  "ticker", "date", "category", "product", "$productCount", "rev", "pro" ],
+    "headers": {
+        "ticker": "Ticker",
+        "date": "Date",
+        "category": "Category",
+        "product": "Product",
+        "$productCount": "Product Count",
+        "rev": "Revenue",
+        "pro": "Profit"
+    },
+    "group": {
+        "by": [ "ticker", "date", "category", "product" ],
+        "aggregates": {
+            "product": {
+                "functions": [
+                    {
+                        "name": "count",
+                        "parameters": {
+                            "distinct": true
+                        },
+                        "targetColumnAlias": "$productCount"
+                    }
+                ]
+            },
+            "rev": {
+                "functions": [ { "name": "sum" } ]
+            },
+            "pro": {
+                "functions": [ { "name": "sum" } ]
+            }
+        },
+        "excludeTotalRows": true
+    }
+}
+```
+
+Rendered:
+
+```
+| Ticker | Date     | Category        | Product  | Product Count | Revenue | Profit |
+| :----- | :------- | :-------------- | :------- | :------------ | :------ | :----- |
+| FOO-US |          |                 |          | 4             | 210     | 175    |
+| FOO-US | 20210101 |                 |          | 4             | 90      | 70     |
+| FOO-US | 20210101 | Electronics     |          | 2             | 35      | 25     |
+| FOO-US | 20210101 | Electronics     | Computer |               | 15      | 10     |
+| FOO-US | 20210101 | Electronics     | Keyboard |               | 20      | 15     |
+| FOO-US | 20210101 | Furniture       |          | 1             | 25      | 20     |
+| FOO-US | 20210101 | Furniture       | Couch    |               | 25      | 20     |
+| FOO-US | 20210101 | Office Supplies |          | 1             | 30      | 25     |
+| FOO-US | 20210101 | Office Supplies | Pencil   |               | 30      | 25     |
+| FOO-US | 20210601 |                 |          | 3             | 120     | 105    |
+| FOO-US | 20210601 | Electronics     |          | 1             | 35      | 30     |
+| FOO-US | 20210601 | Electronics     | Computer |               | 35      | 30     |
+| FOO-US | 20210601 | Furniture       |          | 1             | 40      | 35     |
+| FOO-US | 20210601 | Furniture       | Couch    |               | 40      | 35     |
+| FOO-US | 20210601 | Office Supplies |          | 1             | 45      | 40     |
+| FOO-US | 20210601 | Office Supplies | Pencil   |               | 45      | 40     |
+```
+
+<a class="anchor" href="#/v3/README?id=ex-group-result-aggregates" id="ex-group-result-aggregates"></a>
+
+### Example 11: Group Result with Aggregates
+
+Tabular data that includes aggregate values can be represented in this schema.
+
+Primary Table:
+
+```
+| pk | ticker | date     | category        | product  | rev | pro | rowPath | aggr  |
+| -- | ------ | -------- | --------------- | -------- | --- | --- | ------- | ----- |
+| a  | FOO-US |          |                 |          | 210 | 175 |         | true  |
+| b  | FOO-US | 20210101 |                 |          | 90  | 70  | a       | true  |
+| c  | FOO-US | 20210101 | Electronics     |          | 35  | 25  | a,b     | true  |
+| d  | FOO-US | 20210101 | Electronics     | Computer | 15  | 10  | a,b,c   | false |
+| e  | FOO-US | 20210101 | Electronics     | Keyboard | 20  | 15  | a,b,c   | false |
+| f  | FOO-US | 20210101 | Furniture       |          | 25  | 20  | a,b     | true  |
+| g  | FOO-US | 20210101 | Furniture       | Couch    | 25  | 20  | a,b,f   | false |
+| h  | FOO-US | 20210101 | Office Supplies |          | 30  | 25  | a,b     | true  |
+| i  | FOO-US | 20210101 | Office Supplies | Pencil   | 30  | 25  | a,b,h   | false |
+| j  | FOO-US | 20210601 |                 |          | 120 | 105 | a       | true  |
+| k  | FOO-US | 20210601 | Electronics     |          | 35  | 30  | a,j     | true  |
+| l  | FOO-US | 20210601 | Electronics     | Computer | 35  | 30  | a,j,k   | false |
+| m  | FOO-US | 20210601 | Furniture       |          | 40  | 35  | a,j     | true  |
+| n  | FOO-US | 20210601 | Furniture       | Couch    | 40  | 35  | a,j,m   | false |
+| o  | FOO-US | 20210601 | Office Supplies |          | 45  | 40  | a,j     | true  |
+| p  | FOO-US | 20210601 | Office Supplies | Pencil   | 45  | 40  | a,j,o   | false |
+```
+
+`Table` Metadata:
+
+```json
+{
+    "primaryKeys": [ "pk" ],
+    "groupResult": {
+        "by": [ "ticker", "date", "category", "product" ],
+        "rowPath": "rowPath",
+        "aggregateRows": "aggr"
+    }
+}
+```
+
+`TableView` Metadata:
+
+```json
+{
+    "columns": [  "$collapsedColumn", "$productCount", "rev", "pro" ],
+    "headers": {
+        "$collapsedColumn": "Sales",
+        "$productCount": "Product Count",
+        "rev": "Revenue",
+        "pro": "Profit"
+    },
+    "group": {
+        "collapsedColumn": {
+            "alias": "$collapsedColumn"
+        }
+    }
+}
+```
+
+Rendered:
+
+```
+| Sales               | Product Count | Revenue | Profit |
+| :------------------ | :------------ | :------ | :----- |
+| FOO-US              | 4             | 210     | 175    |
+|   20210101          | 4             | 90      | 70     |
+|     Electronics     | 2             | 35      | 25     |
+|       Computer      |               | 15      | 10     |
+|       Keyboard      |               | 20      | 15     |
+|     Furniture       | 1             | 25      | 20     |
+|       Couch         |               | 25      | 20     |
+|     Office Supplies | 1             | 30      | 25     |
+|       Pencil        |               | 30      | 25     |
+|   20210601          | 3             | 120     | 105    |
+|     Electronics     | 1             | 35      | 30     |
+|       Computer      |               | 35      | 30     |
+|     Furniture       | 1             | 40      | 35     |
+|       Couch         |               | 40      | 35     |
+|     Office Supplies | 1             | 45      | 40     |
+|       Pencil        |               | 45      | 40     |
+```
+
 <a class="anchor" href="#/v3/README?id=ex-overriding-group-level" id="ex-overriding-group-level"></a>
 
-### Example 9: Overriding Group Level
+### Example 12: Overriding Group Level
 
-If the data source includes aggregate rows but some aggregate rows are missing, it creates gaps in group levels, and thus the length of the row path is not consistent with the data hierarchy. This is otherwise known as "jagged rows".
+If the data source includes aggregate rows but some aggregate rows are missing, it creates gaps in group levels, and thus the length of the row path is not consistent with the data hierarchy.
+This is otherwise known as "jagged rows".
 
 Primary Table:
 
@@ -1250,7 +1548,7 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-split" id="ex-split"></a>
 
-### Example 10: Split
+### Example 13: Split
 
 Tabular data can be more human readable when it is split vertically and spread horizontally over a set of columns.
 
@@ -1312,11 +1610,12 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-split-over-single-column" id="ex-split-over-single-column"></a>
 
-### Example 11: Split Over Single Column
+### Example 14: Split Over Single Column
 
 When data is split over a single column, it creates a repetitive headers row, which can be hidden if desired.
 
-For instance, when rendering a PDF, it would likely be desired to not render the repetitive headers row. However, in an application with interactive controls, there may be a need to have that repetitive row because there may need to be buttons to interact with that column, like sorting or filtering.
+For instance, when rendering a PDF, it would likely be desired to not render the repetitive headers row.
+However, in an application with interactive controls, there may be a need to have that repetitive row because there may need to be buttons to interact with that column, like sorting or filtering.
 
 Primary Table:
 
@@ -1392,11 +1691,10 @@ Rendered without the repetitive `rev` header:
 
 <a class="anchor" href="#/v3/README?id=ex-split-result" id="ex-split-result"></a>
 
-### Example 12: Split Result
+### Example 15: Split Result
 
-The split algorithm produces multiple levels of headers based on the data that was split on, which are referred to as the "multi-level headers". They are expressed as another table that we refer to as the "multi-Level headers table".
-
-The multi-level headers table does not include the headers of the columns that were split over. e.g. `rev` and `pro` have headers `Revenue` and `Profit` which are not included in the multi-level headers table.
+The split algorithm produces multiple levels of headers based on the data that was split on, which are referred to as the "multi-level headers".
+They are expressed as another table that we refer to as the "multi-Level headers table".
 
 Primary Table:
 
@@ -1443,6 +1741,7 @@ Primary Table:
 Headers Table:
 
 The order of the columns in this table are insignifcant, as the order is driven by the columns in the primary table, however, they have been organized so that you can visualize the headers by rotating this table 90 degrees counter-clockwise.
+Ideally, when producing this headers table, the headers table row order will match the primary table column order.
 
 ```
 | xxx          | date     |
@@ -1453,25 +1752,25 @@ The order of the columns in this table are insignifcant, as the order is driven 
 | pro;20210601 | 20210601 |
 ```
 
+Headers Tree:
+
+This is generated when rendering to facilitate executing a level-order traversal to render multi-level header rows.
+The root node is not rendered because it is a placeholder.
+The leaf nodes are not rendered because the `TableView.headers` will take care of that.
+
+```
+              __________root__________
+             /                        \
+       __20210101__                __20210601__          <-- Render this level
+      /            \              /            \
+rev;20210101  pro;20210101  rev;20210601  pro;20210601
+```
+
 Headers `Table` Metadata:
 
 ```json
 {
     "primaryKeys": [ "xxx" ]
-}
-```
-
-Headers `TableView` Metadata:
-
-```json
-{
-    "columns": [ "$collapsedColumn" ],
-    "group": {
-        "by": [ "date", "xxx" ],
-        "collapsedColumn": {
-            "alias": "$collapsedColumn"
-        }
-    }
 }
 ```
 
@@ -1493,11 +1792,12 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-split-with-additional-columns" id="ex-split-with-additional-columns"></a>
 
-### Example 13: Split with Additional Columns
+### Example 16: Split with Additional Columns
 
 When metadata columns are associated with the columns to split by, it is usually necessary to include those additional metadata columns in the multi-level headers table.
 
-The `categoryUrl` column is a metadata column for the `category` column. Since the table is splitting by the `category` column, it is necessary to include the `categoryUrl` column in the multi-level headers table.
+The `categoryUrl` column is a metadata column for the `category` column.
+Since the table is splitting by the `category` column, it is necessary to include the `categoryUrl` column in the multi-level headers table.
 
 Primary Table:
 
@@ -1644,7 +1944,7 @@ The category headers row would be rendered with links using the values from the 
 
 <a class="anchor" href="#/v3/README?id=ex-empty-split-columns" id="ex-empty-split-columns"></a>
 
-### Example 14: Empty Split Columns
+### Example 17: Empty Split Columns
 
 When tabular data is split resulting in some split columns that are empty, the human-readability of the table can be improved by removing the empty split columns.
 
@@ -1724,120 +2024,9 @@ Rendered:
 | BAR-US | 10          | 200  | 250    | 20      | 10        |
 ```
 
-<a class="anchor" href="#/v3/README?id=ex-multi-level-headers-table-with-group-result" id="ex-multi-level-headers-table-with-group-result"></a>
-
-### Example 15: Multi-Level Headers Table with Group Result
-
-The grouping algorithm can be applied to the multi-level headers table exactly the same way it is applied to the primary table.
-
-Primary Table:
-
-```
-| pk | ticker | category        | product  | rev;20210101 | pro;20210101 | rev;20210601 | pro;20210601 | rowPath | aggr  |
-| -- | ------ | --------------- | -------- | ------------ | ------------ | ------------ | ------------ | ------- | ----- |
-| a  | FOO-US |                 |          |              |              |              |              |         | true  |
-| b  | FOO-US | Electronics     |          |              |              |              |              | a       | true  |
-| c  | FOO-US | Electronics     | Computer | 15           | 10           | 35           | 30           | a,b     | false |
-| d  | FOO-US | Electronics     | Keyboard | 20           | 15           |              |              | a,b     | false |
-| e  | FOO-US | Furniture       |          |              |              |              |              | a       | true  |
-| f  | FOO-US | Furniture       | Couch    | 25           | 20           | 40           | 35           | a,e     | false |
-| g  | FOO-US | Office Supplies |          |              |              |              |              | a       | true  |
-| h  | FOO-US | Office Supplies | Pencil   | 30           | 25           | 45           | 40           | a,g     | false |
-```
-
-`Table` Metadata:
-
-```json
-{
-    "primaryKeys": [ "pk" ],
-    "groupResult": {
-        "by": [ "ticker", "category", "product" ],
-        "rowPath": "rowPath",
-        "aggregateRows": "aggr"
-    },
-    "splitResult": {
-        "multiLevelHeadersTableReference": "xxx"
-    }
-}
-```
-
-`TableView` Metadata:
-
-```json
-{
-    "columns": [  "$collapsedColumn", "rev;20210101", "pro;20210101", "rev;20210601", "pro;20210601" ],
-    "headers": {
-        "rev;20210101": "Revenue",
-        "pro;20210101": "Profit",
-        "rev;20210601": "Revenue",
-        "pro;20210601": "Profit"
-    },
-    "group": {
-        "collapsedColumn": {
-            "alias": "$collapsedColumn"
-        }
-    }
-}
-```
-
-Headers Table:
-
-```
-| pk | xxx          | date     | rowPath | aggr  |
-| -- | ------------ | -------- | ------- | ----- |
-| a  |              | 20210101 |         | true  |
-| b  | rev;20210101 | 20210101 | a       | false |
-| c  | pro;20210101 | 20210101 | a       | false |
-| d  |              | 20210601 |         | true  |
-| e  | rev;20210601 | 20210601 | d       | false |
-| f  | pro;20210601 | 20210601 | d       | false |
-```
-
-Headers `Table` Metadata:
-
-```json
-{
-    "primaryKeys": [ "pk" ],
-    "groupResult": {
-        "by": [ "date", "xxx" ],
-        "rowPath": "rowPath",
-        "aggregateRows": "aggr"
-    }
-}
-```
-
-Headers `TableView` Metadata:
-
-```json
-{
-    "columns": [ "$collapsedColumn" ],
-    "group": {
-        "collapsedColumn": {
-            "alias": "$collapsedColumn"
-        }
-    }
-}
-```
-
-Rendered:
-
-```
-|                   |      20210101    |      20210601    |
-|                   | Revenue | Profit | Revenue | Profit |
-| ----------------- | ------- | ------ | ------- | ------ |
-| FOO-US            |         |        |         |        |
-|   Electronics     |         |        |         |        |
-|     Computer      | 15      | 10     | 35      | 30     |
-|     Keyboard      | 20      | 15     |         |        |
-|   Furniture       |         |        |         |        |
-|     Couch         | 25      | 20     | 40      | 35     |
-|   Office Supplies |         |        |         |        |
-|     Pencil        | 30      | 25     | 45      | 40     |
-```
-
 <a class="anchor" href="#/v3/README?id=ex-extra-columns" id="ex-extra-columns"></a>
 
-### Example 16: Extra Columns
+### Example 18: Extra Columns
 
 When data is grouped and split, additional columns can provide group level information without being grouped by (creating repetitive rows) or being split over (creating repetitive columns).
 
@@ -1910,7 +2099,7 @@ Rendered:
 
 <a class="anchor" href="#/v3/README?id=ex-table-custom-metadata" id="ex-table-custom-metadata"></a>
 
-### Example 17: Table Custom Metadata
+### Example 19: Table Custom Metadata
 
 Table level custom metadata can be used to describe an entire table.
 
@@ -1946,7 +2135,7 @@ Primary Table:
 
 <a class="anchor" href="#/v3/README?id=ex-column-custom-metadata" id="ex-column-custom-metadata"></a>
 
-### Example 18: Column Custom Metadata
+### Example 20: Column Custom Metadata
 
 Column level custom metadata can be used to describe an entire column.
 
@@ -1987,7 +2176,7 @@ This column metadata is applied to the 'date' column.
 
 <a class="anchor" href="#/v3/README?id=ex-row-custom-metadata" id="ex-row-custom-metadata"></a>
 
-### Example 19: Row Custom Metadata
+### Example 21: Row Custom Metadata
 
 Row level custom metadata can be used to describe an entire row.
 
@@ -2032,7 +2221,7 @@ Primary Table:
 
 <a class="anchor" href="#/v3/README?id=ex-cell-custom-metadata" id="ex-cell-custom-metadata"></a>
 
-### Example 20: Cell Custom Metadata
+### Example 22: Cell Custom Metadata
 
 Cell level custom metadata can be used to describe each cell in another column.
 
@@ -2070,11 +2259,11 @@ This column metadata is applied to the 'ticker' column.
 
 <a class="anchor" href="#/v3/README?id=ex-table-view-custom-metadata" id="ex-table-view-custom-metadata"></a>
 
-### Example 21: Table View Custom Metadata
+### Example 23: Table View Custom Metadata
 
-Table view custom metadata can be used to describe additional cues for renderings.
+Table view custom metadata can be used to describe things about the table as a whole.
 
-e.g. Cell alignment, format strings, or style classes.
+e.g. Metadata like culture, timezone, etc.
 
 Primary Table:
 
@@ -2104,47 +2293,21 @@ Primary Table:
 {
     "columns": [  "ticker", "date", "category", "product", "rev", "pro" ],
     "customMetadata": {
-        "columnHorizontalAlignment": {
-            "contextualType": "object",
-            "value": {
-                "ticker": "LEFT",
-                "category": "LEFT",
-                "product": "LEFT",
-                "date": "LEFT",
-                "rev": "RIGHT",
-                "pro": "RIGHT"
-            }
+        "localization": {
+            "contextualType": "bcpLanguage",
+            "value": "en-US"
+        },
+        "reportId": {
+            "contextualType": "uuid",
+            "value": "8e653532-e65f-4e3c-b4bc-c7f506f43478"
         }
     }
 }
 ```
 
-Rendered:
-
-```
-| Ticker | Date     | Category        | Product  | Revenue | Profit |
-| ------ | -------- | --------------- | -------- | ------- | ------ |
-| FOO-US |          |                 |          |         |        |
-| FOO-US | 20210101 |                 |          |         |        |
-| FOO-US | 20210101 | Electronics     |          |         |        |
-| FOO-US | 20210101 | Electronics     | Computer |      15 |     10 |
-| FOO-US | 20210101 | Electronics     | Keyboard |      20 |     15 |
-| FOO-US | 20210101 | Furniture       |          |         |        |
-| FOO-US | 20210101 | Furniture       | Couch    |      25 |     20 |
-| FOO-US | 20210101 | Office Supplies |          |         |        |
-| FOO-US | 20210101 | Office Supplies | Pencil   |      30 |     25 |
-| FOO-US | 20210601 |                 |          |         |        |
-| FOO-US | 20210601 | Electronics     |          |         |        |
-| FOO-US | 20210601 | Electronics     | Computer |      35 |     30 |
-| FOO-US | 20210601 | Furniture       |          |         |        |
-| FOO-US | 20210601 | Furniture       | Couch    |      40 |     35 |
-| FOO-US | 20210601 | Office Supplies |          |         |        |
-| FOO-US | 20210601 | Office Supplies | Pencil   |      45 |     40 |
-```
-
 <a class="anchor" href="#/v3/README?id=ex-row-org-table" id="ex-row-org-table"></a>
 
-### Example 22: Row-Organized Table
+### Example 24: Row-Organized Table
 
 The following is a simple table represented in the row-organized schema.
 
@@ -2180,7 +2343,7 @@ JSON:
 
 ```json
 {
-    "version": "3.0",
+    "version": "1.0",
     "columns": [
         {
             "name": "ticker",
@@ -2289,7 +2452,7 @@ JSON:
 
 <a class="anchor" href="#/v3/README?id=ex-row-org-multi-level-headers-table" id="ex-row-org-multi-level-headers-table"></a>
 
-### Example 23: Row-Organized Multi-Level Headers Table
+### Example 25: Row-Organized Multi-Level Headers Table
 
 Multi-level headers tables can be represented via the `RowOrganizedTable.multiLevelHeadersTable` property. It is populated with a `RowOrganizedTable`.
 
@@ -2335,7 +2498,7 @@ JSON:
 
 ```json
 {
-    "version": "3.0",
+    "version": "1.0",
     "columns": [
         {
             "name": "ticker",
@@ -2385,21 +2548,7 @@ JSON:
         ],
         "table": {
             "primaryKeys": [ "xxx" ]
-        },
-        "views": [
-            {
-                "name": "myRenderedHeadersTable",
-                "tableView": {
-                    "columns": [ "$collapsedColumn" ],
-                    "group": {
-                        "by": [ "date", "xxx" ],
-                        "collapsedColumn": {
-                            "alias": "$collapsedColumn"
-                        }
-                    }
-                }
-            }
-        ]
+        }
     },
     "views": [
         {
@@ -2459,7 +2608,7 @@ JSON:
 
 <a class="anchor" href="#/v3/README?id=ex-row-org-header-rows" id="ex-row-org-header-rows"></a>
 
-### Example 24: Row-Organized Header Rows
+### Example 26: Row-Organized Header Rows
 
 Headers can be represented as additional rows of data instead of a separate multi-level headers table. The goal is to reduce the burden on the consumer as much as possible by reducing the complexity of the code required to render the table and remove the need for SDKs.
 
@@ -2498,7 +2647,7 @@ JSON:
 
 ```json
 {
-    "version": "3.0",
+    "version": "1.0",
     "columns": [
         {
             "name": "pk",
@@ -2684,6 +2833,7 @@ A state of tabular data. <br/>If the tabular data has already been grouped, spli
 | total_num_rows | [ int32](#ref-int32) | The total number of rows in the table. <br/>If the value is `0`, it is assumed that all rows are in the payload. If the value is greater than `0`, and the number of rows in the payload is less than the value, it is assumed that the table in the payload is a partial table. <br/>Default is `0`. <br/>Required if a payload contains partial data. |
 | group_result | [ Table.GroupResult](#ref-table-groupresult) | The result of the grouping algorithm. <br/>Optional. |
 | split_result | [ Table.SplitResult](#ref-table-splitresult) | The result of the splitting algorithm. <br/>Optional. |
+| sort_result | [repeated SortColumn](#ref-sortcolumn) | The result of the sorting algorithm. <br/>Optional. |
 | custom_metadata | [map Table.CustomMetadataEntry](#ref-table-custommetadataentry) | The custom metadata. <br/>Optional. |
  <!-- end Fields -->
  <!-- end HasFields -->
@@ -2701,6 +2851,25 @@ A result of the collapsed column algorithm.
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | name | [ string](#ref-string) | The name of the collapsed column. <br/>The collapsed column is in the data so it is considered realized and therefore needs a name. <br/>Required. |
+| by | [repeated string](#ref-string) | The columns that were collapsed. <br/>Optional. |
+| headers | [map Table.CollapsedColumnResult.HeadersEntry](#ref-table-collapsedcolumnresult-headersentry) | The original headers of the columns that were collapsed. <br/>Key is the original column name, and value is the original header. <br/>Optional. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-table-collapsedcolumnresult-headersentry" id="ref-table-collapsedcolumnresult-headersentry"></a>
+
+#### Table.CollapsedColumnResult.HeadersEntry
+
+
+
+<a href="../proto/fds/protobuf/stach/v3/Table.proto">fds/protobuf/stach/v3/Table.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| key | [ string](#ref-string) | <!--none--> |
+| value | [ string](#ref-string) | <!--none--> |
  <!-- end Fields -->
  <!-- end HasFields -->
 
@@ -2754,6 +2923,25 @@ A result of executing the splitting algorithm.
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | multi_level_headers_table_reference | [ string](#ref-string) | The name of the `string` column in the multi-level headers table that refers to column names in the primary table. <br/>Required. |
+| by | [repeated string](#ref-string) | The original columns that were split by. <br/>Optional. |
+| over | [map Table.SplitResult.OverEntry](#ref-table-splitresult-overentry) | The columns that were split over. <br/>Key is the split column name, and value is the original column name. <br/>Optional. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-table-splitresult-overentry" id="ref-table-splitresult-overentry"></a>
+
+#### Table.SplitResult.OverEntry
+
+
+
+<a href="../proto/fds/protobuf/stach/v3/Table.proto">fds/protobuf/stach/v3/Table.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| key | [ string](#ref-string) | <!--none--> |
+| value | [ string](#ref-string) | <!--none--> |
  <!-- end Fields -->
  <!-- end HasFields -->
  <!-- end messages -->
@@ -2807,6 +2995,45 @@ A set of metadata for a table column.
 | ----- | ---- | ----------- |
 | key | [ string](#ref-string) | <!--none--> |
 | value | [ MetadataItem](#ref-metadataitem) | <!--none--> |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+ <!-- end messages -->
+
+ <!-- end Enums -->
+ <!-- end Files -->
+<a class="anchor" href="#/v3/README?id=ref-group-sort-column" id="ref-group-sort-column"></a>
+
+### Sorting
+
+<!--
+<auto-generated>
+  Generated by pseudomuto/protoc-gen-doc.  DO NOT EDIT!
+  https://github.com/pseudomuto/protoc-gen-doc
+</auto-generated>
+-->
+
+
+
+
+
+
+
+<a class="anchor" href="#/v3/README?id=ref-sortcolumn" id="ref-sortcolumn"></a>
+
+#### SortColumn
+
+A column to sort by.
+
+<a href="../proto/fds/protobuf/stach/v3/SortColumn.proto">fds/protobuf/stach/v3/SortColumn.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| by | [ string](#ref-string) | The name of the column to sort by. <br/>Required. |
+| descending | [ bool](#ref-bool) | Whether to sort descending or not. <br/>Optional. |
+| nulls_first | [ bool](#ref-bool) | Whether `null` values are treated as less than non-`null` values or not. <br/>Optional. |
+| case_insensitive | [ bool](#ref-bool) | Whether the values should be compared case-insensitive or not. <br/>Only applies to string columns. <br/>Optional. |
+| absolute_value | [ bool](#ref-bool) | Whether the values should be compared with an absolute value or not. <br/>Only applies to numeric columns. <br/>Optional. |
  <!-- end Fields -->
  <!-- end HasFields -->
  <!-- end messages -->
@@ -2932,10 +3159,65 @@ A set of metadata specifying the settings that instruct how to turn tabular data
 | ----- | ---- | ----------- |
 | display_name | [ string](#ref-string) | The human readable display name for the table. <br/>Optional. |
 | columns | [repeated string](#ref-string) | The names of columns to display, which can include the alias for the collapsed column and the alias for the split columns. <br/>An empty array will display no columns. The order of the column names is the order the columns will be displayed. <br/>Required. |
-| headers | [map TableView.HeadersEntry](#ref-tableview-headersentry) | The human-readable header values of columns to be applied. <br/>Key is the column name, and value is the human-readable header value. e.g. `{ 'mcap': 'Market Capitalization' }` <br/>Optional. |
+| headers | [map TableView.HeadersEntry](#ref-tableview-headersentry) | The human-readable header values of columns to be applied. <br/>Key is the column name, and value is the human-readable header value. <br/>Optional. |
 | group | [ TableView.Group](#ref-tableview-group) | The group algorithm to be applied. <br/>Optional. |
 | split | [ TableView.Split](#ref-tableview-split) | The split algorithm to be applied. <br/>Optional. |
+| sort | [repeated SortColumn](#ref-sortcolumn) | The sorting algorithm to be applied. <br/>If the group by columns are not included in the sort columns, they will default to ascending and will be the first columns that the table is sorted by. <br/>Optional. |
+| halign | [ TableView.HorizontalAlignment](#ref-tableview-horizontalalignment) | The horizontal alignment algorithm to be applied. <br/>Optional. |
 | custom_metadata | [map TableView.CustomMetadataEntry](#ref-tableview-custommetadataentry) | The custom metadata. <br/>Optional. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-aggregate" id="ref-tableview-aggregate"></a>
+
+#### TableView.Aggregate
+
+A list of aggregate functions.
+
+<a href="../proto/fds/protobuf/stach/v3/TableView.proto">fds/protobuf/stach/v3/TableView.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| functions | [repeated TableView.Aggregate.Function](#ref-tableview-aggregate-function) | This list of aggregate functions. <br/>Multiple aggregate functions represent multiple aggregate rows per group. The order of the functions determines the order of the aggregate rows. <br/>Required. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-aggregate-function" id="ref-tableview-aggregate-function"></a>
+
+#### TableView.Aggregate.Function
+
+An aggregate function.
+
+<a href="../proto/fds/protobuf/stach/v3/TableView.proto">fds/protobuf/stach/v3/TableView.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| name | [ string](#ref-string) | The name of the aggregate function. <br/>Required. |
+| parameters | [map TableView.Aggregate.Function.ParametersEntry](#ref-tableview-aggregate-function-parametersentry) | The parameters to the aggregate function. <br/>Optional. |
+| exclude_from_total_rows | [ bool](#ref-bool) | Whether the aggregate value should be excluded from the total rows or not. <br/>Optional. |
+| exclude_from_group_rows | [repeated string](#ref-string) | Whether to exclude aggregate values. <br/>The column names from `Group.by` are acceptable values. <br/>Optional. |
+| target_column_alias | [ string](#ref-string) | The target column alias to write the aggregate value to. <br/>When not specified, the aggregate value will be written to the column that was calculated over. <br/>When the data type conflicts, a coercian should happen, or a null should be produced if a coercian is not possible. <br/>Optional. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-aggregate-function-parametersentry" id="ref-tableview-aggregate-function-parametersentry"></a>
+
+#### TableView.Aggregate.Function.ParametersEntry
+
+
+
+<a href="../proto/fds/protobuf/stach/v3/TableView.proto">fds/protobuf/stach/v3/TableView.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| key | [ string](#ref-string) | <!--none--> |
+| value | [ google.protobuf.Value](#ref-google-protobuf-value) | <!--none--> |
  <!-- end Fields -->
  <!-- end HasFields -->
 
@@ -2986,6 +3268,27 @@ An algorithm that groups tabular data by a set of columns and produces aggregate
 | ----- | ---- | ----------- |
 | by | [repeated string](#ref-string) | The names of the columns to group by. <br/>Required. |
 | collapsed_column | [ TableView.CollapsedColumn](#ref-tableview-collapsedcolumn) | The settings for the algorithm to create a collapsed column. <br/>The rendering layer should collapse the columns specified by `Group.by` or `GroupResult.by` into a collapsed column. <br/>Optional. |
+| aggregates | [map TableView.Group.AggregatesEntry](#ref-tableview-group-aggregatesentry) | The aggregate function(s) to be used on columns when creating an group row. <br/>Key is the column name, and value is the aggregate function(s). <br/>Optional. |
+| exclude_total_rows | [ bool](#ref-bool) | Whether to exclude total rows. <br/>Optional. |
+| exclude_group_rows | [repeated string](#ref-string) | Whether to exclude group aggregate rows. <br/>The column names from `Group.by` are acceptable values. <br/>Optional. |
+| exclude_detail_rows | [ bool](#ref-bool) | Whether to exclude detail rows. <br/>Optional. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-group-aggregatesentry" id="ref-tableview-group-aggregatesentry"></a>
+
+#### TableView.Group.AggregatesEntry
+
+
+
+<a href="../proto/fds/protobuf/stach/v3/TableView.proto">fds/protobuf/stach/v3/TableView.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| key | [ string](#ref-string) | <!--none--> |
+| value | [ TableView.Aggregate](#ref-tableview-aggregate) | <!--none--> |
  <!-- end Fields -->
  <!-- end HasFields -->
 
@@ -3003,6 +3306,40 @@ An algorithm that groups tabular data by a set of columns and produces aggregate
 | ----- | ---- | ----------- |
 | key | [ string](#ref-string) | <!--none--> |
 | value | [ string](#ref-string) | <!--none--> |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-horizontalalignment" id="ref-tableview-horizontalalignment"></a>
+
+#### TableView.HorizontalAlignment
+
+
+
+<a href="../proto/fds/protobuf/stach/v3/TableView.proto">fds/protobuf/stach/v3/TableView.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| default | [ TableView.HorizontalAlignment.Alignment](#ref-tableview-horizontalalignment-alignment) | The default horizontal alignment to be applied to all columns. <br/>Optional. |
+| columns | [map TableView.HorizontalAlignment.ColumnsEntry](#ref-tableview-horizontalalignment-columnsentry) | The horizontal alignment to be applied. <br/>Key is the column name, and value is the horizontal alignment. <br/>Optional. |
+ <!-- end Fields -->
+ <!-- end HasFields -->
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-horizontalalignment-columnsentry" id="ref-tableview-horizontalalignment-columnsentry"></a>
+
+#### TableView.HorizontalAlignment.ColumnsEntry
+
+
+
+<a href="../proto/fds/protobuf/stach/v3/TableView.proto">fds/protobuf/stach/v3/TableView.proto</a>
+
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| key | [ string](#ref-string) | <!--none--> |
+| value | [ TableView.HorizontalAlignment.Alignment](#ref-tableview-horizontalalignment-alignment) | <!--none--> |
  <!-- end Fields -->
  <!-- end HasFields -->
 
@@ -3044,6 +3381,21 @@ An algorithm that vertically splits tabular data and produces a column for each 
  <!-- end Fields -->
  <!-- end HasFields -->
  <!-- end messages -->
+
+
+
+<a class="anchor" href="#/v3/README?id=ref-tableview-horizontalalignment-alignment" id="ref-tableview-horizontalalignment-alignment"></a>
+
+#### TableView.HorizontalAlignment.Alignment
+A horizontal alignment.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| LEFT | 0 | Left alignment |
+| CENTER | 1 | Center alignment |
+| JUSTIFIED | 2 | Justified alignment |
+| RIGHT | 3 | Right alignment |
+
 
  <!-- end Enums -->
  <!-- end Files -->
@@ -3180,20 +3532,12 @@ These data types are the [protobuf scalar value types](https://developers.google
 
 ## Roadmap
 
-- Aggregate functions
-  - A `TableView` property would allow the consumer to produce aggregate data for aggregate rows.
-  - A `Table` property would allow the producer to express how aggregate data was produced.
 - Filters
   - A `TableView` property would allow the consumer to apply a filter to rows.
   - A `Table` property would allow the producer to express how rows have been filtered.
-- Sorting
-  - A `TableView` property would allow the consumer to apply sorting to rows.
-  - A `Table` property would allow the producer to express how rows have been sorted.
 - Formatting
   - A `TableView` property would allow the consumer to format raw data into a human-readable string.
     - For instance, it would allow the examples in this document to format '20210101' into '1/1'.
-- Alignment
-  - A `TableView` property would allow the consumer to appropriately align data in a cell.
 - Display alternative column
   - A `TableView` property would allow the consumer to display the content of a different column.
     - Raw data and formatted data could be included in the payload, sorting could apply to the raw data, whereas the formatted data would be displayed.

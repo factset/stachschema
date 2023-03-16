@@ -7,6 +7,8 @@ option java_package = "com.factset.protobuf.stach.v3";
 option java_outer_classname = "TableViewProto";
 
 import "fds/protobuf/stach/v3/MetadataItem.proto";
+import "fds/protobuf/stach/v3/SortColumn.proto";
+import "google/protobuf/struct.proto";
 
 /*
 A set of metadata specifying the settings that instruct how to turn tabular data into a rendered table.
@@ -28,6 +30,82 @@ message TableView {
     Optional.
     */
     CollapsedColumn collapsed_column = 2;
+
+    /*
+    The aggregate function(s) to be used on columns when creating an group row.
+    Key is the column name, and value is the aggregate function(s).
+    Optional.
+    */
+    map<string, Aggregate> aggregates = 3;
+
+    /*
+    Whether to exclude total rows.
+    Optional.
+    */
+    bool exclude_total_rows = 4;
+
+    /*
+    Whether to exclude group aggregate rows.
+    The column names from `Group.by` are acceptable values.
+    Optional.
+    */
+    repeated string exclude_group_rows = 5;
+
+    /*
+    Whether to exclude detail rows.
+    Optional.
+    */
+    bool exclude_detail_rows = 6;
+  }
+
+  /*
+  A list of aggregate functions.
+  */
+  message Aggregate {
+    /*
+    An aggregate function.
+    */
+    message Function {
+      /*
+      The name of the aggregate function.
+      Required.
+      */
+      string name = 1;
+  
+      /*
+      The parameters to the aggregate function.
+      Optional.
+      */
+      map<string, google.protobuf.Value> parameters = 2;
+  
+      /*
+      Whether the aggregate value should be excluded from the total rows or not.
+      Optional.
+      */
+      bool exclude_from_total_rows = 3;
+  
+      /*
+      Whether to exclude aggregate values.
+      The column names from `Group.by` are acceptable values.
+      Optional.
+      */
+      repeated string exclude_from_group_rows = 4;
+  
+      /*
+      The target column alias to write the aggregate value to.
+      When not specified, the aggregate value will be written to the column that was calculated over.
+      When the data type conflicts, a coercian should happen, or a null should be produced if a coercian is not possible.
+      Optional.
+      */
+      string target_column_alias = 5;
+    }
+  
+    /*
+    This list of aggregate functions.
+    Multiple aggregate functions represent multiple aggregate rows per group. The order of the functions determines the order of the aggregate rows.
+    Required.
+    */
+    repeated Function functions = 1;
   }
 
   /*
@@ -86,6 +164,35 @@ message TableView {
     bool remove_empty_split_columns = 6;
   }
 
+  message HorizontalAlignment {
+    /*
+    A horizontal alignment.
+    */
+    enum Alignment {
+      // Left alignment
+      LEFT = 0;
+      // Center alignment
+      CENTER = 1;
+      // Justified alignment
+      JUSTIFIED = 2;
+      // Right alignment
+      RIGHT = 3;
+    }
+
+    /*
+    The default horizontal alignment to be applied to all columns.
+    Optional.
+    */
+    Alignment default = 1;
+  
+    /*
+    The horizontal alignment to be applied.
+    Key is the column name, and value is the horizontal alignment.
+    Optional.
+    */
+    map<string, Alignment> columns = 2;
+  }
+
   /*
   The human readable display name for the table.
   Optional.
@@ -101,7 +208,7 @@ message TableView {
 
   /*
   The human-readable header values of columns to be applied.
-  Key is the column name, and value is the human-readable header value. e.g. `{ 'mcap': 'Market Capitalization' }`
+  Key is the column name, and value is the human-readable header value.
   Optional.
   */
   map<string, string> headers = 3;
@@ -117,6 +224,19 @@ message TableView {
   Optional.
   */
   Split split = 5;
+  
+  /*
+  The sorting algorithm to be applied.
+  If the group by columns are not included in the sort columns, they will default to ascending and will be the first columns that the table is sorted by.
+  Optional.
+  */
+  repeated SortColumn sort = 6;
+
+  /*
+  The horizontal alignment algorithm to be applied.
+  Optional.
+  */
+  HorizontalAlignment halign = 7;
 
   /*
   The custom metadata.
