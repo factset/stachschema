@@ -1,0 +1,30 @@
+syntax = "proto3";
+package factset.protobuf.stach;
+
+option csharp_namespace = "FactSet.Protobuf.Stach";
+option java_package = "com.factset.protobuf.stach";
+option java_outer_classname = "MetadataItemProto";
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+import "fds/protobuf/stach/table/Reference.proto";
+
+message MetadataItem {
+  reserved 104, 105, 200;
+  reserved "uint32_value", "uint64_value", "any_value";
+
+  string name = 1;
+  oneof data {
+	  double double_value = 100;
+	  float float_value = 101;
+	  int32 int32_value = 102;
+	  int64 int64_value = 103;
+	  bool bool_value = 106;
+	  string string_value = 107;
+	  google.protobuf.Duration duration_value = 108;
+	  google.protobuf.Timestamp timestamp_value = 109;
+      
+	  factset.protobuf.stach.table.Reference ref_value = 201;
+  }
+}

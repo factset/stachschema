@@ -1,0 +1,25 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "SeriesDefinitionProto";
+
+import "fds/protobuf/stach/table/DataType.proto";
+import "fds/protobuf/stach/table/SeriesFormat.proto";
+
+message SeriesDefinition {
+  reserved 10;
+  reserved "header_index";
+
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  DataType type = 4;
+  bool is_dimension = 5;
+  bool is_hidden = 6;
+  string next_sibling_id = 7;
+  string parent_id = 8;
+  string header_id = 9;
+  SeriesFormat format = 11;
+}

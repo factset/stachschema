@@ -1,0 +1,36 @@
+syntax = "proto3";
+package factset.protobuf.stach.v2.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V2.Table";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table";
+option java_package = "com.factset.protobuf.stach.v2.table";
+option java_outer_classname = "MetadataLocationsProto";
+
+import "fds/protobuf/stach/v2/table/ListOfMetadata.proto";
+
+// The metadata locations for a table
+message MetadataLocations {
+  // A message wrapper for a map of columns to `CellsRowMap`
+  message CellsColumnMap {
+    // The map (key: column id) of columns to `CellsRowMap`
+    map<string, CellsRowMap> columns = 1;
+  }
+
+  // A message wrapper for a map of rows to a list of metadata
+  message CellsRowMap {
+    // The map (key: row id) of rows to a list of metadata
+    map<string, ListOfMetadata> rows = 1;
+  }
+
+  // The array (metadata item id) of metadata items associated with the whole table
+  repeated string table = 1;
+
+  // The map (key: column id) of all metadata items associated with a column
+  map<string, ListOfMetadata> columns = 2;
+
+  // The map (key: row id) of all metadata items associated with a row
+  map<string, ListOfMetadata> rows = 3;
+
+  // The metadata items associated with specific cells
+  CellsColumnMap cells = 4;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "HorizontalAlignmentProto";
+
+enum HorizontalAlignment {
+  UNKNOWN_HALIGN = 0;
+  LEFT = 1;
+  CENTER = 2;
+  RIGHT = 3;
+}

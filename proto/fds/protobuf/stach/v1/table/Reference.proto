@@ -1,0 +1,15 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "ReferenceProto";
+
+import "fds/protobuf/stach/table/ReferenceType.proto";
+
+message Reference {
+  ReferenceType reference_type = 1;
+  string table_id = 2;
+  string column_id = 3;
+  string row_id = 4;
+}

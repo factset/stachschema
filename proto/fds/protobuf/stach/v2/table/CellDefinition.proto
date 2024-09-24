@@ -1,0 +1,21 @@
+syntax = "proto3";
+package factset.protobuf.stach.v2.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V2.Table";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table";
+option java_package = "com.factset.protobuf.stach.v2.table";
+option java_outer_classname = "CellDefinitionProto";
+
+import "fds/protobuf/stach/v2/table/DataFormat.proto";
+
+/* A cell definition
+ *
+ * Overrides the column and row definition
+ */
+message CellDefinition {
+  // The data type; correlates with the chosen property for `ColumnData.data`; overrides the `ColumnDefinition.type`
+  string type = 1;
+  
+  // The data format; overrides the `RowDefinition.format` and the `ColumnDefinition.format`
+  DataFormat format = 2;
+}
