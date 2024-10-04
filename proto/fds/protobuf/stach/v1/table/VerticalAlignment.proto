@@ -1,0 +1,13 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "VerticalAlignmentProto";
+
+enum VerticalAlignment {
+  UNKNOWN_VALIGN = 0;
+  TOP = 1;
+  MIDDLE = 2;
+  BOTTOM = 3;
+}

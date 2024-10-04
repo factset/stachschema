@@ -1,0 +1,15 @@
+syntax = "proto3";
+package factset.protobuf.stach.v2.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V2.Table";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table";
+option java_package = "com.factset.protobuf.stach.v2.table";
+option java_outer_classname = "VerticalAlignmentProto";
+
+// A vertical alignment
+enum VerticalAlignment {
+  UNKNOWN_VALIGN = 0;  // This value should never be used, but exists to ensure that a value is specified
+  TOP = 1;             // Value is vertically aligned to the top of the cell
+  MIDDLE = 2;          // Value is vertically aligned to the middle of the cell
+  BOTTOM = 3;          // Value is vertically aligned to the bottom of the cell
+}

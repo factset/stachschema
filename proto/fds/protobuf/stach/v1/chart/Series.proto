@@ -1,0 +1,17 @@
+syntax = "proto3";
+package factset.protobuf.stach.chart;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Chart";
+option java_package = "com.factset.protobuf.stach.chart";
+option java_outer_classname = "SeriesProto";
+
+import "google/protobuf/struct.proto";
+
+import "fds/protobuf/stach/table/Reference.proto";
+
+message Series {
+  google.protobuf.Struct template = 1;
+  map<string, factset.protobuf.stach.table.Reference> attributes = 2;
+  factset.protobuf.stach.table.Reference label = 3;
+  map<string, string> dimensions = 4;
+}

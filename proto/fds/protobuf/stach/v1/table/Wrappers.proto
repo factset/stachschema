@@ -1,0 +1,34 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "WrappersProto";
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+message DoubleArray {
+  repeated double values = 1;
+}
+message FloatArray {
+  repeated float values = 1;
+}
+message Int32Array {
+  repeated int32 values = 1;
+}
+message Int64Array {
+  repeated int64 values = 1;
+}
+message BoolArray {
+  repeated bool values = 1;
+}
+message StringArray {
+  repeated string values = 1;
+}
+message DurationArray {
+  repeated google.protobuf.Duration values = 1;
+}
+message TimestampArray {
+  repeated google.protobuf.Timestamp values = 1;
+}
