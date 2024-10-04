@@ -5,7 +5,6 @@ option csharp_namespace = "FactSet.Protobuf.Stach";
 option java_package = "com.factset.protobuf.stach";
 option java_outer_classname = "PackageProto";
 
-
 import "fds/protobuf/stach/table/Table.proto";
 
 message Package {
