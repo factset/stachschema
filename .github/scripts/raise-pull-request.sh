@@ -18,7 +18,7 @@ then
   git checkout -b $branch_name
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker-compose -f docker-compose.generate.yml up
+  docker compose -f docker-compose.generate.yml up
   
   git status
 
@@ -44,7 +44,7 @@ else
   git pull
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker-compose -f docker-compose.generate.yml up
+  docker compose -f docker-compose.generate.yml up
 
   git status
   if git diff-index --quiet HEAD -- 
