@@ -19,6 +19,11 @@ then
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
   docker compose -f docker-compose.generate.yml up
+
+  cd java/v1
+  ls -R
+
+  cd ../..
   
   git status
 
