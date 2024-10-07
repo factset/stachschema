@@ -49,7 +49,7 @@ jobs:
           path: sdks
           fetch-depth: 0
           token: ${{ env.USER_API_KEY }}
-          ref: fix/sdk/docker-generation-fix
+          ref: feat/sdk/java-version-workflow
                    
       - name: Raise or update SDKs pull request
         if: steps.schema-change-check.outputs.is-schema-changed == 'true'
