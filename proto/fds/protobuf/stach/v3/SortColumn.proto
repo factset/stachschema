@@ -1,0 +1,44 @@
+syntax = "proto3";
+package factset.protobuf.stach.v3;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.V3";
+option go_package = "github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3";
+option java_package = "com.factset.protobuf.stach.v3";
+option java_outer_classname = "SortColumnProto";
+
+/*
+A column to sort by.
+*/
+message SortColumn {
+  /*
+  The name of the column to sort by.
+  Required.
+  */
+  string by = 1;
+
+  /*
+  Whether to sort descending or not.
+  Optional.
+  */
+  bool descending = 2;
+
+  /*
+  Whether `null` values are treated as less than non-`null` values or not.
+  Optional.
+  */
+  bool nulls_first = 3;
+
+  /*
+  Whether the values should be compared case-insensitive or not.
+  Only applies to string columns.
+  Optional.
+  */
+  bool case_insensitive = 4;
+
+  /*
+  Whether the values should be compared with an absolute value or not.
+  Only applies to numeric columns.
+  Optional.
+  */
+  bool absolute_value = 5;
+}
