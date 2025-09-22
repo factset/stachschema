@@ -49,8 +49,8 @@ jobs:
           path: sdks
           fetch-depth: 0
           token: ${{ env.USER_API_KEY }}
-          ref: feat/sdk/java-version-workflow
-                   
+          ref: feat/python/support-multiple-versions
+             
       - name: Raise or update SDKs pull request
         if: steps.schema-change-check.outputs.is-schema-changed == 'true'
         run: ${{ github.event.repository.name }}/.github/scripts/raise-pull-request.sh
