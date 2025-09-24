@@ -42,7 +42,7 @@ jobs:
           fi
 
       - name: Check out ${{ env.GITHUB_SCHEMA_SDKS_REPO }} repository
-        if: steps.schema-change-check.outputs.is-schema-changed == 'true'
+        if: steps.schema-change-check.outputs.is-schema-changed == 'true' || contains(github.event.pull_request.labels.*.name, 'generate-sdk-pr')
         uses: actions/checkout@v2
         with:
           repository: ${{ env.GITHUB_SCHEMA_SDKS_REPO }}
@@ -52,5 +52,5 @@ jobs:
           ref: feat/python/support-multiple-versions
              
       - name: Raise or update SDKs pull request
-        if: steps.schema-change-check.outputs.is-schema-changed == 'true'
+        if: steps.schema-change-check.outputs.is-schema-changed == 'true' || contains(github.event.pull_request.labels.*.name, 'generate-sdk-pr')
         run: ${{ github.event.repository.name }}/.github/scripts/raise-pull-request.sh
