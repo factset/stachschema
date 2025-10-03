@@ -43,7 +43,7 @@ else
   git pull
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker compose -f docker-compose.generate.yml up --build --no-cache
+  docker compose -f docker-compose.generate.yml up --build
 
   git status
   if [[ -n $(git status --porcelain) ]]; then
