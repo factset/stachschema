@@ -53,6 +53,8 @@ jobs:
              
       - name: Raise or update SDKs pull request
         if: steps.schema-change-check.outputs.is-schema-changed == 'true' || contains(github.event.pull_request.labels.*.name, 'generate-sdk-pr')
-        run: ${{ github.event.repository.name }}/.github/scripts/raise-pull-request.sh 
+        run: |
+          sudo apt-get -y install git
+          ${{ github.event.repository.name }}/.github/scripts/raise-pull-request.sh 
 
 
