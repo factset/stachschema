@@ -18,7 +18,8 @@ then
   git checkout -b $branch_name
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker compose -f docker-compose.generate.yml up --build --no-cache
+  docker compose -f docker-compose.generate.yml build --no-cache
+  docker compose -f docker-compose.generate.yml up
 
   git status
 
@@ -43,7 +44,8 @@ else
   git pull
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker compose -f docker-compose.generate.yml up --build
+  docker compose -f docker-compose.generate.yml build --no-cache
+  docker compose -f docker-compose.generate.yml up
 
   git status
   if [[ -n $(git status --porcelain) ]]; then
