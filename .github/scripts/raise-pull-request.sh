@@ -42,9 +42,7 @@ else
   git checkout $branch_name
   git pull
 
-  echo "test: $PWD/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY"
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  # docker compose -f docker-compose.generate.yml build --no-cache
   docker compose -f docker-compose.generate.yml up --build 
 
   git status
