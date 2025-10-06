@@ -18,8 +18,7 @@ then
   git checkout -b $branch_name
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker compose -f docker-compose.generate.yml build --no-cache
-  docker compose -f docker-compose.generate.yml up
+  docker compose -f docker-compose.generate.yml up --build
 
   git status
 

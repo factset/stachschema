@@ -51,6 +51,14 @@ jobs:
           token: ${{ env.USER_API_KEY }}
           ref: feat/python/support-multiple-versions
              
+      - name: Pull latest changes from specific branch
+        if: steps.schema-change-check.outputs.is-schema-changed == 'true' || contains(github.event.pull_request.labels.*.name, 'generate-sdk-pr')
+        run: |
+          cd sdks
+          git fetch origin feat/python/support-multiple-versions
+          git reset --hard origin/feat/python/support-multiple-versions
+          echo "Updated to latest commit: $(git rev-parse HEAD)"
+             
       - name: Raise or update SDKs pull request
         if: steps.schema-change-check.outputs.is-schema-changed == 'true' || contains(github.event.pull_request.labels.*.name, 'generate-sdk-pr')
         run: |
