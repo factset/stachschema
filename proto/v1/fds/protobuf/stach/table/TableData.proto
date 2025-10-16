@@ -1,0 +1,16 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "TableDataProto";
+
+import "fds/protobuf/stach/table/MetadataCollection.proto";
+import "fds/protobuf/stach/table/SeriesDefinition.proto";
+import "fds/protobuf/stach/table/SeriesData.proto";
+
+message TableData {
+  repeated SeriesDefinition rows = 1;
+  map<string, SeriesData> columns = 2;
+  MetadataCollection metadata = 3;
+}

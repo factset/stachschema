@@ -1,0 +1,14 @@
+syntax = "proto3";
+package factset.protobuf.stach.table;
+
+option csharp_namespace = "FactSet.Protobuf.Stach.Table";
+option java_package = "com.factset.protobuf.stach.table";
+option java_outer_classname = "MetadataLocationsProto";
+
+import "fds/protobuf/stach/table/ListOfMetadata.proto";
+
+message MetadataLocations {
+  repeated string table = 1;
+  map<string, ListOfMetadata> columns = 2;
+  map<string, ListOfMetadata> rows = 3;
+}

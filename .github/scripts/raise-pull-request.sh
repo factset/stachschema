@@ -18,25 +18,24 @@ then
   git checkout -b $branch_name
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker compose -f docker-compose.generate.yml up
-  
+  docker compose -f docker-compose.generate.yml up --build
+
   git status
 
-  if git diff-index --quiet HEAD -- 
-  then 
-    echo "No changes to commit." 
-  else 
+  if [[ -n $(git status --porcelain) ]]; then
+    echo "There are changes"
     git add -A .
     git commit -m "feat($GITHUB_SCHEMA_REPO-sdks): Auto-commit from PR #$pr_number of $GITHUB_SCHEMA_REPO"
     echo "Committed local changes"
-
     git push origin $branch_name
     echo "Pushed all the changes to the remote location"
+  else
+    echo "No changes to commit." 
   fi
-
   export GITHUB_USER=$USER
   export GITHUB_TOKEN=$USER_API_KEY
   hub pull-request -m "feat($GITHUB_SCHEMA_REPO-sdks): Updating SDKs for the changes in $GITHUB_SCHEMA_REPO #$pr_number PR" -h $branch_name
+
 else
   echo "Branch($branch_name) exists. Updating it with new changes."
 
@@ -44,18 +43,17 @@ else
   git pull
 
   export SCHEMA=${PWD}/../$GITHUB_SCHEMA_REPO/$SCHEMA_DIRECTORY
-  docker compose -f docker-compose.generate.yml up
+  docker compose -f docker-compose.generate.yml up --build 
 
   git status
-  if git diff-index --quiet HEAD -- 
-  then 
-    echo "No local changes to commit." 
-  else
+  if [[ -n $(git status --porcelain) ]]; then
+    echo "There are changes"
     git add -A .
     git commit -m "feat($GITHUB_SCHEMA_REPO-sdks): Auto-commit from PR #$pr_number of $GITHUB_SCHEMA_REPO"
     echo "Committed local changes"
- 
     git push origin $branch_name
     echo "Pushed all the changes to the remote location"
+  else
+    echo "No changes to commit." 
   fi
 fi
