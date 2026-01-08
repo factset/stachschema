@@ -50,6 +50,7 @@ jobs:
           fetch-depth: 0
           token: ${{ env.USER_API_KEY }}
           ref: "feat/dotnet/support-older-versions"
+          
              
       - name: Raise or update SDKs pull request
         if: steps.schema-change-check.outputs.is-schema-changed == 'true' || contains(github.event.pull_request.labels.*.name, 'generate-sdk-pr')
