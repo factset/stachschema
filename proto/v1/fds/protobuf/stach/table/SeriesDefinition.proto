@@ -9,9 +9,6 @@ import "fds/protobuf/stach/table/DataType.proto";
 import "fds/protobuf/stach/table/SeriesFormat.proto";
 
 message SeriesDefinition {
-  reserved 10;
-  reserved "header_index";
-
   string id = 1;
   string name = 2;
   string description = 3;
@@ -21,5 +18,6 @@ message SeriesDefinition {
   string next_sibling_id = 7;
   string parent_id = 8;
   string header_id = 9;
+  int32 header_index = 10 [deprecated = true];
   SeriesFormat format = 11;
 }
